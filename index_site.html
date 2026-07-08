@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Phantom TV — Lecteur Multimédia</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #09090B; color: #F9FAFB; font-family: 'Segoe UI', system-ui, sans-serif; }
+    
+    /* Header */
+    header { background: #111827; border-bottom: 1px solid rgba(255,255,255,0.08); padding: 16px 24px; display: flex; align-items: center; gap: 12px; }
+    header h1 { color: #A855F7; font-size: 22px; }
+    .badge { background: rgba(168,85,247,0.15); color: #A855F7; padding: 3px 10px; border-radius: 20px; font-size: 11px; font-weight: 700; border: 1px solid rgba(168,85,247,0.30); }
+
+    /* Hero */
+    .hero { text-align: center; padding: 80px 24px 60px; }
+    .hero h2 { font-size: 42px; font-weight: 800; color: #A855F7; margin-bottom: 16px; }
+    .hero p { font-size: 18px; color: #9CA3AF; max-width: 600px; margin: 0 auto 32px; line-height: 1.6; }
+    .hero .warning { background: rgba(245,158,11,0.10); border: 1px solid rgba(245,158,11,0.30); border-radius: 12px; padding: 16px 24px; max-width: 600px; margin: 0 auto; color: #F59E0B; font-size: 14px; line-height: 1.6; }
+
+    /* Features */
+    .features { padding: 60px 24px; max-width: 900px; margin: 0 auto; }
+    .features h3 { font-size: 24px; font-weight: 700; color: #A855F7; margin-bottom: 32px; text-align: center; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+    .card { background: #111827; border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 24px; }
+    .card .icon { font-size: 28px; margin-bottom: 12px; }
+    .card h4 { font-size: 15px; font-weight: 700; color: #F9FAFB; margin-bottom: 8px; }
+    .card p { font-size: 13px; color: #9CA3AF; line-height: 1.5; }
+
+    /* Contact */
+    .contact { text-align: center; padding: 60px 24px; background: #111827; }
+    .contact h3 { font-size: 22px; font-weight: 700; color: #A855F7; margin-bottom: 12px; }
+    .contact p { color: #9CA3AF; margin-bottom: 16px; }
+    .contact a { color: #A855F7; text-decoration: none; font-weight: 600; }
+
+    /* Privacy */
+    .privacy { padding: 60px 24px; max-width: 800px; margin: 0 auto; }
+    .privacy h3 { font-size: 24px; font-weight: 700; color: #A855F7; margin-bottom: 24px; }
+    .privacy h4 { font-size: 16px; font-weight: 700; color: #F9FAFB; margin: 24px 0 8px; }
+    .privacy p { font-size: 14px; color: #9CA3AF; line-height: 1.7; margin-bottom: 12px; }
+    .privacy ul { padding-left: 20px; color: #9CA3AF; font-size: 14px; line-height: 1.7; }
+
+    /* Footer */
+    footer { text-align: center; padding: 24px; border-top: 1px solid rgba(255,255,255,0.08); color: #6B7280; font-size: 12px; }
+
+    @media (max-width: 600px) {
+      .hero h2 { font-size: 28px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <span style="font-size:24px;">📺</span>
+    <h1>Phantom TV</h1>
+    <span class="badge">Lecteur Multimédia</span>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <h2>Phantom TV</h2>
+    <p>Lecteur multimédia avancé pour Windows et Android. Compatible Xtream Codes et M3U.</p>
+    <div class="warning">
+      ⚠️ <strong>Important :</strong> Phantom TV est un lecteur multimédia. L'application ne fournit aucun contenu, aucune chaîne, aucun film ni aucune série. Vous devez disposer de vos propres accès légitimes à un serveur de diffusion compatible.
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="features">
+    <h3>Fonctionnalités</h3>
+    <div class="grid">
+      <div class="card">
+        <div class="icon">📺</div>
+        <h4>Live TV</h4>
+        <p>Regardez vos chaînes en direct avec guide des programmes EPG intégré.</p>
+      </div>
+      <div class="card">
+        <div class="icon">🎬</div>
+        <h4>Films & Séries</h4>
+        <p>Parcourez votre catalogue avec affiches, synopsis et navigation par saisons.</p>
+      </div>
+      <div class="card">
+        <div class="icon">🔍</div>
+        <h4>Recherche globale</h4>
+        <p>Recherchez dans tous vos contenus simultanément.</p>
+      </div>
+      <div class="card">
+        <div class="icon">👤</div>
+        <h4>Multi-profils</h4>
+        <p>Gérez plusieurs profils avec chiffrement AES-256.</p>
+      </div>
+      <div class="card">
+        <div class="icon">📱</div>
+        <h4>Windows & Android</h4>
+        <p>Disponible sur PC Windows et smartphones Android.</p>
+      </div>
+      <div class="card">
+        <div class="icon">🔒</div>
+        <h4>Sécurisé</h4>
+        <p>Licence d'activation unique par appareil pour protéger votre accès.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="contact">
+    <h3>Obtenir l'application</h3>
+    <p>Pour obtenir votre clé d'activation, contactez-nous :</p>
+    <a href="mailto:contact.phantomtv@proton.me">contact.phantomtv@proton.me</a>
+  </section>
+
+  <!-- Politique de confidentialité -->
+  <section class="privacy" id="privacy">
+    <h3>Politique de confidentialité</h3>
+
+    <p>Dernière mise à jour : juillet 2026</p>
+
+    <h4>1. Nature de l'application</h4>
+    <p>Phantom TV est un lecteur multimédia. L'application ne fournit aucun contenu et ne collecte aucune donnée personnelle à des fins commerciales.</p>
+
+    <h4>2. Données collectées</h4>
+    <p>Phantom TV collecte les données techniques suivantes, strictement nécessaires au fonctionnement du service :</p>
+    <ul>
+      <li>Identifiant unique de l'appareil (généré localement)</li>
+      <li>Statut de la licence d'activation</li>
+      <li>Indicateur de présence en temps réel (connecté/déconnecté), effacé automatiquement à la fermeture de l'application</li>
+      <li>Titre du contenu en cours de lecture, effacé automatiquement à la fermeture du lecteur</li>
+    </ul>
+
+    <h4>3. Utilisation des données</h4>
+    <p>Ces données sont utilisées uniquement pour :</p>
+    <ul>
+      <li>Vérifier la validité de la licence d'activation</li>
+      <li>Garantir qu'un seul appareil utilise la licence simultanément</li>
+      <li>Permettre la gestion du service par l'éditeur</li>
+    </ul>
+
+    <h4>4. Conservation des données</h4>
+    <p>Les données de présence et de contenu en cours de lecture sont effacées automatiquement à la fermeture de l'application. Elles ne sont jamais conservées ni archivées.</p>
+
+    <h4>5. Partage des données</h4>
+    <p>Aucune donnée personnelle n'est partagée avec des tiers. Les données techniques sont stockées de manière sécurisée sur nos serveurs (Supabase, UE).</p>
+
+    <h4>6. Publicité</h4>
+    <p>La version gratuite de Phantom TV affiche des publicités via Google AdMob. Google peut collecter certaines données conformément à sa propre politique de confidentialité disponible sur policies.google.com.</p>
+
+    <h4>7. Droits des utilisateurs</h4>
+    <p>Conformément au RGPD, vous disposez d'un droit d'accès, de rectification et de suppression de vos données. Pour exercer ces droits, contactez-nous à : <a href="mailto:contact.phantomtv@proton.me" style="color:#A855F7;">contact.phantomtv@proton.me</a></p>
+
+    <h4>8. Contact</h4>
+    <p>Pour toute question relative à la confidentialité : <a href="mailto:contact.phantomtv@proton.me" style="color:#A855F7;">contact.phantomtv@proton.me</a></p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025-2026 Phantom TV — Tous droits réservés — <a href="#privacy" style="color:#A855F7;">Politique de confidentialité</a></p>
+  </footer>
+
+</body>
+</html>
