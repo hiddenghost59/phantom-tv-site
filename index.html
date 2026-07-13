@@ -6,59 +6,79 @@
   <title>Phantom TV — Lecteur Multimédia</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: #09090B; color: #F9FAFB; font-family: 'Segoe UI', system-ui, sans-serif; }
-    
-    /* Header */
-    header { background: #111827; border-bottom: 1px solid rgba(255,255,255,0.08); padding: 16px 24px; display: flex; align-items: center; gap: 12px; }
-    header h1 { color: #A855F7; font-size: 22px; }
-    .badge { background: rgba(168,85,247,0.15); color: #A855F7; padding: 3px 10px; border-radius: 20px; font-size: 11px; font-weight: 700; border: 1px solid rgba(168,85,247,0.30); }
+    :root {
+      --bg: #09090B; --bg2: #111827; --bg3: #1F2937;
+      --purple: #A855F7; --green: #22C55E; --red: #EF4444;
+      --amber: #F59E0B; --blue: #3B82F6;
+      --text: #F9FAFB; --text-dim: #9CA3AF;
+      --border: rgba(255,255,255,0.08);
+    }
+    body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; }
 
-    /* Hero */
+    header { background: var(--bg2); border-bottom: 1px solid var(--border); padding: 16px 24px; display: flex; align-items: center; gap: 12px; }
+    header h1 { color: var(--purple); font-size: 22px; }
+    .badge { background: rgba(168,85,247,0.15); color: var(--purple); padding: 3px 10px; border-radius: 20px; font-size: 11px; font-weight: 700; border: 1px solid rgba(168,85,247,0.30); }
+
     .hero { text-align: center; padding: 80px 24px 60px; }
-    .hero h2 { font-size: 42px; font-weight: 800; color: #A855F7; margin-bottom: 16px; }
-    .hero p { font-size: 18px; color: #9CA3AF; max-width: 600px; margin: 0 auto 32px; line-height: 1.6; }
-    .hero .warning { background: rgba(245,158,11,0.10); border: 1px solid rgba(245,158,11,0.30); border-radius: 12px; padding: 16px 24px; max-width: 600px; margin: 0 auto; color: #F59E0B; font-size: 14px; line-height: 1.6; }
+    .hero h2 { font-size: 42px; font-weight: 800; color: var(--purple); margin-bottom: 16px; }
+    .hero p { font-size: 18px; color: var(--text-dim); max-width: 600px; margin: 0 auto 32px; line-height: 1.6; }
+    .hero .warning { background: rgba(245,158,11,0.10); border: 1px solid rgba(245,158,11,0.30); border-radius: 12px; padding: 16px 24px; max-width: 600px; margin: 0 auto; color: var(--amber); font-size: 14px; line-height: 1.6; }
 
-    /* Features */
-    .features { padding: 60px 24px; max-width: 900px; margin: 0 auto; }
-    .features h3 { font-size: 24px; font-weight: 700; color: #A855F7; margin-bottom: 32px; text-align: center; }
+    .section { padding: 60px 24px; max-width: 900px; margin: 0 auto; }
+    .section h3 { font-size: 24px; font-weight: 700; color: var(--purple); margin-bottom: 32px; text-align: center; }
+
     .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
-    .card { background: #111827; border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 24px; }
+    .card { background: var(--bg2); border: 1px solid var(--border); border-radius: 14px; padding: 24px; }
     .card .icon { font-size: 28px; margin-bottom: 12px; }
-    .card h4 { font-size: 15px; font-weight: 700; color: #F9FAFB; margin-bottom: 8px; }
-    .card p { font-size: 13px; color: #9CA3AF; line-height: 1.5; }
+    .card h4 { font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 8px; }
+    .card p { font-size: 13px; color: var(--text-dim); line-height: 1.5; }
 
-    /* Contact */
-    .contact { text-align: center; padding: 60px 24px; background: #111827; }
-    .contact h3 { font-size: 22px; font-weight: 700; color: #A855F7; margin-bottom: 12px; }
-    .contact p { color: #9CA3AF; margin-bottom: 16px; }
-    .contact a { color: #A855F7; text-decoration: none; font-weight: 600; }
+    /* Tableau comparatif */
+    .pricing { padding: 60px 24px; background: var(--bg2); }
+    .pricing h3 { font-size: 24px; font-weight: 700; color: var(--purple); margin-bottom: 8px; text-align: center; }
+    .pricing .subtitle { text-align: center; color: var(--text-dim); font-size: 14px; margin-bottom: 40px; }
+    .pricing-table { max-width: 700px; margin: 0 auto; border-radius: 16px; overflow: hidden; border: 1px solid var(--border); }
+    .pricing-table table { width: 100%; border-collapse: collapse; }
+    .pricing-table th { padding: 16px 20px; font-size: 15px; font-weight: 700; }
+    .pricing-table th:first-child { text-align: left; background: var(--bg3); }
+    .pricing-table th.free { background: rgba(107,114,128,0.20); color: var(--text-dim); text-align: center; }
+    .pricing-table th.premium { background: rgba(168,85,247,0.20); color: var(--purple); text-align: center; }
+    .pricing-table td { padding: 14px 20px; border-top: 1px solid var(--border); font-size: 14px; }
+    .pricing-table td:first-child { color: var(--text); background: var(--bg3); font-weight: 500; }
+    .pricing-table td:nth-child(2) { text-align: center; background: rgba(107,114,128,0.08); color: var(--text-dim); }
+    .pricing-table td:nth-child(3) { text-align: center; background: rgba(168,85,247,0.05); }
+    .pricing-table tr:hover td { filter: brightness(1.05); }
+    .check { color: var(--green); font-size: 18px; }
+    .cross { color: var(--red); font-size: 18px; }
+    .highlight { color: var(--purple); font-weight: 600; }
 
-    /* Privacy */
+    .contact { text-align: center; padding: 60px 24px; }
+    .contact h3 { font-size: 22px; font-weight: 700; color: var(--purple); margin-bottom: 12px; }
+    .contact p { color: var(--text-dim); margin-bottom: 16px; }
+    .contact a { color: var(--purple); text-decoration: none; font-weight: 600; }
+
     .privacy { padding: 60px 24px; max-width: 800px; margin: 0 auto; }
-    .privacy h3 { font-size: 24px; font-weight: 700; color: #A855F7; margin-bottom: 24px; }
-    .privacy h4 { font-size: 16px; font-weight: 700; color: #F9FAFB; margin: 24px 0 8px; }
-    .privacy p { font-size: 14px; color: #9CA3AF; line-height: 1.7; margin-bottom: 12px; }
-    .privacy ul { padding-left: 20px; color: #9CA3AF; font-size: 14px; line-height: 1.7; }
+    .privacy h3 { font-size: 24px; font-weight: 700; color: var(--purple); margin-bottom: 24px; }
+    .privacy h4 { font-size: 16px; font-weight: 700; color: var(--text); margin: 24px 0 8px; }
+    .privacy p { font-size: 14px; color: var(--text-dim); line-height: 1.7; margin-bottom: 12px; }
+    .privacy ul { padding-left: 20px; color: var(--text-dim); font-size: 14px; line-height: 1.7; }
 
-    /* Footer */
-    footer { text-align: center; padding: 24px; border-top: 1px solid rgba(255,255,255,0.08); color: #6B7280; font-size: 12px; }
+    footer { text-align: center; padding: 24px; border-top: 1px solid var(--border); color: #6B7280; font-size: 12px; }
 
     @media (max-width: 600px) {
       .hero h2 { font-size: 28px; }
+      .pricing-table td, .pricing-table th { padding: 10px 12px; font-size: 12px; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Header -->
   <header>
     <span style="font-size:24px;">📺</span>
     <h1>Phantom TV</h1>
     <span class="badge">Lecteur Multimédia</span>
   </header>
 
-  <!-- Hero -->
   <section class="hero">
     <h2>Phantom TV</h2>
     <p>Lecteur multimédia avancé pour Windows et Android. Compatible Xtream Codes et M3U.</p>
@@ -67,40 +87,80 @@
     </div>
   </section>
 
-  <!-- Features -->
-  <section class="features">
+  <!-- Fonctionnalités -->
+  <section class="section">
     <h3>Fonctionnalités</h3>
     <div class="grid">
-      <div class="card">
-        <div class="icon">📺</div>
-        <h4>Live TV</h4>
-        <p>Regardez vos chaînes en direct avec guide des programmes EPG intégré.</p>
-      </div>
-      <div class="card">
-        <div class="icon">🎬</div>
-        <h4>Films & Séries</h4>
-        <p>Parcourez votre catalogue avec affiches, synopsis et navigation par saisons.</p>
-      </div>
-      <div class="card">
-        <div class="icon">🔍</div>
-        <h4>Recherche globale</h4>
-        <p>Recherchez dans tous vos contenus simultanément.</p>
-      </div>
-      <div class="card">
-        <div class="icon">👤</div>
-        <h4>Multi-profils</h4>
-        <p>Gérez plusieurs profils avec chiffrement AES-256.</p>
-      </div>
-      <div class="card">
-        <div class="icon">📱</div>
-        <h4>Windows & Android</h4>
-        <p>Disponible sur PC Windows et smartphones Android.</p>
-      </div>
-      <div class="card">
-        <div class="icon">🔒</div>
-        <h4>Sécurisé</h4>
-        <p>Licence d'activation unique par appareil pour protéger votre accès.</p>
-      </div>
+      <div class="card"><div class="icon">📺</div><h4>Live TV</h4><p>Regardez vos chaînes en direct avec guide des programmes EPG intégré.</p></div>
+      <div class="card"><div class="icon">🎬</div><h4>Films & Séries</h4><p>Parcourez votre catalogue avec affiches, synopsis et navigation par saisons.</p></div>
+      <div class="card"><div class="icon">🔍</div><h4>Recherche globale</h4><p>Recherchez dans tous vos contenus simultanément.</p></div>
+      <div class="card"><div class="icon">👤</div><h4>Multi-profils</h4><p>Gérez plusieurs profils avec chiffrement AES-256.</p></div>
+      <div class="card"><div class="icon">📱</div><h4>Windows & Android</h4><p>Disponible sur PC Windows et smartphones Android.</p></div>
+      <div class="card"><div class="icon">🔒</div><h4>Sécurisé</h4><p>Licence d'activation unique par appareil pour protéger votre accès.</p></div>
+    </div>
+  </section>
+
+  <!-- Tableau comparatif -->
+  <section class="pricing">
+    <h3>Gratuit vs Premium</h3>
+    <p class="subtitle">Choisissez le plan qui correspond à vos besoins</p>
+    <div class="pricing-table">
+      <table>
+        <thead>
+          <tr>
+            <th>Fonctionnalité</th>
+            <th class="free">🔘 Gratuit</th>
+            <th class="premium">💜 Premium</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Live TV</td>
+            <td><span class="check">✅</span></td>
+            <td><span class="check">✅</span></td>
+          </tr>
+          <tr>
+            <td>Films & Séries</td>
+            <td><span class="check">✅</span></td>
+            <td><span class="check">✅</span></td>
+          </tr>
+          <tr>
+            <td>Publicités</td>
+            <td>📺 Oui</td>
+            <td><span class="check">❌ Non</span></td>
+          </tr>
+          <tr>
+            <td>Guide TV (EPG)</td>
+            <td><span class="cross">❌</span></td>
+            <td><span class="check">✅</span></td>
+          </tr>
+          <tr>
+            <td>Recherche globale</td>
+            <td><span class="cross">❌</span></td>
+            <td><span class="check">✅</span></td>
+          </tr>
+          <tr>
+            <td>Multi-profils</td>
+            <td>1 profil</td>
+            <td><span class="highlight">Illimité</span></td>
+          </tr>
+          <tr>
+            <td>Reprise automatique</td>
+            <td><span class="cross">❌</span></td>
+            <td><span class="check">✅</span></td>
+          </tr>
+          <tr>
+            <td>Connexions simultanées</td>
+            <td>1</td>
+            <td><span class="highlight">2</span></td>
+          </tr>
+          <tr>
+            <td>Support prioritaire</td>
+            <td><span class="cross">❌</span></td>
+            <td><span class="check">✅</span></td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </section>
 
@@ -114,7 +174,6 @@
   <!-- Politique de confidentialité -->
   <section class="privacy" id="privacy">
     <h3>Politique de confidentialité</h3>
-
     <p>Dernière mise à jour : juillet 2026</p>
 
     <h4>1. Nature de l'application</h4>
@@ -153,7 +212,6 @@
     <p>Pour toute question relative à la confidentialité : <a href="mailto:contact.phantomtv@proton.me" style="color:#A855F7;">contact.phantomtv@proton.me</a></p>
   </section>
 
-  <!-- Footer -->
   <footer>
     <p>© 2025-2026 Phantom TV — Tous droits réservés — <a href="#privacy" style="color:#A855F7;">Politique de confidentialité</a></p>
   </footer>
