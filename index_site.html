@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Phantom TV — Lecteur Multimédia</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --bg: #09090B; --bg2: #111827; --bg3: #1F2937;
+      --purple: #A855F7; --green: #22C55E; --red: #EF4444;
+      --amber: #F59E0B; --blue: #3B82F6;
+      --text: #F9FAFB; --text-dim: #9CA3AF;
+      --border: rgba(255,255,255,0.08);
+    }
+    body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; }
+
+    header { background: var(--bg2); border-bottom: 1px solid var(--border); padding: 16px 24px; display: flex; align-items: center; gap: 12px; }
+    header h1 { color: var(--purple); font-size: 22px; }
+    .badge { background: rgba(168,85,247,0.15); color: var(--purple); padding: 3px 10px; border-radius: 20px; font-size: 11px; font-weight: 700; border: 1px solid rgba(168,85,247,0.30); }
+
+    .hero { text-align: center; padding: 80px 24px 60px; }
+    .hero h2 { font-size: 42px; font-weight: 800; color: var(--purple); margin-bottom: 16px; }
+    .hero p { font-size: 18px; color: var(--text-dim); max-width: 600px; margin: 0 auto 32px; line-height: 1.6; }
+    .hero .warning { background: rgba(245,158,11,0.10); border: 1px solid rgba(245,158,11,0.30); border-radius: 12px; padding: 16px 24px; max-width: 600px; margin: 0 auto; color: var(--amber); font-size: 14px; line-height: 1.6; }
+
+    .section { padding: 60px 24px; max-width: 900px; margin: 0 auto; }
+    .section h3 { font-size: 24px; font-weight: 700; color: var(--purple); margin-bottom: 32px; text-align: center; }
+
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+    .card { background: var(--bg2); border: 1px solid var(--border); border-radius: 14px; padding: 24px; }
+    .card .icon { font-size: 28px; margin-bottom: 12px; }
+    .card h4 { font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 8px; }
+    .card p { font-size: 13px; color: var(--text-dim); line-height: 1.5; }
+
+    /* Tableau comparatif */
+    .pricing { padding: 60px 24px; background: var(--bg2); }
+    .pricing h3 { font-size: 24px; font-weight: 700; color: var(--purple); margin-bottom: 8px; text-align: center; }
+    .pricing .subtitle { text-align: center; color: var(--text-dim); font-size: 14px; margin-bottom: 40px; }
+    .pricing-table { max-width: 700px; margin: 0 auto; border-radius: 16px; overflow: hidden; border: 1px solid var(--border); }
+    .pricing-table table { width: 100%; border-collapse: collapse; }
+    .pricing-table th { padding: 16px 20px; font-size: 15px; font-weight: 700; }
+    .pricing-table th:first-child { text-align: left; background: var(--bg3); }
+    .pricing-table th.free { background: rgba(107,114,128,0.20); color: var(--text-dim); text-align: center; }
+    .pricing-table th.premium { background: rgba(168,85,247,0.20); color: var(--purple); text-align: center; }
+    .pricing-table td { padding: 14px 20px; border-top: 1px solid var(--border); font-size: 14px; }
+    .pricing-table td:first-child { color: var(--text); background: var(--bg3); font-weight: 500; }
+    .pricing-table td:nth-child(2) { text-align: center; background: rgba(107,114,128,0.08); color: var(--text-dim); }
+    .pricing-table td:nth-child(3) { text-align: center; background: rgba(168,85,247,0.05); }
+    .check { color: var(--green); font-size: 18px; }
+    .cross { color: var(--red); font-size: 18px; }
+    .highlight { color: var(--purple); font-weight: 600; }
+
+    /* À savoir */
+    .info-section { padding: 60px 24px; max-width: 900px; margin: 0 auto; }
+    .info-section h3 { font-size: 24px; font-weight: 700; color: var(--purple); margin-bottom: 32px; text-align: center; }
+    .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 20px; }
+    .info-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 14px; padding: 24px; }
+    .info-card h4 { font-size: 15px; font-weight: 700; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+    .info-card ul { list-style: none; }
+    .info-card ul li { font-size: 13px; color: var(--text-dim); line-height: 1.7; padding: 4px 0; border-bottom: 1px solid var(--border); }
+    .info-card ul li:last-child { border-bottom: none; }
+    .info-card ul li span { color: var(--text); font-weight: 600; }
+    .server { border-color: rgba(239,68,68,0.30); }
+    .server h4 { color: var(--red); }
+    .app { border-color: rgba(168,85,247,0.30); }
+    .app h4 { color: var(--purple); }
+
+    .contact { text-align: center; padding: 60px 24px; }
+    .contact h3 { font-size: 22px; font-weight: 700; color: var(--purple); margin-bottom: 12px; }
+    .contact p { color: var(--text-dim); margin-bottom: 16px; }
+    .contact a { color: var(--purple); text-decoration: none; font-weight: 600; }
+
+    .privacy { padding: 60px 24px; max-width: 800px; margin: 0 auto; }
+    .privacy h3 { font-size: 24px; font-weight: 700; color: var(--purple); margin-bottom: 24px; }
+    .privacy h4 { font-size: 16px; font-weight: 700; color: var(--text); margin: 24px 0 8px; }
+    .privacy p { font-size: 14px; color: var(--text-dim); line-height: 1.7; margin-bottom: 12px; }
+    .privacy ul { padding-left: 20px; color: var(--text-dim); font-size: 14px; line-height: 1.7; }
+
+    footer { text-align: center; padding: 24px; border-top: 1px solid var(--border); color: #6B7280; font-size: 12px; }
+
+    @media (max-width: 600px) {
+      .hero h2 { font-size: 28px; }
+      .pricing-table td, .pricing-table th { padding: 10px 12px; font-size: 12px; }
+      .info-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <span style="font-size:24px;">📺</span>
+    <h1>Phantom TV</h1>
+    <span class="badge">Lecteur Multimédia</span>
+  </header>
+
+  <section class="hero">
+    <h2>Phantom TV</h2>
+    <p>Lecteur multimédia avancé pour Windows et Android. Compatible Xtream Codes et M3U.</p>
+    <div class="warning">
+      ⚠️ <strong>Important :</strong> Phantom TV est un lecteur multimédia. L'application ne fournit aucun contenu, aucune chaîne, aucun film ni aucune série. Vous devez disposer de vos propres accès légitimes à un serveur de diffusion compatible.
+    </div>
+  </section>
+
+  <!-- Fonctionnalités -->
+  <section class="section">
+    <h3>Fonctionnalités</h3>
+    <div class="grid">
+      <div class="card"><div class="icon">📺</div><h4>Live TV</h4><p>Regardez vos chaînes en direct avec guide des programmes EPG intégré.</p></div>
+      <div class="card"><div class="icon">🎬</div><h4>Films & Séries</h4><p>Parcourez votre catalogue avec affiches, synopsis et navigation par saisons.</p></div>
+      <div class="card"><div class="icon">🔍</div><h4>Recherche globale</h4><p>Recherchez dans tous vos contenus simultanément.</p></div>
+      <div class="card"><div class="icon">👤</div><h4>Multi-profils</h4><p>Gérez plusieurs profils avec chiffrement AES-256.</p></div>
+      <div class="card"><div class="icon">📱</div><h4>Windows & Android</h4><p>Disponible sur PC Windows et smartphones Android.</p></div>
+      <div class="card"><div class="icon">🔒</div><h4>Sécurisé</h4><p>Licence d'activation unique par appareil pour protéger votre accès.</p></div>
+    </div>
+  </section>
+
+  <!-- Tableau comparatif -->
+  <section class="pricing">
+    <h3>Gratuit vs Premium</h3>
+    <p class="subtitle">Choisissez le plan qui correspond à vos besoins</p>
+    <div class="pricing-table">
+      <table>
+        <thead>
+          <tr>
+            <th>Fonctionnalité</th>
+            <th class="free">🔘 Gratuit</th>
+            <th class="premium">💜 Premium</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Live TV</td><td><span class="check">✅</span></td><td><span class="check">✅</span></td></tr>
+          <tr><td>Films & Séries</td><td><span class="check">✅</span></td><td><span class="check">✅</span></td></tr>
+          <tr><td>Publicités</td><td>📺 Oui</td><td><span class="check">❌ Non</span></td></tr>
+          <tr><td>Guide TV (EPG)</td><td><span class="cross">❌</span></td><td><span class="check">✅</span></td></tr>
+          <tr><td>Recherche globale</td><td><span class="cross">❌</span></td><td><span class="check">✅</span></td></tr>
+          <tr><td>Multi-profils</td><td>1 profil</td><td><span class="highlight">Illimité</span></td></tr>
+          <tr><td>Reprise automatique</td><td><span class="cross">❌</span></td><td><span class="check">✅</span></td></tr>
+          <tr><td>Connexions simultanées</td><td>1</td><td><span class="highlight">2</span></td></tr>
+          <tr><td>Support prioritaire</td><td><span class="cross">❌</span></td><td><span class="check">✅</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- À savoir -->
+  <section class="info-section">
+    <h3>À savoir</h3>
+    <div class="info-grid">
+      <div class="info-card server">
+        <h4>🖥️ Géré par votre serveur IPTV</h4>
+        <ul>
+          <li><span>Replay</span> — Nombre de jours disponibles fixé par votre fournisseur</li>
+          <li><span>Qualité vidéo</span> — SD, HD, FHD, 4K selon ce que le serveur envoie</li>
+          <li><span>Guide TV (EPG)</span> — Informations des programmes et leur disponibilité</li>
+          <li><span>Chargement lent</span> — Serveur surchargé ou connexion internet insuffisante</li>
+          <li><span>Coupures / Buffering</span> — Bande passante insuffisante du serveur ou du client</li>
+          <li><span>Chaînes manquantes</span> — Le fournisseur n'a pas ajouté la chaîne</li>
+          <li><span>Catégories</span> — Organisées et nommées par le fournisseur</li>
+          <li><span>Logos des chaînes</span> — Fournis par le serveur</li>
+          <li><span>Sous-titres</span> — Disponibles uniquement si le stream les inclut</li>
+          <li><span>Audio multilingue</span> — Dépend du contenu du stream</li>
+        </ul>
+      </div>
+      <div class="info-card app">
+        <h4>📱 Géré par Phantom TV</h4>
+        <ul>
+          <li><span>Interface</span> — Navigation, design et ergonomie de l'application</li>
+          <li><span>Favoris</span> — Sauvegarde de vos chaînes, films et séries préférés</li>
+          <li><span>Groupes</span> — Création de groupes de chaînes personnalisés</li>
+          <li><span>Recherche</span> — Recherche globale dans vos contenus</li>
+          <li><span>Reprise automatique</span> — Mémorisation de votre position de lecture</li>
+          <li><span>Multi-profils</span> — Gestion de plusieurs connexions sécurisées</li>
+          <li><span>Tri A→Z</span> — Classement alphabétique des chaînes et contenus</li>
+          <li><span>Guide TV intégré</span> — Affichage et navigation dans l'EPG</li>
+          <li><span>Licence d'activation</span> — Sécurisation de votre accès</li>
+          <li><span>Mises à jour</span> — Nouvelles fonctionnalités régulières</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="contact">
+    <h3>Obtenir l'application</h3>
+    <p>Pour obtenir votre clé d'activation, contactez-nous :</p>
+    <a href="mailto:contact.phantomtv@proton.me">contact.phantomtv@proton.me</a>
+  </section>
+
+  <!-- Politique de confidentialité -->
+  <section class="privacy" id="privacy">
+    <h3>Politique de confidentialité</h3>
+    <p>Dernière mise à jour : juillet 2026</p>
+
+    <h4>1. Nature de l'application</h4>
+    <p>Phantom TV est un lecteur multimédia. L'application ne fournit aucun contenu et ne collecte aucune donnée personnelle à des fins commerciales.</p>
+
+    <h4>2. Données collectées</h4>
+    <p>Phantom TV collecte les données techniques suivantes, strictement nécessaires au fonctionnement du service :</p>
+    <ul>
+      <li>Identifiant unique de l'appareil (généré localement)</li>
+      <li>Statut de la licence d'activation</li>
+      <li>Indicateur de présence en temps réel (connecté/déconnecté), effacé automatiquement à la fermeture de l'application</li>
+      <li>Titre du contenu en cours de lecture, effacé automatiquement à la fermeture du lecteur</li>
+    </ul>
+
+    <h4>3. Utilisation des données</h4>
+    <p>Ces données sont utilisées uniquement pour :</p>
+    <ul>
+      <li>Vérifier la validité de la licence d'activation</li>
+      <li>Garantir qu'un seul appareil utilise la licence simultanément</li>
+      <li>Permettre la gestion du service par l'éditeur</li>
+    </ul>
+
+    <h4>4. Conservation des données</h4>
+    <p>Les données de présence et de contenu en cours de lecture sont effacées automatiquement à la fermeture de l'application. Elles ne sont jamais conservées ni archivées.</p>
+
+    <h4>5. Partage des données</h4>
+    <p>Aucune donnée personnelle n'est partagée avec des tiers. Les données techniques sont stockées de manière sécurisée sur nos serveurs (Supabase, UE).</p>
+
+    <h4>6. Publicité</h4>
+    <p>La version gratuite de Phantom TV affiche des publicités via Google AdMob. Google peut collecter certaines données conformément à sa propre politique de confidentialité disponible sur policies.google.com.</p>
+
+    <h4>7. Droits des utilisateurs</h4>
+    <p>Conformément au RGPD, vous disposez d'un droit d'accès, de rectification et de suppression de vos données. Pour exercer ces droits, contactez-nous à : <a href="mailto:contact.phantomtv@proton.me" style="color:#A855F7;">contact.phantomtv@proton.me</a></p>
+
+    <h4>8. Contact</h4>
+    <p>Pour toute question relative à la confidentialité : <a href="mailto:contact.phantomtv@proton.me" style="color:#A855F7;">contact.phantomtv@proton.me</a></p>
+  </section>
+
+  <footer>
+    <p>© 2025-2026 Phantom TV — Tous droits réservés — <a href="#privacy" style="color:#A855F7;">Politique de confidentialité</a></p>
+  </footer>
+
+</body>
+</html>
