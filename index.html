@@ -9,7 +9,7 @@
     :root {
       --bg: #09090B; --bg2: #111827; --bg3: #1F2937;
       --purple: #A855F7; --green: #22C55E; --red: #EF4444;
-      --amber: #F59E0B; --blue: #3B82F6;
+      --amber: #F59E0B; --blue: #3B82F6; --cyan: #06B6D4;
       --text: #F9FAFB; --text-dim: #9CA3AF;
       --border: rgba(255,255,255,0.08);
     }
@@ -18,6 +18,10 @@
     header { background: var(--bg2); border-bottom: 1px solid var(--border); padding: 16px 24px; display: flex; align-items: center; gap: 12px; }
     header h1 { color: var(--purple); font-size: 22px; }
     .badge { background: rgba(168,85,247,0.15); color: var(--purple); padding: 3px 10px; border-radius: 20px; font-size: 11px; font-weight: 700; border: 1px solid rgba(168,85,247,0.30); }
+
+    nav { background: var(--bg2); border-bottom: 1px solid var(--border); padding: 10px 24px; display: flex; gap: 20px; flex-wrap: wrap; }
+    nav a { color: var(--text-dim); text-decoration: none; font-size: 13px; }
+    nav a:hover { color: var(--purple); }
 
     .hero { text-align: center; padding: 80px 24px 60px; }
     .hero h2 { font-size: 42px; font-weight: 800; color: var(--purple); margin-bottom: 16px; }
@@ -33,8 +37,26 @@
     .card h4 { font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 8px; }
     .card p { font-size: 13px; color: var(--text-dim); line-height: 1.5; }
 
+    /* Premium */
+    .premium-section { padding: 60px 24px; background: linear-gradient(135deg, rgba(168,85,247,0.08), rgba(59,130,246,0.08)); }
+    .premium-section h3 { font-size: 28px; font-weight: 800; color: var(--purple); margin-bottom: 8px; text-align: center; }
+    .premium-section .subtitle { text-align: center; color: var(--text-dim); font-size: 15px; margin-bottom: 40px; }
+    .premium-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; max-width: 800px; margin: 0 auto 40px; }
+    .plan-card { background: var(--bg2); border: 1.5px solid var(--border); border-radius: 20px; padding: 32px; text-align: center; }
+    .plan-card.premium { border-color: rgba(168,85,247,0.50); background: linear-gradient(135deg, rgba(168,85,247,0.08), rgba(59,130,246,0.05)); }
+    .plan-card h4 { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+    .plan-card .price { font-size: 42px; font-weight: 800; margin: 16px 0 4px; }
+    .plan-card .price-sub { font-size: 13px; color: var(--text-dim); margin-bottom: 24px; }
+    .plan-card ul { list-style: none; text-align: left; margin-bottom: 28px; }
+    .plan-card ul li { font-size: 14px; padding: 6px 0; border-bottom: 1px solid var(--border); color: var(--text-dim); }
+    .plan-card ul li:last-child { border-bottom: none; }
+    .plan-card ul li span { color: var(--text); }
+    .btn-free { background: rgba(255,255,255,0.08); color: var(--text); border: 1px solid var(--border); padding: 14px 28px; border-radius: 12px; font-size: 15px; font-weight: 700; cursor: pointer; width: 100%; text-decoration: none; display: block; }
+    .btn-premium { background: linear-gradient(135deg, var(--purple), #7C3AED); color: white; border: none; padding: 14px 28px; border-radius: 12px; font-size: 15px; font-weight: 700; cursor: pointer; width: 100%; text-decoration: none; display: block; box-shadow: 0 4px 20px rgba(168,85,247,0.40); }
+    .btn-premium:hover { opacity: 0.90; }
+
     /* Tableau comparatif */
-    .pricing { padding: 60px 24px; background: var(--bg2); }
+    .pricing { padding: 60px 24px; }
     .pricing h3 { font-size: 24px; font-weight: 700; color: var(--purple); margin-bottom: 8px; text-align: center; }
     .pricing .subtitle { text-align: center; color: var(--text-dim); font-size: 14px; margin-bottom: 40px; }
     .pricing-table { max-width: 700px; margin: 0 auto; border-radius: 16px; overflow: hidden; border: 1px solid var(--border); }
@@ -47,27 +69,55 @@
     .pricing-table td:first-child { color: var(--text); background: var(--bg3); font-weight: 500; }
     .pricing-table td:nth-child(2) { text-align: center; background: rgba(107,114,128,0.08); color: var(--text-dim); }
     .pricing-table td:nth-child(3) { text-align: center; background: rgba(168,85,247,0.05); }
-    .pricing-table tr:hover td { filter: brightness(1.05); }
     .check { color: var(--green); font-size: 18px; }
     .cross { color: var(--red); font-size: 18px; }
     .highlight { color: var(--purple); font-weight: 600; }
+
+    /* Radio */
+    .radio-section { padding: 60px 24px; background: rgba(6,182,212,0.05); border-top: 1px solid rgba(6,182,212,0.15); border-bottom: 1px solid rgba(6,182,212,0.15); }
+    .radio-section h3 { font-size: 24px; font-weight: 700; color: var(--cyan); margin-bottom: 8px; text-align: center; }
+    .radio-section .subtitle { text-align: center; color: var(--text-dim); font-size: 14px; margin-bottom: 32px; }
+    .radio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; max-width: 900px; margin: 0 auto; }
+    .radio-card { background: var(--bg2); border: 1px solid rgba(6,182,212,0.20); border-radius: 12px; padding: 16px; text-align: center; }
+    .radio-card .radio-icon { font-size: 32px; margin-bottom: 8px; }
+    .radio-card h4 { font-size: 14px; font-weight: 700; color: var(--cyan); margin-bottom: 4px; }
+    .radio-card p { font-size: 12px; color: var(--text-dim); }
+
+    /* À savoir */
+    .info-section { padding: 60px 24px; max-width: 900px; margin: 0 auto; }
+    .info-section h3 { font-size: 24px; font-weight: 700; color: var(--purple); margin-bottom: 32px; text-align: center; }
+    .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 20px; }
+    .info-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 14px; padding: 24px; }
+    .info-card h4 { font-size: 15px; font-weight: 700; margin-bottom: 16px; }
+    .info-card ul { list-style: none; }
+    .info-card ul li { font-size: 13px; color: var(--text-dim); line-height: 1.7; padding: 4px 0; border-bottom: 1px solid var(--border); }
+    .info-card ul li:last-child { border-bottom: none; }
+    .info-card ul li span { color: var(--text); font-weight: 600; }
+    .server { border-color: rgba(239,68,68,0.30); }
+    .server h4 { color: var(--red); }
+    .app { border-color: rgba(168,85,247,0.30); }
+    .app h4 { color: var(--purple); }
+
+    /* Texte légal */
+    .legal { padding: 60px 24px; max-width: 800px; margin: 0 auto; }
+    .legal h3 { font-size: 24px; font-weight: 700; color: var(--purple); margin-bottom: 24px; }
+    .legal h4 { font-size: 16px; font-weight: 700; color: var(--text); margin: 24px 0 8px; }
+    .legal p { font-size: 14px; color: var(--text-dim); line-height: 1.7; margin-bottom: 12px; }
+    .legal ul { padding-left: 20px; color: var(--text-dim); font-size: 14px; line-height: 1.7; margin-bottom: 12px; }
 
     .contact { text-align: center; padding: 60px 24px; }
     .contact h3 { font-size: 22px; font-weight: 700; color: var(--purple); margin-bottom: 12px; }
     .contact p { color: var(--text-dim); margin-bottom: 16px; }
     .contact a { color: var(--purple); text-decoration: none; font-weight: 600; }
 
-    .privacy { padding: 60px 24px; max-width: 800px; margin: 0 auto; }
-    .privacy h3 { font-size: 24px; font-weight: 700; color: var(--purple); margin-bottom: 24px; }
-    .privacy h4 { font-size: 16px; font-weight: 700; color: var(--text); margin: 24px 0 8px; }
-    .privacy p { font-size: 14px; color: var(--text-dim); line-height: 1.7; margin-bottom: 12px; }
-    .privacy ul { padding-left: 20px; color: var(--text-dim); font-size: 14px; line-height: 1.7; }
-
     footer { text-align: center; padding: 24px; border-top: 1px solid var(--border); color: #6B7280; font-size: 12px; }
+    footer a { color: var(--purple); text-decoration: none; }
 
     @media (max-width: 600px) {
       .hero h2 { font-size: 28px; }
       .pricing-table td, .pricing-table th { padding: 10px 12px; font-size: 12px; }
+      .info-grid { grid-template-columns: 1fr; }
+      .premium-cards { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -79,31 +129,99 @@
     <span class="badge">Lecteur Multimédia</span>
   </header>
 
-  <section class="hero">
+  <nav>
+    <a href="#features">Fonctionnalités</a>
+    <a href="#radio">Radio</a>
+    <a href="#premium">Premium</a>
+    <a href="#savoir">À savoir</a>
+    <a href="#cgv">CGV</a>
+    <a href="#privacy">Confidentialité</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero" id="home">
     <h2>Phantom TV</h2>
-    <p>Lecteur multimédia avancé pour Windows et Android. Compatible Xtream Codes et M3U.</p>
+    <p>Lecteur multimédia avancé pour Windows et Android. Compatible avec vos serveurs de diffusion.</p>
     <div class="warning">
       ⚠️ <strong>Important :</strong> Phantom TV est un lecteur multimédia. L'application ne fournit aucun contenu, aucune chaîne, aucun film ni aucune série. Vous devez disposer de vos propres accès légitimes à un serveur de diffusion compatible.
     </div>
   </section>
 
   <!-- Fonctionnalités -->
-  <section class="section">
+  <section class="section" id="features">
     <h3>Fonctionnalités</h3>
     <div class="grid">
       <div class="card"><div class="icon">📺</div><h4>Live TV</h4><p>Regardez vos chaînes en direct avec guide des programmes EPG intégré.</p></div>
       <div class="card"><div class="icon">🎬</div><h4>Films & Séries</h4><p>Parcourez votre catalogue avec affiches, synopsis et navigation par saisons.</p></div>
+      <div class="card"><div class="icon">📻</div><h4>Radio</h4><p>Plus de 30 000 stations radio du monde entier, gratuites et en direct.</p></div>
       <div class="card"><div class="icon">🔍</div><h4>Recherche globale</h4><p>Recherchez dans tous vos contenus simultanément.</p></div>
       <div class="card"><div class="icon">👤</div><h4>Multi-profils</h4><p>Gérez plusieurs profils avec chiffrement AES-256.</p></div>
       <div class="card"><div class="icon">📱</div><h4>Windows & Android</h4><p>Disponible sur PC Windows et smartphones Android.</p></div>
-      <div class="card"><div class="icon">🔒</div><h4>Sécurisé</h4><p>Licence d'activation unique par appareil pour protéger votre accès.</p></div>
     </div>
+  </section>
+
+  <!-- Radio -->
+  <section class="radio-section" id="radio">
+    <h3>📻 Radio intégrée</h3>
+    <p class="subtitle">Plus de 30 000 stations radio du monde entier, directement dans l'application</p>
+    <div class="radio-grid">
+      <div class="radio-card"><div class="radio-icon">🇫🇷</div><h4>Radios françaises</h4><p>RTL, NRJ, Europe 1, France Inter, Skyrock et bien plus</p></div>
+      <div class="radio-card"><div class="radio-icon">🌍</div><h4>Radios mondiales</h4><p>BBC, RFI, stations américaines, européennes... (Premium)</p></div>
+      <div class="radio-card"><div class="radio-icon">🎵</div><h4>Par genre</h4><p>Pop, Rock, Jazz, Classique, News, Sport...</p></div>
+      <div class="radio-card"><div class="radio-icon">❤️</div><h4>Favoris</h4><p>Sauvegardez vos stations préférées pour y accéder rapidement</p></div>
+    </div>
+  </section>
+
+  <!-- Plans Premium -->
+  <section class="premium-section" id="premium">
+    <h3>Choisissez votre plan</h3>
+    <p class="subtitle">Paiement unique · Aucun abonnement · À vie</p>
+    <div class="premium-cards">
+      <div class="plan-card">
+        <h4 style="color:#9CA3AF;">🔘 Gratuit</h4>
+        <div class="price" style="color:#9CA3AF;">0€</div>
+        <div class="price-sub">Pour toujours</div>
+        <ul>
+          <li>✅ <span>Live TV</span></li>
+          <li>✅ <span>Films & Séries</span></li>
+          <li>✅ <span>Radios françaises</span></li>
+          <li>❌ Guide TV (EPG)</li>
+          <li>❌ Recherche globale</li>
+          <li>❌ Radios mondiales</li>
+          <li>📺 Publicités</li>
+          <li>1 profil · 3 favoris radio</li>
+        </ul>
+        <a href="mailto:contact.phantomtv@proton.me?subject=Demande clé gratuite" class="btn-free">Obtenir gratuitement</a>
+      </div>
+      <div class="plan-card premium">
+        <h4 style="color:#A855F7;">💜 Premium</h4>
+        <div class="price" style="color:#A855F7;">12,99€</div>
+        <div class="price-sub">Paiement unique · À vie</div>
+        <ul>
+          <li>✅ <span>Live TV</span></li>
+          <li>✅ <span>Films & Séries</span></li>
+          <li>✅ <span>Guide TV (EPG)</span></li>
+          <li>✅ <span>Recherche globale</span></li>
+          <li>✅ <span>30 000+ radios mondiales</span></li>
+          <li>✅ <span>Favoris illimités</span></li>
+          <li>✅ <span>Sans publicité</span></li>
+          <li>✅ <span>Multi-profils · Support prioritaire</span></li>
+        </ul>
+        <a href="https://paypal.me/anonymous2211/12.99EUR" target="_blank" class="btn-premium">💜 Acheter pour 12,99€</a>
+      </div>
+    </div>
+    <p style="text-align:center;font-size:13px;color:#6B7280;">
+      Après votre paiement, envoyez votre reçu PayPal à 
+      <a href="mailto:contact.phantomtv@proton.me" style="color:#A855F7;">contact.phantomtv@proton.me</a>
+      et votre clé Premium sera activée sous 24h.
+    </p>
   </section>
 
   <!-- Tableau comparatif -->
   <section class="pricing">
-    <h3>Gratuit vs Premium</h3>
-    <p class="subtitle">Choisissez le plan qui correspond à vos besoins</p>
+    <h3>Comparatif détaillé</h3>
+    <p class="subtitle">Gratuit vs Premium</p>
     <div class="pricing-table">
       <table>
         <thead>
@@ -114,65 +232,114 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Live TV</td>
-            <td><span class="check">✅</span></td>
-            <td><span class="check">✅</span></td>
-          </tr>
-          <tr>
-            <td>Films & Séries</td>
-            <td><span class="check">✅</span></td>
-            <td><span class="check">✅</span></td>
-          </tr>
-          <tr>
-            <td>Publicités</td>
-            <td>📺 Oui</td>
-            <td><span class="check">❌ Non</span></td>
-          </tr>
-          <tr>
-            <td>Guide TV (EPG)</td>
-            <td><span class="cross">❌</span></td>
-            <td><span class="check">✅</span></td>
-          </tr>
-          <tr>
-            <td>Recherche globale</td>
-            <td><span class="cross">❌</span></td>
-            <td><span class="check">✅</span></td>
-          </tr>
-          <tr>
-            <td>Multi-profils</td>
-            <td>1 profil</td>
-            <td><span class="highlight">Illimité</span></td>
-          </tr>
-          <tr>
-            <td>Reprise automatique</td>
-            <td><span class="cross">❌</span></td>
-            <td><span class="check">✅</span></td>
-          </tr>
-          <tr>
-            <td>Connexions simultanées</td>
-            <td>1</td>
-            <td><span class="highlight">2</span></td>
-          </tr>
-          <tr>
-            <td>Support prioritaire</td>
-            <td><span class="cross">❌</span></td>
-            <td><span class="check">✅</span></td>
-          </tr>
+          <tr><td>Live TV</td><td><span class="check">✅</span></td><td><span class="check">✅</span></td></tr>
+          <tr><td>Films & Séries</td><td><span class="check">✅</span></td><td><span class="check">✅</span></td></tr>
+          <tr><td>Radios françaises</td><td><span class="check">✅</span></td><td><span class="check">✅</span></td></tr>
+          <tr><td>Radios mondiales (30 000+)</td><td><span class="cross">❌</span></td><td><span class="check">✅</span></td></tr>
+          <tr><td>Publicités</td><td>📺 Oui</td><td><span class="check">❌ Non</span></td></tr>
+          <tr><td>Guide TV (EPG)</td><td><span class="cross">❌</span></td><td><span class="check">✅</span></td></tr>
+          <tr><td>Recherche globale</td><td><span class="cross">❌</span></td><td><span class="check">✅</span></td></tr>
+          <tr><td>Multi-profils</td><td>1 profil</td><td><span class="highlight">Illimité</span></td></tr>
+          <tr><td>Favoris radio</td><td>3 max</td><td><span class="highlight">Illimité</span></td></tr>
+          <tr><td>Reprise automatique</td><td><span class="cross">❌</span></td><td><span class="check">✅</span></td></tr>
+          <tr><td>Support prioritaire</td><td><span class="cross">❌</span></td><td><span class="check">✅</span></td></tr>
+          <tr><td>Prix</td><td>Gratuit</td><td><span class="highlight">12,99€ à vie</span></td></tr>
         </tbody>
       </table>
     </div>
   </section>
 
+  <!-- À savoir -->
+  <section class="info-section" id="savoir">
+    <h3>À savoir</h3>
+    <div class="info-grid">
+      <div class="info-card server">
+        <h4>🖥️ Géré par votre serveur de diffusion</h4>
+        <ul>
+          <li><span>Replay</span> — Nombre de jours disponibles fixé par votre fournisseur</li>
+          <li><span>Qualité vidéo</span> — SD, HD, FHD, 4K selon ce que le serveur envoie</li>
+          <li><span>Guide TV (EPG)</span> — Informations des programmes et leur disponibilité</li>
+          <li><span>Chargement lent</span> — Serveur surchargé ou connexion internet insuffisante</li>
+          <li><span>Coupures / Buffering</span> — Bande passante insuffisante du serveur ou du client</li>
+          <li><span>Chaînes manquantes</span> — Le fournisseur n'a pas ajouté la chaîne</li>
+          <li><span>Catégories</span> — Organisées et nommées par le fournisseur</li>
+          <li><span>Logos des chaînes</span> — Fournis par le serveur</li>
+          <li><span>Sous-titres</span> — Disponibles uniquement si le flux les inclut</li>
+          <li><span>Audio multilingue</span> — Dépend du contenu du flux</li>
+        </ul>
+      </div>
+      <div class="info-card app">
+        <h4>📱 Géré par Phantom TV</h4>
+        <ul>
+          <li><span>Interface</span> — Navigation, design et ergonomie de l'application</li>
+          <li><span>Favoris</span> — Sauvegarde de vos chaînes, films et séries préférés</li>
+          <li><span>Groupes</span> — Création de groupes de chaînes personnalisés</li>
+          <li><span>Radio</span> — 30 000+ stations intégrées via Radio Browser</li>
+          <li><span>Recherche</span> — Recherche globale dans vos contenus</li>
+          <li><span>Reprise automatique</span> — Mémorisation de votre position de lecture</li>
+          <li><span>Multi-profils</span> — Gestion de plusieurs connexions sécurisées</li>
+          <li><span>Tri A→Z</span> — Classement alphabétique des chaînes et contenus</li>
+          <li><span>Guide TV intégré</span> — Affichage et navigation dans l'EPG</li>
+          <li><span>Mises à jour</span> — Nouvelles fonctionnalités régulières</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
   <!-- Contact -->
-  <section class="contact">
-    <h3>Obtenir l'application</h3>
-    <p>Pour obtenir votre clé d'activation, contactez-nous :</p>
+  <section class="contact" id="contact">
+    <h3>Contact & Support</h3>
+    <p>Pour obtenir votre clé d'activation ou pour toute question :</p>
     <a href="mailto:contact.phantomtv@proton.me">contact.phantomtv@proton.me</a>
   </section>
 
+  <!-- CGV -->
+  <section class="legal" id="cgv">
+    <h3>Conditions Générales de Vente</h3>
+    <p>Dernière mise à jour : juillet 2026</p>
+
+    <h4>1. Identification du vendeur</h4>
+    <p>Phantom TV est édité par un éditeur indépendant. Pour toute question, contactez-nous à : <a href="mailto:contact.phantomtv@proton.me" style="color:#A855F7;">contact.phantomtv@proton.me</a></p>
+
+    <h4>2. Description du produit</h4>
+    <p>Phantom TV Premium est une licence logicielle à usage personnel, accordée à vie pour une utilisation sur un appareil Android ou Windows. La licence donne accès aux fonctionnalités premium de l'application Phantom TV.</p>
+    <p>Phantom TV est un lecteur multimédia. Il ne fournit aucun contenu (chaînes, films, séries). L'accès aux contenus dépend de services tiers dont l'éditeur de Phantom TV n'est pas responsable.</p>
+
+    <h4>3. Prix</h4>
+    <p>Le prix de la licence Premium est de <strong>12,99 € TTC</strong>, paiement unique et définitif. Aucun abonnement ni frais récurrent.</p>
+
+    <h4>4. Modalités de paiement</h4>
+    <p>Le paiement s'effectue via PayPal à l'adresse : <a href="https://paypal.me/anonymous2211/12.99EUR" style="color:#A855F7;">paypal.me/anonymous2211</a></p>
+    <p>Après paiement, envoyez votre reçu PayPal à <a href="mailto:contact.phantomtv@proton.me" style="color:#A855F7;">contact.phantomtv@proton.me</a>. Votre clé d'activation Premium sera envoyée dans un délai de 24 heures ouvrées.</p>
+
+    <h4>5. Droit de rétractation</h4>
+    <p>Conformément à l'article L221-28 du Code de la consommation, le droit de rétractation ne peut être exercé pour les contenus numériques dont l'exécution a commencé avec l'accord du consommateur avant l'expiration du délai de rétractation.</p>
+    <p>Toutefois, si votre clé d'activation n'a pas encore été utilisée dans l'application, vous pouvez exercer votre droit de rétractation dans un délai de 14 jours à compter de l'achat en contactant : <a href="mailto:contact.phantomtv@proton.me" style="color:#A855F7;">contact.phantomtv@proton.me</a></p>
+
+    <h4>6. Livraison</h4>
+    <p>La clé d'activation est envoyée par email dans un délai maximum de 24 heures ouvrées après réception du reçu de paiement.</p>
+
+    <h4>7. Garantie et support</h4>
+    <p>En cas de problème technique avec l'application, contactez notre support à <a href="mailto:contact.phantomtv@proton.me" style="color:#A855F7;">contact.phantomtv@proton.me</a>. Les utilisateurs Premium bénéficient d'un support prioritaire.</p>
+
+    <h4>8. Responsabilité</h4>
+    <p>Phantom TV est un lecteur multimédia. L'éditeur ne peut être tenu responsable :</p>
+    <ul>
+      <li>Des contenus diffusés via des services tiers</li>
+      <li>Des interruptions de service liées aux serveurs de diffusion tiers</li>
+      <li>De l'utilisation illégale de l'application par l'utilisateur</li>
+    </ul>
+    <p>L'utilisateur s'engage à utiliser Phantom TV uniquement pour lire des contenus auxquels il a légalement accès.</p>
+
+    <h4>9. Propriété intellectuelle</h4>
+    <p>L'application Phantom TV, son interface et son code sont la propriété exclusive de l'éditeur. Toute reproduction, modification ou distribution non autorisée est interdite.</p>
+
+    <h4>10. Loi applicable</h4>
+    <p>Les présentes CGV sont soumises au droit français. En cas de litige, les tribunaux français seront compétents.</p>
+  </section>
+
   <!-- Politique de confidentialité -->
-  <section class="privacy" id="privacy">
+  <section class="legal" id="privacy">
     <h3>Politique de confidentialité</h3>
     <p>Dernière mise à jour : juillet 2026</p>
 
@@ -182,38 +349,46 @@
     <h4>2. Données collectées</h4>
     <p>Phantom TV collecte les données techniques suivantes, strictement nécessaires au fonctionnement du service :</p>
     <ul>
-      <li>Identifiant unique de l'appareil (généré localement)</li>
+      <li>Identifiant unique de l'appareil (généré localement, non lié à votre identité)</li>
       <li>Statut de la licence d'activation</li>
-      <li>Indicateur de présence en temps réel (connecté/déconnecté), effacé automatiquement à la fermeture de l'application</li>
+      <li>Indicateur de présence en temps réel (connecté/déconnecté), effacé à la fermeture</li>
       <li>Titre du contenu en cours de lecture, effacé automatiquement à la fermeture du lecteur</li>
     </ul>
+    <p>La section Radio utilise l'API publique Radio Browser (radio-browser.info). Aucune donnée personnelle n'est transmise à ce service.</p>
 
-    <h4>3. Utilisation des données</h4>
-    <p>Ces données sont utilisées uniquement pour :</p>
+    <h4>3. Données de paiement</h4>
+    <p>Les paiements sont traités via PayPal. Phantom TV ne collecte ni ne stocke vos données bancaires ou de paiement. Ces données sont gérées exclusivement par PayPal conformément à sa propre politique de confidentialité.</p>
+
+    <h4>4. Utilisation des données</h4>
+    <p>Les données collectées sont utilisées uniquement pour :</p>
     <ul>
       <li>Vérifier la validité de la licence d'activation</li>
       <li>Garantir qu'un seul appareil utilise la licence simultanément</li>
       <li>Permettre la gestion du service par l'éditeur</li>
     </ul>
 
-    <h4>4. Conservation des données</h4>
-    <p>Les données de présence et de contenu en cours de lecture sont effacées automatiquement à la fermeture de l'application. Elles ne sont jamais conservées ni archivées.</p>
+    <h4>5. Conservation des données</h4>
+    <p>Les données de présence et de contenu en cours de lecture sont effacées automatiquement à la fermeture de l'application. Les données de licence sont conservées tant que votre compte est actif.</p>
 
-    <h4>5. Partage des données</h4>
-    <p>Aucune donnée personnelle n'est partagée avec des tiers. Les données techniques sont stockées de manière sécurisée sur nos serveurs (Supabase, UE).</p>
+    <h4>6. Partage des données</h4>
+    <p>Aucune donnée personnelle n'est partagée avec des tiers à des fins commerciales. Les données techniques sont stockées de manière sécurisée sur nos serveurs (Supabase, infrastructure européenne).</p>
 
-    <h4>6. Publicité</h4>
-    <p>La version gratuite de Phantom TV affiche des publicités via Google AdMob. Google peut collecter certaines données conformément à sa propre politique de confidentialité disponible sur policies.google.com.</p>
+    <h4>7. Publicité</h4>
+    <p>La version gratuite de Phantom TV affiche des publicités via Google AdMob. Google peut collecter certaines données conformément à sa propre politique de confidentialité disponible sur policies.google.com. La version Premium ne contient aucune publicité.</p>
 
-    <h4>7. Droits des utilisateurs</h4>
+    <h4>8. Droits des utilisateurs (RGPD)</h4>
     <p>Conformément au RGPD, vous disposez d'un droit d'accès, de rectification et de suppression de vos données. Pour exercer ces droits, contactez-nous à : <a href="mailto:contact.phantomtv@proton.me" style="color:#A855F7;">contact.phantomtv@proton.me</a></p>
 
-    <h4>8. Contact</h4>
+    <h4>9. Contact</h4>
     <p>Pour toute question relative à la confidentialité : <a href="mailto:contact.phantomtv@proton.me" style="color:#A855F7;">contact.phantomtv@proton.me</a></p>
   </section>
 
   <footer>
-    <p>© 2025-2026 Phantom TV — Tous droits réservés — <a href="#privacy" style="color:#A855F7;">Politique de confidentialité</a></p>
+    <p>© 2025-2026 Phantom TV — Tous droits réservés — 
+      <a href="#cgv">CGV</a> · 
+      <a href="#privacy">Confidentialité</a> · 
+      <a href="#contact">Contact</a>
+    </p>
   </footer>
 
 </body>
