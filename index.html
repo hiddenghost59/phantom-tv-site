@@ -39,6 +39,21 @@
     .card h4 { font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 8px; }
     .card p { font-size: 13px; color: var(--text-dim); line-height: 1.5; }
 
+    /* Downloader / Firestick */
+    .downloader-section { padding: 60px 24px; background: rgba(245,158,11,0.04); border-top: 1px solid rgba(245,158,11,0.15); border-bottom: 1px solid rgba(245,158,11,0.15); }
+    .downloader-section h3 { font-size: 24px; font-weight: 700; color: var(--amber); margin-bottom: 8px; text-align: center; }
+    .downloader-section .subtitle { text-align: center; color: var(--text-dim); font-size: 14px; margin-bottom: 40px; max-width: 700px; margin-left: auto; margin-right: auto; }
+    .downloader-box { max-width: 700px; margin: 0 auto; background: var(--bg2); border: 1px solid var(--border); border-radius: 14px; padding: 28px; }
+    .downloader-box ol { line-height: 1.9; color: var(--text-dim); font-size: 14px; padding-left: 20px; }
+    .downloader-box ol li span.hl { color: var(--text); font-weight: 600; }
+    .downloader-code { background: var(--bg3); padding: 16px; margin: 14px 0; border-radius: 10px; text-align: center; }
+    .downloader-code span { font-size: 1.8em; font-weight: 800; color: var(--amber); letter-spacing: 3px; }
+    .downloader-warning { background: rgba(239,68,68,0.08); border-left: 3px solid var(--red); padding: 14px 18px; margin-top: 22px; border-radius: 6px; }
+    .downloader-warning strong { color: var(--red); font-size: 13px; }
+    .downloader-warning p { font-size: 13px; color: var(--text-dim); margin-top: 6px; line-height: 1.6; }
+    .downloader-alt { text-align: center; font-size: 12px; color: #6B7280; margin-top: 20px; }
+    .downloader-alt a { color: var(--amber); text-decoration: none; }
+
     /* Premium */
     .premium-section { padding: 60px 24px; background: linear-gradient(135deg, rgba(168,85,247,0.08), rgba(59,130,246,0.08)); }
     .premium-section h3 { font-size: 28px; font-weight: 800; color: var(--purple); margin-bottom: 8px; text-align: center; }
@@ -133,6 +148,7 @@
 
   <nav>
     <a href="#features">Fonctionnalités</a>
+    <a href="#downloader">Firestick</a>
     <a href="#radio">Radio</a>
     <a href="#premium">Premium</a>
     <a href="#savoir">À savoir</a>
@@ -160,6 +176,29 @@
       <div class="card"><div class="icon">🔍</div><h4>Recherche globale</h4><p>Recherchez dans tous vos contenus simultanément.</p></div>
       <div class="card"><div class="icon">👤</div><h4>Multi-profils</h4><p>Gérez plusieurs profils avec chiffrement AES-256.</p></div>
       <div class="card"><div class="icon">📱</div><h4>Windows & Android</h4><p>Disponible sur PC Windows et smartphones Android.</p></div>
+    </div>
+  </section>
+
+  <!-- Installation Firestick / Fire TV via Downloader -->
+  <section class="downloader-section" id="downloader">
+    <h3>🔥 Installation sur Firestick / Fire TV</h3>
+    <p class="subtitle">Phantom TV est aussi disponible sur Firestick et Fire TV via l'application <strong>Downloader</strong> (disponible sur l'Amazon Appstore).</p>
+    <div class="downloader-box">
+      <ol>
+        <li>Installez l'application <span class="hl">Downloader</span> depuis l'Amazon Appstore sur votre Firestick</li>
+        <li>Ouvrez Downloader et entrez le code suivant :
+          <div class="downloader-code"><span>2145606</span></div>
+        </li>
+        <li>Validez et laissez le téléchargement se terminer</li>
+        <li>Appuyez sur <span class="hl">Installer</span> puis lancez Phantom TV</li>
+      </ol>
+      <div class="downloader-warning">
+        <strong>⚠️ Message "Application non installée" ?</strong>
+        <p>C'est généralement un problème d'espace de stockage insuffisant, fréquent sur les premières générations de Firestick (8 Go). Vérifiez l'espace disponible dans <span class="hl" style="color:var(--text);">Paramètres → Mon Fire TV → Stockage</span> et libérez de la place si nécessaire (désinstallez des apps inutilisées, videz le cache).</p>
+      </div>
+      <p class="downloader-alt">
+        Lien alternatif direct : <a href="https://github.com/hiddenghost59/phantom-tv-releases_public/releases" target="_blank">github.com/hiddenghost59/phantom-tv-releases_public</a>
+      </p>
     </div>
   </section>
 
