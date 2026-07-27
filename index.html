@@ -136,7 +136,10 @@
       .info-grid { grid-template-columns: 1fr; }
       .premium-cards { grid-template-columns: 1fr; }
     }
-  </style>
+  </style>  <script>
+    window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+  </script>
+  <script defer src="/_vercel/insights/script.js"></script>
 </head>
 <body>
 
@@ -187,7 +190,7 @@
       <ol>
         <li>Installez l'application <span class="hl">Downloader</span> depuis l'Amazon Appstore sur votre Firestick</li>
         <li>Ouvrez Downloader et entrez le code suivant :
-          <div class="downloader-code"><span>2145606</span></div>
+          <div class="downloader-code"><span>8264153</span></div>
         </li>
         <li>Validez et laissez le téléchargement se terminer</li>
         <li>Appuyez sur <span class="hl">Installer</span> puis lancez Phantom TV</li>
@@ -197,7 +200,7 @@
         <p>C'est généralement un problème d'espace de stockage insuffisant, fréquent sur les premières générations de Firestick (8 Go). Vérifiez l'espace disponible dans <span class="hl" style="color:var(--text);">Paramètres → Mon Firestick → Stockage</span> et libérez de la place si nécessaire (désinstallez des apps inutilisées, videz le cache).</p>
       </div>
       <p class="downloader-alt">
-        Lien alternatif direct : <a href="https://github.com/hiddenghost59/phantom-tv-releases_public/releases" target="_blank">github.com/hiddenghost59/phantom-tv-releases_public</a>
+        Lien alternatif direct : <a href="https://github.com/hiddenghost59/phantom-tv-releases_public/releases/download/1.0.0%2B10/app-release5.apk" target="_blank">Télécharger l'APK</a>
       </p>
     </div>
   </section>
@@ -248,6 +251,7 @@
           <li>✅ <span>Favoris illimités</span></li>
           <li>✅ <span>Sans publicité</span></li>
           <li>✅ <span>Multi-profils · Support prioritaire</span></li>
+          <li>✅ <span>Replay (chaînes compatibles)</span></li>
         </ul>
         <a href="https://paypal.me/anonymous2211/12.99EUR" target="_blank" class="btn-premium">💜 Acheter pour 12,99€</a>
       </div>
@@ -280,9 +284,10 @@
           <tr><td>Publicités</td><td>📺 Oui</td><td><span class="check">❌ Non</span></td></tr>
           <tr><td>Guide TV (EPG)</td><td><span class="cross">❌</span></td><td><span class="check">✅</span></td></tr>
           <tr><td>Recherche globale</td><td><span class="cross">❌</span></td><td><span class="check">✅</span></td></tr>
-          <tr><td>Multi-profils</td><td>1 profil</td><td><span class="highlight">Illimité</span></td></tr>
+          <tr><td>Multi-profils</td><td>1 profil</td><td><span class="highlight">3 profils max</span></td></tr>
           <tr><td>Favoris radio</td><td>3 max</td><td><span class="highlight">Illimité</span></td></tr>
           <tr><td>Reprise automatique</td><td><span class="cross">❌</span></td><td><span class="check">✅</span></td></tr>
+          <tr><td>Replay (chaînes compatibles)</td><td><span class="cross">❌</span></td><td><span class="check">✅</span></td></tr>
           <tr><td>Support prioritaire</td><td><span class="cross">❌</span></td><td><span class="check">✅</span></td></tr>
           <tr><td>Prix</td><td>Gratuit</td><td><span class="highlight">12,99€ à vie</span></td></tr>
         </tbody>
@@ -297,7 +302,7 @@
       <div class="info-card server">
         <h4>🖥️ Géré par votre serveur de diffusion</h4>
         <ul>
-          <li><span>Replay</span> — Nombre de jours disponibles fixé par votre fournisseur</li>
+          <li><span>Replay</span> — Nombre de jours disponibles fixé par votre fournisseur (Premium, selon compatibilité de la chaîne)</li>
           <li><span>Qualité vidéo</span> — SD, HD, FHD, 4K selon ce que le serveur envoie</li>
           <li><span>Guide TV (EPG)</span> — Informations des programmes et leur disponibilité</li>
           <li><span>Chargement lent</span> — Serveur surchargé ou connexion internet insuffisante</li>
@@ -432,12 +437,5 @@
     </p>
   </footer>
 
-  <button onclick="window.scrollTo({top:0,behavior:'smooth'})" id="backToTop" style="display:none;position:fixed;bottom:24px;right:24px;width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,#A855F7,#7C3AED);border:none;color:white;font-size:20px;cursor:pointer;box-shadow:0 4px 20px rgba(168,85,247,0.5);z-index:999;">↑</button>
-  <script>
-    window.addEventListener('scroll', () => {
-      document.getElementById('backToTop').style.display = window.scrollY > 400 ? 'block' : 'none';
-    });
-  </script>
-  
 </body>
 </html>
