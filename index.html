@@ -185,7 +185,7 @@
   <!-- Installation Firestick via Downloader -->
   <section class="downloader-section" id="downloader">
     <h3>🔥 Installation sur Firestick</h3>
-    <p class="subtitle">Phantom TV est aussi disponible sur Firestick via l'application <strong>Downloader</strong> (disponible sur l'Amazon Appstore).</p>
+    <p class="subtitle">Phantom TV est aussi disponible sur Firestick via l'application <strong>Downloader</strong> (disponible <a href="https://www.amazon.com/AFTVnews-com-Downloader/dp/B01N0BP507" target="_blank" style="color:var(--amber);">ici</a>).</p>
     <div class="downloader-box">
       <ol>
         <li>Installez l'application <span class="hl">Downloader</span> depuis l'Amazon Appstore sur votre Firestick</li>
@@ -437,5 +437,11 @@
     </p>
   </footer>
 
+  <button onclick="window.scrollTo({top:0,behavior:'smooth'})" id="backToTop" style="display:none;position:fixed;bottom:24px;right:24px;width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,#A855F7,#7C3AED);border:none;color:white;font-size:20px;cursor:pointer;box-shadow:0 4px 20px rgba(168,85,247,0.5);z-index:999;">↑</button>
+  <script>
+    window.addEventListener('scroll', () => {
+      document.getElementById('backToTop').style.display = window.scrollY > 400 ? 'block' : 'none';
+    });
+  </script>
 </body>
 </html>
