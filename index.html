@@ -2,10 +2,9 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5173736386265507"
-     crossorigin="anonymous"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5173736386265507" crossorigin="anonymous"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Phantom TV — Lecteur Multimédia</title>
+  <title>Phantom TV — Multimedia Player</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     :root {
@@ -16,30 +15,30 @@
       --border: rgba(255,255,255,0.08);
     }
     body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; }
-
     header { background: var(--bg2); border-bottom: 1px solid var(--border); padding: 16px 24px; display: flex; align-items: center; gap: 12px; }
     header h1 { color: var(--purple); font-size: 22px; }
     .badge { background: rgba(168,85,247,0.15); color: var(--purple); padding: 3px 10px; border-radius: 20px; font-size: 11px; font-weight: 700; border: 1px solid rgba(168,85,247,0.30); }
-
-    nav { background: var(--bg2); border-bottom: 1px solid var(--border); padding: 10px 24px; display: flex; gap: 20px; flex-wrap: wrap; }
+    nav { background: var(--bg2); border-bottom: 1px solid var(--border); padding: 10px 24px; display: flex; gap: 20px; flex-wrap: wrap; align-items: center; }
     nav a { color: var(--text-dim); text-decoration: none; font-size: 13px; }
     nav a:hover { color: var(--purple); }
+
+    /* Sélecteur de langue */
+    .lang-switcher { margin-left: auto; display: flex; gap: 6px; }
+    .lang-btn { background: var(--bg3); border: 1px solid var(--border); color: var(--text-dim); padding: 4px 10px; border-radius: 6px; font-size: 12px; font-weight: 700; cursor: pointer; }
+    .lang-btn.active { background: var(--purple); color: white; border-color: var(--purple); }
+    .lang-btn:hover { border-color: var(--purple); color: var(--purple); }
 
     .hero { text-align: center; padding: 80px 24px 60px; }
     .hero h2 { font-size: 42px; font-weight: 800; color: var(--purple); margin-bottom: 16px; }
     .hero p { font-size: 18px; color: var(--text-dim); max-width: 600px; margin: 0 auto 32px; line-height: 1.6; }
     .hero .warning { background: rgba(245,158,11,0.10); border: 1px solid rgba(245,158,11,0.30); border-radius: 12px; padding: 16px 24px; max-width: 600px; margin: 0 auto; color: var(--amber); font-size: 14px; line-height: 1.6; }
-
     .section { padding: 60px 24px; max-width: 900px; margin: 0 auto; }
     .section h3 { font-size: 24px; font-weight: 700; color: var(--purple); margin-bottom: 32px; text-align: center; }
-
     .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
     .card { background: var(--bg2); border: 1px solid var(--border); border-radius: 14px; padding: 24px; }
     .card .icon { font-size: 28px; margin-bottom: 12px; }
     .card h4 { font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 8px; }
     .card p { font-size: 13px; color: var(--text-dim); line-height: 1.5; }
-
-    /* Downloader / Firestick */
     .downloader-section { padding: 60px 24px; background: rgba(245,158,11,0.04); border-top: 1px solid rgba(245,158,11,0.15); border-bottom: 1px solid rgba(245,158,11,0.15); }
     .downloader-section h3 { font-size: 24px; font-weight: 700; color: var(--amber); margin-bottom: 8px; text-align: center; }
     .downloader-section .subtitle { text-align: center; color: var(--text-dim); font-size: 14px; margin-bottom: 40px; max-width: 700px; margin-left: auto; margin-right: auto; }
@@ -53,8 +52,6 @@
     .downloader-warning p { font-size: 13px; color: var(--text-dim); margin-top: 6px; line-height: 1.6; }
     .downloader-alt { text-align: center; font-size: 12px; color: #6B7280; margin-top: 20px; }
     .downloader-alt a { color: var(--amber); text-decoration: none; }
-
-    /* Premium */
     .premium-section { padding: 60px 24px; background: linear-gradient(135deg, rgba(168,85,247,0.08), rgba(59,130,246,0.08)); }
     .premium-section h3 { font-size: 28px; font-weight: 800; color: var(--purple); margin-bottom: 8px; text-align: center; }
     .premium-section .subtitle { text-align: center; color: var(--text-dim); font-size: 15px; margin-bottom: 40px; }
@@ -71,8 +68,6 @@
     .btn-free { background: rgba(255,255,255,0.08); color: var(--text); border: 1px solid var(--border); padding: 14px 28px; border-radius: 12px; font-size: 15px; font-weight: 700; cursor: pointer; width: 100%; text-decoration: none; display: block; }
     .btn-premium { background: linear-gradient(135deg, var(--purple), #7C3AED); color: white; border: none; padding: 14px 28px; border-radius: 12px; font-size: 15px; font-weight: 700; cursor: pointer; width: 100%; text-decoration: none; display: block; box-shadow: 0 4px 20px rgba(168,85,247,0.40); }
     .btn-premium:hover { opacity: 0.90; }
-
-    /* Tableau comparatif */
     .pricing { padding: 60px 24px; }
     .pricing h3 { font-size: 24px; font-weight: 700; color: var(--purple); margin-bottom: 8px; text-align: center; }
     .pricing .subtitle { text-align: center; color: var(--text-dim); font-size: 14px; margin-bottom: 40px; }
@@ -89,8 +84,6 @@
     .check { color: var(--green); font-size: 18px; }
     .cross { color: var(--red); font-size: 18px; }
     .highlight { color: var(--purple); font-weight: 600; }
-
-    /* Radio */
     .radio-section { padding: 60px 24px; background: rgba(6,182,212,0.05); border-top: 1px solid rgba(6,182,212,0.15); border-bottom: 1px solid rgba(6,182,212,0.15); }
     .radio-section h3 { font-size: 24px; font-weight: 700; color: var(--cyan); margin-bottom: 8px; text-align: center; }
     .radio-section .subtitle { text-align: center; color: var(--text-dim); font-size: 14px; margin-bottom: 32px; }
@@ -99,8 +92,6 @@
     .radio-card .radio-icon { font-size: 32px; margin-bottom: 8px; }
     .radio-card h4 { font-size: 14px; font-weight: 700; color: var(--cyan); margin-bottom: 4px; }
     .radio-card p { font-size: 12px; color: var(--text-dim); }
-
-    /* À savoir */
     .info-section { padding: 60px 24px; max-width: 900px; margin: 0 auto; }
     .info-section h3 { font-size: 24px; font-weight: 700; color: var(--purple); margin-bottom: 32px; text-align: center; }
     .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 20px; }
@@ -114,335 +105,659 @@
     .server h4 { color: var(--red); }
     .app { border-color: rgba(168,85,247,0.30); }
     .app h4 { color: var(--purple); }
-
-    /* Texte légal */
     .legal { padding: 60px 24px; max-width: 800px; margin: 0 auto; }
     .legal h3 { font-size: 24px; font-weight: 700; color: var(--purple); margin-bottom: 24px; }
     .legal h4 { font-size: 16px; font-weight: 700; color: var(--text); margin: 24px 0 8px; }
     .legal p { font-size: 14px; color: var(--text-dim); line-height: 1.7; margin-bottom: 12px; }
     .legal ul { padding-left: 20px; color: var(--text-dim); font-size: 14px; line-height: 1.7; margin-bottom: 12px; }
-
     .contact { text-align: center; padding: 60px 24px; }
     .contact h3 { font-size: 22px; font-weight: 700; color: var(--purple); margin-bottom: 12px; }
     .contact p { color: var(--text-dim); margin-bottom: 16px; }
     .contact a { color: var(--purple); text-decoration: none; font-weight: 600; }
-
     footer { text-align: center; padding: 24px; border-top: 1px solid var(--border); color: #6B7280; font-size: 12px; }
     footer a { color: var(--purple); text-decoration: none; }
-
     @media (max-width: 600px) {
       .hero h2 { font-size: 28px; }
       .pricing-table td, .pricing-table th { padding: 10px 12px; font-size: 12px; }
       .info-grid { grid-template-columns: 1fr; }
       .premium-cards { grid-template-columns: 1fr; }
+      .lang-switcher { margin-left: 0; margin-top: 8px; }
     }
-  </style>  <script>
+  </style>
+  <script>
     window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
   </script>
   <script defer src="/_vercel/insights/script.js"></script>
 </head>
 <body>
 
-  <header>
-    <span style="font-size:24px;">📺</span>
-    <h1>Phantom TV</h1>
-    <span class="badge">Lecteur Multimédia</span>
-  </header>
+<header>
+  <span style="font-size:24px;">📺</span>
+  <h1>Phantom TV</h1>
+  <span class="badge" id="header-badge">Lecteur Multimédia</span>
+</header>
 
-  <nav>
-    <a href="#features">Fonctionnalités</a>
-    <a href="#downloader">Firestick</a>
-    <a href="#radio">Radio</a>
-    <a href="#premium">Premium</a>
-    <a href="#savoir">À savoir</a>
-    <a href="#cgv">CGV</a>
-    <a href="#privacy">Confidentialité</a>
+<nav>
+  <a href="#features" data-i18n="nav-features">Fonctionnalités</a>
+  <a href="#downloader">Firestick</a>
+  <a href="#radio">Radio</a>
+  <a href="#premium">Premium</a>
+  <a href="#savoir" data-i18n="nav-savoir">À savoir</a>
+  <a href="#cgv">CGV</a>
+  <a href="#privacy" data-i18n="nav-privacy">Confidentialité</a>
+  <a href="#contact">Contact</a>
+  <a href="/guide" style="color:var(--purple);font-weight:600;">📖 Guide</a>
+  <div class="lang-switcher">
+    <button class="lang-btn active" onclick="setLang('fr')">🇫🇷 FR</button>
+    <button class="lang-btn" onclick="setLang('en')">🇬🇧 EN</button>
+    <button class="lang-btn" onclick="setLang('de')">🇩🇪 DE</button>
+    <button class="lang-btn" onclick="setLang('es')">🇪🇸 ES</button>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero" id="home">
+  <h2>Phantom TV</h2>
+  <p data-i18n="hero-sub"></p>
+  <div class="warning" data-i18n="hero-warning"></div>
+</section>
+
+<!-- Fonctionnalités -->
+<section class="section" id="features">
+  <h3 data-i18n="feat-title"></h3>
+  <div class="grid">
+    <div class="card"><div class="icon">📺</div><h4>Live TV</h4><p data-i18n="feat-live"></p></div>
+    <div class="card"><div class="icon">🎬</div><h4 data-i18n="feat-vod-title"></h4><p data-i18n="feat-vod"></p></div>
+    <div class="card"><div class="icon">📻</div><h4>Radio</h4><p data-i18n="feat-radio"></p></div>
+    <div class="card"><div class="icon">🔍</div><h4 data-i18n="feat-search-title"></h4><p data-i18n="feat-search"></p></div>
+    <div class="card"><div class="icon">👤</div><h4 data-i18n="feat-profiles-title"></h4><p data-i18n="feat-profiles"></p></div>
+    <div class="card"><div class="icon">📱</div><h4>Windows & Android</h4><p data-i18n="feat-platforms"></p></div>
+  </div>
+</section>
+
+<!-- Firestick -->
+<section class="downloader-section" id="downloader">
+  <h3>🔥 <span data-i18n="fire-title"></span></h3>
+  <p class="subtitle" data-i18n="fire-sub"></p>
+  <div class="downloader-box">
+    <ol>
+      <li data-i18n="fire-step1"></li>
+      <li><span data-i18n="fire-step2"></span>
+        <div class="downloader-code"><span>8478829</span></div>
+      </li>
+      <li data-i18n="fire-step3"></li>
+      <li data-i18n="fire-step4"></li>
+    </ol>
+    <div class="downloader-warning">
+      <strong data-i18n="fire-warn-title"></strong>
+      <p data-i18n="fire-warn-body"></p>
+    </div>
+    <p class="downloader-alt">
+      <span data-i18n="fire-alt"></span> <a href="https://github.com/phantom-tv-releases/phantom-tv-releases_public/releases/download/1.0.0%2B10/PhantomTV.apk" target="_blank" data-i18n="fire-alt-link"></a>
+    </p>
+  </div>
+</section>
+
+<!-- Radio -->
+<section class="radio-section" id="radio">
+  <h3>📻 <span data-i18n="radio-title"></span></h3>
+  <p class="subtitle" data-i18n="radio-sub"></p>
+  <div class="radio-grid">
+    <div class="radio-card"><div class="radio-icon">🇫🇷</div><h4 data-i18n="radio-fr-title"></h4><p data-i18n="radio-fr-body"></p></div>
+    <div class="radio-card"><div class="radio-icon">🌍</div><h4 data-i18n="radio-world-title"></h4><p data-i18n="radio-world-body"></p></div>
+    <div class="radio-card"><div class="radio-icon">🎵</div><h4 data-i18n="radio-genre-title"></h4><p data-i18n="radio-genre-body"></p></div>
+    <div class="radio-card"><div class="radio-icon">❤️</div><h4 data-i18n="radio-fav-title"></h4><p data-i18n="radio-fav-body"></p></div>
+  </div>
+</section>
+
+<!-- Premium -->
+<section class="premium-section" id="premium">
+  <h3 data-i18n="premium-title"></h3>
+  <p class="subtitle" data-i18n="premium-sub"></p>
+  <div class="premium-cards">
+    <div class="plan-card">
+      <h4 style="color:#9CA3AF;" data-i18n="plan-free-title"></h4>
+      <div class="price" style="color:#9CA3AF;">0€</div>
+      <div class="price-sub" data-i18n="plan-free-sub"></div>
+      <ul>
+        <li>✅ <span>Live TV</span></li>
+        <li>✅ <span data-i18n="feat-vod-title"></span></li>
+        <li>✅ <span data-i18n="plan-free-radio"></span></li>
+        <li>❌ <span data-i18n="plan-epg"></span></li>
+        <li>❌ <span data-i18n="feat-search-title"></span></li>
+        <li>❌ <span data-i18n="plan-world-radio"></span></li>
+        <li>📺 <span data-i18n="plan-ads"></span></li>
+        <li><span data-i18n="plan-free-limits"></span></li>
+      </ul>
+      <a href="mailto:contact.phantomtv@proton.me?subject=Demande clé gratuite" class="btn-free" data-i18n="plan-free-btn"></a>
+    </div>
+    <div class="plan-card premium">
+      <h4 style="color:#A855F7;">💜 Premium</h4>
+      <div class="price" style="color:#A855F7;">12,99€</div>
+      <div class="price-sub" data-i18n="premium-sub2"></div>
+      <ul>
+        <li>✅ <span>Live TV</span></li>
+        <li>✅ <span data-i18n="feat-vod-title"></span></li>
+        <li>✅ <span data-i18n="plan-epg"></span></li>
+        <li>✅ <span data-i18n="feat-search-title"></span></li>
+        <li>✅ <span data-i18n="plan-world-radio-full"></span></li>
+        <li>✅ <span data-i18n="plan-fav-unlimited"></span></li>
+        <li>✅ <span data-i18n="plan-no-ads"></span></li>
+        <li>✅ <span data-i18n="plan-multiprofile"></span></li>
+        <li>✅ <span data-i18n="plan-replay"></span></li>
+      </ul>
+      <a href="https://paypal.me/anonymous2211/12.99EUR" target="_blank" class="btn-premium">💜 <span data-i18n="plan-premium-btn"></span></a>
+    </div>
+  </div>
+  <p style="text-align:center;font-size:13px;color:#6B7280;" data-i18n="premium-instructions"></p>
+</section>
+
+<!-- Tableau comparatif -->
+<section class="pricing">
+  <h3 data-i18n="table-title"></h3>
+  <p class="subtitle" data-i18n="table-sub"></p>
+  <div class="pricing-table">
+    <table>
+      <thead>
+        <tr>
+          <th data-i18n="table-feature"></th>
+          <th class="free">🔘 <span data-i18n="plan-free-title"></span></th>
+          <th class="premium">💜 Premium</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Live TV</td><td><span class="check">✅</span></td><td><span class="check">✅</span></td></tr>
+        <tr><td data-i18n="feat-vod-title"></td><td><span class="check">✅</span></td><td><span class="check">✅</span></td></tr>
+        <tr><td data-i18n="plan-free-radio"></td><td><span class="check">✅</span></td><td><span class="check">✅</span></td></tr>
+        <tr><td data-i18n="plan-world-radio"></td><td><span class="cross">❌</span></td><td><span class="check">✅</span></td></tr>
+        <tr><td data-i18n="plan-ads"></td><td data-i18n="table-yes"></td><td><span class="check">❌</span></td></tr>
+        <tr><td data-i18n="plan-epg"></td><td><span class="cross">❌</span></td><td><span class="check">✅</span></td></tr>
+        <tr><td data-i18n="feat-search-title"></td><td><span class="cross">❌</span></td><td><span class="check">✅</span></td></tr>
+        <tr><td data-i18n="feat-profiles-title"></td><td>1</td><td><span class="highlight">3 max</span></td></tr>
+        <tr><td data-i18n="table-radio-fav"></td><td>3 max</td><td><span class="highlight" data-i18n="plan-fav-unlimited"></span></td></tr>
+        <tr><td data-i18n="table-resume"></td><td><span class="cross">❌</span></td><td><span class="check">✅</span></td></tr>
+        <tr><td data-i18n="plan-replay"></td><td><span class="cross">❌</span></td><td><span class="check">✅</span></td></tr>
+        <tr><td data-i18n="table-support"></td><td><span class="cross">❌</span></td><td><span class="check">✅</span></td></tr>
+        <tr><td data-i18n="table-price"></td><td data-i18n="plan-free-title"></td><td><span class="highlight">12,99€</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- À savoir -->
+<section class="info-section" id="savoir">
+  <h3 data-i18n="nav-savoir"></h3>
+  <div class="info-grid">
+    <div class="info-card server">
+      <h4 data-i18n="info-server-title"></h4>
+      <ul>
+        <li><span data-i18n="info-s1-key"></span> — <span data-i18n="info-s1-val"></span></li>
+        <li><span data-i18n="info-s2-key"></span> — <span data-i18n="info-s2-val"></span></li>
+        <li><span data-i18n="info-s3-key"></span> — <span data-i18n="info-s3-val"></span></li>
+        <li><span data-i18n="info-s4-key"></span> — <span data-i18n="info-s4-val"></span></li>
+        <li><span data-i18n="info-s5-key"></span> — <span data-i18n="info-s5-val"></span></li>
+        <li><span data-i18n="info-s6-key"></span> — <span data-i18n="info-s6-val"></span></li>
+        <li><span data-i18n="info-s7-key"></span> — <span data-i18n="info-s7-val"></span></li>
+        <li><span data-i18n="info-s8-key"></span> — <span data-i18n="info-s8-val"></span></li>
+        <li><span data-i18n="info-s9-key"></span> — <span data-i18n="info-s9-val"></span></li>
+        <li><span data-i18n="info-s10-key"></span> — <span data-i18n="info-s10-val"></span></li>
+      </ul>
+    </div>
+    <div class="info-card app">
+      <h4 data-i18n="info-app-title"></h4>
+      <ul>
+        <li><span data-i18n="info-a1-key"></span> — <span data-i18n="info-a1-val"></span></li>
+        <li><span data-i18n="info-a2-key"></span> — <span data-i18n="info-a2-val"></span></li>
+        <li><span data-i18n="info-a3-key"></span> — <span data-i18n="info-a3-val"></span></li>
+        <li><span data-i18n="info-a4-key"></span> — <span data-i18n="info-a4-val"></span></li>
+        <li><span data-i18n="info-a5-key"></span> — <span data-i18n="info-a5-val"></span></li>
+        <li><span data-i18n="info-a6-key"></span> — <span data-i18n="info-a6-val"></span></li>
+        <li><span data-i18n="info-a7-key"></span> — <span data-i18n="info-a7-val"></span></li>
+        <li><span data-i18n="info-a8-key"></span> — <span data-i18n="info-a8-val"></span></li>
+        <li><span data-i18n="info-a9-key"></span> — <span data-i18n="info-a9-val"></span></li>
+        <li><span data-i18n="info-a10-key"></span> — <span data-i18n="info-a10-val"></span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section class="contact" id="contact">
+  <h3 data-i18n="contact-title"></h3>
+  <p data-i18n="contact-body"></p>
+  <a href="mailto:contact.phantomtv@proton.me">contact.phantomtv@proton.me</a>
+</section>
+
+<!-- CGV (FR uniquement) -->
+<section class="legal" id="cgv">
+  <h3>Conditions Générales de Vente</h3>
+  <p>Dernière mise à jour : juillet 2026</p>
+  <h4>1. Identification du vendeur</h4>
+  <p>Phantom TV est édité par un éditeur indépendant. Pour toute question, contactez-nous à : <a href="mailto:contact.phantomtv@proton.me" style="color:#A855F7;">contact.phantomtv@proton.me</a></p>
+  <h4>2. Description du produit</h4>
+  <p>Phantom TV Premium est une licence logicielle à usage personnel, accordée à vie pour une utilisation sur un appareil Android ou Windows.</p>
+  <p>Phantom TV est un lecteur multimédia. Il ne fournit aucun contenu (chaînes, films, séries). L'accès aux contenus dépend de services tiers dont l'éditeur de Phantom TV n'est pas responsable.</p>
+  <h4>3. Prix</h4>
+  <p>Le prix de la licence Premium est de <strong>12,99 € TTC</strong>, paiement unique et définitif. Aucun abonnement ni frais récurrent.</p>
+  <h4>4. Modalités de paiement</h4>
+  <p>Le paiement s'effectue via PayPal à l'adresse : <a href="https://paypal.me/anonymous2211/12.99EUR" style="color:#A855F7;">paypal.me/anonymous2211</a></p>
+  <p>Après paiement, envoyez votre reçu PayPal à <a href="mailto:contact.phantomtv@proton.me" style="color:#A855F7;">contact.phantomtv@proton.me</a>. Votre clé d'activation Premium sera envoyée dans un délai de 24 heures ouvrées.</p>
+  <h4>5. Droit de rétractation</h4>
+  <p>Conformément à l'article L221-28 du Code de la consommation, le droit de rétractation ne peut être exercé pour les contenus numériques dont l'exécution a commencé avec l'accord du consommateur avant l'expiration du délai de rétractation.</p>
+  <p>Toutefois, si votre clé d'activation n'a pas encore été utilisée, vous pouvez exercer votre droit de rétractation dans un délai de 14 jours à compter de l'achat en contactant : <a href="mailto:contact.phantomtv@proton.me" style="color:#A855F7;">contact.phantomtv@proton.me</a></p>
+  <h4>6. Livraison</h4>
+  <p>La clé d'activation est envoyée par email dans un délai maximum de 24 heures ouvrées après réception du reçu de paiement.</p>
+  <h4>7. Garantie et support</h4>
+  <p>En cas de problème technique, contactez notre support à <a href="mailto:contact.phantomtv@proton.me" style="color:#A855F7;">contact.phantomtv@proton.me</a>. Les utilisateurs Premium bénéficient d'un support prioritaire.</p>
+  <h4>8. Responsabilité</h4>
+  <p>Phantom TV est un lecteur multimédia. L'éditeur ne peut être tenu responsable :</p>
+  <ul>
+    <li>Des contenus diffusés via des services tiers</li>
+    <li>Des interruptions de service liées aux serveurs de diffusion tiers</li>
+    <li>De l'utilisation illégale de l'application par l'utilisateur</li>
+  </ul>
+  <p>L'utilisateur s'engage à utiliser Phantom TV uniquement pour lire des contenus auxquels il a légalement accès.</p>
+  <h4>9. Propriété intellectuelle</h4>
+  <p>L'application Phantom TV, son interface et son code sont la propriété exclusive de l'éditeur. Toute reproduction, modification ou distribution non autorisée est interdite.</p>
+  <h4>10. Loi applicable</h4>
+  <p>Les présentes CGV sont soumises au droit français. En cas de litige, les tribunaux français seront compétents.</p>
+</section>
+
+<!-- Politique de confidentialité -->
+<section class="legal" id="privacy">
+  <h3 data-i18n="nav-privacy"></h3>
+  <p>Dernière mise à jour : juillet 2026</p>
+  <h4 data-i18n="priv-1-title"></h4>
+  <p data-i18n="priv-1-body"></p>
+  <h4 data-i18n="priv-2-title"></h4>
+  <p data-i18n="priv-2-body"></p>
+  <ul>
+    <li data-i18n="priv-2-li1"></li>
+    <li data-i18n="priv-2-li2"></li>
+    <li data-i18n="priv-2-li3"></li>
+    <li data-i18n="priv-2-li4"></li>
+  </ul>
+  <p data-i18n="priv-2-radio"></p>
+  <h4 data-i18n="priv-3-title"></h4>
+  <p data-i18n="priv-3-body"></p>
+  <h4 data-i18n="priv-4-title"></h4>
+  <p data-i18n="priv-4-body"></p>
+  <ul>
+    <li data-i18n="priv-4-li1"></li>
+    <li data-i18n="priv-4-li2"></li>
+    <li data-i18n="priv-4-li3"></li>
+  </ul>
+  <h4 data-i18n="priv-5-title"></h4>
+  <p data-i18n="priv-5-body"></p>
+  <h4 data-i18n="priv-6-title"></h4>
+  <p data-i18n="priv-6-body"></p>
+  <h4 data-i18n="priv-7-title"></h4>
+  <p data-i18n="priv-7-body"></p>
+  <h4 data-i18n="priv-8-title"></h4>
+  <p data-i18n="priv-8-body"></p>
+  <h4 data-i18n="priv-9-title"></h4>
+  <p data-i18n="priv-9-body"></p>
+</section>
+
+<footer>
+  <p>© 2025-2026 Phantom TV — <span data-i18n="footer-rights"></span> — 
+    <a href="#cgv">CGV</a> · 
+    <a href="#privacy" data-i18n="nav-privacy"></a> · 
     <a href="#contact">Contact</a>
-    <a href="/guide" style="color:var(--purple);font-weight:600;">📖 Guide</a>
-  </nav>
+  </p>
+</footer>
 
-  <!-- Hero -->
-  <section class="hero" id="home">
-    <h2>Phantom TV</h2>
-    <p>Lecteur multimédia avancé pour Windows et Android. Compatible avec vos serveurs de diffusion.</p>
-    <div class="warning">
-      ⚠️ <strong>Important :</strong> Phantom TV est un lecteur multimédia. L'application ne fournit aucun contenu, aucune chaîne, aucun film ni aucune série. Vous devez disposer de vos propres accès légitimes à un serveur de diffusion compatible.
-    </div>
-  </section>
+<button onclick="window.scrollTo({top:0,behavior:'smooth'})" id="backToTop" style="display:none;position:fixed;bottom:24px;right:24px;width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,#A855F7,#7C3AED);border:none;color:white;font-size:20px;cursor:pointer;box-shadow:0 4px 20px rgba(168,85,247,0.5);z-index:999;">↑</button>
 
-  <!-- Fonctionnalités -->
-  <section class="section" id="features">
-    <h3>Fonctionnalités</h3>
-    <div class="grid">
-      <div class="card"><div class="icon">📺</div><h4>Live TV</h4><p>Regardez vos chaînes en direct avec guide des programmes EPG intégré.</p></div>
-      <div class="card"><div class="icon">🎬</div><h4>Films & Séries</h4><p>Parcourez votre catalogue avec affiches, synopsis et navigation par saisons.</p></div>
-      <div class="card"><div class="icon">📻</div><h4>Radio</h4><p>Plus de 30 000 stations radio du monde entier, gratuites et en direct.</p></div>
-      <div class="card"><div class="icon">🔍</div><h4>Recherche globale</h4><p>Recherchez dans tous vos contenus simultanément.</p></div>
-      <div class="card"><div class="icon">👤</div><h4>Multi-profils</h4><p>Gérez plusieurs profils avec chiffrement AES-256.</p></div>
-      <div class="card"><div class="icon">📱</div><h4>Windows & Android</h4><p>Disponible sur PC Windows et smartphones Android.</p></div>
-    </div>
-  </section>
+<script>
+window.addEventListener('scroll', () => {
+  document.getElementById('backToTop').style.display = window.scrollY > 400 ? 'block' : 'none';
+});
 
-  <!-- Installation Firestick via Downloader -->
-  <section class="downloader-section" id="downloader">
-    <h3>🔥 Installation sur Firestick</h3>
-    <p class="subtitle">Phantom TV est aussi disponible sur Firestick via l'application <strong>Downloader</strong> (disponible <a href="https://www.amazon.com/AFTVnews-com-Downloader/dp/B01N0BP507" target="_blank" style="color:var(--amber);">ici</a>).</p>
-    <div class="downloader-box">
-      <ol>
-        <li>Installez l'application <span class="hl">Downloader</span> depuis l'Amazon Appstore sur votre Firestick</li>
-        <li>Ouvrez Downloader et entrez le code suivant :
-          <div class="downloader-code"><span>8478829</span></div>
-        </li>
-        <li>Validez et laissez le téléchargement se terminer</li>
-        <li>Appuyez sur <span class="hl">Installer</span> puis lancez Phantom TV</li>
-      </ol>
-      <div class="downloader-warning">
-        <strong>⚠️ Message "Application non installée" ?</strong>
-        <p>C'est généralement un problème d'espace de stockage insuffisant, fréquent sur les premières générations de Firestick (8 Go). Vérifiez l'espace disponible dans <span class="hl" style="color:var(--text);">Paramètres → Mon Firestick → Stockage</span> et libérez de la place si nécessaire (désinstallez des apps inutilisées, videz le cache).</p>
-      </div>
-      <p class="downloader-alt">
-        Lien alternatif direct : <a href="https://github.com/phantom-tv-releases/phantom-tv-releases_public/releases/download/1.0.0%2B10/PhantomTV.apk" target="_blank">Télécharger l'APK</a>
-      </p>
-    </div>
-  </section>
+const translations = {
+  fr: {
+    'header-badge': 'Lecteur Multimédia',
+    'nav-features': 'Fonctionnalités', 'nav-savoir': 'À savoir', 'nav-privacy': 'Confidentialité',
+    'hero-sub': 'Lecteur multimédia avancé pour Windows et Android. Compatible avec vos serveurs de diffusion.',
+    'hero-warning': '⚠️ <strong>Important :</strong> Phantom TV est un lecteur multimédia. L\'application ne fournit aucun contenu, aucune chaîne, aucun film ni aucune série. Vous devez disposer de vos propres accès légitimes à un serveur de diffusion compatible.',
+    'feat-title': 'Fonctionnalités',
+    'feat-live': 'Regardez vos chaînes en direct avec guide des programmes EPG intégré.',
+    'feat-vod-title': 'Films & Séries', 'feat-vod': 'Parcourez votre catalogue avec affiches, synopsis et navigation par saisons.',
+    'feat-radio': 'Plus de 30 000 stations radio du monde entier, gratuites et en direct.',
+    'feat-search-title': 'Recherche globale', 'feat-search': 'Recherchez dans tous vos contenus simultanément.',
+    'feat-profiles-title': 'Multi-profils', 'feat-profiles': 'Gérez plusieurs profils avec chiffrement AES-256.',
+    'feat-platforms': 'Disponible sur PC Windows et smartphones Android.',
+    'fire-title': 'Installation sur Firestick', 'fire-sub': 'Phantom TV est aussi disponible sur Firestick via l\'application <strong>Downloader</strong> (disponible <a href="https://www.amazon.com/AFTVnews-com-Downloader/dp/B01N0BP507" target="_blank" style="color:var(--amber);">ici</a>).',
+    'fire-step1': 'Installez l\'application <span class="hl">Downloader</span> depuis l\'Amazon Appstore sur votre Firestick',
+    'fire-step2': 'Ouvrez Downloader et entrez le code suivant :',
+    'fire-step3': 'Validez et laissez le téléchargement se terminer',
+    'fire-step4': 'Appuyez sur <span class="hl">Installer</span> puis lancez Phantom TV',
+    'fire-warn-title': '⚠️ Message "Application non installée" ?',
+    'fire-warn-body': 'C\'est généralement un problème d\'espace de stockage insuffisant. Vérifiez l\'espace disponible dans <span class="hl" style="color:var(--text);">Paramètres → Mon Firestick → Stockage</span> et libérez de la place si nécessaire.',
+    'fire-alt': 'Lien alternatif direct :', 'fire-alt-link': 'Télécharger l\'APK',
+    'radio-title': 'Radio intégrée', 'radio-sub': 'Plus de 30 000 stations radio du monde entier, directement dans l\'application',
+    'radio-fr-title': 'Radios françaises', 'radio-fr-body': 'RTL, NRJ, Europe 1, France Inter, Skyrock et bien plus',
+    'radio-world-title': 'Radios mondiales', 'radio-world-body': 'BBC, RFI, stations américaines, européennes... (Premium)',
+    'radio-genre-title': 'Par genre', 'radio-genre-body': 'Pop, Rock, Jazz, Classique, News, Sport...',
+    'radio-fav-title': 'Favoris', 'radio-fav-body': 'Sauvegardez vos stations préférées pour y accéder rapidement',
+    'premium-title': 'Choisissez votre plan', 'premium-sub': 'Paiement unique · Aucun abonnement · À vie',
+    'premium-sub2': 'Paiement unique · À vie',
+    'plan-free-title': 'Gratuit', 'plan-free-sub': 'Pour toujours',
+    'plan-free-radio': 'Radios françaises', 'plan-epg': 'Guide TV (EPG)', 'plan-world-radio': 'Radios mondiales (30 000+)',
+    'plan-ads': 'Publicités', 'plan-free-limits': '1 profil · 3 favoris radio',
+    'plan-free-btn': 'Obtenir gratuitement',
+    'plan-world-radio-full': '30 000+ radios mondiales', 'plan-fav-unlimited': 'Favoris illimités',
+    'plan-no-ads': 'Sans publicité', 'plan-multiprofile': 'Multi-profils · Support prioritaire',
+    'plan-replay': 'Replay (chaînes compatibles)',
+    'plan-premium-btn': 'Acheter pour 12,99€',
+    'premium-instructions': 'Après votre paiement, envoyez votre reçu PayPal à <a href="mailto:contact.phantomtv@proton.me" style="color:#A855F7;">contact.phantomtv@proton.me</a> et votre clé Premium sera activée sous 24h.',
+    'table-title': 'Comparatif détaillé', 'table-sub': 'Gratuit vs Premium',
+    'table-feature': 'Fonctionnalité', 'table-yes': '📺 Oui', 'table-radio-fav': 'Favoris radio',
+    'table-resume': 'Reprise automatique', 'table-support': 'Support prioritaire', 'table-price': 'Prix',
+    'info-server-title': '🖥️ Géré par votre serveur de diffusion',
+    'info-s1-key': 'Replay', 'info-s1-val': 'Nombre de jours disponibles fixé par votre fournisseur (Premium, selon compatibilité de la chaîne)',
+    'info-s2-key': 'Qualité vidéo', 'info-s2-val': 'SD, HD, FHD, 4K selon ce que le serveur envoie',
+    'info-s3-key': 'Guide TV (EPG)', 'info-s3-val': 'Informations des programmes et leur disponibilité',
+    'info-s4-key': 'Chargement lent', 'info-s4-val': 'Serveur surchargé ou connexion internet insuffisante',
+    'info-s5-key': 'Coupures / Buffering', 'info-s5-val': 'Bande passante insuffisante du serveur ou du client',
+    'info-s6-key': 'Chaînes manquantes', 'info-s6-val': 'Le fournisseur n\'a pas ajouté la chaîne',
+    'info-s7-key': 'Catégories', 'info-s7-val': 'Organisées et nommées par le fournisseur',
+    'info-s8-key': 'Logos des chaînes', 'info-s8-val': 'Fournis par le serveur',
+    'info-s9-key': 'Sous-titres', 'info-s9-val': 'Disponibles uniquement si le flux les inclut',
+    'info-s10-key': 'Audio multilingue', 'info-s10-val': 'Dépend du contenu du flux',
+    'info-app-title': '📱 Géré par Phantom TV',
+    'info-a1-key': 'Interface', 'info-a1-val': 'Navigation, design et ergonomie de l\'application',
+    'info-a2-key': 'Favoris', 'info-a2-val': 'Sauvegarde de vos chaînes, films et séries préférés',
+    'info-a3-key': 'Groupes', 'info-a3-val': 'Création de groupes de chaînes personnalisés',
+    'info-a4-key': 'Radio', 'info-a4-val': '30 000+ stations intégrées via Radio Browser',
+    'info-a5-key': 'Recherche', 'info-a5-val': 'Recherche globale dans vos contenus',
+    'info-a6-key': 'Reprise automatique', 'info-a6-val': 'Mémorisation de votre position de lecture',
+    'info-a7-key': 'Multi-profils', 'info-a7-val': 'Gestion de plusieurs connexions sécurisées',
+    'info-a8-key': 'Tri A→Z', 'info-a8-val': 'Classement alphabétique des chaînes et contenus',
+    'info-a9-key': 'Guide TV intégré', 'info-a9-val': 'Affichage et navigation dans l\'EPG',
+    'info-a10-key': 'Mises à jour', 'info-a10-val': 'Nouvelles fonctionnalités régulières',
+    'contact-title': 'Contact & Support', 'contact-body': 'Pour obtenir votre clé d\'activation ou pour toute question :',
+    'priv-1-title': '1. Nature de l\'application', 'priv-1-body': 'Phantom TV est un lecteur multimédia. L\'application ne fournit aucun contenu et ne collecte aucune donnée personnelle à des fins commerciales.',
+    'priv-2-title': '2. Données collectées', 'priv-2-body': 'Phantom TV collecte les données techniques suivantes, strictement nécessaires au fonctionnement du service :',
+    'priv-2-li1': 'Identifiant unique de l\'appareil (généré localement, non lié à votre identité)',
+    'priv-2-li2': 'Statut de la licence d\'activation',
+    'priv-2-li3': 'Indicateur de présence en temps réel (connecté/déconnecté), effacé à la fermeture',
+    'priv-2-li4': 'Titre du contenu en cours de lecture, effacé automatiquement à la fermeture du lecteur',
+    'priv-2-radio': 'La section Radio utilise l\'API publique Radio Browser. Aucune donnée personnelle n\'est transmise à ce service.',
+    'priv-3-title': '3. Données de paiement', 'priv-3-body': 'Les paiements sont traités via PayPal. Phantom TV ne collecte ni ne stocke vos données bancaires. Ces données sont gérées exclusivement par PayPal.',
+    'priv-4-title': '4. Utilisation des données', 'priv-4-body': 'Les données collectées sont utilisées uniquement pour :',
+    'priv-4-li1': 'Vérifier la validité de la licence d\'activation',
+    'priv-4-li2': 'Garantir qu\'un seul appareil utilise la licence simultanément',
+    'priv-4-li3': 'Permettre la gestion du service par l\'éditeur',
+    'priv-5-title': '5. Conservation des données', 'priv-5-body': 'Les données de présence et de contenu en cours de lecture sont effacées automatiquement à la fermeture de l\'application. Les données de licence sont conservées tant que votre compte est actif.',
+    'priv-6-title': '6. Partage des données', 'priv-6-body': 'Aucune donnée personnelle n\'est partagée avec des tiers à des fins commerciales. Les données techniques sont stockées sur nos serveurs (Supabase, infrastructure européenne).',
+    'priv-7-title': '7. Publicité', 'priv-7-body': 'La version gratuite affiche des publicités via Google AdMob. Google peut collecter certaines données conformément à sa propre politique de confidentialité. La version Premium ne contient aucune publicité.',
+    'priv-8-title': '8. Droits des utilisateurs (RGPD)', 'priv-8-body': 'Conformément au RGPD, vous disposez d\'un droit d\'accès, de rectification et de suppression de vos données. Pour exercer ces droits, contactez-nous à : contact.phantomtv@proton.me',
+    'priv-9-title': '9. Contact', 'priv-9-body': 'Pour toute question relative à la confidentialité : contact.phantomtv@proton.me',
+    'footer-rights': 'Tous droits réservés',
+  },
+  en: {
+    'header-badge': 'Media Player',
+    'nav-features': 'Features', 'nav-savoir': 'Good to know', 'nav-privacy': 'Privacy',
+    'hero-sub': 'Advanced media player for Windows and Android. Compatible with your streaming servers.',
+    'hero-warning': '⚠️ <strong>Important:</strong> Phantom TV is a media player. The application does not provide any content, channels, movies or series. You must have your own legitimate access to a compatible streaming server.',
+    'feat-title': 'Features',
+    'feat-live': 'Watch your live channels with integrated EPG program guide.',
+    'feat-vod-title': 'Movies & Series', 'feat-vod': 'Browse your catalog with posters, synopses and season navigation.',
+    'feat-radio': 'Over 30,000 radio stations from around the world, free and live.',
+    'feat-search-title': 'Global search', 'feat-search': 'Search across all your content simultaneously.',
+    'feat-profiles-title': 'Multi-profiles', 'feat-profiles': 'Manage multiple profiles with AES-256 encryption.',
+    'feat-platforms': 'Available on Windows PC and Android smartphones.',
+    'fire-title': 'Firestick Installation', 'fire-sub': 'Phantom TV is also available on Firestick via the <strong>Downloader</strong> app (available <a href="https://www.amazon.com/AFTVnews-com-Downloader/dp/B01N0BP507" target="_blank" style="color:var(--amber);">here</a>).',
+    'fire-step1': 'Install the <span class="hl">Downloader</span> app from the Amazon Appstore on your Firestick',
+    'fire-step2': 'Open Downloader and enter the following code:',
+    'fire-step3': 'Confirm and let the download complete',
+    'fire-step4': 'Press <span class="hl">Install</span> then launch Phantom TV',
+    'fire-warn-title': '⚠️ "App not installed" message?',
+    'fire-warn-body': 'This is usually an insufficient storage space issue. Check available space in <span class="hl" style="color:var(--text);">Settings → My Firestick → Storage</span> and free up space if necessary.',
+    'fire-alt': 'Direct alternative link:', 'fire-alt-link': 'Download APK',
+    'radio-title': 'Built-in Radio', 'radio-sub': 'Over 30,000 radio stations from around the world, directly in the app',
+    'radio-fr-title': 'French Stations', 'radio-fr-body': 'RTL, NRJ, Europe 1, France Inter, Skyrock and more',
+    'radio-world-title': 'World Stations', 'radio-world-body': 'BBC, RFI, American, European stations... (Premium)',
+    'radio-genre-title': 'By genre', 'radio-genre-body': 'Pop, Rock, Jazz, Classical, News, Sport...',
+    'radio-fav-title': 'Favourites', 'radio-fav-body': 'Save your favourite stations for quick access',
+    'premium-title': 'Choose your plan', 'premium-sub': 'One-time payment · No subscription · Lifetime',
+    'premium-sub2': 'One-time payment · Lifetime',
+    'plan-free-title': 'Free', 'plan-free-sub': 'Forever',
+    'plan-free-radio': 'French radio stations', 'plan-epg': 'TV Guide (EPG)', 'plan-world-radio': 'World radio (30,000+)',
+    'plan-ads': 'Ads', 'plan-free-limits': '1 profile · 3 radio favourites',
+    'plan-free-btn': 'Get for free',
+    'plan-world-radio-full': '30,000+ world radio stations', 'plan-fav-unlimited': 'Unlimited favourites',
+    'plan-no-ads': 'Ad-free', 'plan-multiprofile': 'Multi-profiles · Priority support',
+    'plan-replay': 'Replay (compatible channels)',
+    'plan-premium-btn': 'Buy for €12.99',
+    'premium-instructions': 'After your payment, send your PayPal receipt to <a href="mailto:contact.phantomtv@proton.me" style="color:#A855F7;">contact.phantomtv@proton.me</a> and your Premium key will be activated within 24h.',
+    'table-title': 'Detailed comparison', 'table-sub': 'Free vs Premium',
+    'table-feature': 'Feature', 'table-yes': '📺 Yes', 'table-radio-fav': 'Radio favourites',
+    'table-resume': 'Auto resume', 'table-support': 'Priority support', 'table-price': 'Price',
+    'info-server-title': '🖥️ Managed by your streaming server',
+    'info-s1-key': 'Replay', 'info-s1-val': 'Days available set by your provider (Premium, depending on channel compatibility)',
+    'info-s2-key': 'Video quality', 'info-s2-val': 'SD, HD, FHD, 4K depending on what the server sends',
+    'info-s3-key': 'TV Guide (EPG)', 'info-s3-val': 'Program information and availability',
+    'info-s4-key': 'Slow loading', 'info-s4-val': 'Overloaded server or insufficient internet connection',
+    'info-s5-key': 'Buffering', 'info-s5-val': 'Insufficient bandwidth from server or client',
+    'info-s6-key': 'Missing channels', 'info-s6-val': 'The provider hasn\'t added the channel',
+    'info-s7-key': 'Categories', 'info-s7-val': 'Organized and named by the provider',
+    'info-s8-key': 'Channel logos', 'info-s8-val': 'Provided by the server',
+    'info-s9-key': 'Subtitles', 'info-s9-val': 'Available only if the stream includes them',
+    'info-s10-key': 'Multilingual audio', 'info-s10-val': 'Depends on the stream content',
+    'info-app-title': '📱 Managed by Phantom TV',
+    'info-a1-key': 'Interface', 'info-a1-val': 'Navigation, design and ergonomics of the app',
+    'info-a2-key': 'Favourites', 'info-a2-val': 'Save your favourite channels, movies and series',
+    'info-a3-key': 'Groups', 'info-a3-val': 'Create custom channel groups',
+    'info-a4-key': 'Radio', 'info-a4-val': '30,000+ stations integrated via Radio Browser',
+    'info-a5-key': 'Search', 'info-a5-val': 'Global search across your content',
+    'info-a6-key': 'Auto resume', 'info-a6-val': 'Remembers your playback position',
+    'info-a7-key': 'Multi-profiles', 'info-a7-val': 'Manage multiple secure connections',
+    'info-a8-key': 'A→Z sort', 'info-a8-val': 'Alphabetical sorting of channels and content',
+    'info-a9-key': 'Integrated TV guide', 'info-a9-val': 'Display and navigation in EPG',
+    'info-a10-key': 'Updates', 'info-a10-val': 'Regular new features',
+    'contact-title': 'Contact & Support', 'contact-body': 'To get your activation key or for any question:',
+    'priv-1-title': '1. Nature of the application', 'priv-1-body': 'Phantom TV is a media player. The application does not provide any content and does not collect personal data for commercial purposes.',
+    'priv-2-title': '2. Data collected', 'priv-2-body': 'Phantom TV collects the following technical data, strictly necessary for the service to function:',
+    'priv-2-li1': 'Unique device identifier (locally generated, not linked to your identity)',
+    'priv-2-li2': 'Activation license status',
+    'priv-2-li3': 'Real-time presence indicator (connected/disconnected), cleared on close',
+    'priv-2-li4': 'Title of content being played, automatically cleared when the player closes',
+    'priv-2-radio': 'The Radio section uses the public Radio Browser API. No personal data is transmitted to this service.',
+    'priv-3-title': '3. Payment data', 'priv-3-body': 'Payments are processed via PayPal. Phantom TV does not collect or store your banking data. This data is managed exclusively by PayPal.',
+    'priv-4-title': '4. Use of data', 'priv-4-body': 'The collected data is used solely to:',
+    'priv-4-li1': 'Verify the validity of the activation license',
+    'priv-4-li2': 'Ensure only one device uses the license simultaneously',
+    'priv-4-li3': 'Allow service management by the publisher',
+    'priv-5-title': '5. Data retention', 'priv-5-body': 'Presence and playback data are automatically deleted when the app closes. License data is retained while your account is active.',
+    'priv-6-title': '6. Data sharing', 'priv-6-body': 'No personal data is shared with third parties for commercial purposes. Technical data is stored securely on our servers (Supabase, European infrastructure).',
+    'priv-7-title': '7. Advertising', 'priv-7-body': 'The free version displays ads via Google AdMob. Google may collect certain data in accordance with its own privacy policy. The Premium version contains no ads.',
+    'priv-8-title': '8. User rights (GDPR)', 'priv-8-body': 'Under GDPR, you have the right to access, correct and delete your data. To exercise these rights, contact us at: contact.phantomtv@proton.me',
+    'priv-9-title': '9. Contact', 'priv-9-body': 'For any privacy-related questions: contact.phantomtv@proton.me',
+    'footer-rights': 'All rights reserved',
+  },
+  de: {
+    'header-badge': 'Media Player',
+    'nav-features': 'Funktionen', 'nav-savoir': 'Gut zu wissen', 'nav-privacy': 'Datenschutz',
+    'hero-sub': 'Erweiterter Media Player für Windows und Android. Kompatibel mit Ihren Streaming-Servern.',
+    'hero-warning': '⚠️ <strong>Wichtig:</strong> Phantom TV ist ein Media Player. Die App stellt keine Inhalte, Kanäle, Filme oder Serien bereit. Sie müssen über eigenen legitimen Zugang zu einem kompatiblen Streaming-Server verfügen.',
+    'feat-title': 'Funktionen',
+    'feat-live': 'Schauen Sie Live-TV mit integriertem EPG-Programmführer.',
+    'feat-vod-title': 'Filme & Serien', 'feat-vod': 'Durchsuchen Sie Ihren Katalog mit Postern, Synopsen und Staffelnavigation.',
+    'feat-radio': 'Über 30.000 Radiosender aus aller Welt, kostenlos und live.',
+    'feat-search-title': 'Globale Suche', 'feat-search': 'Durchsuchen Sie alle Ihre Inhalte gleichzeitig.',
+    'feat-profiles-title': 'Multi-Profile', 'feat-profiles': 'Verwalten Sie mehrere Profile mit AES-256-Verschlüsselung.',
+    'feat-platforms': 'Verfügbar auf Windows-PC und Android-Smartphones.',
+    'fire-title': 'Firestick-Installation', 'fire-sub': 'Phantom TV ist auch auf dem Firestick über die <strong>Downloader</strong>-App verfügbar (verfügbar <a href="https://www.amazon.com/AFTVnews-com-Downloader/dp/B01N0BP507" target="_blank" style="color:var(--amber);">hier</a>).',
+    'fire-step1': 'Installieren Sie die <span class="hl">Downloader</span>-App aus dem Amazon Appstore auf Ihrem Firestick',
+    'fire-step2': 'Öffnen Sie Downloader und geben Sie folgenden Code ein:',
+    'fire-step3': 'Bestätigen und den Download abschließen lassen',
+    'fire-step4': 'Drücken Sie <span class="hl">Installieren</span> und starten Sie Phantom TV',
+    'fire-warn-title': '⚠️ Meldung "App nicht installiert"?',
+    'fire-warn-body': 'Dies ist normalerweise ein Problem mit unzureichendem Speicherplatz. Überprüfen Sie den verfügbaren Speicher unter <span class="hl" style="color:var(--text);">Einstellungen → Mein Firestick → Speicher</span>.',
+    'fire-alt': 'Direkter alternativer Link:', 'fire-alt-link': 'APK herunterladen',
+    'radio-title': 'Integriertes Radio', 'radio-sub': 'Über 30.000 Radiosender aus aller Welt, direkt in der App',
+    'radio-fr-title': 'Französische Sender', 'radio-fr-body': 'RTL, NRJ, Europe 1, France Inter, Skyrock und mehr',
+    'radio-world-title': 'Weltsender', 'radio-world-body': 'BBC, RFI, amerikanische, europäische Sender... (Premium)',
+    'radio-genre-title': 'Nach Genre', 'radio-genre-body': 'Pop, Rock, Jazz, Klassik, News, Sport...',
+    'radio-fav-title': 'Favoriten', 'radio-fav-body': 'Speichern Sie Ihre Lieblingssender für schnellen Zugriff',
+    'premium-title': 'Wählen Sie Ihren Plan', 'premium-sub': 'Einmalzahlung · Kein Abonnement · Lebenslang',
+    'premium-sub2': 'Einmalzahlung · Lebenslang',
+    'plan-free-title': 'Kostenlos', 'plan-free-sub': 'Für immer',
+    'plan-free-radio': 'Französische Radiosender', 'plan-epg': 'TV-Guide (EPG)', 'plan-world-radio': 'Weltradiostationen (30.000+)',
+    'plan-ads': 'Werbung', 'plan-free-limits': '1 Profil · 3 Radio-Favoriten',
+    'plan-free-btn': 'Kostenlos erhalten',
+    'plan-world-radio-full': '30.000+ Weltradiosender', 'plan-fav-unlimited': 'Unbegrenzte Favoriten',
+    'plan-no-ads': 'Werbefrei', 'plan-multiprofile': 'Multi-Profile · Prioritäts-Support',
+    'plan-replay': 'Replay (kompatible Kanäle)',
+    'plan-premium-btn': 'Für 12,99€ kaufen',
+    'premium-instructions': 'Nach Ihrer Zahlung senden Sie Ihren PayPal-Beleg an <a href="mailto:contact.phantomtv@proton.me" style="color:#A855F7;">contact.phantomtv@proton.me</a> und Ihr Premium-Schlüssel wird innerhalb von 24h aktiviert.',
+    'table-title': 'Detaillierter Vergleich', 'table-sub': 'Kostenlos vs Premium',
+    'table-feature': 'Funktion', 'table-yes': '📺 Ja', 'table-radio-fav': 'Radio-Favoriten',
+    'table-resume': 'Automatische Fortsetzung', 'table-support': 'Prioritäts-Support', 'table-price': 'Preis',
+    'info-server-title': '🖥️ Verwaltet von Ihrem Streaming-Server',
+    'info-s1-key': 'Replay', 'info-s1-val': 'Verfügbare Tage vom Anbieter festgelegt (Premium)',
+    'info-s2-key': 'Videoqualität', 'info-s2-val': 'SD, HD, FHD, 4K je nach Serverübertragung',
+    'info-s3-key': 'TV-Guide (EPG)', 'info-s3-val': 'Programminformationen und Verfügbarkeit',
+    'info-s4-key': 'Langsames Laden', 'info-s4-val': 'Überlasteter Server oder unzureichende Internetverbindung',
+    'info-s5-key': 'Puffern', 'info-s5-val': 'Unzureichende Bandbreite vom Server oder Client',
+    'info-s6-key': 'Fehlende Kanäle', 'info-s6-val': 'Der Anbieter hat den Kanal nicht hinzugefügt',
+    'info-s7-key': 'Kategorien', 'info-s7-val': 'Vom Anbieter organisiert und benannt',
+    'info-s8-key': 'Kanal-Logos', 'info-s8-val': 'Vom Server bereitgestellt',
+    'info-s9-key': 'Untertitel', 'info-s9-val': 'Nur verfügbar wenn im Stream enthalten',
+    'info-s10-key': 'Mehrsprachiger Ton', 'info-s10-val': 'Hängt vom Stream-Inhalt ab',
+    'info-app-title': '📱 Verwaltet von Phantom TV',
+    'info-a1-key': 'Oberfläche', 'info-a1-val': 'Navigation, Design und Ergonomie der App',
+    'info-a2-key': 'Favoriten', 'info-a2-val': 'Speichern Sie Ihre Lieblingskanäle, Filme und Serien',
+    'info-a3-key': 'Gruppen', 'info-a3-val': 'Benutzerdefinierte Kanalgruppen erstellen',
+    'info-a4-key': 'Radio', 'info-a4-val': '30.000+ Sender über Radio Browser integriert',
+    'info-a5-key': 'Suche', 'info-a5-val': 'Globale Suche in Ihren Inhalten',
+    'info-a6-key': 'Automatische Fortsetzung', 'info-a6-val': 'Merkt sich Ihre Wiedergabeposition',
+    'info-a7-key': 'Multi-Profile', 'info-a7-val': 'Mehrere sichere Verbindungen verwalten',
+    'info-a8-key': 'A→Z Sortierung', 'info-a8-val': 'Alphabetische Sortierung von Kanälen und Inhalten',
+    'info-a9-key': 'Integrierter TV-Guide', 'info-a9-val': 'Anzeige und Navigation im EPG',
+    'info-a10-key': 'Updates', 'info-a10-val': 'Regelmäßige neue Funktionen',
+    'contact-title': 'Kontakt & Support', 'contact-body': 'Um Ihren Aktivierungsschlüssel zu erhalten oder bei Fragen:',
+    'priv-1-title': '1. Art der Anwendung', 'priv-1-body': 'Phantom TV ist ein Media Player. Die App stellt keine Inhalte bereit und sammelt keine personenbezogenen Daten zu kommerziellen Zwecken.',
+    'priv-2-title': '2. Erhobene Daten', 'priv-2-body': 'Phantom TV erhebt folgende technische Daten, die für den Betrieb des Dienstes unbedingt erforderlich sind:',
+    'priv-2-li1': 'Eindeutige Gerätekennung (lokal generiert, nicht mit Ihrer Identität verknüpft)',
+    'priv-2-li2': 'Aktivierungslizenzstatus',
+    'priv-2-li3': 'Echtzeit-Präsenzindikator (verbunden/getrennt), beim Schließen gelöscht',
+    'priv-2-li4': 'Titel des aktuell abgespielten Inhalts, beim Schließen des Players automatisch gelöscht',
+    'priv-2-radio': 'Der Radio-Bereich verwendet die öffentliche Radio Browser API. Es werden keine personenbezogenen Daten an diesen Dienst übertragen.',
+    'priv-3-title': '3. Zahlungsdaten', 'priv-3-body': 'Zahlungen werden über PayPal abgewickelt. Phantom TV erhebt oder speichert keine Bankdaten. Diese Daten werden ausschließlich von PayPal verwaltet.',
+    'priv-4-title': '4. Verwendung der Daten', 'priv-4-body': 'Die erhobenen Daten werden ausschließlich verwendet, um:',
+    'priv-4-li1': 'Die Gültigkeit der Aktivierungslizenz zu überprüfen',
+    'priv-4-li2': 'Sicherzustellen, dass nur ein Gerät die Lizenz gleichzeitig nutzt',
+    'priv-4-li3': 'Die Dienstverwaltung durch den Herausgeber zu ermöglichen',
+    'priv-5-title': '5. Datenspeicherung', 'priv-5-body': 'Präsenz- und Wiedergabedaten werden beim Schließen der App automatisch gelöscht. Lizenzdaten werden gespeichert, solange Ihr Konto aktiv ist.',
+    'priv-6-title': '6. Datenweitergabe', 'priv-6-body': 'Keine personenbezogenen Daten werden zu kommerziellen Zwecken an Dritte weitergegeben. Technische Daten werden sicher auf unseren Servern gespeichert (Supabase, europäische Infrastruktur).',
+    'priv-7-title': '7. Werbung', 'priv-7-body': 'Die kostenlose Version zeigt Werbung über Google AdMob an. Die Premium-Version enthält keine Werbung.',
+    'priv-8-title': '8. Nutzerrechte (DSGVO)', 'priv-8-body': 'Gemäß DSGVO haben Sie das Recht auf Zugang, Berichtigung und Löschung Ihrer Daten. Kontaktieren Sie uns unter: contact.phantomtv@proton.me',
+    'priv-9-title': '9. Kontakt', 'priv-9-body': 'Bei datenschutzbezogenen Fragen: contact.phantomtv@proton.me',
+    'footer-rights': 'Alle Rechte vorbehalten',
+  },
+  es: {
+    'header-badge': 'Reproductor Multimedia',
+    'nav-features': 'Funciones', 'nav-savoir': 'Bueno saber', 'nav-privacy': 'Privacidad',
+    'hero-sub': 'Reproductor multimedia avanzado para Windows y Android. Compatible con sus servidores de streaming.',
+    'hero-warning': '⚠️ <strong>Importante:</strong> Phantom TV es un reproductor multimedia. La aplicación no proporciona ningún contenido, canales, películas ni series. Debe tener su propio acceso legítimo a un servidor de streaming compatible.',
+    'feat-title': 'Funciones',
+    'feat-live': 'Vea sus canales en directo con guía de programas EPG integrada.',
+    'feat-vod-title': 'Películas y Series', 'feat-vod': 'Explore su catálogo con pósters, sinopsis y navegación por temporadas.',
+    'feat-radio': 'Más de 30.000 emisoras de radio de todo el mundo, gratuitas y en directo.',
+    'feat-search-title': 'Búsqueda global', 'feat-search': 'Busque en todos sus contenidos simultáneamente.',
+    'feat-profiles-title': 'Multi-perfiles', 'feat-profiles': 'Gestione varios perfiles con cifrado AES-256.',
+    'feat-platforms': 'Disponible en PC Windows y smartphones Android.',
+    'fire-title': 'Instalación en Firestick', 'fire-sub': 'Phantom TV también está disponible en Firestick a través de la aplicación <strong>Downloader</strong> (disponible <a href="https://www.amazon.com/AFTVnews-com-Downloader/dp/B01N0BP507" target="_blank" style="color:var(--amber);">aquí</a>).',
+    'fire-step1': 'Instale la aplicación <span class="hl">Downloader</span> desde Amazon Appstore en su Firestick',
+    'fire-step2': 'Abra Downloader e introduzca el siguiente código:',
+    'fire-step3': 'Confirme y deje que se complete la descarga',
+    'fire-step4': 'Pulse <span class="hl">Instalar</span> y lance Phantom TV',
+    'fire-warn-title': '⚠️ ¿Mensaje "Aplicación no instalada"?',
+    'fire-warn-body': 'Suele ser un problema de espacio de almacenamiento insuficiente. Compruebe el espacio disponible en <span class="hl" style="color:var(--text);">Configuración → Mi Firestick → Almacenamiento</span>.',
+    'fire-alt': 'Enlace directo alternativo:', 'fire-alt-link': 'Descargar APK',
+    'radio-title': 'Radio integrada', 'radio-sub': 'Más de 30.000 emisoras de radio de todo el mundo, directamente en la aplicación',
+    'radio-fr-title': 'Emisoras francesas', 'radio-fr-body': 'RTL, NRJ, Europe 1, France Inter, Skyrock y más',
+    'radio-world-title': 'Emisoras mundiales', 'radio-world-body': 'BBC, RFI, emisoras americanas, europeas... (Premium)',
+    'radio-genre-title': 'Por género', 'radio-genre-body': 'Pop, Rock, Jazz, Clásica, Noticias, Deporte...',
+    'radio-fav-title': 'Favoritos', 'radio-fav-body': 'Guarde sus emisoras favoritas para acceso rápido',
+    'premium-title': 'Elija su plan', 'premium-sub': 'Pago único · Sin suscripción · De por vida',
+    'premium-sub2': 'Pago único · De por vida',
+    'plan-free-title': 'Gratis', 'plan-free-sub': 'Para siempre',
+    'plan-free-radio': 'Emisoras francesas', 'plan-epg': 'Guía TV (EPG)', 'plan-world-radio': 'Radio mundial (30.000+)',
+    'plan-ads': 'Publicidad', 'plan-free-limits': '1 perfil · 3 favoritos de radio',
+    'plan-free-btn': 'Obtener gratis',
+    'plan-world-radio-full': '30.000+ emisoras mundiales', 'plan-fav-unlimited': 'Favoritos ilimitados',
+    'plan-no-ads': 'Sin publicidad', 'plan-multiprofile': 'Multi-perfiles · Soporte prioritario',
+    'plan-replay': 'Replay (canales compatibles)',
+    'plan-premium-btn': 'Comprar por 12,99€',
+    'premium-instructions': 'Tras su pago, envíe su recibo de PayPal a <a href="mailto:contact.phantomtv@proton.me" style="color:#A855F7;">contact.phantomtv@proton.me</a> y su clave Premium se activará en 24h.',
+    'table-title': 'Comparativa detallada', 'table-sub': 'Gratis vs Premium',
+    'table-feature': 'Función', 'table-yes': '📺 Sí', 'table-radio-fav': 'Favoritos de radio',
+    'table-resume': 'Reanudación automática', 'table-support': 'Soporte prioritario', 'table-price': 'Precio',
+    'info-server-title': '🖥️ Gestionado por su servidor de streaming',
+    'info-s1-key': 'Replay', 'info-s1-val': 'Días disponibles fijados por su proveedor (Premium)',
+    'info-s2-key': 'Calidad de vídeo', 'info-s2-val': 'SD, HD, FHD, 4K según lo que envíe el servidor',
+    'info-s3-key': 'Guía TV (EPG)', 'info-s3-val': 'Información de programas y disponibilidad',
+    'info-s4-key': 'Carga lenta', 'info-s4-val': 'Servidor sobrecargado o conexión insuficiente',
+    'info-s5-key': 'Buffering', 'info-s5-val': 'Ancho de banda insuficiente del servidor o cliente',
+    'info-s6-key': 'Canales faltantes', 'info-s6-val': 'El proveedor no ha añadido el canal',
+    'info-s7-key': 'Categorías', 'info-s7-val': 'Organizadas y nombradas por el proveedor',
+    'info-s8-key': 'Logos de canales', 'info-s8-val': 'Proporcionados por el servidor',
+    'info-s9-key': 'Subtítulos', 'info-s9-val': 'Disponibles solo si el stream los incluye',
+    'info-s10-key': 'Audio multilingüe', 'info-s10-val': 'Depende del contenido del stream',
+    'info-app-title': '📱 Gestionado por Phantom TV',
+    'info-a1-key': 'Interfaz', 'info-a1-val': 'Navegación, diseño y ergonomía de la app',
+    'info-a2-key': 'Favoritos', 'info-a2-val': 'Guarde sus canales, películas y series favoritas',
+    'info-a3-key': 'Grupos', 'info-a3-val': 'Crear grupos de canales personalizados',
+    'info-a4-key': 'Radio', 'info-a4-val': '30.000+ emisoras integradas via Radio Browser',
+    'info-a5-key': 'Búsqueda', 'info-a5-val': 'Búsqueda global en sus contenidos',
+    'info-a6-key': 'Reanudación automática', 'info-a6-val': 'Recuerda su posición de reproducción',
+    'info-a7-key': 'Multi-perfiles', 'info-a7-val': 'Gestionar varias conexiones seguras',
+    'info-a8-key': 'Orden A→Z', 'info-a8-val': 'Ordenación alfabética de canales y contenidos',
+    'info-a9-key': 'Guía TV integrada', 'info-a9-val': 'Visualización y navegación en el EPG',
+    'info-a10-key': 'Actualizaciones', 'info-a10-val': 'Nuevas funciones regulares',
+    'contact-title': 'Contacto y Soporte', 'contact-body': 'Para obtener su clave de activación o cualquier consulta:',
+    'priv-1-title': '1. Naturaleza de la aplicación', 'priv-1-body': 'Phantom TV es un reproductor multimedia. La aplicación no proporciona contenidos y no recopila datos personales con fines comerciales.',
+    'priv-2-title': '2. Datos recopilados', 'priv-2-body': 'Phantom TV recopila los siguientes datos técnicos, estrictamente necesarios para el funcionamiento del servicio:',
+    'priv-2-li1': 'Identificador único del dispositivo (generado localmente, no vinculado a su identidad)',
+    'priv-2-li2': 'Estado de la licencia de activación',
+    'priv-2-li3': 'Indicador de presencia en tiempo real (conectado/desconectado), borrado al cerrar',
+    'priv-2-li4': 'Título del contenido en reproducción, borrado automáticamente al cerrar el reproductor',
+    'priv-2-radio': 'La sección Radio usa la API pública Radio Browser. No se transmiten datos personales a este servicio.',
+    'priv-3-title': '3. Datos de pago', 'priv-3-body': 'Los pagos se procesan a través de PayPal. Phantom TV no recopila ni almacena sus datos bancarios. Estos datos son gestionados exclusivamente por PayPal.',
+    'priv-4-title': '4. Uso de datos', 'priv-4-body': 'Los datos recopilados se usan únicamente para:',
+    'priv-4-li1': 'Verificar la validez de la licencia de activación',
+    'priv-4-li2': 'Garantizar que solo un dispositivo use la licencia simultáneamente',
+    'priv-4-li3': 'Permitir la gestión del servicio por el editor',
+    'priv-5-title': '5. Conservación de datos', 'priv-5-body': 'Los datos de presencia y reproducción se eliminan automáticamente al cerrar la app. Los datos de licencia se conservan mientras su cuenta esté activa.',
+    'priv-6-title': '6. Compartir datos', 'priv-6-body': 'No se comparten datos personales con terceros con fines comerciales. Los datos técnicos se almacenan de forma segura en nuestros servidores (Supabase, infraestructura europea).',
+    'priv-7-title': '7. Publicidad', 'priv-7-body': 'La versión gratuita muestra anuncios a través de Google AdMob. La versión Premium no contiene publicidad.',
+    'priv-8-title': '8. Derechos de los usuarios (RGPD)', 'priv-8-body': 'Según el RGPD, tiene derecho de acceso, rectificación y eliminación de sus datos. Contáctenos en: contact.phantomtv@proton.me',
+    'priv-9-title': '9. Contacto', 'priv-9-body': 'Para cualquier pregunta sobre privacidad: contact.phantomtv@proton.me',
+    'footer-rights': 'Todos los derechos reservados',
+  }
+};
 
-  <!-- Radio -->
-  <section class="radio-section" id="radio">
-    <h3>📻 Radio intégrée</h3>
-    <p class="subtitle">Plus de 30 000 stations radio du monde entier, directement dans l'application</p>
-    <div class="radio-grid">
-      <div class="radio-card"><div class="radio-icon">🇫🇷</div><h4>Radios françaises</h4><p>RTL, NRJ, Europe 1, France Inter, Skyrock et bien plus</p></div>
-      <div class="radio-card"><div class="radio-icon">🌍</div><h4>Radios mondiales</h4><p>BBC, RFI, stations américaines, européennes... (Premium)</p></div>
-      <div class="radio-card"><div class="radio-icon">🎵</div><h4>Par genre</h4><p>Pop, Rock, Jazz, Classique, News, Sport...</p></div>
-      <div class="radio-card"><div class="radio-icon">❤️</div><h4>Favoris</h4><p>Sauvegardez vos stations préférées pour y accéder rapidement</p></div>
-    </div>
-  </section>
+let currentLang = 'fr';
 
-  <!-- Plans Premium -->
-  <section class="premium-section" id="premium">
-    <h3>Choisissez votre plan</h3>
-    <p class="subtitle">Paiement unique · Aucun abonnement · À vie</p>
-    <div class="premium-cards">
-      <div class="plan-card">
-        <h4 style="color:#9CA3AF;">🔘 Gratuit</h4>
-        <div class="price" style="color:#9CA3AF;">0€</div>
-        <div class="price-sub">Pour toujours</div>
-        <ul>
-          <li>✅ <span>Live TV</span></li>
-          <li>✅ <span>Films & Séries</span></li>
-          <li>✅ <span>Radios françaises</span></li>
-          <li>❌ Guide TV (EPG)</li>
-          <li>❌ Recherche globale</li>
-          <li>❌ Radios mondiales</li>
-          <li>📺 Publicités</li>
-          <li>1 profil · 3 favoris radio</li>
-        </ul>
-        <a href="mailto:contact.phantomtv@proton.me?subject=Demande clé gratuite" class="btn-free">Obtenir gratuitement</a>
-      </div>
-      <div class="plan-card premium">
-        <h4 style="color:#A855F7;">💜 Premium</h4>
-        <div class="price" style="color:#A855F7;">12,99€</div>
-        <div class="price-sub">Paiement unique · À vie</div>
-        <ul>
-          <li>✅ <span>Live TV</span></li>
-          <li>✅ <span>Films & Séries</span></li>
-          <li>✅ <span>Guide TV (EPG)</span></li>
-          <li>✅ <span>Recherche globale</span></li>
-          <li>✅ <span>30 000+ radios mondiales</span></li>
-          <li>✅ <span>Favoris illimités</span></li>
-          <li>✅ <span>Sans publicité</span></li>
-          <li>✅ <span>Multi-profils · Support prioritaire</span></li>
-          <li>✅ <span>Replay (chaînes compatibles)</span></li>
-        </ul>
-        <a href="https://paypal.me/anonymous2211/12.99EUR" target="_blank" class="btn-premium">💜 Acheter pour 12,99€</a>
-      </div>
-    </div>
-    <p style="text-align:center;font-size:13px;color:#6B7280;">
-      Après votre paiement, envoyez votre reçu PayPal à 
-      <a href="mailto:contact.phantomtv@proton.me" style="color:#A855F7;">contact.phantomtv@proton.me</a>
-      et votre clé Premium sera activée sous 24h.
-    </p>
-  </section>
+function setLang(lang) {
+  currentLang = lang;
+  const t = translations[lang];
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (t[key] !== undefined) el.innerHTML = t[key];
+  });
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.onclick.toString().includes(`'${lang}'`));
+  });
+  document.documentElement.lang = lang;
+}
 
-  <!-- Tableau comparatif -->
-  <section class="pricing">
-    <h3>Comparatif détaillé</h3>
-    <p class="subtitle">Gratuit vs Premium</p>
-    <div class="pricing-table">
-      <table>
-        <thead>
-          <tr>
-            <th>Fonctionnalité</th>
-            <th class="free">🔘 Gratuit</th>
-            <th class="premium">💜 Premium</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td>Live TV</td><td><span class="check">✅</span></td><td><span class="check">✅</span></td></tr>
-          <tr><td>Films & Séries</td><td><span class="check">✅</span></td><td><span class="check">✅</span></td></tr>
-          <tr><td>Radios françaises</td><td><span class="check">✅</span></td><td><span class="check">✅</span></td></tr>
-          <tr><td>Radios mondiales (30 000+)</td><td><span class="cross">❌</span></td><td><span class="check">✅</span></td></tr>
-          <tr><td>Publicités</td><td>📺 Oui</td><td><span class="check">❌ Non</span></td></tr>
-          <tr><td>Guide TV (EPG)</td><td><span class="cross">❌</span></td><td><span class="check">✅</span></td></tr>
-          <tr><td>Recherche globale</td><td><span class="cross">❌</span></td><td><span class="check">✅</span></td></tr>
-          <tr><td>Multi-profils</td><td>1 profil</td><td><span class="highlight">3 profils max</span></td></tr>
-          <tr><td>Favoris radio</td><td>3 max</td><td><span class="highlight">Illimité</span></td></tr>
-          <tr><td>Reprise automatique</td><td><span class="cross">❌</span></td><td><span class="check">✅</span></td></tr>
-          <tr><td>Replay (chaînes compatibles)</td><td><span class="cross">❌</span></td><td><span class="check">✅</span></td></tr>
-          <tr><td>Support prioritaire</td><td><span class="cross">❌</span></td><td><span class="check">✅</span></td></tr>
-          <tr><td>Prix</td><td>Gratuit</td><td><span class="highlight">12,99€ à vie</span></td></tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
-
-  <!-- À savoir -->
-  <section class="info-section" id="savoir">
-    <h3>À savoir</h3>
-    <div class="info-grid">
-      <div class="info-card server">
-        <h4>🖥️ Géré par votre serveur de diffusion</h4>
-        <ul>
-          <li><span>Replay</span> — Nombre de jours disponibles fixé par votre fournisseur (Premium, selon compatibilité de la chaîne)</li>
-          <li><span>Qualité vidéo</span> — SD, HD, FHD, 4K selon ce que le serveur envoie</li>
-          <li><span>Guide TV (EPG)</span> — Informations des programmes et leur disponibilité</li>
-          <li><span>Chargement lent</span> — Serveur surchargé ou connexion internet insuffisante</li>
-          <li><span>Coupures / Buffering</span> — Bande passante insuffisante du serveur ou du client</li>
-          <li><span>Chaînes manquantes</span> — Le fournisseur n'a pas ajouté la chaîne</li>
-          <li><span>Catégories</span> — Organisées et nommées par le fournisseur</li>
-          <li><span>Logos des chaînes</span> — Fournis par le serveur</li>
-          <li><span>Sous-titres</span> — Disponibles uniquement si le flux les inclut</li>
-          <li><span>Audio multilingue</span> — Dépend du contenu du flux</li>
-        </ul>
-      </div>
-      <div class="info-card app">
-        <h4>📱 Géré par Phantom TV</h4>
-        <ul>
-          <li><span>Interface</span> — Navigation, design et ergonomie de l'application</li>
-          <li><span>Favoris</span> — Sauvegarde de vos chaînes, films et séries préférés</li>
-          <li><span>Groupes</span> — Création de groupes de chaînes personnalisés</li>
-          <li><span>Radio</span> — 30 000+ stations intégrées via Radio Browser</li>
-          <li><span>Recherche</span> — Recherche globale dans vos contenus</li>
-          <li><span>Reprise automatique</span> — Mémorisation de votre position de lecture</li>
-          <li><span>Multi-profils</span> — Gestion de plusieurs connexions sécurisées</li>
-          <li><span>Tri A→Z</span> — Classement alphabétique des chaînes et contenus</li>
-          <li><span>Guide TV intégré</span> — Affichage et navigation dans l'EPG</li>
-          <li><span>Mises à jour</span> — Nouvelles fonctionnalités régulières</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact -->
-  <section class="contact" id="contact">
-    <h3>Contact & Support</h3>
-    <p>Pour obtenir votre clé d'activation ou pour toute question :</p>
-    <a href="mailto:contact.phantomtv@proton.me">contact.phantomtv@proton.me</a>
-  </section>
-
-  <!-- CGV -->
-  <section class="legal" id="cgv">
-    <h3>Conditions Générales de Vente</h3>
-    <p>Dernière mise à jour : juillet 2026</p>
-
-    <h4>1. Identification du vendeur</h4>
-    <p>Phantom TV est édité par un éditeur indépendant. Pour toute question, contactez-nous à : <a href="mailto:contact.phantomtv@proton.me" style="color:#A855F7;">contact.phantomtv@proton.me</a></p>
-
-    <h4>2. Description du produit</h4>
-    <p>Phantom TV Premium est une licence logicielle à usage personnel, accordée à vie pour une utilisation sur un appareil Android ou Windows. La licence donne accès aux fonctionnalités premium de l'application Phantom TV.</p>
-    <p>Phantom TV est un lecteur multimédia. Il ne fournit aucun contenu (chaînes, films, séries). L'accès aux contenus dépend de services tiers dont l'éditeur de Phantom TV n'est pas responsable.</p>
-
-    <h4>3. Prix</h4>
-    <p>Le prix de la licence Premium est de <strong>12,99 € TTC</strong>, paiement unique et définitif. Aucun abonnement ni frais récurrent.</p>
-
-    <h4>4. Modalités de paiement</h4>
-    <p>Le paiement s'effectue via PayPal à l'adresse : <a href="https://paypal.me/anonymous2211/12.99EUR" style="color:#A855F7;">paypal.me/anonymous2211</a></p>
-    <p>Après paiement, envoyez votre reçu PayPal à <a href="mailto:contact.phantomtv@proton.me" style="color:#A855F7;">contact.phantomtv@proton.me</a>. Votre clé d'activation Premium sera envoyée dans un délai de 24 heures ouvrées.</p>
-
-    <h4>5. Droit de rétractation</h4>
-    <p>Conformément à l'article L221-28 du Code de la consommation, le droit de rétractation ne peut être exercé pour les contenus numériques dont l'exécution a commencé avec l'accord du consommateur avant l'expiration du délai de rétractation.</p>
-    <p>Toutefois, si votre clé d'activation n'a pas encore été utilisée dans l'application, vous pouvez exercer votre droit de rétractation dans un délai de 14 jours à compter de l'achat en contactant : <a href="mailto:contact.phantomtv@proton.me" style="color:#A855F7;">contact.phantomtv@proton.me</a></p>
-
-    <h4>6. Livraison</h4>
-    <p>La clé d'activation est envoyée par email dans un délai maximum de 24 heures ouvrées après réception du reçu de paiement.</p>
-
-    <h4>7. Garantie et support</h4>
-    <p>En cas de problème technique avec l'application, contactez notre support à <a href="mailto:contact.phantomtv@proton.me" style="color:#A855F7;">contact.phantomtv@proton.me</a>. Les utilisateurs Premium bénéficient d'un support prioritaire.</p>
-
-    <h4>8. Responsabilité</h4>
-    <p>Phantom TV est un lecteur multimédia. L'éditeur ne peut être tenu responsable :</p>
-    <ul>
-      <li>Des contenus diffusés via des services tiers</li>
-      <li>Des interruptions de service liées aux serveurs de diffusion tiers</li>
-      <li>De l'utilisation illégale de l'application par l'utilisateur</li>
-    </ul>
-    <p>L'utilisateur s'engage à utiliser Phantom TV uniquement pour lire des contenus auxquels il a légalement accès.</p>
-
-    <h4>9. Propriété intellectuelle</h4>
-    <p>L'application Phantom TV, son interface et son code sont la propriété exclusive de l'éditeur. Toute reproduction, modification ou distribution non autorisée est interdite.</p>
-
-    <h4>10. Loi applicable</h4>
-    <p>Les présentes CGV sont soumises au droit français. En cas de litige, les tribunaux français seront compétents.</p>
-  </section>
-
-  <!-- Politique de confidentialité -->
-  <section class="legal" id="privacy">
-    <h3>Politique de confidentialité</h3>
-    <p>Dernière mise à jour : juillet 2026</p>
-
-    <h4>1. Nature de l'application</h4>
-    <p>Phantom TV est un lecteur multimédia. L'application ne fournit aucun contenu et ne collecte aucune donnée personnelle à des fins commerciales.</p>
-
-    <h4>2. Données collectées</h4>
-    <p>Phantom TV collecte les données techniques suivantes, strictement nécessaires au fonctionnement du service :</p>
-    <ul>
-      <li>Identifiant unique de l'appareil (généré localement, non lié à votre identité)</li>
-      <li>Statut de la licence d'activation</li>
-      <li>Indicateur de présence en temps réel (connecté/déconnecté), effacé à la fermeture</li>
-      <li>Titre du contenu en cours de lecture, effacé automatiquement à la fermeture du lecteur</li>
-    </ul>
-    <p>La section Radio utilise l'API publique Radio Browser (radio-browser.info). Aucune donnée personnelle n'est transmise à ce service.</p>
-
-    <h4>3. Données de paiement</h4>
-    <p>Les paiements sont traités via PayPal. Phantom TV ne collecte ni ne stocke vos données bancaires ou de paiement. Ces données sont gérées exclusivement par PayPal conformément à sa propre politique de confidentialité.</p>
-
-    <h4>4. Utilisation des données</h4>
-    <p>Les données collectées sont utilisées uniquement pour :</p>
-    <ul>
-      <li>Vérifier la validité de la licence d'activation</li>
-      <li>Garantir qu'un seul appareil utilise la licence simultanément</li>
-      <li>Permettre la gestion du service par l'éditeur</li>
-    </ul>
-
-    <h4>5. Conservation des données</h4>
-    <p>Les données de présence et de contenu en cours de lecture sont effacées automatiquement à la fermeture de l'application. Les données de licence sont conservées tant que votre compte est actif.</p>
-
-    <h4>6. Partage des données</h4>
-    <p>Aucune donnée personnelle n'est partagée avec des tiers à des fins commerciales. Les données techniques sont stockées de manière sécurisée sur nos serveurs (Supabase, infrastructure européenne).</p>
-
-    <h4>7. Publicité</h4>
-    <p>La version gratuite de Phantom TV affiche des publicités via Google AdMob. Google peut collecter certaines données conformément à sa propre politique de confidentialité disponible sur policies.google.com. La version Premium ne contient aucune publicité.</p>
-
-    <h4>8. Droits des utilisateurs (RGPD)</h4>
-    <p>Conformément au RGPD, vous disposez d'un droit d'accès, de rectification et de suppression de vos données. Pour exercer ces droits, contactez-nous à : <a href="mailto:contact.phantomtv@proton.me" style="color:#A855F7;">contact.phantomtv@proton.me</a></p>
-
-    <h4>9. Contact</h4>
-    <p>Pour toute question relative à la confidentialité : <a href="mailto:contact.phantomtv@proton.me" style="color:#A855F7;">contact.phantomtv@proton.me</a></p>
-  </section>
-
-  <footer>
-    <p>© 2025-2026 Phantom TV — Tous droits réservés — 
-      <a href="#cgv">CGV</a> · 
-      <a href="#privacy">Confidentialité</a> · 
-      <a href="#contact">Contact</a>
-    </p>
-  </footer>
-
-  <button onclick="window.scrollTo({top:0,behavior:'smooth'})" id="backToTop" style="display:none;position:fixed;bottom:24px;right:24px;width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,#A855F7,#7C3AED);border:none;color:white;font-size:20px;cursor:pointer;box-shadow:0 4px 20px rgba(168,85,247,0.5);z-index:999;">↑</button>
-  <script>
-    window.addEventListener('scroll', () => {
-      document.getElementById('backToTop').style.display = window.scrollY > 400 ? 'block' : 'none';
-    });
-  </script>
+// Initialiser en français au chargement
+setLang('fr');
+</script>
 </body>
 </html>
