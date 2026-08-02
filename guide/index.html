@@ -5,6 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Guide d'utilisation — Phantom TV</title>
   <style>
+    nav { background: var(--bg2); border-bottom: 1px solid var(--border); padding: 10px 24px; display: flex; gap: 20px; flex-wrap: wrap; align-items: center; }
+    nav a { color: var(--text-dim); text-decoration: none; font-size: 13px; }
+    nav a:hover { color: var(--purple); }
+    nav .nav-logo { color: var(--purple); font-weight: 700; font-size: 15px; margin-right: 10px; }
+    nav .nav-active { color: var(--purple); font-weight: 600; }
     * { margin: 0; padding: 0; box-sizing: border-box; }
     :root {
       --bg: #09090B; --bg2: #111827; --bg3: #1F2937;
@@ -54,6 +59,17 @@
   </style>
 </head>
 <body>
+
+<nav>
+  <span class="nav-logo">📺 Phantom TV</span>
+  <a href="/">Accueil</a>
+  <a href="/#features">Fonctionnalités</a>
+  <a href="/#downloader">Firestick</a>
+  <a href="/#radio">Radio</a>
+  <a href="/#premium">Premium</a>
+  <a href="/#contact">Contact</a>
+  <a href="/guide" class="nav-active">📖 Guide</a>
+</nav>
 
 <header>
   <h1>📺 Phantom TV</h1>
