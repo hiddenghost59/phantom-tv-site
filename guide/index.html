@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guide d'utilisation — Phantom TV</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --bg: #09090B; --bg2: #111827; --bg3: #1F2937;
+      --purple: #A855F7; --green: #22C55E; --amber: #F59E0B;
+      --blue: #3B82F6; --cyan: #06B6D4;
+      --text: #F9FAFB; --text-dim: #9CA3AF;
+      --border: rgba(255,255,255,0.08);
+    }
+    body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; min-height: 100vh; }
+
+    header { background: var(--bg2); border-bottom: 1px solid var(--border); padding: 20px 24px; text-align: center; }
+    header h1 { font-size: 28px; color: var(--purple); margin-bottom: 4px; }
+    header p { color: var(--text-dim); font-size: 14px; }
+
+    .content { max-width: 800px; margin: 0 auto; padding: 40px 24px; }
+
+    .section { margin-bottom: 48px; }
+    .section-title { font-size: 20px; font-weight: 700; color: var(--purple); margin-bottom: 16px; display: flex; align-items: center; gap: 10px; padding-bottom: 10px; border-bottom: 1px solid var(--border); }
+
+    .card { background: var(--bg2); border: 1px solid var(--border); border-radius: 14px; padding: 20px 24px; margin-bottom: 14px; }
+    .card h3 { font-size: 15px; font-weight: 700; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+    .card p, .card li { font-size: 14px; color: var(--text-dim); line-height: 1.7; }
+    .card ul { padding-left: 18px; }
+    .card ul li { margin-bottom: 4px; }
+
+    .tip { background: rgba(59,130,246,0.08); border-left: 3px solid var(--blue); border-radius: 0 10px 10px 0; padding: 14px 18px; margin-top: 12px; font-size: 13px; color: var(--text-dim); }
+    .tip strong { color: var(--blue); }
+
+    .badge { display: inline-block; padding: 2px 8px; border-radius: 20px; font-size: 11px; font-weight: 700; margin-left: 8px; }
+    .badge-premium { background: rgba(168,85,247,0.15); color: var(--purple); border: 1px solid rgba(168,85,247,0.30); }
+    .badge-free { background: rgba(107,114,128,0.15); color: #9CA3AF; border: 1px solid rgba(107,114,128,0.30); }
+
+    .steps { counter-reset: step; }
+    .step { display: flex; gap: 16px; margin-bottom: 16px; }
+    .step-num { width: 32px; height: 32px; min-width: 32px; background: var(--purple); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 14px; }
+    .step-body h4 { font-size: 14px; font-weight: 700; margin-bottom: 4px; }
+    .step-body p { font-size: 13px; color: var(--text-dim); line-height: 1.6; }
+
+    .platform-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 14px; }
+    .platform-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 12px; padding: 16px; text-align: center; }
+    .platform-card .icon { font-size: 32px; margin-bottom: 8px; }
+    .platform-card h4 { font-size: 14px; font-weight: 700; margin-bottom: 4px; }
+    .platform-card p { font-size: 12px; color: var(--text-dim); }
+
+    footer { text-align: center; padding: 32px; color: var(--text-dim); font-size: 13px; border-top: 1px solid var(--border); margin-top: 40px; }
+    footer a { color: var(--purple); text-decoration: none; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>📺 Phantom TV</h1>
+  <p>Guide d'utilisation — Tout ce qu'il faut savoir pour bien démarrer</p>
+</header>
+
+<div class="content">
+
+  <!-- Présentation -->
+  <div class="section">
+    <div class="section-title">🎯 Qu'est-ce que Phantom TV ?</div>
+    <div class="card">
+      <p>Phantom TV est une application de lecture multimédia disponible sur <strong>Android</strong>, <strong>Windows</strong> et <strong>Amazon Firestick</strong>. Elle vous permet de regarder vos chaînes TV en direct, vos films et séries, et d'écouter la radio — le tout depuis une interface moderne et fluide.</p>
+      <div class="tip"><strong>💡 Bon à savoir :</strong> Phantom TV est un lecteur multimédia. Le contenu que vous regardez provient de votre propre abonnement multimédia, renseigné lors de la configuration initiale.</div>
+    </div>
+  </div>
+
+  <!-- Plateformes -->
+  <div class="section">
+    <div class="section-title">📱 Plateformes disponibles</div>
+    <div class="platform-grid">
+      <div class="platform-card">
+        <div class="icon">🤖</div>
+        <h4>Android</h4>
+        <p>Disponible sur Google Play (test fermé) et en APK direct</p>
+      </div>
+      <div class="platform-card">
+        <div class="icon">🪟</div>
+        <h4>Windows</h4>
+        <p>Installeur disponible sur phantom-tv.fr</p>
+      </div>
+      <div class="platform-card">
+        <div class="icon">🔥</div>
+        <h4>Firestick</h4>
+        <p>Via l'application Downloader, code disponible sur le site</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Premiers pas -->
+  <div class="section">
+    <div class="section-title">🚀 Premiers pas</div>
+    <div class="card">
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <h4>Télécharger et installer l'application</h4>
+            <p>Rendez-vous sur <strong>phantom-tv.fr</strong> pour trouver le lien de téléchargement correspondant à votre appareil.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <h4>Activer votre licence</h4>
+            <p>Au premier lancement, entrez la <strong>clé d'activation</strong> qui vous a été fournie lors de votre abonnement. Cette clé est personnelle et liée à votre compte.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-body">
+            <h4>Configurer votre profil</h4>
+            <p>Renseignez les informations de votre fournisseur : URL du serveur, nom d'utilisateur et mot de passe. Ces informations vous sont fournies par votre prestataire.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-body">
+            <h4>Profiter du contenu</h4>
+            <p>Le catalogue se charge automatiquement. Naviguez entre Live TV, Films, Séries et Radio depuis le menu principal.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Fonctionnalités -->
+  <div class="section">
+    <div class="section-title">✨ Fonctionnalités</div>
+
+    <div class="card">
+      <h3>📡 Live TV</h3>
+      <ul>
+        <li>Accès à toutes vos chaînes organisées par catégories</li>
+        <li>Guide des programmes (EPG) intégré</li>
+        <li>Mini-lecteur pendant la navigation</li>
+        <li>Replay / Rattrapage TV <span class="badge badge-premium">Premium</span></li>
+        <li>Groupes de chaînes personnalisés</li>
+        <li>Chaînes favorites</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>🎬 Films & Séries</h3>
+      <ul>
+        <li>Catalogue complet avec affiches et synopsis</li>
+        <li>Reprise automatique de la lecture <span class="badge badge-premium">Premium</span></li>
+        <li>Historique de visionnage</li>
+        <li>Favoris films et séries</li>
+        <li>Recherche par titre</li>
+        <li>Tri A→Z</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>📻 Radio</h3>
+      <ul>
+        <li>Stations françaises gratuites incluses</li>
+        <li>Plus de 30 000 stations mondiales <span class="badge badge-premium">Premium</span></li>
+        <li>Recherche par nom de station</li>
+        <li>Stations favorites</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>🔄 Synchronisation multi-appareils <span class="badge badge-premium">Premium</span></h3>
+      <p>Vos favoris, votre historique et votre progression de lecture sont automatiquement synchronisés entre tous vos appareils. Commencez un film sur votre téléphone, reprenez-le sur votre TV.</p>
+      <div class="tip"><strong>💡 Bon à savoir :</strong> La synchronisation fonctionne en arrière-plan, sans action de votre part.</div>
+    </div>
+  </div>
+
+  <!-- Plans -->
+  <div class="section">
+    <div class="section-title">💳 Plans disponibles</div>
+    <div class="card">
+      <h3>🔘 Gratuit <span class="badge badge-free">Free</span></h3>
+      <ul>
+        <li>Live TV, Films, Séries, Radio française</li>
+        <li>1 appareil</li>
+        <li>Fonctionnalités de base</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>💜 Premium <span class="badge badge-premium">Premium</span></h3>
+      <ul>
+        <li>Toutes les fonctionnalités gratuites</li>
+        <li>Jusqu'à 3 appareils simultanés</li>
+        <li>Replay / Rattrapage TV</li>
+        <li>Reprise automatique de lecture</li>
+        <li>30 000+ stations radio mondiales</li>
+        <li>Synchronisation multi-appareils</li>
+      </ul>
+      <div class="tip"><strong>Prix :</strong> 12,99 € — paiement unique, accès à vie.</div>
+    </div>
+  </div>
+
+  <!-- Firestick -->
+  <div class="section">
+    <div class="section-title">🔥 Installation sur Firestick</div>
+    <div class="card">
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <h4>Autoriser les sources inconnues</h4>
+            <p>Sur votre Firestick : Paramètres → Mon Fire TV → Options pour développeurs → Activer "Applications de sources inconnues".</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <h4>Installer Downloader</h4>
+            <p>Cherchez "Downloader" dans l'Amazon Appstore et installez l'application.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-body">
+            <h4>Entrer le code Phantom TV</h4>
+            <p>Ouvrez Downloader, entrez le code disponible sur <strong>phantom-tv.fr</strong> dans la section Firestick, et confirmez le téléchargement.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-body">
+            <h4>Installer et lancer</h4>
+            <p>Une fois téléchargé, installez l'APK et lancez Phantom TV. La navigation D-pad est entièrement supportée.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <div class="section">
+    <div class="section-title">❓ Questions fréquentes</div>
+
+    <div class="card">
+      <h3>🔑 J'ai perdu ma clé d'activation</h3>
+      <p>Contactez-nous via la section Contact de l'application ou par email à <strong>contact@phantom-tv.fr</strong>, nous vous la renverrons rapidement.</p>
+    </div>
+
+    <div class="card">
+      <h3>📱 Puis-je utiliser Phantom TV sur plusieurs appareils ?</h3>
+      <p>Avec le plan Premium, vous pouvez activer Phantom TV sur jusqu'à <strong>3 appareils</strong> simultanément avec la même clé d'activation.</p>
+    </div>
+
+    <div class="card">
+      <h3>🔄 Comment mettre à jour l'application ?</h3>
+      <p>Une bannière de mise à jour s'affiche automatiquement dans l'application lorsqu'une nouvelle version est disponible. Suivez le lien pour télécharger la dernière version.</p>
+    </div>
+
+    <div class="card">
+      <h3>⚡ La lecture est lente ou coupe</h3>
+      <p>Vérifiez votre connexion internet (une connexion de 10 Mbps minimum est recommandée pour la HD, 25 Mbps pour la 4K). Si le problème persiste, il peut venir du serveur de votre fournisseur.</p>
+    </div>
+
+    <div class="card">
+      <h3>🎬 Un film ou une série ne se lance pas</h3>
+      <p>Certains contenus peuvent être temporairement indisponibles chez votre fournisseur. Phantom TV essaie automatiquement plusieurs formats de lecture — si aucun ne fonctionne, le contenu est probablement indisponible à ce moment-là.</p>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <p>© 2025–2026 Phantom TV — Tous droits réservés</p>
+  <p style="margin-top:8px;"><a href="https://phantom-tv.fr">phantom-tv.fr</a> · <a href="mailto:contact@phantom-tv.fr">contact@phantom-tv.fr</a></p>
+</footer>
+
+</body>
+</html>
