@@ -148,10 +148,11 @@
   <a href="#contact">Contact</a>
   <a href="/guide" style="color:var(--purple);font-weight:600;">📖 Guide</a>
   <div class="lang-switcher">
-    <button class="lang-btn active" onclick="setLang('fr')">🇫🇷 FR</button>
-    <button class="lang-btn" onclick="setLang('en')">🇬🇧 EN</button>
-    <button class="lang-btn" onclick="setLang('de')">🇩🇪 DE</button>
-    <button class="lang-btn" onclick="setLang('es')">🇪🇸 ES</button>
+    <button class="lang-btn active" onclick="setLang('fr')">FR</button>
+    <button class="lang-btn" onclick="setLang('en')">EN</button>
+    <button class="lang-btn" onclick="setLang('en-us')">EN-US</button>
+    <button class="lang-btn" onclick="setLang('de')">DE</button>
+    <button class="lang-btn" onclick="setLang('es')">ES</button>
   </div>
 </nav>
 
@@ -743,6 +744,15 @@ const translations = {
 
 let currentLang = 'fr';
 
+  translations['en-us'] = Object.assign({}, translations['en'], {
+    'plan-premium-btn': 'Buy for $13.99',
+    'premium-sub': 'One-time payment · No subscription · Lifetime',
+    'plan-fav-unlimited': 'Unlimited favorites',
+    'table-radio-fav': 'Radio favorites',
+    'radio-fav-title': 'Favorites',
+    'radio-fav-body': 'Save your favorite stations for quick access',
+  });
+
 function setLang(lang) {
   currentLang = lang;
   const t = translations[lang];
@@ -751,9 +761,10 @@ function setLang(lang) {
     if (t[key] !== undefined) el.innerHTML = t[key];
   });
   document.querySelectorAll('.lang-btn').forEach(btn => {
-    btn.classList.toggle('active', btn.onclick.toString().includes(`'${lang}'`));
+    const match = btn.getAttribute('onclick').match(/'([^']+)'/);
+    btn.classList.toggle('active', match && match[1] === lang);
   });
-  document.documentElement.lang = lang;
+  document.documentElement.lang = lang.split('-')[0];
 }
 
 // Initialiser en français au chargement
