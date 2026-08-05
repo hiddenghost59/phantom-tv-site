@@ -156,6 +156,14 @@
   </div>
 </nav>
 
+<!-- Bannière problèmes en cours -->
+<div id="status-banner" style="display:none;background:rgba(245,158,11,0.10);border-bottom:1px solid rgba(245,158,11,0.30);padding:12px 24px;">
+  <div style="max-width:900px;margin:0 auto;display:flex;align-items:flex-start;gap:12px;">
+    <span style="font-size:18px;flex-shrink:0;">⚠️</span>
+    <div id="status-messages-list" style="flex:1;font-size:13px;color:#F59E0B;line-height:1.7;"></div>
+  </div>
+</div>
+
 <!-- Hero -->
 <section class="hero" id="home">
   <h2>Phantom TV</h2>
@@ -774,6 +782,28 @@ function setLang(lang) {
 
 // Initialiser en français au chargement
 setLang('fr');
+
+// Charge et affiche les messages de problèmes en cours depuis Supabase
+async function loadStatusBanner() {
+  try {
+    const resp = await fetch(
+      'https://dlknjbnvatfcqywbblre.supabase.co/rest/v1/status_messages?select=message,severity,started_at&active=eq.true&order=started_at.desc',
+      { headers: { 'apikey': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRsa25qYm52YXRmY3F5d2JibHJlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODI5ODk0ODksImV4cCI6MjA5ODU2NTQ4OX0.ckATKu11RBJCnGLYvCYJCRdgs4CXj10A0H3EKYeQnVg' } }
+    );
+    if (!resp.ok) return;
+    const messages = await resp.json();
+    if (!messages.length) return;
+    const banner = document.getElementById('status-banner');
+    const list = document.getElementById('status-messages-list');
+    list.innerHTML = messages.map(m => {
+      const icon = m.severity === 'error' ? '🔴' : m.severity === 'warning' ? '⚠️' : 'ℹ️';
+      const date = new Date(m.started_at).toLocaleDateString('fr-FR', { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' });
+      return `<div style="margin-bottom:4px;">${icon} <strong>${m.message}</strong> <span style="opacity:0.6;font-size:11px;">— depuis le ${date}</span></div>`;
+    }).join('');
+    banner.style.display = 'block';
+  } catch (_) {}
+}
+loadStatusBanner();
 </script>
 </body>
 </html>
