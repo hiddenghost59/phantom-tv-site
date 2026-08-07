@@ -820,10 +820,17 @@ async function loadStatusBanner() {
     _statusMessagesOriginal = messages;
     const banner = document.getElementById('status-banner');
     const list = document.getElementById('status-messages-list');
+    // Détecte la langue actuelle du site
+    const currentLang = window.currentLang || 'fr';
     list.innerHTML = messages.map(m => {
       const icon = m.severity === 'error' ? '🔴' : m.severity === 'warning' ? '⚠️' : 'ℹ️';
       const date = new Date(m.started_at).toLocaleDateString('fr-FR', { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' });
-      return `<div style="margin-bottom:4px;">${icon} <strong>${m.message}</strong> <span style="opacity:0.6;font-size:11px;">— depuis le ${date}</span></div>`;
+      // Affiche la traduction si disponible pour la langue courante
+      let text = m.message;
+      if (currentLang === 'en' || currentLang === 'en-us') text = m.message_en || m.message;
+      else if (currentLang === 'de') text = m.message_de || m.message;
+      else if (currentLang === 'es') text = m.message_es || m.message;
+      return `<div style="margin-bottom:4px;">${icon} <strong>${text}</strong> <span style="opacity:0.6;font-size:11px;">— depuis le ${date}</span></div>`;
     }).join('');
     banner.style.display = 'block';
   } catch (_) {}
@@ -836,37 +843,15 @@ let _statusMessagesOriginal = [];
 async function translateStatus(lang) {
   if (!_statusMessagesOriginal.length) return;
   const list = document.getElementById('status-messages-list');
-  const spinner = document.getElementById('status-translating');
-  spinner.style.display = 'inline';
-
-  const langCodes = { fr: 'fr', en: 'en', 'en-us': 'en', de: 'de', es: 'es' };
-  const targetLang = langCodes[lang];
-
-  try {
-    const translatedMessages = await Promise.all(_statusMessagesOriginal.map(async m => {
-      const resp = await fetch('https://libretranslate.com/translate', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          q: m.message,
-          source: 'fr',
-          target: targetLang,
-          format: 'text'
-        })
-      });
-      const data = await resp.json();
-      return data.translatedText || m.message;
-    }));
-
-    list.innerHTML = _statusMessagesOriginal.map((m, i) => {
-      const icon = m.severity === 'error' ? '🔴' : m.severity === 'warning' ? '⚠️' : 'ℹ️';
-      const date = new Date(m.started_at).toLocaleDateString('fr-FR', { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' });
-      return `<div style="margin-bottom:4px;">${icon} <strong>${translatedMessages[i]}</strong> <span style="opacity:0.6;font-size:11px;">— depuis le ${date}</span></div>`;
-    }).join('');
-  } catch (_) {
-    // Silencieux si traduction échoue
-  }
-  spinner.style.display = 'none';
+  list.innerHTML = _statusMessagesOriginal.map(m => {
+    const icon = m.severity === 'error' ? '🔴' : m.severity === 'warning' ? '⚠️' : 'ℹ️';
+    const date = new Date(m.started_at).toLocaleDateString('fr-FR', { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' });
+    let text = m.message;
+    if (lang === 'en' || lang === 'en-us') text = m.message_en || m.message;
+    else if (lang === 'de') text = m.message_de || m.message;
+    else if (lang === 'es') text = m.message_es || m.message;
+    return `<div style="margin-bottom:4px;">${icon} <strong>${text}</strong> <span style="opacity:0.6;font-size:11px;">— depuis le ${date}</span></div>`;
+  }).join('');
 }
 </script>
 </body>
