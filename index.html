@@ -158,9 +158,22 @@
 
 <!-- Bannière problèmes en cours -->
 <div id="status-banner" style="display:none;background:rgba(245,158,11,0.10);border-bottom:1px solid rgba(245,158,11,0.30);padding:12px 24px;">
-  <div style="max-width:900px;margin:0 auto;display:flex;align-items:flex-start;gap:12px;">
-    <span style="font-size:18px;flex-shrink:0;">⚠️</span>
-    <div id="status-messages-list" style="flex:1;font-size:13px;color:#F59E0B;line-height:1.7;"></div>
+  <div style="max-width:900px;margin:0 auto;">
+    <div style="display:flex;align-items:flex-start;gap:12px;">
+      <span style="font-size:18px;flex-shrink:0;">⚠️</span>
+      <div style="flex:1;">
+        <div id="status-messages-list" style="font-size:13px;color:#F59E0B;line-height:1.7;"></div>
+        <div id="status-translate-btns" style="display:flex;gap:6px;margin-top:8px;flex-wrap:wrap;">
+          <span style="font-size:11px;color:rgba(245,158,11,0.6);align-self:center;">Traduire :</span>
+          <button onclick="translateStatus('fr')" style="background:rgba(245,158,11,0.15);border:1px solid rgba(245,158,11,0.3);color:#F59E0B;padding:3px 10px;border-radius:20px;font-size:11px;cursor:pointer;">🇫🇷 FR</button>
+          <button onclick="translateStatus('en')" style="background:rgba(245,158,11,0.15);border:1px solid rgba(245,158,11,0.3);color:#F59E0B;padding:3px 10px;border-radius:20px;font-size:11px;cursor:pointer;">🇬🇧 EN</button>
+          <button onclick="translateStatus('en-us')" style="background:rgba(245,158,11,0.15);border:1px solid rgba(245,158,11,0.3);color:#F59E0B;padding:3px 10px;border-radius:20px;font-size:11px;cursor:pointer;">🇺🇸 EN-US</button>
+          <button onclick="translateStatus('de')" style="background:rgba(245,158,11,0.15);border:1px solid rgba(245,158,11,0.3);color:#F59E0B;padding:3px 10px;border-radius:20px;font-size:11px;cursor:pointer;">🇩🇪 DE</button>
+          <button onclick="translateStatus('es')" style="background:rgba(245,158,11,0.15);border:1px solid rgba(245,158,11,0.3);color:#F59E0B;padding:3px 10px;border-radius:20px;font-size:11px;cursor:pointer;">🇪🇸 ES</button>
+          <span id="status-translating" style="display:none;font-size:11px;color:rgba(245,158,11,0.6);align-self:center;">⏳ Traduction...</span>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -804,6 +817,7 @@ async function loadStatusBanner() {
     if (!resp.ok) return;
     const messages = await resp.json();
     if (!messages.length) return;
+    _statusMessagesOriginal = messages;
     const banner = document.getElementById('status-banner');
     const list = document.getElementById('status-messages-list');
     list.innerHTML = messages.map(m => {
@@ -815,6 +829,44 @@ async function loadStatusBanner() {
   } catch (_) {}
 }
 loadStatusBanner();
+
+// Stocke les messages originaux pour retraduire
+let _statusMessagesOriginal = [];
+
+async function translateStatus(lang) {
+  if (!_statusMessagesOriginal.length) return;
+  const list = document.getElementById('status-messages-list');
+  const spinner = document.getElementById('status-translating');
+  spinner.style.display = 'inline';
+
+  const langNames = { fr: 'français', en: 'English', 'en-us': 'American English', de: 'Deutsch', es: 'Español' };
+  const texts = _statusMessagesOriginal.map(m => m.message).join('\n---\n');
+
+  try {
+    const resp = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-6',
+        max_tokens: 500,
+        messages: [{
+          role: 'user',
+          content: `Translate the following messages to ${langNames[lang]}. Return only the translated messages separated by "---", no explanation, no preamble:\n\n${texts}`
+        }]
+      })
+    });
+    const data = await resp.json();
+    const translated = data.content[0].text.split('---').map(t => t.trim());
+    list.innerHTML = _statusMessagesOriginal.map((m, i) => {
+      const icon = m.severity === 'error' ? '🔴' : m.severity === 'warning' ? '⚠️' : 'ℹ️';
+      const date = new Date(m.started_at).toLocaleDateString('fr-FR', { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' });
+      return `<div style="margin-bottom:4px;">${icon} <strong>${translated[i] || m.message}</strong> <span style="opacity:0.6;font-size:11px;">— depuis le ${date}</span></div>`;
+    }).join('');
+  } catch (_) {
+    // Silencieux si traduction échoue
+  }
+  spinner.style.display = 'none';
+}
 </script>
 </body>
 </html>
