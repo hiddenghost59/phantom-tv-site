@@ -809,6 +809,7 @@ let currentLang = 'fr';
     'radio-fav-body': 'Save your favorite stations for quick access',
   });
 
+let _statusMessagesOriginal = [];
 function setLang(lang) {
   currentLang = lang;
   const t = translations[lang];
@@ -856,7 +857,6 @@ async function loadStatusBanner() {
     banner.style.display = 'block';
   } catch (_) {}
 }
-let _statusMessagesOriginal = [];
 loadStatusBanner();
 
 // Stocke les messages originaux pour retraduire
