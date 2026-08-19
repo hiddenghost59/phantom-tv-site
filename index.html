@@ -821,6 +821,8 @@ function setLang(lang) {
     btn.classList.toggle('active', match && match[1] === lang);
   });
   document.documentElement.lang = lang.split('-')[0];
+  // Mettre à jour les messages de maintenance si présents
+  if (_statusMessagesOriginal.length) translateStatus(lang);
 }
 
 // Initialiser en français au chargement
