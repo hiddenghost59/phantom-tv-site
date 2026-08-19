@@ -503,7 +503,7 @@ const translations = {
     'plan-no-ads': 'Sans publicité', 'plan-multiprofile': 'Multi-profils · Support prioritaire',
     'plan-replay': 'Replay (chaînes compatibles)',
     'plan-premium-btn': 'Acheter pour 12,99€',
-    'premium-instructions': 'Après votre paiement, utilisez le bouton <strong>"Demander une clé"</strong> dans l\'application ou envoyez votre reçu PayPal à <a href="mailto:contact.phantomtv@proton.me" style="color:#A855F7;">contact.phantomtv@proton.me</a>. Votre clé Premium sera activée sous 24h. Le prix est affiché en euros — PayPal convertit automatiquement dans votre devise locale.',
+    'premium-instructions': 'Après votre paiement, envoyez votre reçu PayPal à <a href="mailto:contact.phantomtv@proton.me" style="color:#A855F7;">contact.phantomtv@proton.me</a>. Si vous avez déjà une clé gratuite, elle sera mise à niveau vers Premium. Sinon, une nouvelle clé vous sera envoyée. Délai : 24h ouvrées. <span style="color:#EF4444;font-size:14px;font-weight:700;">⚠️ Vérifiez vos spams.</span>',
     'table-title': 'Comparatif détaillé', 'table-sub': 'Gratuit vs Premium',
     'table-feature': 'Fonctionnalité', 'table-yes': '📺 Oui', 'table-radio-fav': 'Favoris radio',
     'table-resume': 'Reprise automatique', 'table-support': 'Support prioritaire', 'table-price': 'Prix',
@@ -585,7 +585,7 @@ const translations = {
     'plan-no-ads': 'Ad-free', 'plan-multiprofile': 'Multi-profiles · Priority support',
     'plan-replay': 'Replay (compatible channels)',
     'plan-premium-btn': 'Buy for €12.99',
-    'premium-instructions': 'After your payment, send your PayPal receipt to <a href="mailto:contact.phantomtv@proton.me" style="color:#A855F7;">contact.phantomtv@proton.me</a> and your Premium key will be activated within 24h. Price is displayed in euros — PayPal automatically converts to your local currency.',
+    'premium-instructions': 'After your payment, send your PayPal receipt to <a href="mailto:contact.phantomtv@proton.me" style="color:#A855F7;">contact.phantomtv@proton.me</a>. If you already have a free key, it will be upgraded to Premium. Otherwise, a new key will be sent to you. Delay: 24 business hours. <span style="color:#EF4444;font-size:14px;font-weight:700;">⚠️ Check your spam folder.</span>',
     'table-title': 'Detailed comparison', 'table-sub': 'Free vs Premium',
     'table-feature': 'Feature', 'table-yes': '📺 Yes', 'table-radio-fav': 'Radio favourites',
     'table-resume': 'Auto resume', 'table-support': 'Priority support', 'table-price': 'Price',
@@ -667,7 +667,7 @@ const translations = {
     'plan-no-ads': 'Werbefrei', 'plan-multiprofile': 'Multi-Profile · Prioritäts-Support',
     'plan-replay': 'Replay (kompatible Kanäle)',
     'plan-premium-btn': 'Für 12,99€ kaufen',
-    'premium-instructions': 'Nach Ihrer Zahlung senden Sie Ihren PayPal-Beleg an <a href="mailto:contact.phantomtv@proton.me" style="color:#A855F7;">contact.phantomtv@proton.me</a> und Ihr Premium-Schlüssel wird innerhalb von 24h aktiviert. Der Preis wird in Euro angezeigt — PayPal rechnet automatisch in Ihre Landeswährung um.',
+    'premium-instructions': 'Nach Ihrer Zahlung senden Sie Ihren PayPal-Beleg an <a href="mailto:contact.phantomtv@proton.me" style="color:#A855F7;">contact.phantomtv@proton.me</a>. Wenn Sie bereits einen kostenlosen Schlüssel haben, wird er auf Premium aktualisiert. Andernfalls erhalten Sie einen neuen Schlüssel. Frist: 24 Werktage. <span style="color:#EF4444;font-size:14px;font-weight:700;">⚠️ Prüfen Sie Ihren Spam-Ordner.</span>',
     'table-title': 'Detaillierter Vergleich', 'table-sub': 'Kostenlos vs Premium',
     'table-feature': 'Funktion', 'table-yes': '📺 Ja', 'table-radio-fav': 'Radio-Favoriten',
     'table-resume': 'Automatische Fortsetzung', 'table-support': 'Prioritäts-Support', 'table-price': 'Preis',
@@ -749,7 +749,7 @@ const translations = {
     'plan-no-ads': 'Sin publicidad', 'plan-multiprofile': 'Multi-perfiles · Soporte prioritario',
     'plan-replay': 'Replay (canales compatibles)',
     'plan-premium-btn': 'Comprar por 12,99€',
-    'premium-instructions': 'Tras su pago, envíe su recibo de PayPal a <a href="mailto:contact.phantomtv@proton.me" style="color:#A855F7;">contact.phantomtv@proton.me</a> y su clave Premium se activará en 24h. El precio se muestra en euros — PayPal convierte automáticamente a su moneda local.',
+    'premium-instructions': 'Tras su pago, envíe su recibo de PayPal a <a href="mailto:contact.phantomtv@proton.me" style="color:#A855F7;">contact.phantomtv@proton.me</a>. Si ya tiene una clave gratuita, se actualizará a Premium. De lo contrario, se le enviará una nueva clave. Plazo: 24 horas hábiles. <span style="color:#EF4444;font-size:14px;font-weight:700;">⚠️ Revise su carpeta de spam.</span>',
     'table-title': 'Comparativa detallada', 'table-sub': 'Gratis vs Premium',
     'table-feature': 'Función', 'table-yes': '📺 Sí', 'table-radio-fav': 'Favoritos de radio',
     'table-resume': 'Reanudación automática', 'table-support': 'Soporte prioritario', 'table-price': 'Precio',
@@ -809,7 +809,6 @@ let currentLang = 'fr';
     'radio-fav-body': 'Save your favorite stations for quick access',
   });
 
-let _statusMessagesOriginal = [];
 function setLang(lang) {
   currentLang = lang;
   const t = translations[lang];
@@ -860,7 +859,7 @@ async function loadStatusBanner() {
 loadStatusBanner();
 
 // Stocke les messages originaux pour retraduire
-
+let _statusMessagesOriginal = [];
 
 async function translateStatus(lang) {
   if (!_statusMessagesOriginal.length) return;
