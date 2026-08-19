@@ -833,7 +833,7 @@ setLang('fr');
 async function loadStatusBanner() {
   try {
     const resp = await fetch(
-      'https://dlknjbnvatfcqywbblre.supabase.co/rest/v1/status_messages?select=message,severity,started_at&active=eq.true&order=started_at.desc',
+      'https://dlknjbnvatfcqywbblre.supabase.co/rest/v1/status_messages?select=message,message_en,message_de,message_es,severity,started_at&active=eq.true&order=started_at.desc',
       { headers: { 'apikey': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRsa25qYm52YXRmY3F5d2JibHJlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODI5ODk0ODksImV4cCI6MjA5ODU2NTQ4OX0.ckATKu11RBJCnGLYvCYJCRdgs4CXj10A0H3EKYeQnVg' } }
     );
     if (!resp.ok) return;
