@@ -825,6 +825,7 @@ function setLang(lang) {
   if (_statusMessagesOriginal.length) translateStatus(lang);
 }
 
+let _statusMessagesOriginal = [];
 // Initialiser en français au chargement
 setLang('fr');
 
@@ -859,7 +860,6 @@ else if (lang === 'es') text = m.message_es || m.message;
 loadStatusBanner();
 
 // Stocke les messages originaux pour retraduire
-let _statusMessagesOriginal = [];
 
 async function translateStatus(lang) {
   if (!_statusMessagesOriginal.length) return;
