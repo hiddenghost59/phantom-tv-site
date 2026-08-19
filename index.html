@@ -856,10 +856,11 @@ async function loadStatusBanner() {
     banner.style.display = 'block';
   } catch (_) {}
 }
+let _statusMessagesOriginal = [];
 loadStatusBanner();
 
 // Stocke les messages originaux pour retraduire
-let _statusMessagesOriginal = [];
+
 
 async function translateStatus(lang) {
   if (!_statusMessagesOriginal.length) return;
