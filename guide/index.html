@@ -56,6 +56,15 @@
 
     footer { text-align: center; padding: 32px; color: var(--text-dim); font-size: 13px; border-top: 1px solid var(--border); margin-top: 40px; }
     footer a { color: var(--purple); text-decoration: none; }
+
+    /* Sélecteur de langue */
+    .lang-switcher { margin-left: auto; display: flex; gap: 6px; }
+    .lang-btn { background: var(--bg3); border: 1px solid var(--border); color: var(--text-dim); padding: 4px 10px; border-radius: 6px; font-size: 12px; font-weight: 700; cursor: pointer; }
+    .lang-btn.active { background: var(--purple); color: white; border-color: var(--purple); }
+    .lang-btn:hover { border-color: var(--purple); color: var(--purple); }
+    @media (max-width: 600px) {
+      .lang-switcher { margin-left: 0; margin-top: 8px; }
+    }
   </style>
 </head>
 <body>
@@ -69,77 +78,84 @@
   <a href="/#premium">Premium</a>
   <a href="/#contact">Contact</a>
   <a href="/guide" class="nav-active">📖 Guide</a>
+  <div class="lang-switcher">
+    <button class="lang-btn active" onclick="setLang('fr')">FR</button>
+    <button class="lang-btn" onclick="setLang('en')">EN</button>
+    <button class="lang-btn" onclick="setLang('en-us')">EN-US</button>
+    <button class="lang-btn" onclick="setLang('de')">DE</button>
+    <button class="lang-btn" onclick="setLang('es')">ES</button>
+  </div>
 </nav>
 
 <header>
   <h1>📺 Phantom TV</h1>
-  <p>Guide d'utilisation — Tout ce qu'il faut savoir pour bien démarrer</p>
+  <p data-i18n="g-header-sub">Guide d'utilisation — Tout ce qu'il faut savoir pour bien démarrer</p>
 </header>
 
 <div class="content">
 
   <!-- Présentation -->
   <div class="section">
-    <div class="section-title">🎯 Qu'est-ce que Phantom TV ?</div>
+    <div class="section-title">🎯 <span data-i18n="g-intro-title">Qu'est-ce que Phantom TV ?</span></div>
     <div class="card">
-      <p>Phantom TV est une application de lecture multimédia disponible sur <strong>Android</strong>, <strong>Windows</strong> et <strong>Amazon Firestick</strong>. Elle vous permet de regarder vos chaînes TV en direct, vos films et séries, et d'écouter la radio — le tout depuis une interface moderne et fluide.</p>
-      <div class="tip"><strong>💡 Bon à savoir :</strong> Phantom TV est un lecteur multimédia. Le contenu que vous regardez provient de votre propre abonnement multimédia, renseigné lors de la configuration initiale.</div>
+      <p data-i18n="g-intro-body">Phantom TV est une application de lecture multimédia disponible sur <strong>Android</strong>, <strong>Windows</strong> et <strong>Amazon Firestick</strong>. Elle vous permet de regarder vos chaînes TV en direct, vos films et séries, et d'écouter la radio — le tout depuis une interface moderne et fluide.</p>
+      <div class="tip"><strong data-i18n="g-tip-label">💡 Bon à savoir :</strong> <span data-i18n="g-intro-tip">Phantom TV est un lecteur multimédia. Le contenu que vous regardez provient de votre propre abonnement multimédia, renseigné lors de la configuration initiale.</span></div>
     </div>
   </div>
 
   <!-- Plateformes -->
   <div class="section">
-    <div class="section-title">📱 Plateformes disponibles</div>
+    <div class="section-title">📱 <span data-i18n="g-platforms-title">Plateformes disponibles</span></div>
     <div class="platform-grid">
       <div class="platform-card">
         <div class="icon">🤖</div>
         <h4>Android</h4>
-        <p>Disponible sur <a href="https://play.google.com/store/apps/details?id=com.phantomtv.app" target="_blank" style="color:var(--purple);">Google Play</a> et sur <a href="https://apkpure.com/phantom-tv/com.phantomtv.app" target="_blank" style="color:var(--purple);">APKPure</a></p>
+        <p><span data-i18n="g-platform-android">Disponible sur</span> <a href="https://play.google.com/store/apps/details?id=com.phantomtv.app" target="_blank" style="color:var(--purple);">Google Play</a> <span data-i18n="g-platform-and">et sur</span> <a href="https://apkpure.com/phantom-tv/com.phantomtv.app" target="_blank" style="color:var(--purple);">APKPure</a></p>
       </div>
       <div class="platform-card">
         <div class="icon">🪟</div>
         <h4>Windows</h4>
-        <p>Installeur disponible sur phantom-tv.fr</p>
+        <p data-i18n="g-platform-windows">Installeur disponible sur phantom-tv.fr</p>
       </div>
       <div class="platform-card">
         <div class="icon">🔥</div>
         <h4>Firestick</h4>
-        <p>Via l'application Downloader, code disponible sur le site</p>
+        <p data-i18n="g-platform-firestick">Via l'application Downloader, code disponible sur le site</p>
       </div>
     </div>
   </div>
 
   <!-- Premiers pas -->
   <div class="section">
-    <div class="section-title">🚀 Premiers pas</div>
+    <div class="section-title">🚀 <span data-i18n="g-start-title">Premiers pas</span></div>
     <div class="card">
       <div class="steps">
         <div class="step">
           <div class="step-num">1</div>
           <div class="step-body">
-            <h4>Télécharger et installer l'application</h4>
-            <p>Rendez-vous sur <strong>phantom-tv.fr</strong> ou directement sur <a href="https://play.google.com/store/apps/details?id=com.phantomtv.app" target="_blank" style="color:var(--purple);">Google Play</a> pour Android, ou sur <a href="https://apkpure.com/phantom-tv/com.phantomtv.app" target="_blank" style="color:var(--purple);">APKPure</a> pour l'APK direct.</p>
+            <h4 data-i18n="g-start-1-title">Télécharger et installer l'application</h4>
+            <p data-i18n="g-start-1-body">Rendez-vous sur <strong>phantom-tv.fr</strong> ou directement sur <a href="https://play.google.com/store/apps/details?id=com.phantomtv.app" target="_blank" style="color:var(--purple);">Google Play</a> pour Android, ou sur <a href="https://apkpure.com/phantom-tv/com.phantomtv.app" target="_blank" style="color:var(--purple);">APKPure</a> pour l'APK direct.</p>
           </div>
         </div>
         <div class="step">
           <div class="step-num">2</div>
           <div class="step-body">
-            <h4>Activer votre licence</h4>
-            <p>Au premier lancement, entrez la <strong>clé d'activation</strong> qui vous a été fournie lors de votre abonnement. Cette clé est personnelle et liée à votre compte.</p>
+            <h4 data-i18n="g-start-2-title">Activer votre licence</h4>
+            <p data-i18n="g-start-2-body">Au premier lancement, entrez la <strong>clé d'activation</strong> qui vous a été fournie lors de votre abonnement. Cette clé est personnelle et liée à votre compte.</p>
           </div>
         </div>
         <div class="step">
           <div class="step-num">3</div>
           <div class="step-body">
-            <h4>Configurer votre profil</h4>
-            <p>Renseignez les informations de votre fournisseur : URL du serveur, nom d'utilisateur et mot de passe. Ces informations vous sont fournies par votre prestataire.</p>
+            <h4 data-i18n="g-start-3-title">Configurer votre profil</h4>
+            <p data-i18n="g-start-3-body">Renseignez les informations de votre fournisseur : URL du serveur, nom d'utilisateur et mot de passe. Ces informations vous sont fournies par votre prestataire.</p>
           </div>
         </div>
         <div class="step">
           <div class="step-num">4</div>
           <div class="step-body">
-            <h4>Profiter du contenu</h4>
-            <p>Le catalogue se charge automatiquement. Naviguez entre Live TV, Films, Séries et Radio depuis le menu principal.</p>
+            <h4 data-i18n="g-start-4-title">Profiter du contenu</h4>
+            <p data-i18n="g-start-4-body">Le catalogue se charge automatiquement. Naviguez entre Live TV, Films, Séries et Radio depuis le menu principal.</p>
           </div>
         </div>
       </div>
@@ -148,105 +164,105 @@
 
   <!-- Fonctionnalités -->
   <div class="section">
-    <div class="section-title">✨ Fonctionnalités</div>
+    <div class="section-title">✨ <span data-i18n="g-feat-title">Fonctionnalités</span></div>
 
     <div class="card">
       <h3>📡 Live TV</h3>
       <ul>
-        <li>Accès à toutes vos chaînes organisées par catégories</li>
-        <li>Guide des programmes (EPG) intégré</li>
-        <li>Mini-lecteur pendant la navigation</li>
-        <li>Replay / Rattrapage TV <span class="badge badge-premium">Premium</span></li>
-        <li>Groupes de chaînes personnalisés</li>
-        <li>Chaînes favorites</li>
+        <li data-i18n="g-feat-live-1">Accès à toutes vos chaînes organisées par catégories</li>
+        <li data-i18n="g-feat-live-2">Guide des programmes (EPG) intégré</li>
+        <li data-i18n="g-feat-live-3">Mini-lecteur pendant la navigation</li>
+        <li><span data-i18n="g-feat-live-4">Replay / Rattrapage TV</span> <span class="badge badge-premium">Premium</span></li>
+        <li data-i18n="g-feat-live-5">Groupes de chaînes personnalisés</li>
+        <li data-i18n="g-feat-live-6">Chaînes favorites</li>
       </ul>
     </div>
 
     <div class="card">
-      <h3>🎬 Films & Séries</h3>
+      <h3>🎬 <span data-i18n="g-feat-vod-title">Films & Séries</span></h3>
       <ul>
-        <li>Catalogue complet avec affiches et synopsis</li>
-        <li>Reprise automatique de la lecture <span class="badge badge-premium">Premium</span></li>
-        <li>Historique de visionnage</li>
-        <li>Favoris films et séries</li>
-        <li>Recherche par titre</li>
-        <li>Tri A→Z</li>
+        <li data-i18n="g-feat-vod-1">Catalogue complet avec affiches et synopsis</li>
+        <li><span data-i18n="g-feat-vod-2">Reprise automatique de la lecture</span> <span class="badge badge-premium">Premium</span></li>
+        <li data-i18n="g-feat-vod-3">Historique de visionnage</li>
+        <li data-i18n="g-feat-vod-4">Favoris films et séries</li>
+        <li data-i18n="g-feat-vod-5">Recherche par titre</li>
+        <li data-i18n="g-feat-vod-6">Tri A→Z</li>
       </ul>
     </div>
 
     <div class="card">
       <h3>📻 Radio</h3>
       <ul>
-        <li>Stations françaises gratuites incluses</li>
-        <li>Plus de 30 000 stations mondiales <span class="badge badge-premium">Premium</span></li>
-        <li>Recherche par nom de station</li>
-        <li>Stations favorites</li>
+        <li data-i18n="g-feat-radio-1">Stations françaises gratuites incluses</li>
+        <li><span data-i18n="g-feat-radio-2">Plus de 30 000 stations mondiales</span> <span class="badge badge-premium">Premium</span></li>
+        <li data-i18n="g-feat-radio-3">Recherche par nom de station</li>
+        <li data-i18n="g-feat-radio-4">Stations favorites</li>
       </ul>
     </div>
 
     <div class="card">
-      <h3>🔄 Synchronisation multi-appareils <span class="badge badge-premium">Premium</span></h3>
-      <p>Vos favoris, votre historique et votre progression de lecture sont automatiquement synchronisés entre tous vos appareils. Commencez un film sur votre téléphone, reprenez-le sur votre TV.</p>
-      <div class="tip"><strong>💡 Bon à savoir :</strong> La synchronisation fonctionne en arrière-plan, sans action de votre part.</div>
+      <h3>🔄 <span data-i18n="g-feat-sync-title">Synchronisation multi-appareils</span> <span class="badge badge-premium">Premium</span></h3>
+      <p data-i18n="g-feat-sync-body">Vos favoris, votre historique et votre progression de lecture sont automatiquement synchronisés entre tous vos appareils. Commencez un film sur votre téléphone, reprenez-le sur votre TV.</p>
+      <div class="tip"><strong data-i18n="g-tip-label">💡 Bon à savoir :</strong> <span data-i18n="g-feat-sync-tip">La synchronisation fonctionne en arrière-plan, sans action de votre part.</span></div>
     </div>
   </div>
 
   <!-- Plans -->
   <div class="section">
-    <div class="section-title">💳 Plans disponibles</div>
+    <div class="section-title">💳 <span data-i18n="g-plans-title">Plans disponibles</span></div>
     <div class="card">
-      <h3>🔘 Gratuit <span class="badge badge-free">Free</span></h3>
+      <h3>🔘 <span data-i18n="g-plan-free-title">Gratuit</span> <span class="badge badge-free">Free</span></h3>
       <ul>
-        <li>Live TV, Films, Séries, Radio française</li>
-        <li>1 appareil</li>
-        <li>Fonctionnalités de base</li>
+        <li data-i18n="g-plan-free-1">Live TV, Films, Séries, Radio française</li>
+        <li data-i18n="g-plan-free-2">1 appareil</li>
+        <li data-i18n="g-plan-free-3">Fonctionnalités de base</li>
       </ul>
     </div>
     <div class="card">
       <h3>💜 Premium <span class="badge badge-premium">Premium</span></h3>
       <ul>
-        <li>Toutes les fonctionnalités gratuites</li>
-        <li>Jusqu'à 3 appareils simultanés</li>
-        <li>Replay / Rattrapage TV</li>
-        <li>Reprise automatique de lecture</li>
-        <li>30 000+ stations radio mondiales</li>
-        <li>Synchronisation multi-appareils</li>
+        <li data-i18n="g-plan-premium-1">Toutes les fonctionnalités gratuites</li>
+        <li data-i18n="g-plan-premium-2">Jusqu'à 3 appareils simultanés</li>
+        <li data-i18n="g-plan-premium-3">Replay / Rattrapage TV</li>
+        <li data-i18n="g-plan-premium-4">Reprise automatique de lecture</li>
+        <li data-i18n="g-plan-premium-5">30 000+ stations radio mondiales</li>
+        <li data-i18n="g-plan-premium-6">Synchronisation multi-appareils</li>
       </ul>
-      <div class="tip"><strong>Prix :</strong> 12,99 € — paiement unique, accès à vie.</div>
+      <div class="tip"><strong data-i18n="g-price-label">Prix :</strong> <span data-i18n="g-plan-premium-price">12,99 € — paiement unique, accès à vie.</span></div>
     </div>
   </div>
 
   <!-- Firestick -->
   <div class="section">
-    <div class="section-title">🔥 Installation sur Firestick</div>
+    <div class="section-title">🔥 <span data-i18n="g-fire-title">Installation sur Firestick</span></div>
     <div class="card">
       <div class="steps">
         <div class="step">
           <div class="step-num">1</div>
           <div class="step-body">
-            <h4>Autoriser les sources inconnues</h4>
-            <p>Sur votre Firestick : Paramètres → Mon Fire TV → Options pour développeurs → Activer "Applications de sources inconnues".</p>
+            <h4 data-i18n="g-fire-1-title">Autoriser les sources inconnues</h4>
+            <p data-i18n="g-fire-1-body">Sur votre Firestick : Paramètres → Mon Fire TV → Options pour développeurs → Activer "Applications de sources inconnues".</p>
           </div>
         </div>
         <div class="step">
           <div class="step-num">2</div>
           <div class="step-body">
-            <h4>Installer Downloader</h4>
-            <p>Cherchez "Downloader" dans l'Amazon Appstore et installez l'application.</p>
+            <h4 data-i18n="g-fire-2-title">Installer Downloader</h4>
+            <p data-i18n="g-fire-2-body">Cherchez "Downloader" dans l'Amazon Appstore et installez l'application.</p>
           </div>
         </div>
         <div class="step">
           <div class="step-num">3</div>
           <div class="step-body">
-            <h4>Entrer le code Phantom TV</h4>
-            <p>Ouvrez Downloader, entrez le code disponible sur <strong>phantom-tv.fr</strong> dans la section Firestick, et confirmez le téléchargement.</p>
+            <h4 data-i18n="g-fire-3-title">Entrer le code Phantom TV</h4>
+            <p data-i18n="g-fire-3-body">Ouvrez Downloader, entrez le code disponible sur <strong>phantom-tv.fr</strong> dans la section Firestick, et confirmez le téléchargement.</p>
           </div>
         </div>
         <div class="step">
           <div class="step-num">4</div>
           <div class="step-body">
-            <h4>Installer et lancer</h4>
-            <p>Une fois téléchargé, installez l'APK et lancez Phantom TV. La navigation D-pad est entièrement supportée.</p>
+            <h4 data-i18n="g-fire-4-title">Installer et lancer</h4>
+            <p data-i18n="g-fire-4-body">Une fois téléchargé, installez l'APK et lancez Phantom TV. La navigation D-pad est entièrement supportée.</p>
           </div>
         </div>
       </div>
@@ -255,118 +271,590 @@
 
 <!-- TV GRATUITE -->
   <div class="section">
-    <div class="section-title">📺 TV Gratuite</div>
+    <div class="section-title">📺 <span data-i18n="g-freetv-title">TV Gratuite</span></div>
     <div class="card">
-      <h3>Qu'est-ce que la TV Gratuite ?</h3>
-      <p>La section TV Gratuite vous donne accès à des milliers de chaînes publiques et légales du monde entier, sans avoir besoin d'un fournisseur. Ces chaînes sont issues du projet communautaire <strong>IPTV-org</strong> et sont mises à jour régulièrement.</p>
+      <h3 data-i18n="g-freetv-1-title">Qu'est-ce que la TV Gratuite ?</h3>
+      <p data-i18n="g-freetv-1-body">La section TV Gratuite vous donne accès à des milliers de chaînes publiques et légales du monde entier, sans avoir besoin d'un fournisseur. Ces chaînes sont issues du projet communautaire <strong>IPTV-org</strong> et sont mises à jour régulièrement.</p>
       <ul>
-        <li><strong>Version Gratuite</strong> : accès aux chaînes françaises uniquement</li>
-        <li><strong>Version Premium</strong> : accès à plus de 5 000 chaînes mondiales</li>
+        <li><strong data-i18n="g-freetv-li1-label">Version Gratuite</strong> : <span data-i18n="g-freetv-li1-body">accès aux chaînes françaises uniquement</span></li>
+        <li><strong data-i18n="g-freetv-li2-label">Version Premium</strong> : <span data-i18n="g-freetv-li2-body">accès à plus de 5 000 chaînes mondiales</span></li>
       </ul>
     </div>
     <div class="card">
-      <h3>⚠️ Pourquoi certaines chaînes ne fonctionnent pas ?</h3>
-      <p>Ces chaînes ne sont <strong>pas gérées par Phantom TV</strong>. Elles sont diffusées par des tiers sur internet et peuvent être temporairement indisponibles, mal encodées ou géo-bloquées. C'est un comportement normal et indépendant de l'application. Si une chaîne ne fonctionne pas, essayez-en une autre ou réessayez plus tard.</p>
+      <h3 data-i18n="g-freetv-2-title">⚠️ Pourquoi certaines chaînes ne fonctionnent pas ?</h3>
+      <p data-i18n="g-freetv-2-body">Ces chaînes ne sont <strong>pas gérées par Phantom TV</strong>. Elles sont diffusées par des tiers sur internet et peuvent être temporairement indisponibles, mal encodées ou géo-bloquées. C'est un comportement normal et indépendant de l'application. Si une chaîne ne fonctionne pas, essayez-en une autre ou réessayez plus tard.</p>
     </div>
     <div class="card">
-      <h3>Comment accéder à la TV Gratuite ?</h3>
-      <p>Depuis le menu principal, appuyez sur la tuile verte <strong>"TV Gratuite"</strong>. Les chaînes se chargent automatiquement. Vous pouvez filtrer par catégorie (News, Sports, Kids...) ou rechercher une chaîne par nom.</p>
+      <h3 data-i18n="g-freetv-3-title">Comment accéder à la TV Gratuite ?</h3>
+      <p data-i18n="g-freetv-3-body">Depuis le menu principal, appuyez sur la tuile verte <strong>"TV Gratuite"</strong>. Les chaînes se chargent automatiquement. Vous pouvez filtrer par catégorie (News, Sports, Kids...) ou rechercher une chaîne par nom.</p>
     </div>
   </div>
 
   <!-- PARRAINAGE -->
   <div class="section">
-    <div class="section-title">🎁 Parrainage</div>
+    <div class="section-title">🎁 <span data-i18n="g-referral-title">Parrainage</span></div>
     <div class="card">
-      <h3>Comment fonctionne le parrainage ?</h3>
-      <p>Chaque utilisateur de Phantom TV dispose d'un <strong>code de parrainage unique</strong> de 6 caractères, visible dans la section Parrainage de l'application. En partageant ce code à vos amis, vous gagnez des récompenses dès leur inscription.</p>
+      <h3 data-i18n="g-referral-1-title">Comment fonctionne le parrainage ?</h3>
+      <p data-i18n="g-referral-1-body">Chaque utilisateur de Phantom TV dispose d'un <strong>code de parrainage unique</strong> de 6 caractères, visible dans la section Parrainage de l'application. En partageant ce code à vos amis, vous gagnez des récompenses dès leur inscription.</p>
     </div>
     <div class="card">
-      <h3>Comment entrer un code de parrainage ?</h3>
-      <p>Lors de l'activation de l'application, un champ optionnel <strong>"Code de parrainage"</strong> est disponible sous le champ de clé d'activation. Entrez le code de votre parrain avant de valider. La récompense est appliquée automatiquement.</p>
-      <p><strong>Attention :</strong> le code de parrainage ne peut être saisi qu'une seule fois, lors de la première activation.</p>
+      <h3 data-i18n="g-referral-2-title">Comment entrer un code de parrainage ?</h3>
+      <p data-i18n="g-referral-2-body">Lors de l'activation de l'application, un champ optionnel <strong>"Code de parrainage"</strong> est disponible sous le champ de clé d'activation. Entrez le code de votre parrain avant de valider. La récompense est appliquée automatiquement.</p>
+      <p><strong data-i18n="g-referral-2-warn-label">Attention :</strong> <span data-i18n="g-referral-2-warn-body">le code de parrainage ne peut être saisi qu'une seule fois, lors de la première activation.</span></p>
     </div>
     <div class="card">
-      <h3>Quelles sont les récompenses ?</h3>
+      <h3 data-i18n="g-referral-3-title">Quelles sont les récompenses ?</h3>
       <ul>
-        <li><strong>Parrain Gratuit + Filleul Gratuit</strong> → 1 mois Premium offert au parrain</li>
-        <li><strong>Parrain Gratuit + Filleul Premium</strong> → 2 mois Premium offerts au parrain</li>
-        <li><strong>Parrain Gratuit + 10 filleuls Premium</strong> → Accès Premium à vie !</li>
-        <li><strong>Parrain Premium + Filleul Gratuit</strong> → +1 appareil supplémentaire</li>
-        <li><strong>Parrain Premium + Filleul Premium</strong> → +2 appareils supplémentaires (max 5)</li>
+        <li data-i18n="g-referral-3-li1"><strong>Parrain Gratuit + Filleul Gratuit</strong> → 1 mois Premium offert au parrain</li>
+        <li data-i18n="g-referral-3-li2"><strong>Parrain Gratuit + Filleul Premium</strong> → 2 mois Premium offerts au parrain</li>
+        <li data-i18n="g-referral-3-li3"><strong>Parrain Gratuit + 10 filleuls Premium</strong> → Accès Premium à vie !</li>
+        <li data-i18n="g-referral-3-li4"><strong>Parrain Premium + Filleul Gratuit</strong> → +1 appareil supplémentaire</li>
+        <li data-i18n="g-referral-3-li5"><strong>Parrain Premium + Filleul Premium</strong> → +2 appareils supplémentaires (max 5)</li>
       </ul>
     </div>
   </div>
 
   <!-- SAUVEGARDE PROFIL -->
   <div class="section">
-    <div class="section-title">☁️ Sauvegarde du profil</div>
+    <div class="section-title">☁️ <span data-i18n="g-backup-title">Sauvegarde du profil</span></div>
     <div class="card">
-      <h3>Mon profil est-il sauvegardé ?</h3>
-      <p>Oui ! Phantom TV sauvegarde automatiquement votre profil de connexion (URL du serveur, identifiant, mot de passe) de façon <strong>chiffrée dans le cloud</strong>. Seule votre clé d'activation permet de déchiffrer ces données — même Phantom TV ne peut pas les lire.</p>
+      <h3 data-i18n="g-backup-1-title">Mon profil est-il sauvegardé ?</h3>
+      <p data-i18n="g-backup-1-body">Oui ! Phantom TV sauvegarde automatiquement votre profil de connexion (URL du serveur, identifiant, mot de passe) de façon <strong>chiffrée dans le cloud</strong>. Seule votre clé d'activation permet de déchiffrer ces données — même Phantom TV ne peut pas les lire.</p>
     </div>
     <div class="card">
-      <h3>Comment restaurer mon profil après une réinstallation ?</h3>
-      <p>Après avoir réinstallé l'application, entrez simplement votre <strong>clé d'activation</strong>. L'application récupère automatiquement votre profil depuis le cloud et vous reconnecte sans avoir à retaper vos identifiants.</p>
+      <h3 data-i18n="g-backup-2-title">Comment restaurer mon profil après une réinstallation ?</h3>
+      <p data-i18n="g-backup-2-body">Après avoir réinstallé l'application, entrez simplement votre <strong>clé d'activation</strong>. L'application récupère automatiquement votre profil depuis le cloud et vous reconnecte sans avoir à retaper vos identifiants.</p>
     </div>
   </div>
 
   <!-- MISE A JOUR FIRESTICK -->
   <div class="section">
-    <div class="section-title">🔥 Mise à jour sur Firestick</div>
+    <div class="section-title">🔥 <span data-i18n="g-fireupdate-title">Mise à jour sur Firestick</span></div>
     <div class="card">
-      <h3>Comment mettre à jour Phantom TV sur Firestick ?</h3>
-      <p>Lorsqu'une nouvelle version est disponible, un <strong>bandeau de notification</strong> apparaît en haut de l'application avec le code Downloader à utiliser. Voici la procédure :</p>
+      <h3 data-i18n="g-fireupdate-1-title">Comment mettre à jour Phantom TV sur Firestick ?</h3>
+      <p data-i18n="g-fireupdate-1-body">Lorsqu'une nouvelle version est disponible, un <strong>bandeau de notification</strong> apparaît en haut de l'application avec le code Downloader à utiliser. Voici la procédure :</p>
       <ol>
-        <li>Notez le <strong>code Downloader</strong> affiché dans le bandeau</li>
-        <li>Ouvrez l'application <strong>Downloader</strong> sur votre Firestick</li>
-        <li>Entrez le code dans le champ prévu</li>
-        <li>Téléchargez et installez la nouvelle version</li>
+        <li data-i18n="g-fireupdate-1-li1">Notez le <strong>code Downloader</strong> affiché dans le bandeau</li>
+        <li data-i18n="g-fireupdate-1-li2">Ouvrez l'application <strong>Downloader</strong> sur votre Firestick</li>
+        <li data-i18n="g-fireupdate-1-li3">Entrez le code dans le champ prévu</li>
+        <li data-i18n="g-fireupdate-1-li4">Téléchargez et installez la nouvelle version</li>
       </ol>
-      <p>Vous pouvez aussi appuyer sur <strong>"Ouvrir dans Silk Browser"</strong> dans le bandeau — le navigateur s'ouvrira avec le lien de téléchargement direct.</p>
+      <p data-i18n="g-fireupdate-1-foot">Vous pouvez aussi appuyer sur <strong>"Ouvrir dans Silk Browser"</strong> dans le bandeau — le navigateur s'ouvrira avec le lien de téléchargement direct.</p>
     </div>
     <div class="card">
-      <h3>Pourquoi dois-je désinstaller avant de mettre à jour ?</h3>
-      <p>Sur Firestick, l'installation d'une nouvelle version via Downloader nécessite parfois de désinstaller l'ancienne version d'abord. Rassurez-vous : votre profil est sauvegardé dans le cloud — il sera restauré automatiquement après réinstallation grâce à votre clé d'activation.</p>
+      <h3 data-i18n="g-fireupdate-2-title">Pourquoi dois-je désinstaller avant de mettre à jour ?</h3>
+      <p data-i18n="g-fireupdate-2-body">Sur Firestick, l'installation d'une nouvelle version via Downloader nécessite parfois de désinstaller l'ancienne version d'abord. Rassurez-vous : votre profil est sauvegardé dans le cloud — il sera restauré automatiquement après réinstallation grâce à votre clé d'activation.</p>
     </div>
   </div>
 
   <!-- FAQ -->
   <div class="section">
-    <div class="section-title">❓ Questions fréquentes</div>
+    <div class="section-title">❓ <span data-i18n="g-faq-title">Questions fréquentes</span></div>
 
     <div class="card">
-      <h3>🔑 Comment obtenir ou récupérer ma clé d'activation ?</h3>
-      <p>Sur l'écran d'activation de l'application, appuyez sur le bouton <strong>"Demander une clé gratuite"</strong> et renseignez votre pseudo et email. Vous recevrez votre clé par email sous 24h ouvrées. Vous pouvez aussi nous contacter directement à <strong>contact.phantomtv@proton.me</strong>.</p>
+      <h3 data-i18n="g-faq-1-title">🔑 Comment obtenir ou récupérer ma clé d'activation ?</h3>
+      <p data-i18n="g-faq-1-body">Sur l'écran d'activation de l'application, appuyez sur le bouton <strong>"Demander une clé gratuite"</strong> et renseignez votre pseudo et email. Vous recevrez votre clé par email sous 24h ouvrées. Vous pouvez aussi nous contacter directement à <strong>contact.phantomtv@proton.me</strong>.</p>
     </div>
 
     <div class="card">
-      <h3>📱 Puis-je utiliser Phantom TV sur plusieurs appareils ?</h3>
-      <p>Avec le plan Premium, vous pouvez activer Phantom TV sur jusqu'à <strong>3 appareils</strong> simultanément avec la même clé d'activation.</p>
+      <h3 data-i18n="g-faq-2-title">📱 Puis-je utiliser Phantom TV sur plusieurs appareils ?</h3>
+      <p data-i18n="g-faq-2-body">Avec le plan Premium, vous pouvez activer Phantom TV sur jusqu'à <strong>3 appareils</strong> simultanément avec la même clé d'activation.</p>
     </div>
 
     <div class="card">
-      <h3>🔄 Comment mettre à jour l'application ?</h3>
-      <p>Une bannière de mise à jour s'affiche automatiquement dans l'application lorsqu'une nouvelle version est disponible. Suivez le lien pour télécharger la dernière version.</p>
+      <h3 data-i18n="g-faq-3-title">🔄 Comment mettre à jour l'application ?</h3>
+      <p data-i18n="g-faq-3-body">Une bannière de mise à jour s'affiche automatiquement dans l'application lorsqu'une nouvelle version est disponible. Suivez le lien pour télécharger la dernière version.</p>
     </div>
 
     <div class="card">
-      <h3>⚡ La lecture est lente ou coupe</h3>
-      <p>Vérifiez votre connexion internet (une connexion de 10 Mbps minimum est recommandée pour la HD, 25 Mbps pour la 4K). Si le problème persiste, il peut venir du serveur de votre fournisseur.</p>
+      <h3 data-i18n="g-faq-4-title">⚡ La lecture est lente ou coupe</h3>
+      <p data-i18n="g-faq-4-body">Vérifiez votre connexion internet (une connexion de 10 Mbps minimum est recommandée pour la HD, 25 Mbps pour la 4K). Si le problème persiste, il peut venir du serveur de votre fournisseur.</p>
     </div>
 
     <div class="card">
-      <h3>🎬 Un film ou une série ne se lance pas</h3>
-      <p>Certains contenus peuvent être temporairement indisponibles chez votre fournisseur. Phantom TV essaie automatiquement plusieurs formats de lecture — si aucun ne fonctionne, le contenu est probablement indisponible à ce moment-là.</p>
+      <h3 data-i18n="g-faq-5-title">🎬 Un film ou une série ne se lance pas</h3>
+      <p data-i18n="g-faq-5-body">Certains contenus peuvent être temporairement indisponibles chez votre fournisseur. Phantom TV essaie automatiquement plusieurs formats de lecture — si aucun ne fonctionne, le contenu est probablement indisponible à ce moment-là.</p>
     </div>
   </div>
 
 </div>
 
 <footer>
-  <p>© 2025–2026 Phantom TV — Tous droits réservés</p>
+  <p>© 2025–2026 Phantom TV — <span data-i18n="g-footer-rights">Tous droits réservés</span></p>
   <p style="margin-top:8px;"><a href="https://phantom-tv.fr">phantom-tv.fr</a> · <a href="mailto:contact.phantomtv@proton.me">contact.phantomtv@proton.me</a></p>
 </footer>
+
+<script>
+const translations = {
+  fr: {
+    'g-header-sub': 'Guide d\'utilisation — Tout ce qu\'il faut savoir pour bien démarrer',
+    'g-intro-title': 'Qu\'est-ce que Phantom TV ?',
+    'g-intro-body': 'Phantom TV est une application de lecture multimédia disponible sur <strong>Android</strong>, <strong>Windows</strong> et <strong>Amazon Firestick</strong>. Elle vous permet de regarder vos chaînes TV en direct, vos films et séries, et d\'écouter la radio — le tout depuis une interface moderne et fluide.',
+    'g-tip-label': '💡 Bon à savoir :',
+    'g-intro-tip': 'Phantom TV est un lecteur multimédia. Le contenu que vous regardez provient de votre propre abonnement multimédia, renseigné lors de la configuration initiale.',
+    'g-platforms-title': 'Plateformes disponibles',
+    'g-platform-android': 'Disponible sur', 'g-platform-and': 'et sur',
+    'g-platform-windows': 'Installeur disponible sur phantom-tv.fr',
+    'g-platform-firestick': 'Via l\'application Downloader, code disponible sur le site',
+    'g-start-title': 'Premiers pas',
+    'g-start-1-title': 'Télécharger et installer l\'application',
+    'g-start-1-body': 'Rendez-vous sur <strong>phantom-tv.fr</strong> ou directement sur <a href="https://play.google.com/store/apps/details?id=com.phantomtv.app" target="_blank" style="color:var(--purple);">Google Play</a> pour Android, ou sur <a href="https://apkpure.com/phantom-tv/com.phantomtv.app" target="_blank" style="color:var(--purple);">APKPure</a> pour l\'APK direct.',
+    'g-start-2-title': 'Activer votre licence',
+    'g-start-2-body': 'Au premier lancement, entrez la <strong>clé d\'activation</strong> qui vous a été fournie lors de votre abonnement. Cette clé est personnelle et liée à votre compte.',
+    'g-start-3-title': 'Configurer votre profil',
+    'g-start-3-body': 'Renseignez les informations de votre fournisseur : URL du serveur, nom d\'utilisateur et mot de passe. Ces informations vous sont fournies par votre prestataire.',
+    'g-start-4-title': 'Profiter du contenu',
+    'g-start-4-body': 'Le catalogue se charge automatiquement. Naviguez entre Live TV, Films, Séries et Radio depuis le menu principal.',
+    'g-feat-title': 'Fonctionnalités',
+    'g-feat-live-1': 'Accès à toutes vos chaînes organisées par catégories',
+    'g-feat-live-2': 'Guide des programmes (EPG) intégré',
+    'g-feat-live-3': 'Mini-lecteur pendant la navigation',
+    'g-feat-live-4': 'Replay / Rattrapage TV',
+    'g-feat-live-5': 'Groupes de chaînes personnalisés',
+    'g-feat-live-6': 'Chaînes favorites',
+    'g-feat-vod-title': 'Films & Séries',
+    'g-feat-vod-1': 'Catalogue complet avec affiches et synopsis',
+    'g-feat-vod-2': 'Reprise automatique de la lecture',
+    'g-feat-vod-3': 'Historique de visionnage',
+    'g-feat-vod-4': 'Favoris films et séries',
+    'g-feat-vod-5': 'Recherche par titre',
+    'g-feat-vod-6': 'Tri A→Z',
+    'g-feat-radio-1': 'Stations françaises gratuites incluses',
+    'g-feat-radio-2': 'Plus de 30 000 stations mondiales',
+    'g-feat-radio-3': 'Recherche par nom de station',
+    'g-feat-radio-4': 'Stations favorites',
+    'g-feat-sync-title': 'Synchronisation multi-appareils',
+    'g-feat-sync-body': 'Vos favoris, votre historique et votre progression de lecture sont automatiquement synchronisés entre tous vos appareils. Commencez un film sur votre téléphone, reprenez-le sur votre TV.',
+    'g-feat-sync-tip': 'La synchronisation fonctionne en arrière-plan, sans action de votre part.',
+    'g-plans-title': 'Plans disponibles',
+    'g-plan-free-title': 'Gratuit',
+    'g-plan-free-1': 'Live TV, Films, Séries, Radio française',
+    'g-plan-free-2': '1 appareil',
+    'g-plan-free-3': 'Fonctionnalités de base',
+    'g-plan-premium-1': 'Toutes les fonctionnalités gratuites',
+    'g-plan-premium-2': 'Jusqu\'à 3 appareils simultanés',
+    'g-plan-premium-3': 'Replay / Rattrapage TV',
+    'g-plan-premium-4': 'Reprise automatique de lecture',
+    'g-plan-premium-5': '30 000+ stations radio mondiales',
+    'g-plan-premium-6': 'Synchronisation multi-appareils',
+    'g-price-label': 'Prix :',
+    'g-plan-premium-price': '12,99 € — paiement unique, accès à vie.',
+    'g-fire-title': 'Installation sur Firestick',
+    'g-fire-1-title': 'Autoriser les sources inconnues',
+    'g-fire-1-body': 'Sur votre Firestick : Paramètres → Mon Fire TV → Options pour développeurs → Activer "Applications de sources inconnues".',
+    'g-fire-2-title': 'Installer Downloader',
+    'g-fire-2-body': 'Cherchez "Downloader" dans l\'Amazon Appstore et installez l\'application.',
+    'g-fire-3-title': 'Entrer le code Phantom TV',
+    'g-fire-3-body': 'Ouvrez Downloader, entrez le code disponible sur <strong>phantom-tv.fr</strong> dans la section Firestick, et confirmez le téléchargement.',
+    'g-fire-4-title': 'Installer et lancer',
+    'g-fire-4-body': 'Une fois téléchargé, installez l\'APK et lancez Phantom TV. La navigation D-pad est entièrement supportée.',
+    'g-freetv-title': 'TV Gratuite',
+    'g-freetv-1-title': 'Qu\'est-ce que la TV Gratuite ?',
+    'g-freetv-1-body': 'La section TV Gratuite vous donne accès à des milliers de chaînes publiques et légales du monde entier, sans avoir besoin d\'un fournisseur. Ces chaînes sont issues du projet communautaire <strong>IPTV-org</strong> et sont mises à jour régulièrement.',
+    'g-freetv-li1-label': 'Version Gratuite', 'g-freetv-li1-body': 'accès aux chaînes françaises uniquement',
+    'g-freetv-li2-label': 'Version Premium', 'g-freetv-li2-body': 'accès à plus de 5 000 chaînes mondiales',
+    'g-freetv-2-title': '⚠️ Pourquoi certaines chaînes ne fonctionnent pas ?',
+    'g-freetv-2-body': 'Ces chaînes ne sont <strong>pas gérées par Phantom TV</strong>. Elles sont diffusées par des tiers sur internet et peuvent être temporairement indisponibles, mal encodées ou géo-bloquées. C\'est un comportement normal et indépendant de l\'application. Si une chaîne ne fonctionne pas, essayez-en une autre ou réessayez plus tard.',
+    'g-freetv-3-title': 'Comment accéder à la TV Gratuite ?',
+    'g-freetv-3-body': 'Depuis le menu principal, appuyez sur la tuile verte <strong>"TV Gratuite"</strong>. Les chaînes se chargent automatiquement. Vous pouvez filtrer par catégorie (News, Sports, Kids...) ou rechercher une chaîne par nom.',
+    'g-referral-title': 'Parrainage',
+    'g-referral-1-title': 'Comment fonctionne le parrainage ?',
+    'g-referral-1-body': 'Chaque utilisateur de Phantom TV dispose d\'un <strong>code de parrainage unique</strong> de 6 caractères, visible dans la section Parrainage de l\'application. En partageant ce code à vos amis, vous gagnez des récompenses dès leur inscription.',
+    'g-referral-2-title': 'Comment entrer un code de parrainage ?',
+    'g-referral-2-body': 'Lors de l\'activation de l\'application, un champ optionnel <strong>"Code de parrainage"</strong> est disponible sous le champ de clé d\'activation. Entrez le code de votre parrain avant de valider. La récompense est appliquée automatiquement.',
+    'g-referral-2-warn-label': 'Attention :', 'g-referral-2-warn-body': 'le code de parrainage ne peut être saisi qu\'une seule fois, lors de la première activation.',
+    'g-referral-3-title': 'Quelles sont les récompenses ?',
+    'g-referral-3-li1': '<strong>Parrain Gratuit + Filleul Gratuit</strong> → 1 mois Premium offert au parrain',
+    'g-referral-3-li2': '<strong>Parrain Gratuit + Filleul Premium</strong> → 2 mois Premium offerts au parrain',
+    'g-referral-3-li3': '<strong>Parrain Gratuit + 10 filleuls Premium</strong> → Accès Premium à vie !',
+    'g-referral-3-li4': '<strong>Parrain Premium + Filleul Gratuit</strong> → +1 appareil supplémentaire',
+    'g-referral-3-li5': '<strong>Parrain Premium + Filleul Premium</strong> → +2 appareils supplémentaires (max 5)',
+    'g-backup-title': 'Sauvegarde du profil',
+    'g-backup-1-title': 'Mon profil est-il sauvegardé ?',
+    'g-backup-1-body': 'Oui ! Phantom TV sauvegarde automatiquement votre profil de connexion (URL du serveur, identifiant, mot de passe) de façon <strong>chiffrée dans le cloud</strong>. Seule votre clé d\'activation permet de déchiffrer ces données — même Phantom TV ne peut pas les lire.',
+    'g-backup-2-title': 'Comment restaurer mon profil après une réinstallation ?',
+    'g-backup-2-body': 'Après avoir réinstallé l\'application, entrez simplement votre <strong>clé d\'activation</strong>. L\'application récupère automatiquement votre profil depuis le cloud et vous reconnecte sans avoir à retaper vos identifiants.',
+    'g-fireupdate-title': 'Mise à jour sur Firestick',
+    'g-fireupdate-1-title': 'Comment mettre à jour Phantom TV sur Firestick ?',
+    'g-fireupdate-1-body': 'Lorsqu\'une nouvelle version est disponible, un <strong>bandeau de notification</strong> apparaît en haut de l\'application avec le code Downloader à utiliser. Voici la procédure :',
+    'g-fireupdate-1-li1': 'Notez le <strong>code Downloader</strong> affiché dans le bandeau',
+    'g-fireupdate-1-li2': 'Ouvrez l\'application <strong>Downloader</strong> sur votre Firestick',
+    'g-fireupdate-1-li3': 'Entrez le code dans le champ prévu',
+    'g-fireupdate-1-li4': 'Téléchargez et installez la nouvelle version',
+    'g-fireupdate-1-foot': 'Vous pouvez aussi appuyer sur <strong>"Ouvrir dans Silk Browser"</strong> dans le bandeau — le navigateur s\'ouvrira avec le lien de téléchargement direct.',
+    'g-fireupdate-2-title': 'Pourquoi dois-je désinstaller avant de mettre à jour ?',
+    'g-fireupdate-2-body': 'Sur Firestick, l\'installation d\'une nouvelle version via Downloader nécessite parfois de désinstaller l\'ancienne version d\'abord. Rassurez-vous : votre profil est sauvegardé dans le cloud — il sera restauré automatiquement après réinstallation grâce à votre clé d\'activation.',
+    'g-faq-title': 'Questions fréquentes',
+    'g-faq-1-title': '🔑 Comment obtenir ou récupérer ma clé d\'activation ?',
+    'g-faq-1-body': 'Sur l\'écran d\'activation de l\'application, appuyez sur le bouton <strong>"Demander une clé gratuite"</strong> et renseignez votre pseudo et email. Vous recevrez votre clé par email sous 24h ouvrées. Vous pouvez aussi nous contacter directement à <strong>contact.phantomtv@proton.me</strong>.',
+    'g-faq-2-title': '📱 Puis-je utiliser Phantom TV sur plusieurs appareils ?',
+    'g-faq-2-body': 'Avec le plan Premium, vous pouvez activer Phantom TV sur jusqu\'à <strong>3 appareils</strong> simultanément avec la même clé d\'activation.',
+    'g-faq-3-title': '🔄 Comment mettre à jour l\'application ?',
+    'g-faq-3-body': 'Une bannière de mise à jour s\'affiche automatiquement dans l\'application lorsqu\'une nouvelle version est disponible. Suivez le lien pour télécharger la dernière version.',
+    'g-faq-4-title': '⚡ La lecture est lente ou coupe',
+    'g-faq-4-body': 'Vérifiez votre connexion internet (une connexion de 10 Mbps minimum est recommandée pour la HD, 25 Mbps pour la 4K). Si le problème persiste, il peut venir du serveur de votre fournisseur.',
+    'g-faq-5-title': '🎬 Un film ou une série ne se lance pas',
+    'g-faq-5-body': 'Certains contenus peuvent être temporairement indisponibles chez votre fournisseur. Phantom TV essaie automatiquement plusieurs formats de lecture — si aucun ne fonctionne, le contenu est probablement indisponible à ce moment-là.',
+    'g-footer-rights': 'Tous droits réservés',
+  },
+  en: {
+    'g-header-sub': 'User Guide — Everything you need to know to get started',
+    'g-intro-title': 'What is Phantom TV?',
+    'g-intro-body': 'Phantom TV is a media player application available on <strong>Android</strong>, <strong>Windows</strong> and <strong>Amazon Firestick</strong>. It lets you watch your live TV channels, movies and series, and listen to the radio — all from a modern, smooth interface.',
+    'g-tip-label': '💡 Good to know:',
+    'g-intro-tip': 'Phantom TV is a media player. The content you watch comes from your own media subscription, entered during initial setup.',
+    'g-platforms-title': 'Available platforms',
+    'g-platform-android': 'Available on', 'g-platform-and': 'and on',
+    'g-platform-windows': 'Installer available on phantom-tv.fr',
+    'g-platform-firestick': 'Via the Downloader app, code available on the site',
+    'g-start-title': 'Getting started',
+    'g-start-1-title': 'Download and install the application',
+    'g-start-1-body': 'Go to <strong>phantom-tv.fr</strong> or directly to <a href="https://play.google.com/store/apps/details?id=com.phantomtv.app" target="_blank" style="color:var(--purple);">Google Play</a> for Android, or <a href="https://apkpure.com/phantom-tv/com.phantomtv.app" target="_blank" style="color:var(--purple);">APKPure</a> for the direct APK.',
+    'g-start-2-title': 'Activate your license',
+    'g-start-2-body': 'On first launch, enter the <strong>activation key</strong> provided to you when you subscribed. This key is personal and linked to your account.',
+    'g-start-3-title': 'Set up your profile',
+    'g-start-3-body': 'Enter your provider\'s details: server URL, username and password. This information is provided by your provider.',
+    'g-start-4-title': 'Enjoy the content',
+    'g-start-4-body': 'The catalog loads automatically. Navigate between Live TV, Movies, Series and Radio from the main menu.',
+    'g-feat-title': 'Features',
+    'g-feat-live-1': 'Access to all your channels organized by category',
+    'g-feat-live-2': 'Built-in program guide (EPG)',
+    'g-feat-live-3': 'Mini-player while browsing',
+    'g-feat-live-4': 'Replay / Catch-up TV',
+    'g-feat-live-5': 'Custom channel groups',
+    'g-feat-live-6': 'Favorite channels',
+    'g-feat-vod-title': 'Movies & Series',
+    'g-feat-vod-1': 'Full catalog with posters and synopses',
+    'g-feat-vod-2': 'Automatic resume playback',
+    'g-feat-vod-3': 'Watch history',
+    'g-feat-vod-4': 'Movie and series favorites',
+    'g-feat-vod-5': 'Search by title',
+    'g-feat-vod-6': 'A→Z sorting',
+    'g-feat-radio-1': 'Free French stations included',
+    'g-feat-radio-2': 'Over 30,000 worldwide stations',
+    'g-feat-radio-3': 'Search by station name',
+    'g-feat-radio-4': 'Favorite stations',
+    'g-feat-sync-title': 'Multi-device sync',
+    'g-feat-sync-body': 'Your favorites, history and playback progress are automatically synced across all your devices. Start a movie on your phone, resume it on your TV.',
+    'g-feat-sync-tip': 'Sync runs in the background, with no action needed on your part.',
+    'g-plans-title': 'Available plans',
+    'g-plan-free-title': 'Free',
+    'g-plan-free-1': 'Live TV, Movies, Series, French Radio',
+    'g-plan-free-2': '1 device',
+    'g-plan-free-3': 'Basic features',
+    'g-plan-premium-1': 'All free features',
+    'g-plan-premium-2': 'Up to 3 simultaneous devices',
+    'g-plan-premium-3': 'Replay / Catch-up TV',
+    'g-plan-premium-4': 'Automatic resume playback',
+    'g-plan-premium-5': '30,000+ worldwide radio stations',
+    'g-plan-premium-6': 'Multi-device sync',
+    'g-price-label': 'Price:',
+    'g-plan-premium-price': '€12.99 — one-time payment, lifetime access.',
+    'g-fire-title': 'Firestick installation',
+    'g-fire-1-title': 'Allow unknown sources',
+    'g-fire-1-body': 'On your Firestick: Settings → My Fire TV → Developer Options → Enable "Apps from Unknown Sources".',
+    'g-fire-2-title': 'Install Downloader',
+    'g-fire-2-body': 'Search for "Downloader" in the Amazon Appstore and install the app.',
+    'g-fire-3-title': 'Enter the Phantom TV code',
+    'g-fire-3-body': 'Open Downloader, enter the code available on <strong>phantom-tv.fr</strong> in the Firestick section, and confirm the download.',
+    'g-fire-4-title': 'Install and launch',
+    'g-fire-4-body': 'Once downloaded, install the APK and launch Phantom TV. D-pad navigation is fully supported.',
+    'g-freetv-title': 'Free TV',
+    'g-freetv-1-title': 'What is Free TV?',
+    'g-freetv-1-body': 'The Free TV section gives you access to thousands of public, legal channels from around the world, with no provider needed. These channels come from the <strong>IPTV-org</strong> community project and are updated regularly.',
+    'g-freetv-li1-label': 'Free Version', 'g-freetv-li1-body': 'access to French channels only',
+    'g-freetv-li2-label': 'Premium Version', 'g-freetv-li2-body': 'access to over 5,000 worldwide channels',
+    'g-freetv-2-title': '⚠️ Why do some channels not work?',
+    'g-freetv-2-body': 'These channels are <strong>not managed by Phantom TV</strong>. They are broadcast by third parties on the internet and may be temporarily unavailable, poorly encoded or geo-blocked. This is normal behavior, independent of the app. If a channel doesn\'t work, try another one or try again later.',
+    'g-freetv-3-title': 'How do I access Free TV?',
+    'g-freetv-3-body': 'From the main menu, tap the green <strong>"Free TV"</strong> tile. Channels load automatically. You can filter by category (News, Sports, Kids...) or search for a channel by name.',
+    'g-referral-title': 'Referral program',
+    'g-referral-1-title': 'How does the referral program work?',
+    'g-referral-1-body': 'Every Phantom TV user has a <strong>unique 6-character referral code</strong>, visible in the app\'s Referral section. By sharing this code with friends, you earn rewards as soon as they sign up.',
+    'g-referral-2-title': 'How do I enter a referral code?',
+    'g-referral-2-body': 'During app activation, an optional <strong>"Referral code"</strong> field is available below the activation key field. Enter your referrer\'s code before confirming. The reward is applied automatically.',
+    'g-referral-2-warn-label': 'Note:', 'g-referral-2-warn-body': 'the referral code can only be entered once, during the first activation.',
+    'g-referral-3-title': 'What are the rewards?',
+    'g-referral-3-li1': '<strong>Free referrer + Free referee</strong> → 1 free month of Premium for the referrer',
+    'g-referral-3-li2': '<strong>Free referrer + Premium referee</strong> → 2 free months of Premium for the referrer',
+    'g-referral-3-li3': '<strong>Free referrer + 10 Premium referees</strong> → Lifetime Premium access!',
+    'g-referral-3-li4': '<strong>Premium referrer + Free referee</strong> → +1 extra device',
+    'g-referral-3-li5': '<strong>Premium referrer + Premium referee</strong> → +2 extra devices (max 5)',
+    'g-backup-title': 'Profile backup',
+    'g-backup-1-title': 'Is my profile backed up?',
+    'g-backup-1-body': 'Yes! Phantom TV automatically backs up your connection profile (server URL, username, password) in an <strong>encrypted form in the cloud</strong>. Only your activation key can decrypt this data — even Phantom TV cannot read it.',
+    'g-backup-2-title': 'How do I restore my profile after a reinstall?',
+    'g-backup-2-body': 'After reinstalling the app, simply enter your <strong>activation key</strong>. The app automatically retrieves your profile from the cloud and reconnects you without needing to re-enter your credentials.',
+    'g-fireupdate-title': 'Updating on Firestick',
+    'g-fireupdate-1-title': 'How do I update Phantom TV on Firestick?',
+    'g-fireupdate-1-body': 'When a new version is available, a <strong>notification banner</strong> appears at the top of the app with the Downloader code to use. Here\'s the procedure:',
+    'g-fireupdate-1-li1': 'Note the <strong>Downloader code</strong> shown in the banner',
+    'g-fireupdate-1-li2': 'Open the <strong>Downloader</strong> app on your Firestick',
+    'g-fireupdate-1-li3': 'Enter the code in the field provided',
+    'g-fireupdate-1-li4': 'Download and install the new version',
+    'g-fireupdate-1-foot': 'You can also tap <strong>"Open in Silk Browser"</strong> in the banner — the browser will open with the direct download link.',
+    'g-fireupdate-2-title': 'Why do I need to uninstall before updating?',
+    'g-fireupdate-2-body': 'On Firestick, installing a new version via Downloader sometimes requires uninstalling the old version first. Rest assured: your profile is backed up in the cloud — it will be automatically restored after reinstalling, thanks to your activation key.',
+    'g-faq-title': 'Frequently asked questions',
+    'g-faq-1-title': '🔑 How do I get or recover my activation key?',
+    'g-faq-1-body': 'On the app\'s activation screen, tap the <strong>"Request a free key"</strong> button and enter your username and email. You\'ll receive your key by email within 24 business hours. You can also contact us directly at <strong>contact.phantomtv@proton.me</strong>.',
+    'g-faq-2-title': '📱 Can I use Phantom TV on multiple devices?',
+    'g-faq-2-body': 'With the Premium plan, you can activate Phantom TV on up to <strong>3 devices</strong> simultaneously with the same activation key.',
+    'g-faq-3-title': '🔄 How do I update the application?',
+    'g-faq-3-body': 'An update banner automatically appears in the app when a new version is available. Follow the link to download the latest version.',
+    'g-faq-4-title': '⚡ Playback is slow or stutters',
+    'g-faq-4-body': 'Check your internet connection (a minimum of 10 Mbps is recommended for HD, 25 Mbps for 4K). If the problem persists, it may be coming from your provider\'s server.',
+    'g-faq-5-title': '🎬 A movie or series won\'t play',
+    'g-faq-5-body': 'Some content may be temporarily unavailable from your provider. Phantom TV automatically tries several playback formats — if none work, the content is likely unavailable at that time.',
+    'g-footer-rights': 'All rights reserved',
+  },
+  de: {
+    'g-header-sub': 'Benutzerhandbuch — Alles, was Sie für den Einstieg wissen müssen',
+    'g-intro-title': 'Was ist Phantom TV?',
+    'g-intro-body': 'Phantom TV ist eine Media-Player-Anwendung für <strong>Android</strong>, <strong>Windows</strong> und <strong>Amazon Firestick</strong>. Damit können Sie Ihre Live-TV-Kanäle, Filme und Serien ansehen sowie Radio hören — alles über eine moderne, flüssige Oberfläche.',
+    'g-tip-label': '💡 Gut zu wissen:',
+    'g-intro-tip': 'Phantom TV ist ein Media Player. Die Inhalte, die Sie ansehen, stammen aus Ihrem eigenen Medien-Abonnement, das bei der Ersteinrichtung eingegeben wird.',
+    'g-platforms-title': 'Verfügbare Plattformen',
+    'g-platform-android': 'Verfügbar auf', 'g-platform-and': 'und auf',
+    'g-platform-windows': 'Installer verfügbar auf phantom-tv.fr',
+    'g-platform-firestick': 'Über die Downloader-App, Code auf der Website verfügbar',
+    'g-start-title': 'Erste Schritte',
+    'g-start-1-title': 'Anwendung herunterladen und installieren',
+    'g-start-1-body': 'Besuchen Sie <strong>phantom-tv.fr</strong> oder direkt <a href="https://play.google.com/store/apps/details?id=com.phantomtv.app" target="_blank" style="color:var(--purple);">Google Play</a> für Android, oder <a href="https://apkpure.com/phantom-tv/com.phantomtv.app" target="_blank" style="color:var(--purple);">APKPure</a> für die direkte APK.',
+    'g-start-2-title': 'Lizenz aktivieren',
+    'g-start-2-body': 'Geben Sie beim ersten Start den <strong>Aktivierungsschlüssel</strong> ein, den Sie bei Ihrem Abonnement erhalten haben. Dieser Schlüssel ist persönlich und mit Ihrem Konto verknüpft.',
+    'g-start-3-title': 'Profil konfigurieren',
+    'g-start-3-body': 'Geben Sie die Daten Ihres Anbieters ein: Server-URL, Benutzername und Passwort. Diese Informationen erhalten Sie von Ihrem Anbieter.',
+    'g-start-4-title': 'Inhalte genießen',
+    'g-start-4-body': 'Der Katalog wird automatisch geladen. Navigieren Sie über das Hauptmenü zwischen Live-TV, Filmen, Serien und Radio.',
+    'g-feat-title': 'Funktionen',
+    'g-feat-live-1': 'Zugriff auf alle Ihre Kanäle, nach Kategorien organisiert',
+    'g-feat-live-2': 'Integrierter Programmführer (EPG)',
+    'g-feat-live-3': 'Mini-Player während der Navigation',
+    'g-feat-live-4': 'Replay / Timeshift TV',
+    'g-feat-live-5': 'Individuelle Kanalgruppen',
+    'g-feat-live-6': 'Favoritenkanäle',
+    'g-feat-vod-title': 'Filme & Serien',
+    'g-feat-vod-1': 'Vollständiger Katalog mit Postern und Zusammenfassungen',
+    'g-feat-vod-2': 'Automatische Wiedergabefortsetzung',
+    'g-feat-vod-3': 'Wiedergabeverlauf',
+    'g-feat-vod-4': 'Film- und Serienfavoriten',
+    'g-feat-vod-5': 'Suche nach Titel',
+    'g-feat-vod-6': 'A→Z-Sortierung',
+    'g-feat-radio-1': 'Kostenlose französische Sender inbegriffen',
+    'g-feat-radio-2': 'Über 30.000 Sender weltweit',
+    'g-feat-radio-3': 'Suche nach Sendername',
+    'g-feat-radio-4': 'Favoritensender',
+    'g-feat-sync-title': 'Geräteübergreifende Synchronisierung',
+    'g-feat-sync-body': 'Ihre Favoriten, Ihr Verlauf und Ihr Wiedergabefortschritt werden automatisch zwischen allen Ihren Geräten synchronisiert. Beginnen Sie einen Film auf Ihrem Smartphone und setzen Sie ihn auf Ihrem Fernseher fort.',
+    'g-feat-sync-tip': 'Die Synchronisierung läuft im Hintergrund, ohne dass Sie etwas tun müssen.',
+    'g-plans-title': 'Verfügbare Pläne',
+    'g-plan-free-title': 'Kostenlos',
+    'g-plan-free-1': 'Live-TV, Filme, Serien, französisches Radio',
+    'g-plan-free-2': '1 Gerät',
+    'g-plan-free-3': 'Grundfunktionen',
+    'g-plan-premium-1': 'Alle kostenlosen Funktionen',
+    'g-plan-premium-2': 'Bis zu 3 gleichzeitige Geräte',
+    'g-plan-premium-3': 'Replay / Timeshift TV',
+    'g-plan-premium-4': 'Automatische Wiedergabefortsetzung',
+    'g-plan-premium-5': '30.000+ Radiosender weltweit',
+    'g-plan-premium-6': 'Geräteübergreifende Synchronisierung',
+    'g-price-label': 'Preis:',
+    'g-plan-premium-price': '12,99 € — einmalige Zahlung, lebenslanger Zugang.',
+    'g-fire-title': 'Installation auf Firestick',
+    'g-fire-1-title': 'Unbekannte Quellen zulassen',
+    'g-fire-1-body': 'Auf Ihrem Firestick: Einstellungen → Mein Fire TV → Entwickleroptionen → "Apps aus unbekannten Quellen" aktivieren.',
+    'g-fire-2-title': 'Downloader installieren',
+    'g-fire-2-body': 'Suchen Sie im Amazon Appstore nach "Downloader" und installieren Sie die App.',
+    'g-fire-3-title': 'Phantom TV-Code eingeben',
+    'g-fire-3-body': 'Öffnen Sie Downloader, geben Sie den auf <strong>phantom-tv.fr</strong> im Firestick-Bereich verfügbaren Code ein und bestätigen Sie den Download.',
+    'g-fire-4-title': 'Installieren und starten',
+    'g-fire-4-body': 'Installieren Sie nach dem Download die APK und starten Sie Phantom TV. Die D-Pad-Navigation wird vollständig unterstützt.',
+    'g-freetv-title': 'Kostenloses TV',
+    'g-freetv-1-title': 'Was ist Kostenloses TV?',
+    'g-freetv-1-body': 'Der Bereich Kostenloses TV bietet Ihnen Zugang zu Tausenden öffentlichen, legalen Kanälen aus aller Welt, ohne dass ein Anbieter erforderlich ist. Diese Kanäle stammen aus dem Community-Projekt <strong>IPTV-org</strong> und werden regelmäßig aktualisiert.',
+    'g-freetv-li1-label': 'Kostenlose Version', 'g-freetv-li1-body': 'Zugang nur zu französischen Kanälen',
+    'g-freetv-li2-label': 'Premium-Version', 'g-freetv-li2-body': 'Zugang zu über 5.000 weltweiten Kanälen',
+    'g-freetv-2-title': '⚠️ Warum funktionieren manche Kanäle nicht?',
+    'g-freetv-2-body': 'Diese Kanäle werden <strong>nicht von Phantom TV verwaltet</strong>. Sie werden von Dritten im Internet übertragen und können vorübergehend nicht verfügbar, schlecht codiert oder geoblockiert sein. Dies ist ein normales Verhalten, unabhängig von der App. Wenn ein Kanal nicht funktioniert, versuchen Sie einen anderen oder versuchen Sie es später erneut.',
+    'g-freetv-3-title': 'Wie greife ich auf Kostenloses TV zu?',
+    'g-freetv-3-body': 'Tippen Sie im Hauptmenü auf die grüne Kachel <strong>"Kostenloses TV"</strong>. Die Kanäle werden automatisch geladen. Sie können nach Kategorie filtern (Nachrichten, Sport, Kinder...) oder einen Kanal nach Namen suchen.',
+    'g-referral-title': 'Empfehlungsprogramm',
+    'g-referral-1-title': 'Wie funktioniert das Empfehlungsprogramm?',
+    'g-referral-1-body': 'Jeder Phantom TV-Nutzer verfügt über einen <strong>einzigartigen 6-stelligen Empfehlungscode</strong>, sichtbar im Empfehlungsbereich der App. Wenn Sie diesen Code mit Freunden teilen, erhalten Sie Prämien, sobald diese sich registrieren.',
+    'g-referral-2-title': 'Wie gebe ich einen Empfehlungscode ein?',
+    'g-referral-2-body': 'Bei der Aktivierung der App steht ein optionales Feld <strong>"Empfehlungscode"</strong> unterhalb des Aktivierungsschlüsselfelds zur Verfügung. Geben Sie den Code Ihres Werbenden ein, bevor Sie bestätigen. Die Prämie wird automatisch angewendet.',
+    'g-referral-2-warn-label': 'Hinweis:', 'g-referral-2-warn-body': 'der Empfehlungscode kann nur einmal eingegeben werden, bei der ersten Aktivierung.',
+    'g-referral-3-title': 'Welche Prämien gibt es?',
+    'g-referral-3-li1': '<strong>Kostenloser Werbender + Kostenloser Geworbener</strong> → 1 Monat Premium gratis für den Werbenden',
+    'g-referral-3-li2': '<strong>Kostenloser Werbender + Premium Geworbener</strong> → 2 Monate Premium gratis für den Werbenden',
+    'g-referral-3-li3': '<strong>Kostenloser Werbender + 10 Premium Geworbene</strong> → Lebenslanger Premium-Zugang!',
+    'g-referral-3-li4': '<strong>Premium Werbender + Kostenloser Geworbener</strong> → +1 zusätzliches Gerät',
+    'g-referral-3-li5': '<strong>Premium Werbender + Premium Geworbener</strong> → +2 zusätzliche Geräte (max. 5)',
+    'g-backup-title': 'Profilsicherung',
+    'g-backup-1-title': 'Wird mein Profil gesichert?',
+    'g-backup-1-body': 'Ja! Phantom TV sichert Ihr Verbindungsprofil (Server-URL, Benutzername, Passwort) automatisch <strong>verschlüsselt in der Cloud</strong>. Nur Ihr Aktivierungsschlüssel kann diese Daten entschlüsseln — nicht einmal Phantom TV kann sie lesen.',
+    'g-backup-2-title': 'Wie stelle ich mein Profil nach einer Neuinstallation wieder her?',
+    'g-backup-2-body': 'Geben Sie nach der Neuinstallation der App einfach Ihren <strong>Aktivierungsschlüssel</strong> ein. Die App ruft Ihr Profil automatisch aus der Cloud ab und verbindet Sie erneut, ohne dass Sie Ihre Zugangsdaten neu eingeben müssen.',
+    'g-fireupdate-title': 'Aktualisierung auf Firestick',
+    'g-fireupdate-1-title': 'Wie aktualisiere ich Phantom TV auf Firestick?',
+    'g-fireupdate-1-body': 'Wenn eine neue Version verfügbar ist, erscheint oben in der App ein <strong>Benachrichtigungsbanner</strong> mit dem zu verwendenden Downloader-Code. So gehen Sie vor:',
+    'g-fireupdate-1-li1': 'Notieren Sie den im Banner angezeigten <strong>Downloader-Code</strong>',
+    'g-fireupdate-1-li2': 'Öffnen Sie die <strong>Downloader</strong>-App auf Ihrem Firestick',
+    'g-fireupdate-1-li3': 'Geben Sie den Code in das vorgesehene Feld ein',
+    'g-fireupdate-1-li4': 'Laden Sie die neue Version herunter und installieren Sie sie',
+    'g-fireupdate-1-foot': 'Sie können im Banner auch auf <strong>"Im Silk Browser öffnen"</strong> tippen — der Browser öffnet sich mit dem direkten Download-Link.',
+    'g-fireupdate-2-title': 'Warum muss ich vor der Aktualisierung deinstallieren?',
+    'g-fireupdate-2-body': 'Auf Firestick erfordert die Installation einer neuen Version über Downloader manchmal, dass Sie zuerst die alte Version deinstallieren. Keine Sorge: Ihr Profil ist in der Cloud gesichert — es wird nach der Neuinstallation dank Ihres Aktivierungsschlüssels automatisch wiederhergestellt.',
+    'g-faq-title': 'Häufig gestellte Fragen',
+    'g-faq-1-title': '🔑 Wie erhalte oder finde ich meinen Aktivierungsschlüssel wieder?',
+    'g-faq-1-body': 'Tippen Sie auf dem Aktivierungsbildschirm der App auf die Schaltfläche <strong>"Kostenlosen Schlüssel anfordern"</strong> und geben Sie Ihren Benutzernamen und Ihre E-Mail-Adresse ein. Sie erhalten Ihren Schlüssel innerhalb von 24 Werktagsstunden per E-Mail. Sie können uns auch direkt unter <strong>contact.phantomtv@proton.me</strong> kontaktieren.',
+    'g-faq-2-title': '📱 Kann ich Phantom TV auf mehreren Geräten nutzen?',
+    'g-faq-2-body': 'Mit dem Premium-Plan können Sie Phantom TV mit demselben Aktivierungsschlüssel auf bis zu <strong>3 Geräten</strong> gleichzeitig aktivieren.',
+    'g-faq-3-title': '🔄 Wie aktualisiere ich die Anwendung?',
+    'g-faq-3-body': 'Ein Aktualisierungsbanner erscheint automatisch in der App, wenn eine neue Version verfügbar ist. Folgen Sie dem Link, um die neueste Version herunterzuladen.',
+    'g-faq-4-title': '⚡ Die Wiedergabe ist langsam oder ruckelt',
+    'g-faq-4-body': 'Überprüfen Sie Ihre Internetverbindung (mindestens 10 Mbit/s für HD, 25 Mbit/s für 4K werden empfohlen). Falls das Problem weiterhin besteht, kann dies am Server Ihres Anbieters liegen.',
+    'g-faq-5-title': '🎬 Ein Film oder eine Serie startet nicht',
+    'g-faq-5-body': 'Manche Inhalte können bei Ihrem Anbieter vorübergehend nicht verfügbar sein. Phantom TV versucht automatisch mehrere Wiedergabeformate — wenn keines funktioniert, ist der Inhalt wahrscheinlich zu diesem Zeitpunkt nicht verfügbar.',
+    'g-footer-rights': 'Alle Rechte vorbehalten',
+  },
+  es: {
+    'g-header-sub': 'Guía de uso — Todo lo que necesita saber para empezar',
+    'g-intro-title': '¿Qué es Phantom TV?',
+    'g-intro-body': 'Phantom TV es una aplicación de reproducción multimedia disponible en <strong>Android</strong>, <strong>Windows</strong> y <strong>Amazon Firestick</strong>. Le permite ver sus canales de TV en directo, sus películas y series, y escuchar la radio — todo desde una interfaz moderna y fluida.',
+    'g-tip-label': '💡 Bueno saber:',
+    'g-intro-tip': 'Phantom TV es un reproductor multimedia. El contenido que ve proviene de su propia suscripción multimedia, indicada durante la configuración inicial.',
+    'g-platforms-title': 'Plataformas disponibles',
+    'g-platform-android': 'Disponible en', 'g-platform-and': 'y en',
+    'g-platform-windows': 'Instalador disponible en phantom-tv.fr',
+    'g-platform-firestick': 'A través de la aplicación Downloader, código disponible en el sitio',
+    'g-start-title': 'Primeros pasos',
+    'g-start-1-title': 'Descargar e instalar la aplicación',
+    'g-start-1-body': 'Visite <strong>phantom-tv.fr</strong> o directamente <a href="https://play.google.com/store/apps/details?id=com.phantomtv.app" target="_blank" style="color:var(--purple);">Google Play</a> para Android, o <a href="https://apkpure.com/phantom-tv/com.phantomtv.app" target="_blank" style="color:var(--purple);">APKPure</a> para el APK directo.',
+    'g-start-2-title': 'Activar su licencia',
+    'g-start-2-body': 'En el primer inicio, introduzca la <strong>clave de activación</strong> que se le proporcionó al suscribirse. Esta clave es personal y está vinculada a su cuenta.',
+    'g-start-3-title': 'Configurar su perfil',
+    'g-start-3-body': 'Introduzca los datos de su proveedor: URL del servidor, nombre de usuario y contraseña. Esta información se la proporciona su proveedor.',
+    'g-start-4-title': 'Disfrutar del contenido',
+    'g-start-4-body': 'El catálogo se carga automáticamente. Navegue entre TV en directo, Películas, Series y Radio desde el menú principal.',
+    'g-feat-title': 'Funciones',
+    'g-feat-live-1': 'Acceso a todos sus canales organizados por categorías',
+    'g-feat-live-2': 'Guía de programas (EPG) integrada',
+    'g-feat-live-3': 'Mini-reproductor durante la navegación',
+    'g-feat-live-4': 'Replay / TV en diferido',
+    'g-feat-live-5': 'Grupos de canales personalizados',
+    'g-feat-live-6': 'Canales favoritos',
+    'g-feat-vod-title': 'Películas y Series',
+    'g-feat-vod-1': 'Catálogo completo con carteles y sinopsis',
+    'g-feat-vod-2': 'Reanudación automática de la reproducción',
+    'g-feat-vod-3': 'Historial de visualización',
+    'g-feat-vod-4': 'Favoritos de películas y series',
+    'g-feat-vod-5': 'Búsqueda por título',
+    'g-feat-vod-6': 'Orden A→Z',
+    'g-feat-radio-1': 'Emisoras francesas gratuitas incluidas',
+    'g-feat-radio-2': 'Más de 30.000 emisoras mundiales',
+    'g-feat-radio-3': 'Búsqueda por nombre de emisora',
+    'g-feat-radio-4': 'Emisoras favoritas',
+    'g-feat-sync-title': 'Sincronización multidispositivo',
+    'g-feat-sync-body': 'Sus favoritos, historial y progreso de reproducción se sincronizan automáticamente entre todos sus dispositivos. Empiece una película en su teléfono y continúela en su TV.',
+    'g-feat-sync-tip': 'La sincronización funciona en segundo plano, sin ninguna acción por su parte.',
+    'g-plans-title': 'Planes disponibles',
+    'g-plan-free-title': 'Gratuito',
+    'g-plan-free-1': 'TV en directo, Películas, Series, Radio francesa',
+    'g-plan-free-2': '1 dispositivo',
+    'g-plan-free-3': 'Funciones básicas',
+    'g-plan-premium-1': 'Todas las funciones gratuitas',
+    'g-plan-premium-2': 'Hasta 3 dispositivos simultáneos',
+    'g-plan-premium-3': 'Replay / TV en diferido',
+    'g-plan-premium-4': 'Reanudación automática de la reproducción',
+    'g-plan-premium-5': '30.000+ emisoras de radio mundiales',
+    'g-plan-premium-6': 'Sincronización multidispositivo',
+    'g-price-label': 'Precio:',
+    'g-plan-premium-price': '12,99 € — pago único, acceso de por vida.',
+    'g-fire-title': 'Instalación en Firestick',
+    'g-fire-1-title': 'Permitir fuentes desconocidas',
+    'g-fire-1-body': 'En su Firestick: Configuración → Mi Fire TV → Opciones de desarrollador → Activar "Aplicaciones de fuentes desconocidas".',
+    'g-fire-2-title': 'Instalar Downloader',
+    'g-fire-2-body': 'Busque "Downloader" en Amazon Appstore e instale la aplicación.',
+    'g-fire-3-title': 'Introducir el código de Phantom TV',
+    'g-fire-3-body': 'Abra Downloader, introduzca el código disponible en <strong>phantom-tv.fr</strong> en la sección Firestick, y confirme la descarga.',
+    'g-fire-4-title': 'Instalar y lanzar',
+    'g-fire-4-body': 'Una vez descargado, instale el APK y lance Phantom TV. La navegación con D-pad es totalmente compatible.',
+    'g-freetv-title': 'TV Gratuita',
+    'g-freetv-1-title': '¿Qué es la TV Gratuita?',
+    'g-freetv-1-body': 'La sección TV Gratuita le da acceso a miles de canales públicos y legales de todo el mundo, sin necesidad de un proveedor. Estos canales provienen del proyecto comunitario <strong>IPTV-org</strong> y se actualizan regularmente.',
+    'g-freetv-li1-label': 'Versión Gratuita', 'g-freetv-li1-body': 'acceso solo a canales franceses',
+    'g-freetv-li2-label': 'Versión Premium', 'g-freetv-li2-body': 'acceso a más de 5.000 canales mundiales',
+    'g-freetv-2-title': '⚠️ ¿Por qué algunos canales no funcionan?',
+    'g-freetv-2-body': 'Estos canales <strong>no son gestionados por Phantom TV</strong>. Son transmitidos por terceros en internet y pueden estar temporalmente no disponibles, mal codificados o bloqueados geográficamente. Este es un comportamiento normal, independiente de la aplicación. Si un canal no funciona, pruebe con otro o inténtelo de nuevo más tarde.',
+    'g-freetv-3-title': '¿Cómo accedo a la TV Gratuita?',
+    'g-freetv-3-body': 'Desde el menú principal, pulse en la ficha verde <strong>"TV Gratuita"</strong>. Los canales se cargan automáticamente. Puede filtrar por categoría (Noticias, Deportes, Infantil...) o buscar un canal por nombre.',
+    'g-referral-title': 'Programa de referidos',
+    'g-referral-1-title': '¿Cómo funciona el programa de referidos?',
+    'g-referral-1-body': 'Cada usuario de Phantom TV dispone de un <strong>código de referido único</strong> de 6 caracteres, visible en la sección Referidos de la aplicación. Al compartir este código con sus amigos, gana recompensas en cuanto se registren.',
+    'g-referral-2-title': '¿Cómo introduzco un código de referido?',
+    'g-referral-2-body': 'Durante la activación de la aplicación, hay un campo opcional <strong>"Código de referido"</strong> disponible debajo del campo de clave de activación. Introduzca el código de quien le refirió antes de confirmar. La recompensa se aplica automáticamente.',
+    'g-referral-2-warn-label': 'Atención:', 'g-referral-2-warn-body': 'el código de referido solo puede introducirse una vez, durante la primera activación.',
+    'g-referral-3-title': '¿Cuáles son las recompensas?',
+    'g-referral-3-li1': '<strong>Referente Gratuito + Referido Gratuito</strong> → 1 mes de Premium gratis para el referente',
+    'g-referral-3-li2': '<strong>Referente Gratuito + Referido Premium</strong> → 2 meses de Premium gratis para el referente',
+    'g-referral-3-li3': '<strong>Referente Gratuito + 10 referidos Premium</strong> → ¡Acceso Premium de por vida!',
+    'g-referral-3-li4': '<strong>Referente Premium + Referido Gratuito</strong> → +1 dispositivo adicional',
+    'g-referral-3-li5': '<strong>Referente Premium + Referido Premium</strong> → +2 dispositivos adicionales (máx. 5)',
+    'g-backup-title': 'Copia de seguridad del perfil',
+    'g-backup-1-title': '¿Se guarda una copia de seguridad de mi perfil?',
+    'g-backup-1-body': '¡Sí! Phantom TV guarda automáticamente su perfil de conexión (URL del servidor, usuario, contraseña) de forma <strong>cifrada en la nube</strong>. Solo su clave de activación permite descifrar estos datos — ni siquiera Phantom TV puede leerlos.',
+    'g-backup-2-title': '¿Cómo restauro mi perfil tras una reinstalación?',
+    'g-backup-2-body': 'Tras reinstalar la aplicación, simplemente introduzca su <strong>clave de activación</strong>. La aplicación recupera automáticamente su perfil desde la nube y le reconecta sin necesidad de volver a introducir sus credenciales.',
+    'g-fireupdate-title': 'Actualización en Firestick',
+    'g-fireupdate-1-title': '¿Cómo actualizo Phantom TV en Firestick?',
+    'g-fireupdate-1-body': 'Cuando hay una nueva versión disponible, aparece un <strong>banner de notificación</strong> en la parte superior de la aplicación con el código de Downloader a usar. Este es el procedimiento:',
+    'g-fireupdate-1-li1': 'Anote el <strong>código de Downloader</strong> mostrado en el banner',
+    'g-fireupdate-1-li2': 'Abra la aplicación <strong>Downloader</strong> en su Firestick',
+    'g-fireupdate-1-li3': 'Introduzca el código en el campo correspondiente',
+    'g-fireupdate-1-li4': 'Descargue e instale la nueva versión',
+    'g-fireupdate-1-foot': 'También puede pulsar <strong>"Abrir en Silk Browser"</strong> en el banner — el navegador se abrirá con el enlace de descarga directa.',
+    'g-fireupdate-2-title': '¿Por qué debo desinstalar antes de actualizar?',
+    'g-fireupdate-2-body': 'En Firestick, la instalación de una nueva versión mediante Downloader a veces requiere desinstalar primero la versión anterior. No se preocupe: su perfil está guardado en la nube — se restaurará automáticamente tras la reinstalación gracias a su clave de activación.',
+    'g-faq-title': 'Preguntas frecuentes',
+    'g-faq-1-title': '🔑 ¿Cómo obtengo o recupero mi clave de activación?',
+    'g-faq-1-body': 'En la pantalla de activación de la aplicación, pulse el botón <strong>"Solicitar una clave gratuita"</strong> e introduzca su nombre de usuario y correo electrónico. Recibirá su clave por correo electrónico en un plazo de 24 horas hábiles. También puede contactarnos directamente en <strong>contact.phantomtv@proton.me</strong>.',
+    'g-faq-2-title': '📱 ¿Puedo usar Phantom TV en varios dispositivos?',
+    'g-faq-2-body': 'Con el plan Premium, puede activar Phantom TV en hasta <strong>3 dispositivos</strong> simultáneamente con la misma clave de activación.',
+    'g-faq-3-title': '🔄 ¿Cómo actualizo la aplicación?',
+    'g-faq-3-body': 'Un banner de actualización aparece automáticamente en la aplicación cuando hay una nueva versión disponible. Siga el enlace para descargar la última versión.',
+    'g-faq-4-title': '⚡ La reproducción es lenta o se corta',
+    'g-faq-4-body': 'Verifique su conexión a internet (se recomienda una conexión mínima de 10 Mbps para HD, 25 Mbps para 4K). Si el problema persiste, puede provenir del servidor de su proveedor.',
+    'g-faq-5-title': '🎬 Una película o serie no se inicia',
+    'g-faq-5-body': 'Algunos contenidos pueden estar temporalmente no disponibles en su proveedor. Phantom TV prueba automáticamente varios formatos de reproducción — si ninguno funciona, es probable que el contenido no esté disponible en ese momento.',
+    'g-footer-rights': 'Todos los derechos reservados',
+  }
+};
+
+translations['en-us'] = Object.assign({}, translations['en'], {
+  'g-plan-premium-price': '$13.99 — one-time payment, lifetime access.',
+});
+
+let currentLang = 'fr';
+
+function setLang(lang) {
+  currentLang = lang;
+  const t = translations[lang];
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (t[key] !== undefined) el.innerHTML = t[key];
+  });
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    const match = btn.getAttribute('onclick').match(/'([^']+)'/);
+    btn.classList.toggle('active', match && match[1] === lang);
+  });
+  document.documentElement.lang = lang.split('-')[0];
+}
+
+setLang('fr');
+
+</script>
 
 </body>
 </html>
