@@ -18,7 +18,14 @@
       --text: #F9FAFB; --text-dim: #9CA3AF;
       --border: rgba(255,255,255,0.08);
     }
-    body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; min-height: 100vh; }
+    html.light {
+      --bg: #FFFFFF; --bg2: #F3F4F6; --bg3: #E5E7EB;
+      --purple: #7C3AED; --green: #16A34A; --amber: #D97706;
+      --blue: #2563EB; --cyan: #0891B2;
+      --text: #111827; --text-dim: #4B5563;
+      --border: rgba(0,0,0,0.08);
+    }
+    body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; min-height: 100vh; transition: background 0.25s ease, color 0.25s ease; }
 
     header { background: var(--bg2); border-bottom: 1px solid var(--border); padding: 20px 24px; text-align: center; }
     header h1 { font-size: 28px; color: var(--purple); margin-bottom: 4px; }
@@ -58,12 +65,15 @@
     footer a { color: var(--purple); text-decoration: none; }
 
     /* Sélecteur de langue */
-    .lang-switcher { margin-left: auto; display: flex; gap: 6px; }
+    .nav-right { margin-left: auto; display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+    .lang-switcher { display: flex; gap: 6px; }
     .lang-btn { background: var(--bg3); border: 1px solid var(--border); color: var(--text-dim); padding: 4px 10px; border-radius: 6px; font-size: 12px; font-weight: 700; cursor: pointer; }
     .lang-btn.active { background: var(--purple); color: white; border-color: var(--purple); }
     .lang-btn:hover { border-color: var(--purple); color: var(--purple); }
+    .theme-btn { background: var(--bg3); border: 1px solid var(--border); color: var(--text-dim); width: 28px; height: 28px; border-radius: 6px; font-size: 14px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+    .theme-btn:hover { border-color: var(--purple); color: var(--purple); }
     @media (max-width: 600px) {
-      .lang-switcher { margin-left: 0; margin-top: 8px; }
+      .nav-right { margin-left: 0; margin-top: 8px; }
     }
   </style>
 </head>
@@ -78,12 +88,15 @@
   <a href="/#premium">Premium</a>
   <a href="/#contact">Contact</a>
   <a href="/guide" class="nav-active">📖 Guide</a>
-  <div class="lang-switcher">
-    <button class="lang-btn active" onclick="setLang('fr')">FR</button>
-    <button class="lang-btn" onclick="setLang('en')">EN</button>
-    <button class="lang-btn" onclick="setLang('en-us')">EN-US</button>
-    <button class="lang-btn" onclick="setLang('de')">DE</button>
-    <button class="lang-btn" onclick="setLang('es')">ES</button>
+  <div class="nav-right">
+    <button class="theme-btn" id="theme-toggle-btn" onclick="toggleTheme()" title="Changer de thème">🌙</button>
+    <div class="lang-switcher">
+      <button class="lang-btn active" onclick="setLang('fr')">FR</button>
+      <button class="lang-btn" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" onclick="setLang('en-us')">EN-US</button>
+      <button class="lang-btn" onclick="setLang('de')">DE</button>
+      <button class="lang-btn" onclick="setLang('es')">ES</button>
+    </div>
   </div>
 </nav>
 
@@ -383,6 +396,14 @@
   <p>© 2025–2026 Phantom TV — <span data-i18n="g-footer-rights">Tous droits réservés</span></p>
   <p style="margin-top:8px;"><a href="https://phantom-tv.fr">phantom-tv.fr</a> · <a href="mailto:contact.phantomtv@proton.me">contact.phantomtv@proton.me</a></p>
 </footer>
+
+<button onclick="window.scrollTo({top:0,behavior:'smooth'})" id="backToTop" style="display:none;position:fixed;bottom:24px;right:24px;width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,#A855F7,#7C3AED);border:none;color:white;font-size:20px;cursor:pointer;box-shadow:0 4px 20px rgba(168,85,247,0.5);z-index:999;">↑</button>
+
+<script>
+window.addEventListener('scroll', () => {
+  document.getElementById('backToTop').style.display = window.scrollY > 400 ? 'block' : 'none';
+});
+</script>
 
 <script>
 const translations = {
@@ -853,6 +874,30 @@ function setLang(lang) {
 }
 
 setLang('fr');
+
+// Mode clair / sombre — mémorisé dans le navigateur (partagé avec la page d'accueil)
+function applyTheme(theme) {
+  const btn = document.getElementById('theme-toggle-btn');
+  if (theme === 'light') {
+    document.documentElement.classList.add('light');
+    if (btn) btn.textContent = '☀️';
+  } else {
+    document.documentElement.classList.remove('light');
+    if (btn) btn.textContent = '🌙';
+  }
+}
+
+function toggleTheme() {
+  const isLight = document.documentElement.classList.contains('light');
+  const next = isLight ? 'dark' : 'light';
+  applyTheme(next);
+  try { localStorage.setItem('phantomtv-theme', next); } catch (_) {}
+}
+
+try {
+  const savedTheme = localStorage.getItem('phantomtv-theme');
+  if (savedTheme === 'light') applyTheme('light');
+} catch (_) {}
 
 </script>
 
