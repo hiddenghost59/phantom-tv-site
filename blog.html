@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Blog — Comprendre l'IPTV — Phantom TV</title>
-<meta name="description" content="Articles de fond sur l'IPTV : comment choisir un fournisseur, comprendre les formats de flux, et éviter les pièges les plus courants.">
+<meta name="description" content="Articles de fond sur l'IPTV : comment reconnaître une offre légale, comprendre les formats de flux, et éviter les pièges les plus courants.">
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   :root {
@@ -14,97 +14,343 @@
     --text: #F9FAFB; --text-dim: #9CA3AF;
     --border: rgba(255,255,255,0.08);
   }
-  body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.75; }
-  header { background: var(--bg2); border-bottom: 1px solid var(--border); padding: 16px 24px; display: flex; align-items: center; gap: 12px; }
-  header h1 { color: var(--purple); font-size: 20px; }
-  header a.back { margin-left: auto; color: var(--text-dim); text-decoration: none; font-size: 13px; }
-  header a.back:hover { color: var(--purple); }
-  main { max-width: 720px; margin: 0 auto; padding: 48px 24px 80px; }
-  h2.page-title { font-size: 32px; font-weight: 800; color: var(--purple); margin-bottom: 12px; }
-  .lead { font-size: 16px; color: var(--text-dim); margin-bottom: 48px; }
+  html.light {
+    --bg: #FFFFFF; --bg2: #F3F4F6; --bg3: #E5E7EB;
+    --purple: #7C3AED; --green: #16A34A; --red: #DC2626;
+    --amber: #D97706; --blue: #2563EB; --cyan: #0891B2;
+    --text: #111827; --text-dim: #4B5563;
+    --border: rgba(0,0,0,0.08);
+  }
+  body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.75; transition: background 0.25s ease, color 0.25s ease; }
+  nav { background: var(--bg2); border-bottom: 1px solid var(--border); padding: 10px 24px; display: flex; gap: 20px; flex-wrap: wrap; align-items: center; }
+  nav a { color: var(--text-dim); text-decoration: none; font-size: 13px; }
+  nav a:hover { color: var(--purple); }
+  nav .nav-logo { color: var(--purple); font-weight: 700; font-size: 15px; margin-right: 10px; }
+  nav .nav-active { color: var(--purple); font-weight: 600; }
+  .nav-right { margin-left: auto; display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+  .lang-switcher { display: flex; gap: 6px; }
+  .lang-btn { background: var(--bg3); border: 1px solid var(--border); color: var(--text-dim); padding: 4px 10px; border-radius: 6px; font-size: 12px; font-weight: 700; cursor: pointer; }
+  .lang-btn.active { background: var(--purple); color: white; border-color: var(--purple); }
+  .lang-btn:hover { border-color: var(--purple); color: var(--purple); }
+  .theme-btn { background: var(--bg3); border: 1px solid var(--border); color: var(--text-dim); width: 28px; height: 28px; border-radius: 6px; font-size: 14px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+  .theme-btn:hover { border-color: var(--purple); color: var(--purple); }
+  header { background: var(--bg2); border-bottom: 1px solid var(--border); padding: 20px 24px; text-align: center; }
+  header h1 { font-size: 28px; color: var(--purple); margin-bottom: 4px; }
+  header p { color: var(--text-dim); font-size: 14px; }
+  main { max-width: 720px; margin: 0 auto; padding: 40px 24px 80px; }
+  .legal-notice { background: rgba(245,158,11,0.08); border: 1px solid rgba(245,158,11,0.30); border-radius: 12px; padding: 18px 22px; margin-bottom: 48px; font-size: 14px; color: var(--text-dim); }
+  .legal-notice strong { color: var(--amber); }
   article { margin-bottom: 64px; padding-bottom: 56px; border-bottom: 1px solid var(--border); }
   article:last-child { border-bottom: none; }
   .meta { color: var(--cyan); font-size: 12px; text-transform: uppercase; letter-spacing: 1px; font-weight: 700; margin-bottom: 10px; }
-  article h3 { font-size: 26px; font-weight: 800; margin-bottom: 18px; }
+  article h2 { font-size: 26px; font-weight: 800; margin-bottom: 18px; }
   article p { margin-bottom: 16px; color: var(--text-dim); font-size: 15.5px; }
   article strong { color: var(--text); }
-  article h4 { font-size: 17px; color: var(--text); margin: 28px 0 10px; }
+  article h3 { font-size: 17px; color: var(--text); margin: 28px 0 10px; }
   article ul { margin: 0 0 16px 22px; color: var(--text-dim); }
   article li { margin-bottom: 8px; }
+  .warn-box { background: rgba(239,68,68,0.06); border-left: 3px solid var(--red); border-radius: 0 10px 10px 0; padding: 14px 18px; margin: 16px 0; font-size: 14px; }
+  .warn-box strong { color: var(--red); }
   footer { text-align: center; padding: 40px 24px; color: var(--text-dim); font-size: 13px; border-top: 1px solid var(--border); }
   footer a { color: var(--purple); text-decoration: none; }
 </style>
 </head>
 <body>
 
+<nav>
+  <span class="nav-logo">📺 Phantom TV</span>
+  <a href="/">Accueil</a>
+  <a href="/guide">Guide</a>
+  <a href="/blog.html" class="nav-active">Blog</a>
+  <a href="/a-propos.html">À propos</a>
+  <div class="nav-right">
+    <button class="theme-btn" id="theme-toggle-btn" onclick="toggleTheme()" title="Changer de thème">🌙</button>
+    <div class="lang-switcher">
+      <button class="lang-btn active" onclick="setLang('fr')">FR</button>
+      <button class="lang-btn" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" onclick="setLang('en-us')">EN-US</button>
+      <button class="lang-btn" onclick="setLang('de')">DE</button>
+      <button class="lang-btn" onclick="setLang('es')">ES</button>
+    </div>
+  </div>
+</nav>
+
 <header>
-  <span style="font-size:22px;">📺</span>
-  <h1>Phantom TV</h1>
-  <a href="/" class="back">← Retour à l'accueil</a>
+  <h1 data-i18n="b-title">Comprendre l'IPTV</h1>
+  <p data-i18n="b-subtitle">Quelques articles de fond, indépendants de toute application, pour mieux comprendre le fonctionnement de l'IPTV.</p>
 </header>
 
 <main>
-  <h2 class="page-title">Comprendre l'IPTV</h2>
-  <p class="lead">Quelques articles de fond pour mieux comprendre le fonctionnement de l'IPTV, indépendamment de l'application que vous utilisez pour la regarder.</p>
+  <div class="legal-notice">
+    <strong data-i18n="b-legal-label">⚖️ À savoir avant de lire :</strong>
+    <span data-i18n="b-legal-body">L'IPTV (Internet Protocol Television) est un protocole de diffusion — une technologie, pas un service en soi. Elle est utilisée aussi bien par des opérateurs officiels (télévision de rattrapage, box TV d'opérateurs télécoms) que, malheureusement, par des revendeurs proposant un accès non autorisé à des chaînes payantes. Phantom TV est un <strong>lecteur</strong> : il ne fournit, n'héberge ni ne vend aucun contenu. Son utilisation suppose que vous disposiez déjà d'un accès obtenu légalement, exactement comme n'importe quel lecteur vidéo lit les fichiers que vous lui donnez.</span>
+  </div>
 
   <article>
-    <div class="meta">Guide</div>
-    <h3>Comment bien choisir un fournisseur IPTV</h3>
-    <p>Le marché de l'IPTV compte des centaines de fournisseurs, avec des écarts de qualité considérables. Avant de s'engager, quelques critères méritent d'être vérifiés — bien plus déterminants que le prix affiché.</p>
+    <div class="meta" data-i18n="b-a1-meta">Guide</div>
+    <h2 data-i18n="b-a1-title">Comment reconnaître une offre IPTV légale</h2>
+    <p data-i18n="b-a1-p1">Le marché de l'IPTV compte à la fois des acteurs parfaitement légaux (opérateurs télécoms, plateformes de rattrapage officielles, agrégateurs sous licence) et des revendeurs proposant, souvent via des canaux informels, un accès non autorisé à des chaînes payantes. Avant de s'engager auprès d'un fournisseur, quelques signes permettent de distinguer les deux.</p>
 
-    <h4>La stabilité du serveur avant tout</h4>
-    <p>Un flux IPTV n'a de valeur que si le serveur qui le diffuse tient la charge, en particulier aux heures de forte affluence (soirées, événements sportifs majeurs). Un bon indicateur : demandez un essai de quelques heures avant tout engagement long, et testez-le précisément lors d'un pic d'audience prévisible.</p>
+    <h3 data-i18n="b-a1-h1">Un prix anormalement bas pour un catalogue premium</h3>
+    <p data-i18n="b-a1-p2">Une offre incluant des dizaines de chaînes sportives premium, des chaînes payantes internationales et les derniers films en salle, pour quelques euros par mois, n'est techniquement pas viable pour un service qui paierait réellement les droits de diffusion. C'est le signal d'alerte le plus fiable.</p>
 
-    <h4>La fréquence de mise à jour du catalogue</h4>
-    <p>Les films et séries récents disparaissent rapidement d'un catalogue mal entretenu. Un fournisseur sérieux actualise son offre plusieurs fois par semaine, pas une fois par mois.</p>
+    <div class="warn-box">
+      <strong data-i18n="b-a1-warn-label">Point d'attention :</strong>
+      <span data-i18n="b-a1-warn-body">La diffusion de chaînes payantes ou d'événements sportifs sans les droits de diffusion appropriés constitue une contrefaçon. Au-delà du risque juridique pour l'utilisateur final, ces services offrent rarement une vraie garantie de continuité : ils peuvent être coupés du jour au lendemain, sans recours possible.</span>
+    </div>
 
-    <h4>Le format proposé</h4>
-    <p>Privilégiez un fournisseur offrant le protocole <strong>Xtream Codes</strong> plutôt qu'une simple liste M3U brute : la structuration en catégories et le guide des programmes associé changent radicalement le confort d'utilisation au quotidien, notamment pour naviguer dans un catalogue de plusieurs milliers de chaînes.</p>
+    <h3 data-i18n="b-a1-h2">L'absence totale d'identité de l'entreprise</h3>
+    <p data-i18n="b-a1-p3">Un fournisseur légal peut normalement être identifié : une société, des mentions légales, un moyen de contact vérifiable. L'anonymat complet, les paiements uniquement en cryptomonnaie non traçable, ou l'absence de tout support client identifiable, sont des signaux à prendre au sérieux.</p>
 
-    <h4>Le support client réel</h4>
-    <p>Un fournisseur capable de répondre en quelques heures en cas de panne de son serveur vaut largement mieux qu'un tarif légèrement plus bas assorti d'un support injoignable. C'est souvent le critère le plus négligé au moment du choix, et le plus regretté ensuite.</p>
+    <h3 data-i18n="b-a1-h3">Les vraies alternatives légales existent</h3>
+    <p data-i18n="b-a1-p4">De nombreux opérateurs télécoms proposent aujourd'hui leur propre offre IPTV légale incluse dans un abonnement internet, avec un vrai catalogue sous licence. Des plateformes de streaming légales couvrent également une grande partie des besoins en films et séries, avec une qualité de service généralement bien supérieure à celle des offres non autorisées.</p>
   </article>
 
   <article>
-    <div class="meta">Technique</div>
-    <h3>Pourquoi votre flux IPTV coupe-t-il parfois ?</h3>
-    <p>La mise en mémoire tampon (« buffering ») répétée est la frustration la plus fréquente chez les utilisateurs d'IPTV. Dans l'immense majorité des cas, la cause ne se trouve ni dans l'application de lecture, ni même dans votre abonnement internet — mais dans un maillon précis de la chaîne technique qu'il est utile de savoir identifier.</p>
+    <div class="meta" data-i18n="b-a2-meta">Technique</div>
+    <h2 data-i18n="b-a2-title">Pourquoi un flux IPTV coupe-t-il parfois ?</h2>
+    <p data-i18n="b-a2-p1">La mise en mémoire tampon répétée (« buffering ») est la frustration la plus fréquente chez les utilisateurs d'IPTV, quel que soit le lecteur utilisé. Dans l'immense majorité des cas, la cause ne se trouve dans aucune application, mais dans un maillon précis de la chaîne technique qu'il est utile de savoir identifier.</p>
 
-    <h4>Le trajet réel d'un flux IPTV</h4>
-    <p>Entre le serveur de votre fournisseur et votre écran, les données traversent plusieurs réseaux distincts : le centre de données du fournisseur, l'infrastructure de son hébergeur, internet lui-même (avec ses propres points de congestion), votre fournisseur d'accès, et enfin votre réseau domestique. Un ralentissement à n'importe laquelle de ces étapes suffit à provoquer des coupures, sans qu'aucune des parties impliquées n'ait techniquement de panne.</p>
+    <h3 data-i18n="b-a2-h1">Le trajet réel d'un flux</h3>
+    <p data-i18n="b-a2-p2">Entre le serveur d'un fournisseur et un écran, les données traversent plusieurs réseaux distincts : le centre de données du fournisseur, son hébergeur, internet lui-même, le fournisseur d'accès de l'utilisateur, et enfin son réseau domestique. Un ralentissement à n'importe laquelle de ces étapes suffit à provoquer des coupures, sans qu'aucune des parties impliquées n'ait techniquement de panne.</p>
 
-    <h4>Comment isoler la cause</h4>
+    <h3 data-i18n="b-a2-h2">Comment isoler la cause</h3>
     <ul>
-      <li><strong>Testez à une autre heure :</strong> si le problème disparaît en dehors des heures de pointe, le serveur du fournisseur est probablement en cause</li>
-      <li><strong>Testez sur un autre appareil et un autre réseau</strong> (données mobiles par exemple) : si le souci persiste partout, il vient du fournisseur ; s'il disparaît, il vient de votre connexion locale</li>
-      <li><strong>Privilégiez un câble Ethernet</strong> plutôt que le Wi-Fi dès que possible — la différence de stabilité est souvent plus marquée qu'on ne l'imagine, en particulier sur les téléviseurs et boîtiers TV placés loin du routeur</li>
+      <li data-i18n="b-a2-li1"><strong>Tester à une autre heure :</strong> si le problème disparaît en dehors des heures de pointe, le serveur du fournisseur est probablement en cause</li>
+      <li data-i18n="b-a2-li2"><strong>Tester sur un autre réseau</strong> (données mobiles par exemple) : si le souci persiste partout, il vient du fournisseur ; s'il disparaît, il vient de la connexion locale</li>
+      <li data-i18n="b-a2-li3"><strong>Privilégier un câble Ethernet</strong> plutôt que le Wi-Fi dès que possible — la différence de stabilité est souvent plus marquée qu'on ne l'imagine</li>
     </ul>
-
-    <p>Un débit internet élevé n'immunise pas contre les coupures : c'est la <strong>stabilité</strong> de la connexion, pas seulement sa vitesse maximale, qui détermine la fluidité d'un flux en direct.</p>
+    <p data-i18n="b-a2-p3">Un débit internet élevé n'immunise pas contre les coupures : c'est la <strong>stabilité</strong> de la connexion, pas seulement sa vitesse maximale, qui détermine la fluidité d'un flux en direct.</p>
   </article>
 
   <article>
-    <div class="meta">Repères</div>
-    <h3>VOD, direct, catch-up : les mots de l'IPTV expliqués simplement</h3>
-    <p>L'univers de l'IPTV utilise un vocabulaire technique qui n'est pas toujours familier aux nouveaux utilisateurs. Voici les termes qui reviennent le plus souvent.</p>
+    <div class="meta" data-i18n="b-a3-meta">Repères</div>
+    <h2 data-i18n="b-a3-title">VOD, direct, catch-up : le vocabulaire de l'IPTV</h2>
+    <p data-i18n="b-a3-p1">L'univers de l'IPTV utilise un vocabulaire technique qui n'est pas toujours familier aux nouveaux utilisateurs. Voici les termes qui reviennent le plus souvent.</p>
 
-    <h4>Live TV (télévision en direct)</h4>
-    <p>La diffusion en temps réel des chaînes de télévision, exactement comme la télévision traditionnelle — vous regardez ce qui est diffusé au moment présent, sans possibilité de revenir en arrière sauf si le fournisseur propose spécifiquement une fonction de pause ou de rembobinage sur certaines chaînes.</p>
+    <h3 data-i18n="b-a3-h1">Live TV (télévision en direct)</h3>
+    <p data-i18n="b-a3-p2">La diffusion en temps réel des chaînes de télévision, exactement comme la télévision traditionnelle — le contenu est regardé au moment où il est diffusé, sans possibilité de revenir en arrière sauf fonction spécifique de pause proposée par le fournisseur.</p>
 
-    <h4>VOD (Video On Demand)</h4>
-    <p>Le catalogue de films et séries disponibles à la demande, comme sur une plateforme de streaming classique : vous choisissez le contenu, vous contrôlez la lecture (pause, avance, retour en arrière) librement.</p>
+    <h3 data-i18n="b-a3-h2">VOD (Video On Demand)</h3>
+    <p data-i18n="b-a3-p3">Un catalogue de films et séries disponibles à la demande, comme sur une plateforme de streaming classique : le contenu est choisi librement, et sa lecture peut être mise en pause, avancée ou reprise à tout moment.</p>
 
-    <h4>EPG (Electronic Program Guide)</h4>
-    <p>Le guide des programmes électronique — la grille horaire indiquant ce qui passe sur chaque chaîne, maintenant et dans les heures à venir. Un EPG bien renseigné est un signe de qualité chez un fournisseur : le construire et le maintenir à jour demande un travail constant.</p>
+    <h3 data-i18n="b-a3-h3">EPG (Electronic Program Guide)</h3>
+    <p data-i18n="b-a3-p4">Le guide des programmes électronique — la grille horaire indiquant ce qui passe sur chaque chaîne, maintenant et dans les heures à venir. Un EPG bien renseigné et régulièrement mis à jour est un signe de sérieux chez un fournisseur.</p>
 
-    <h4>Catch-up TV (télévision de rattrapage)</h4>
-    <p>La possibilité de revoir un programme déjà diffusé dans les jours précédents, généralement limitée à une fenêtre de quelques jours selon les chaînes et le fournisseur. Toutes les offres IPTV ne proposent pas cette fonctionnalité.</p>
+    <h3 data-i18n="b-a3-h4">Catch-up TV (télévision de rattrapage)</h3>
+    <p data-i18n="b-a3-p5">La possibilité de revoir un programme déjà diffusé dans les jours précédents, généralement limitée à une fenêtre de quelques jours. C'est un service que proposent la plupart des chaînes officielles sur leurs propres plateformes légales.</p>
   </article>
 </main>
 
 <footer>
   © 2025-2026 Phantom TV — <a href="/">Retour à l'accueil</a> · <a href="/guide">Guide</a> · <a href="/a-propos.html">À propos</a>
 </footer>
+
+<button onclick="window.scrollTo({top:0,behavior:'smooth'})" id="backToTop" style="display:none;position:fixed;bottom:24px;right:24px;width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,#A855F7,#7C3AED);border:none;color:white;font-size:20px;cursor:pointer;box-shadow:0 4px 20px rgba(168,85,247,0.5);z-index:999;">↑</button>
+
+<script>
+window.addEventListener('scroll', () => {
+  document.getElementById('backToTop').style.display = window.scrollY > 400 ? 'block' : 'none';
+});
+
+const translations = {
+  fr: {
+    'b-title': 'Comprendre l\'IPTV',
+    'b-subtitle': 'Quelques articles de fond, indépendants de toute application, pour mieux comprendre le fonctionnement de l\'IPTV.',
+    'b-legal-label': '⚖️ À savoir avant de lire :',
+    'b-legal-body': 'L\'IPTV (Internet Protocol Television) est un protocole de diffusion — une technologie, pas un service en soi. Elle est utilisée aussi bien par des opérateurs officiels (télévision de rattrapage, box TV d\'opérateurs télécoms) que, malheureusement, par des revendeurs proposant un accès non autorisé à des chaînes payantes. Phantom TV est un <strong>lecteur</strong> : il ne fournit, n\'héberge ni ne vend aucun contenu. Son utilisation suppose que vous disposiez déjà d\'un accès obtenu légalement, exactement comme n\'importe quel lecteur vidéo lit les fichiers que vous lui donnez.',
+    'b-a1-meta': 'Guide',
+    'b-a1-title': 'Comment reconnaître une offre IPTV légale',
+    'b-a1-p1': 'Le marché de l\'IPTV compte à la fois des acteurs parfaitement légaux (opérateurs télécoms, plateformes de rattrapage officielles, agrégateurs sous licence) et des revendeurs proposant, souvent via des canaux informels, un accès non autorisé à des chaînes payantes. Avant de s\'engager auprès d\'un fournisseur, quelques signes permettent de distinguer les deux.',
+    'b-a1-h1': 'Un prix anormalement bas pour un catalogue premium',
+    'b-a1-p2': 'Une offre incluant des dizaines de chaînes sportives premium, des chaînes payantes internationales et les derniers films en salle, pour quelques euros par mois, n\'est techniquement pas viable pour un service qui paierait réellement les droits de diffusion. C\'est le signal d\'alerte le plus fiable.',
+    'b-a1-warn-label': 'Point d\'attention :',
+    'b-a1-warn-body': 'La diffusion de chaînes payantes ou d\'événements sportifs sans les droits de diffusion appropriés constitue une contrefaçon. Au-delà du risque juridique pour l\'utilisateur final, ces services offrent rarement une vraie garantie de continuité : ils peuvent être coupés du jour au lendemain, sans recours possible.',
+    'b-a1-h2': 'L\'absence totale d\'identité de l\'entreprise',
+    'b-a1-p3': 'Un fournisseur légal peut normalement être identifié : une société, des mentions légales, un moyen de contact vérifiable. L\'anonymat complet, les paiements uniquement en cryptomonnaie non traçable, ou l\'absence de tout support client identifiable, sont des signaux à prendre au sérieux.',
+    'b-a1-h3': 'Les vraies alternatives légales existent',
+    'b-a1-p4': 'De nombreux opérateurs télécoms proposent aujourd\'hui leur propre offre IPTV légale incluse dans un abonnement internet, avec un vrai catalogue sous licence. Des plateformes de streaming légales couvrent également une grande partie des besoins en films et séries, avec une qualité de service généralement bien supérieure à celle des offres non autorisées.',
+    'b-a2-meta': 'Technique',
+    'b-a2-title': 'Pourquoi un flux IPTV coupe-t-il parfois ?',
+    'b-a2-p1': 'La mise en mémoire tampon répétée (« buffering ») est la frustration la plus fréquente chez les utilisateurs d\'IPTV, quel que soit le lecteur utilisé. Dans l\'immense majorité des cas, la cause ne se trouve dans aucune application, mais dans un maillon précis de la chaîne technique qu\'il est utile de savoir identifier.',
+    'b-a2-h1': 'Le trajet réel d\'un flux',
+    'b-a2-p2': 'Entre le serveur d\'un fournisseur et un écran, les données traversent plusieurs réseaux distincts : le centre de données du fournisseur, son hébergeur, internet lui-même, le fournisseur d\'accès de l\'utilisateur, et enfin son réseau domestique. Un ralentissement à n\'importe laquelle de ces étapes suffit à provoquer des coupures, sans qu\'aucune des parties impliquées n\'ait techniquement de panne.',
+    'b-a2-h2': 'Comment isoler la cause',
+    'b-a2-li1': '<strong>Tester à une autre heure :</strong> si le problème disparaît en dehors des heures de pointe, le serveur du fournisseur est probablement en cause',
+    'b-a2-li2': '<strong>Tester sur un autre réseau</strong> (données mobiles par exemple) : si le souci persiste partout, il vient du fournisseur ; s\'il disparaît, il vient de la connexion locale',
+    'b-a2-li3': '<strong>Privilégier un câble Ethernet</strong> plutôt que le Wi-Fi dès que possible — la différence de stabilité est souvent plus marquée qu\'on ne l\'imagine',
+    'b-a2-p3': 'Un débit internet élevé n\'immunise pas contre les coupures : c\'est la <strong>stabilité</strong> de la connexion, pas seulement sa vitesse maximale, qui détermine la fluidité d\'un flux en direct.',
+    'b-a3-meta': 'Repères',
+    'b-a3-title': 'VOD, direct, catch-up : le vocabulaire de l\'IPTV',
+    'b-a3-p1': 'L\'univers de l\'IPTV utilise un vocabulaire technique qui n\'est pas toujours familier aux nouveaux utilisateurs. Voici les termes qui reviennent le plus souvent.',
+    'b-a3-h1': 'Live TV (télévision en direct)',
+    'b-a3-p2': 'La diffusion en temps réel des chaînes de télévision, exactement comme la télévision traditionnelle — le contenu est regardé au moment où il est diffusé, sans possibilité de revenir en arrière sauf fonction spécifique de pause proposée par le fournisseur.',
+    'b-a3-h2': 'VOD (Video On Demand)',
+    'b-a3-p3': 'Un catalogue de films et séries disponibles à la demande, comme sur une plateforme de streaming classique : le contenu est choisi librement, et sa lecture peut être mise en pause, avancée ou reprise à tout moment.',
+    'b-a3-h3': 'EPG (Electronic Program Guide)',
+    'b-a3-p4': 'Le guide des programmes électronique — la grille horaire indiquant ce qui passe sur chaque chaîne, maintenant et dans les heures à venir. Un EPG bien renseigné et régulièrement mis à jour est un signe de sérieux chez un fournisseur.',
+    'b-a3-h4': 'Catch-up TV (télévision de rattrapage)',
+    'b-a3-p5': 'La possibilité de revoir un programme déjà diffusé dans les jours précédents, généralement limitée à une fenêtre de quelques jours. C\'est un service que proposent la plupart des chaînes officielles sur leurs propres plateformes légales.',
+  },
+  en: {
+    'b-title': 'Understanding IPTV',
+    'b-subtitle': 'A few in-depth articles, independent of any application, to better understand how IPTV works.',
+    'b-legal-label': '⚖️ Before you read:',
+    'b-legal-body': 'IPTV (Internet Protocol Television) is a broadcasting protocol — a technology, not a service in itself. It is used both by official operators (catch-up TV, telecom set-top boxes) and, unfortunately, by resellers offering unauthorized access to paid channels. Phantom TV is a <strong>player</strong>: it does not provide, host, or sell any content. Using it assumes you already have a legally obtained access, exactly like any video player reads the files you give it.',
+    'b-a1-meta': 'Guide',
+    'b-a1-title': 'How to recognize a legal IPTV offer',
+    'b-a1-p1': 'The IPTV market includes both fully legal players (telecom operators, official catch-up platforms, licensed aggregators) and resellers offering, often through informal channels, unauthorized access to paid channels. Before committing to a provider, a few signs help tell the two apart.',
+    'b-a1-h1': 'An abnormally low price for a premium catalog',
+    'b-a1-p2': 'An offer including dozens of premium sports channels, international pay channels, and the latest theatrical releases, for a few euros a month, is not technically viable for a service that actually pays for broadcasting rights. This is the most reliable warning sign.',
+    'b-a1-warn-label': 'Point of caution:',
+    'b-a1-warn-body': 'Broadcasting paid channels or sports events without proper broadcasting rights constitutes infringement. Beyond the legal risk for the end user, these services rarely offer any real continuity guarantee: they can be shut down overnight, with no recourse.',
+    'b-a1-h2': 'A complete lack of business identity',
+    'b-a1-p3': 'A legal provider can usually be identified: a company, legal notices, a verifiable contact method. Total anonymity, payments only in untraceable cryptocurrency, or the absence of any identifiable customer support, are signs worth taking seriously.',
+    'b-a1-h3': 'Real legal alternatives exist',
+    'b-a1-p4': 'Many telecom operators now offer their own legal IPTV service included in an internet subscription, with a genuinely licensed catalog. Legal streaming platforms also cover a large part of movie and series needs, generally with much better service quality than unauthorized offers.',
+    'b-a2-meta': 'Technical',
+    'b-a2-title': 'Why does an IPTV stream sometimes cut out?',
+    'b-a2-p1': 'Repeated buffering is the most common frustration among IPTV users, regardless of the player used. In the vast majority of cases, the cause lies in no application at all, but in a specific link of the technical chain worth learning to identify.',
+    'b-a2-h1': 'The real path of a stream',
+    'b-a2-p2': 'Between a provider\'s server and a screen, data crosses several distinct networks: the provider\'s data center, its host, the internet itself, the user\'s internet service provider, and finally their home network. A slowdown at any of these steps is enough to cause cutouts, without any of the parties involved technically having an outage.',
+    'b-a2-h2': 'How to isolate the cause',
+    'b-a2-li1': '<strong>Test at a different time:</strong> if the problem disappears outside peak hours, the provider\'s server is likely the cause',
+    'b-a2-li2': '<strong>Test on another network</strong> (mobile data, for example): if the issue persists everywhere, it comes from the provider; if it disappears, it comes from the local connection',
+    'b-a2-li3': '<strong>Prefer an Ethernet cable</strong> over Wi-Fi whenever possible — the stability difference is often bigger than expected',
+    'b-a2-p3': 'A high internet speed doesn\'t protect against cutouts: it\'s the <strong>stability</strong> of the connection, not just its maximum speed, that determines how smooth a live stream is.',
+    'b-a3-meta': 'Reference',
+    'b-a3-title': 'VOD, live, catch-up: IPTV vocabulary explained',
+    'b-a3-p1': 'The world of IPTV uses technical vocabulary that isn\'t always familiar to new users. Here are the terms that come up most often.',
+    'b-a3-h1': 'Live TV',
+    'b-a3-p2': 'Real-time broadcasting of TV channels, exactly like traditional television — content is watched as it airs, with no way to go back unless the provider offers a specific pause feature.',
+    'b-a3-h2': 'VOD (Video On Demand)',
+    'b-a3-p3': 'A catalog of movies and series available on demand, like on a classic streaming platform: content is chosen freely, and playback can be paused, fast-forwarded, or resumed at any time.',
+    'b-a3-h3': 'EPG (Electronic Program Guide)',
+    'b-a3-p4': 'The electronic program guide — the schedule showing what\'s airing on each channel, now and in the hours ahead. A well-maintained, regularly updated EPG is a sign of a serious provider.',
+    'b-a3-h4': 'Catch-up TV',
+    'b-a3-p5': 'The ability to rewatch a program that already aired in the previous days, usually limited to a window of a few days. Most official channels offer this on their own legal platforms.',
+  },
+  de: {
+    'b-title': 'IPTV verstehen',
+    'b-subtitle': 'Einige ausführliche, von jeder App unabhängige Artikel, um die Funktionsweise von IPTV besser zu verstehen.',
+    'b-legal-label': '⚖️ Bevor Sie weiterlesen:',
+    'b-legal-body': 'IPTV (Internet Protocol Television) ist ein Übertragungsprotokoll — eine Technologie, kein Dienst an sich. Es wird sowohl von offiziellen Anbietern (Mediatheken, Set-Top-Boxen von Telekommunikationsanbietern) als auch leider von Wiederverkäufern genutzt, die unautorisierten Zugang zu kostenpflichtigen Sendern anbieten. Phantom TV ist ein <strong>Player</strong>: Er stellt, hostet oder verkauft keinerlei Inhalte. Die Nutzung setzt voraus, dass Sie bereits über einen legal erworbenen Zugang verfügen — genau wie jeder Videoplayer die ihm übergebenen Dateien wiedergibt.',
+    'b-a1-meta': 'Ratgeber',
+    'b-a1-title': 'Wie man ein legales IPTV-Angebot erkennt',
+    'b-a1-p1': 'Der IPTV-Markt umfasst sowohl vollständig legale Anbieter (Telekommunikationsbetreiber, offizielle Mediathek-Plattformen, lizenzierte Aggregatoren) als auch Wiederverkäufer, die oft über informelle Kanäle unautorisierten Zugang zu kostenpflichtigen Sendern anbieten. Bevor man sich an einen Anbieter bindet, helfen einige Anzeichen, beide zu unterscheiden.',
+    'b-a1-h1': 'Ein ungewöhnlich niedriger Preis für ein Premium-Angebot',
+    'b-a1-p2': 'Ein Angebot mit Dutzenden Premium-Sportsendern, internationalen Bezahlsendern und aktuellen Kinofilmen für wenige Euro im Monat ist für einen Dienst, der tatsächlich Sendelizenzen bezahlt, technisch nicht tragbar. Dies ist das zuverlässigste Warnzeichen.',
+    'b-a1-warn-label': 'Achtung:',
+    'b-a1-warn-body': 'Die Ausstrahlung von Bezahlsendern oder Sportereignissen ohne entsprechende Senderechte stellt eine Rechtsverletzung dar. Neben dem rechtlichen Risiko für den Endnutzer bieten diese Dienste selten eine echte Kontinuitätsgarantie: Sie können von einem Tag auf den anderen abgeschaltet werden, ohne Rückgriffsmöglichkeit.',
+    'b-a1-h2': 'Völliges Fehlen einer Unternehmensidentität',
+    'b-a1-p3': 'Ein legaler Anbieter lässt sich normalerweise identifizieren: ein Unternehmen, ein Impressum, eine überprüfbare Kontaktmöglichkeit. Vollständige Anonymität, Zahlungen ausschließlich in nicht nachverfolgbarer Kryptowährung oder das Fehlen jeglichen identifizierbaren Kundensupports sind ernst zu nehmende Signale.',
+    'b-a1-h3': 'Echte legale Alternativen gibt es',
+    'b-a1-p4': 'Viele Telekommunikationsanbieter bieten heute ihren eigenen legalen IPTV-Dienst im Rahmen eines Internetabonnements an, mit einem echten lizenzierten Angebot. Legale Streaming-Plattformen decken zudem einen Großteil des Bedarfs an Filmen und Serien ab, meist mit deutlich besserer Servicequalität als nicht autorisierte Angebote.',
+    'b-a2-meta': 'Technik',
+    'b-a2-title': 'Warum bricht ein IPTV-Stream manchmal ab?',
+    'b-a2-p1': 'Wiederholtes Puffern ist die häufigste Frustration bei IPTV-Nutzern, unabhängig vom verwendeten Player. In den allermeisten Fällen liegt die Ursache in keiner Anwendung, sondern in einem bestimmten Glied der technischen Kette, das es sich lohnt zu identifizieren.',
+    'b-a2-h1': 'Der tatsächliche Weg eines Streams',
+    'b-a2-p2': 'Zwischen dem Server eines Anbieters und einem Bildschirm durchlaufen die Daten mehrere unterschiedliche Netzwerke: das Rechenzentrum des Anbieters, dessen Hosting, das Internet selbst, den Internetanbieter des Nutzers und schließlich dessen Heimnetzwerk. Eine Verlangsamung an jedem dieser Schritte reicht aus, um Abbrüche zu verursachen, ohne dass eine der beteiligten Parteien technisch gesehen einen Ausfall hätte.',
+    'b-a2-h2': 'Wie man die Ursache eingrenzt',
+    'b-a2-li1': '<strong>Zu einer anderen Uhrzeit testen:</strong> Verschwindet das Problem außerhalb der Stoßzeiten, liegt die Ursache wahrscheinlich beim Server des Anbieters',
+    'b-a2-li2': '<strong>In einem anderen Netzwerk testen</strong> (z. B. mobile Daten): Besteht das Problem überall weiter, liegt es beim Anbieter; verschwindet es, liegt es an der lokalen Verbindung',
+    'b-a2-li3': '<strong>Ein Ethernet-Kabel bevorzugen</strong> statt WLAN, wann immer möglich — der Stabilitätsunterschied ist oft größer als erwartet',
+    'b-a2-p3': 'Eine hohe Internetgeschwindigkeit schützt nicht vor Abbrüchen: Es ist die <strong>Stabilität</strong> der Verbindung, nicht nur ihre Höchstgeschwindigkeit, die die Flüssigkeit eines Live-Streams bestimmt.',
+    'b-a3-meta': 'Begriffe',
+    'b-a3-title': 'VOD, Live, Catch-up: das IPTV-Vokabular erklärt',
+    'b-a3-p1': 'Die IPTV-Welt verwendet technisches Vokabular, das neuen Nutzern nicht immer vertraut ist. Hier die am häufigsten vorkommenden Begriffe.',
+    'b-a3-h1': 'Live TV',
+    'b-a3-p2': 'Die Echtzeit-Ausstrahlung von Fernsehsendern, genau wie beim traditionellen Fernsehen — Inhalte werden zum Zeitpunkt ihrer Ausstrahlung angesehen, ohne Möglichkeit zurückzuspringen, außer bei einer speziellen Pausenfunktion des Anbieters.',
+    'b-a3-h2': 'VOD (Video on Demand)',
+    'b-a3-p3': 'Ein Katalog von Filmen und Serien auf Abruf, wie bei einer klassischen Streaming-Plattform: Der Inhalt wird frei gewählt, und die Wiedergabe kann jederzeit pausiert, vor- oder zurückgespult werden.',
+    'b-a3-h3': 'EPG (Electronic Program Guide)',
+    'b-a3-p4': 'Der elektronische Programmführer — die Zeittabelle, die zeigt, was jetzt und in den kommenden Stunden auf jedem Sender läuft. Ein gut gepflegter, regelmäßig aktualisierter EPG ist ein Zeichen für einen seriösen Anbieter.',
+    'b-a3-h4': 'Catch-up TV',
+    'b-a3-p5': 'Die Möglichkeit, eine bereits ausgestrahlte Sendung der letzten Tage erneut anzusehen, meist begrenzt auf ein Zeitfenster von wenigen Tagen. Die meisten offiziellen Sender bieten dies auf ihren eigenen legalen Plattformen an.',
+  },
+  es: {
+    'b-title': 'Entender el IPTV',
+    'b-subtitle': 'Algunos artículos de fondo, independientes de cualquier aplicación, para comprender mejor el funcionamiento del IPTV.',
+    'b-legal-label': '⚖️ Antes de leer:',
+    'b-legal-body': 'El IPTV (Internet Protocol Television) es un protocolo de transmisión — una tecnología, no un servicio en sí mismo. Lo utilizan tanto operadores oficiales (televisión de reposición, decodificadores de operadores de telecomunicaciones) como, lamentablemente, revendedores que ofrecen acceso no autorizado a canales de pago. Phantom TV es un <strong>reproductor</strong>: no proporciona, aloja ni vende ningún contenido. Su uso supone que usted ya dispone de un acceso obtenido legalmente, exactamente igual que cualquier reproductor de vídeo reproduce los archivos que se le proporcionan.',
+    'b-a1-meta': 'Guía',
+    'b-a1-title': 'Cómo reconocer una oferta IPTV legal',
+    'b-a1-p1': 'El mercado del IPTV incluye tanto actores totalmente legales (operadores de telecomunicaciones, plataformas oficiales de reposición, agregadores con licencia) como revendedores que ofrecen, a menudo por canales informales, acceso no autorizado a canales de pago. Antes de comprometerse con un proveedor, algunas señales permiten distinguir entre ambos.',
+    'b-a1-h1': 'Un precio anormalmente bajo para un catálogo premium',
+    'b-a1-p2': 'Una oferta que incluye decenas de canales deportivos premium, canales de pago internacionales y los últimos estrenos de cine, por unos pocos euros al mes, no es técnicamente viable para un servicio que realmente pague los derechos de emisión. Es la señal de alerta más fiable.',
+    'b-a1-warn-label': 'Punto de atención:',
+    'b-a1-warn-body': 'La emisión de canales de pago o eventos deportivos sin los derechos de emisión correspondientes constituye una infracción. Más allá del riesgo legal para el usuario final, estos servicios rara vez ofrecen una garantía real de continuidad: pueden interrumpirse de un día para otro, sin ningún recurso posible.',
+    'b-a1-h2': 'Ausencia total de identidad empresarial',
+    'b-a1-p3': 'Un proveedor legal normalmente puede identificarse: una empresa, avisos legales, un medio de contacto verificable. El anonimato total, los pagos únicamente en criptomoneda no rastreable, o la ausencia de cualquier soporte al cliente identificable, son señales a tomar en serio.',
+    'b-a1-h3': 'Existen verdaderas alternativas legales',
+    'b-a1-p4': 'Muchos operadores de telecomunicaciones ofrecen hoy su propio servicio IPTV legal incluido en un abono de internet, con un catálogo realmente licenciado. Las plataformas de streaming legales también cubren gran parte de las necesidades de películas y series, generalmente con una calidad de servicio muy superior a la de las ofertas no autorizadas.',
+    'b-a2-meta': 'Técnico',
+    'b-a2-title': '¿Por qué a veces se corta un flujo IPTV?',
+    'b-a2-p1': 'La memoria intermedia repetida (buffering) es la frustración más común entre los usuarios de IPTV, sea cual sea el reproductor utilizado. En la gran mayoría de los casos, la causa no está en ninguna aplicación, sino en un eslabón concreto de la cadena técnica que conviene saber identificar.',
+    'b-a2-h1': 'El trayecto real de un flujo',
+    'b-a2-p2': 'Entre el servidor de un proveedor y una pantalla, los datos atraviesan varias redes distintas: el centro de datos del proveedor, su alojamiento, internet en sí, el proveedor de acceso del usuario y, finalmente, su red doméstica. Una ralentización en cualquiera de estas etapas basta para provocar cortes, sin que ninguna de las partes implicadas tenga técnicamente una avería.',
+    'b-a2-h2': 'Cómo aislar la causa',
+    'b-a2-li1': '<strong>Probar a otra hora:</strong> si el problema desaparece fuera de las horas punta, el servidor del proveedor es probablemente la causa',
+    'b-a2-li2': '<strong>Probar en otra red</strong> (datos móviles, por ejemplo): si el problema persiste en todas partes, viene del proveedor; si desaparece, viene de la conexión local',
+    'b-a2-li3': '<strong>Preferir un cable Ethernet</strong> antes que el Wi-Fi siempre que sea posible — la diferencia de estabilidad suele ser mayor de lo que se imagina',
+    'b-a2-p3': 'Una velocidad de internet alta no protege contra los cortes: es la <strong>estabilidad</strong> de la conexión, no solo su velocidad máxima, lo que determina la fluidez de un flujo en directo.',
+    'b-a3-meta': 'Referencias',
+    'b-a3-title': 'VOD, directo, catch-up: el vocabulario del IPTV',
+    'b-a3-p1': 'El mundo del IPTV utiliza un vocabulario técnico que no siempre resulta familiar para los nuevos usuarios. Estos son los términos que aparecen con más frecuencia.',
+    'b-a3-h1': 'Live TV (televisión en directo)',
+    'b-a3-p2': 'La emisión en tiempo real de los canales de televisión, exactamente como la televisión tradicional — el contenido se ve en el momento en que se emite, sin posibilidad de retroceder salvo una función específica de pausa ofrecida por el proveedor.',
+    'b-a3-h2': 'VOD (Video On Demand)',
+    'b-a3-p3': 'Un catálogo de películas y series disponibles bajo demanda, como en una plataforma de streaming clásica: el contenido se elige libremente, y su reproducción puede pausarse, avanzarse o reanudarse en cualquier momento.',
+    'b-a3-h3': 'EPG (Electronic Program Guide)',
+    'b-a3-p4': 'La guía electrónica de programación — la parrilla horaria que indica lo que se emite en cada canal, ahora y en las próximas horas. Un EPG bien mantenido y actualizado con regularidad es señal de seriedad en un proveedor.',
+    'b-a3-h4': 'Catch-up TV (televisión de reposición)',
+    'b-a3-p5': 'La posibilidad de volver a ver un programa ya emitido en los días anteriores, generalmente limitada a una ventana de unos pocos días. La mayoría de los canales oficiales ofrecen este servicio en sus propias plataformas legales.',
+  }
+};
+
+translations['en-us'] = Object.assign({}, translations['en']);
+
+let currentLang = 'fr';
+
+function setLang(lang) {
+  currentLang = lang;
+  const t = translations[lang];
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (t[key] !== undefined) el.innerHTML = t[key];
+  });
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    const match = btn.getAttribute('onclick').match(/'([^']+)'/);
+    btn.classList.toggle('active', match && match[1] === lang);
+  });
+  document.documentElement.lang = lang.split('-')[0];
+}
+
+setLang('fr');
+
+function applyTheme(theme) {
+  const btn = document.getElementById('theme-toggle-btn');
+  if (theme === 'light') {
+    document.documentElement.classList.add('light');
+    if (btn) btn.textContent = '☀️';
+  } else {
+    document.documentElement.classList.remove('light');
+    if (btn) btn.textContent = '🌙';
+  }
+}
+
+function toggleTheme() {
+  const isLight = document.documentElement.classList.contains('light');
+  const next = isLight ? 'dark' : 'light';
+  applyTheme(next);
+  try { localStorage.setItem('phantomtv-theme', next); } catch (_) {}
+}
+
+try {
+  const savedTheme = localStorage.getItem('phantomtv-theme');
+  if (savedTheme === 'light') applyTheme('light');
+} catch (_) {}
+</script>
 
 </body>
 </html>
