@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>À propos — Phantom TV</title>
+<meta name="description" content="L'histoire de Phantom TV, un lecteur multimédia développé et maintenu par une seule personne, avec un support direct et des mises à jour régulières.">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --bg: #09090B; --bg2: #111827; --bg3: #1F2937;
+    --purple: #A855F7; --green: #22C55E; --red: #EF4444;
+    --amber: #F59E0B; --blue: #3B82F6; --cyan: #06B6D4;
+    --text: #F9FAFB; --text-dim: #9CA3AF;
+    --border: rgba(255,255,255,0.08);
+  }
+  html.light {
+    --bg: #FFFFFF; --bg2: #F3F4F6; --bg3: #E5E7EB;
+    --purple: #7C3AED; --green: #16A34A; --red: #DC2626;
+    --amber: #D97706; --blue: #2563EB; --cyan: #0891B2;
+    --text: #111827; --text-dim: #4B5563;
+    --border: rgba(0,0,0,0.08);
+  }
+  body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.75; transition: background 0.25s ease, color 0.25s ease; }
+  nav { background: var(--bg2); border-bottom: 1px solid var(--border); padding: 10px 24px; display: flex; gap: 20px; flex-wrap: wrap; align-items: center; }
+  nav a { color: var(--text-dim); text-decoration: none; font-size: 13px; }
+  nav a:hover { color: var(--purple); }
+  nav .nav-logo { color: var(--purple); font-weight: 700; font-size: 15px; margin-right: 10px; }
+  nav .nav-active { color: var(--purple); font-weight: 600; }
+  .nav-right { margin-left: auto; display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+  .lang-switcher { display: flex; gap: 6px; }
+  .lang-btn { background: var(--bg3); border: 1px solid var(--border); color: var(--text-dim); padding: 4px 10px; border-radius: 6px; font-size: 12px; font-weight: 700; cursor: pointer; }
+  .lang-btn.active { background: var(--purple); color: white; border-color: var(--purple); }
+  .lang-btn:hover { border-color: var(--purple); color: var(--purple); }
+  .theme-btn { background: var(--bg3); border: 1px solid var(--border); color: var(--text-dim); width: 28px; height: 28px; border-radius: 6px; font-size: 14px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+  .theme-btn:hover { border-color: var(--purple); color: var(--purple); }
+  header { background: var(--bg2); border-bottom: 1px solid var(--border); padding: 20px 24px; text-align: center; }
+  header h1 { font-size: 28px; color: var(--purple); margin-bottom: 4px; }
+  main { max-width: 700px; margin: 0 auto; padding: 48px 24px 80px; }
+  main p { margin-bottom: 16px; color: var(--text-dim); font-size: 15.5px; }
+  main strong { color: var(--text); }
+  h2 { font-size: 18px; color: var(--text); margin: 36px 0 10px; }
+  .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 36px 0; }
+  .stat { background: var(--bg2); border: 1px solid var(--border); border-radius: 12px; padding: 20px; text-align: center; }
+  .stat .num { font-size: 26px; font-weight: 800; color: var(--purple); }
+  .stat .label { font-size: 12px; color: var(--text-dim); margin-top: 4px; }
+  footer { text-align: center; padding: 40px 24px; color: var(--text-dim); font-size: 13px; border-top: 1px solid var(--border); }
+  footer a { color: var(--purple); text-decoration: none; }
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-logo">📺 Phantom TV</span>
+  <a href="/">Accueil</a>
+  <a href="/guide">Guide</a>
+  <a href="/blog.html">Blog</a>
+  <a href="/a-propos.html" class="nav-active">À propos</a>
+  <div class="nav-right">
+    <button class="theme-btn" id="theme-toggle-btn" onclick="toggleTheme()" title="Changer de thème">🌙</button>
+    <div class="lang-switcher">
+      <button class="lang-btn active" onclick="setLang('fr')">FR</button>
+      <button class="lang-btn" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" onclick="setLang('en-us')">EN-US</button>
+      <button class="lang-btn" onclick="setLang('de')">DE</button>
+      <button class="lang-btn" onclick="setLang('es')">ES</button>
+    </div>
+  </div>
+</nav>
+
+<header>
+  <h1 data-i18n="a-title">À propos de Phantom TV</h1>
+</header>
+
+<main>
+  <p data-i18n="a-p1">Phantom TV est né d'un constat simple : la plupart des lecteurs IPTV disponibles sur mobile et bureau souffraient soit d'une interface datée, soit d'un support quasi inexistant en cas de problème. L'application a été conçue et développée pour corriger les deux, avec une attention particulière portée à la stabilité de lecture et à la clarté de l'interface, plutôt qu'à l'accumulation de fonctionnalités superflues.</p>
+
+  <h2 data-i18n="a-h1">Un développement encore artisanal, assumé</h2>
+  <p data-i18n="a-p2">Contrairement à beaucoup d'applications similaires portées par des équipes ou des sociétés, Phantom TV est développée et maintenue par <strong>une seule personne</strong>. Ce choix a un coût — les nouvelles fonctionnalités prennent parfois plus de temps à sortir qu'avec une équipe complète — mais il a aussi un vrai bénéfice : chaque signalement de bug est lu et traité directement par la personne qui a écrit le code concerné, sans intermédiaire ni ticket perdu dans une file d'attente.</p>
+
+  <h2 data-i18n="a-h2">Ce que Phantom TV n'est pas</h2>
+  <p data-i18n="a-p3">Phantom TV ne fournit, n'héberge et ne vend aucun contenu télévisuel. C'est un <strong>lecteur</strong> : vous y connectez votre propre abonnement IPTV, obtenu chez le fournisseur de votre choix, exactement comme un lecteur vidéo classique lit les fichiers que vous lui donnez. Cette distinction est au cœur du projet et de la manière dont il est conçu.</p>
+
+  <h2 data-i18n="a-h3">Support et évolutions</h2>
+  <p data-i18n="a-p4">Les mises à jour sortent régulièrement, souvent en réponse directe à des retours d'utilisateurs — correctifs de stabilité, ajustements d'interface, nouvelles fonctionnalités demandées via le formulaire de contact ou le bouton de signalement intégré à l'application. C'est la source principale d'inspiration pour les évolutions du produit.</p>
+
+  <div class="stats">
+    <div class="stat"><div class="num">3</div><div class="label" data-i18n="a-stat1">Plateformes prises en charge</div></div>
+    <div class="stat"><div class="num">3</div><div class="label" data-i18n="a-stat2">Protocoles de connexion</div></div>
+    <div class="stat"><div class="num">5</div><div class="label" data-i18n="a-stat3">Langues d'interface</div></div>
+  </div>
+
+  <p data-i18n="a-p5">Pour toute question, suggestion ou problème rencontré, la page Contact reste le moyen le plus direct d'obtenir une réponse.</p>
+</main>
+
+<footer>
+  © 2025-2026 Phantom TV — <a href="/">Retour à l'accueil</a> · <a href="/guide">Guide</a> · <a href="/blog.html">Blog</a>
+</footer>
+
+<button onclick="window.scrollTo({top:0,behavior:'smooth'})" id="backToTop" style="display:none;position:fixed;bottom:24px;right:24px;width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,#A855F7,#7C3AED);border:none;color:white;font-size:20px;cursor:pointer;box-shadow:0 4px 20px rgba(168,85,247,0.5);z-index:999;">↑</button>
+
+<script>
+window.addEventListener('scroll', () => {
+  document.getElementById('backToTop').style.display = window.scrollY > 400 ? 'block' : 'none';
+});
+
+const translations = {
+  fr: {
+    'a-title': 'À propos de Phantom TV',
+    'a-p1': 'Phantom TV est né d\'un constat simple : la plupart des lecteurs IPTV disponibles sur mobile et bureau souffraient soit d\'une interface datée, soit d\'un support quasi inexistant en cas de problème. L\'application a été conçue et développée pour corriger les deux, avec une attention particulière portée à la stabilité de lecture et à la clarté de l\'interface, plutôt qu\'à l\'accumulation de fonctionnalités superflues.',
+    'a-h1': 'Un développement encore artisanal, assumé',
+    'a-p2': 'Contrairement à beaucoup d\'applications similaires portées par des équipes ou des sociétés, Phantom TV est développée et maintenue par <strong>une seule personne</strong>. Ce choix a un coût — les nouvelles fonctionnalités prennent parfois plus de temps à sortir qu\'avec une équipe complète — mais il a aussi un vrai bénéfice : chaque signalement de bug est lu et traité directement par la personne qui a écrit le code concerné, sans intermédiaire ni ticket perdu dans une file d\'attente.',
+    'a-h2': 'Ce que Phantom TV n\'est pas',
+    'a-p3': 'Phantom TV ne fournit, n\'héberge et ne vend aucun contenu télévisuel. C\'est un <strong>lecteur</strong> : vous y connectez votre propre abonnement IPTV, obtenu chez le fournisseur de votre choix, exactement comme un lecteur vidéo classique lit les fichiers que vous lui donnez. Cette distinction est au cœur du projet et de la manière dont il est conçu.',
+    'a-h3': 'Support et évolutions',
+    'a-p4': 'Les mises à jour sortent régulièrement, souvent en réponse directe à des retours d\'utilisateurs — correctifs de stabilité, ajustements d\'interface, nouvelles fonctionnalités demandées via le formulaire de contact ou le bouton de signalement intégré à l\'application. C\'est la source principale d\'inspiration pour les évolutions du produit.',
+    'a-stat1': 'Plateformes prises en charge',
+    'a-stat2': 'Protocoles de connexion',
+    'a-stat3': 'Langues d\'interface',
+    'a-p5': 'Pour toute question, suggestion ou problème rencontré, la page Contact reste le moyen le plus direct d\'obtenir une réponse.',
+  },
+  en: {
+    'a-title': 'About Phantom TV',
+    'a-p1': 'Phantom TV was born from a simple observation: most IPTV players available on mobile and desktop suffered either from an outdated interface or from nearly nonexistent support when something went wrong. The app was designed and built to fix both, with particular attention paid to playback stability and interface clarity, rather than piling on superfluous features.',
+    'a-h1': 'Still a one-person, hands-on project',
+    'a-p2': 'Unlike many similar apps built by teams or companies, Phantom TV is developed and maintained by <strong>a single person</strong>. This choice has a cost — new features sometimes take longer to ship than with a full team — but it also has a real benefit: every bug report is read and handled directly by the person who wrote the code in question, with no middleman and no ticket lost in a queue.',
+    'a-h2': 'What Phantom TV is not',
+    'a-p3': 'Phantom TV does not provide, host, or sell any TV content. It is a <strong>player</strong>: you connect your own IPTV subscription, obtained from the provider of your choice, exactly like a regular video player reads the files you give it. This distinction is central to the project and how it\'s designed.',
+    'a-h3': 'Support and updates',
+    'a-p4': 'Updates ship regularly, often as a direct response to user feedback — stability fixes, interface adjustments, new features requested through the contact form or the in-app report button. This is the main source of inspiration for the product\'s evolution.',
+    'a-stat1': 'Supported platforms',
+    'a-stat2': 'Connection protocols',
+    'a-stat3': 'Interface languages',
+    'a-p5': 'For any question, suggestion, or issue encountered, the Contact page remains the most direct way to get a response.',
+  },
+  de: {
+    'a-title': 'Über Phantom TV',
+    'a-p1': 'Phantom TV entstand aus einer einfachen Beobachtung: Die meisten verfügbaren IPTV-Player auf Mobilgeräten und am Desktop litten entweder unter einer veralteten Oberfläche oder unter nahezu nicht vorhandenem Support bei Problemen. Die App wurde entwickelt, um beides zu beheben, mit besonderem Augenmerk auf Wiedergabestabilität und Klarheit der Oberfläche statt auf die Anhäufung überflüssiger Funktionen.',
+    'a-h1': 'Noch ein handwerkliches Ein-Personen-Projekt',
+    'a-p2': 'Anders als viele ähnliche Apps, die von Teams oder Unternehmen entwickelt werden, wird Phantom TV von <strong>einer einzigen Person</strong> entwickelt und gepflegt. Diese Entscheidung hat ihren Preis — neue Funktionen brauchen manchmal länger als mit einem vollständigen Team — bringt aber auch einen echten Vorteil: Jede Fehlermeldung wird direkt von der Person gelesen und bearbeitet, die den betreffenden Code geschrieben hat, ohne Zwischenhändler und ohne in einer Warteschlange verlorenzugehen.',
+    'a-h2': 'Was Phantom TV nicht ist',
+    'a-p3': 'Phantom TV stellt keine Fernsehinhalte bereit, hostet oder verkauft sie nicht. Es ist ein <strong>Player</strong>: Sie verbinden Ihr eigenes IPTV-Abonnement, das Sie beim Anbieter Ihrer Wahl erworben haben — genau wie ein gewöhnlicher Videoplayer die ihm übergebenen Dateien wiedergibt. Diese Unterscheidung steht im Zentrum des Projekts und seiner Konzeption.',
+    'a-h3': 'Support und Weiterentwicklung',
+    'a-p4': 'Updates erscheinen regelmäßig, oft als direkte Reaktion auf Nutzerfeedback — Stabilitätskorrekturen, Anpassungen der Oberfläche, neue Funktionen, die über das Kontaktformular oder die integrierte Meldefunktion der App angefragt wurden. Dies ist die Hauptinspirationsquelle für die Weiterentwicklung des Produkts.',
+    'a-stat1': 'Unterstützte Plattformen',
+    'a-stat2': 'Verbindungsprotokolle',
+    'a-stat3': 'Oberflächensprachen',
+    'a-p5': 'Bei Fragen, Anregungen oder aufgetretenen Problemen bleibt die Kontaktseite der direkteste Weg, eine Antwort zu erhalten.',
+  },
+  es: {
+    'a-title': 'Acerca de Phantom TV',
+    'a-p1': 'Phantom TV nació de una observación sencilla: la mayoría de los reproductores IPTV disponibles en móvil y escritorio sufrían de una interfaz anticuada o de un soporte casi inexistente en caso de problemas. La aplicación fue diseñada y desarrollada para corregir ambas cosas, prestando especial atención a la estabilidad de reproducción y a la claridad de la interfaz, en lugar de acumular funciones superfluas.',
+    'a-h1': 'Un desarrollo todavía artesanal, asumido como tal',
+    'a-p2': 'A diferencia de muchas aplicaciones similares desarrolladas por equipos o empresas, Phantom TV es desarrollada y mantenida por <strong>una sola persona</strong>. Esta elección tiene un coste — las nuevas funciones a veces tardan más en salir que con un equipo completo — pero también tiene un beneficio real: cada informe de error es leído y tratado directamente por la persona que escribió el código en cuestión, sin intermediarios ni tickets perdidos en una cola.',
+    'a-h2': 'Lo que Phantom TV no es',
+    'a-p3': 'Phantom TV no proporciona, aloja ni vende ningún contenido televisivo. Es un <strong>reproductor</strong>: usted conecta su propio abono IPTV, obtenido con el proveedor de su elección, exactamente igual que un reproductor de vídeo clásico reproduce los archivos que se le proporcionan. Esta distinción es el núcleo del proyecto y de su diseño.',
+    'a-h3': 'Soporte y evolución',
+    'a-p4': 'Las actualizaciones salen regularmente, a menudo en respuesta directa a comentarios de los usuarios — correcciones de estabilidad, ajustes de interfaz, nuevas funciones solicitadas a través del formulario de contacto o el botón de reporte integrado en la aplicación. Esta es la principal fuente de inspiración para la evolución del producto.',
+    'a-stat1': 'Plataformas compatibles',
+    'a-stat2': 'Protocolos de conexión',
+    'a-stat3': 'Idiomas de interfaz',
+    'a-p5': 'Para cualquier pregunta, sugerencia o problema encontrado, la página de Contacto sigue siendo la forma más directa de obtener una respuesta.',
+  }
+};
+
+translations['en-us'] = Object.assign({}, translations['en']);
+
+let currentLang = 'fr';
+
+function setLang(lang) {
+  currentLang = lang;
+  const t = translations[lang];
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (t[key] !== undefined) el.innerHTML = t[key];
+  });
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    const match = btn.getAttribute('onclick').match(/'([^']+)'/);
+    btn.classList.toggle('active', match && match[1] === lang);
+  });
+  document.documentElement.lang = lang.split('-')[0];
+}
+
+setLang('fr');
+
+function applyTheme(theme) {
+  const btn = document.getElementById('theme-toggle-btn');
+  if (theme === 'light') {
+    document.documentElement.classList.add('light');
+    if (btn) btn.textContent = '☀️';
+  } else {
+    document.documentElement.classList.remove('light');
+    if (btn) btn.textContent = '🌙';
+  }
+}
+
+function toggleTheme() {
+  const isLight = document.documentElement.classList.contains('light');
+  const next = isLight ? 'dark' : 'light';
+  applyTheme(next);
+  try { localStorage.setItem('phantomtv-theme', next); } catch (_) {}
+}
+
+try {
+  const savedTheme = localStorage.getItem('phantomtv-theme');
+  if (savedTheme === 'light') applyTheme('light');
+} catch (_) {}
+</script>
+
+</body>
+</html>
