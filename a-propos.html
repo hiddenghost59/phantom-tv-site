@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>À propos — Phantom TV</title>
+<meta name="description" content="L'histoire de Phantom TV, un lecteur multimédia développé et maintenu par une seule personne, avec un support direct et des mises à jour régulières.">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --bg: #09090B; --bg2: #111827; --bg3: #1F2937;
+    --purple: #A855F7; --green: #22C55E; --red: #EF4444;
+    --amber: #F59E0B; --blue: #3B82F6; --cyan: #06B6D4;
+    --text: #F9FAFB; --text-dim: #9CA3AF;
+    --border: rgba(255,255,255,0.08);
+  }
+  body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.75; }
+  header { background: var(--bg2); border-bottom: 1px solid var(--border); padding: 16px 24px; display: flex; align-items: center; gap: 12px; }
+  header h1 { color: var(--purple); font-size: 20px; }
+  header a.back { margin-left: auto; color: var(--text-dim); text-decoration: none; font-size: 13px; }
+  header a.back:hover { color: var(--purple); }
+  main { max-width: 700px; margin: 0 auto; padding: 48px 24px 80px; }
+  h2 { font-size: 32px; font-weight: 800; color: var(--purple); margin-bottom: 28px; }
+  p { margin-bottom: 16px; color: var(--text-dim); font-size: 15.5px; }
+  strong { color: var(--text); }
+  h3 { font-size: 18px; color: var(--text); margin: 36px 0 10px; }
+  .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 36px 0; }
+  .stat { background: var(--bg2); border: 1px solid var(--border); border-radius: 12px; padding: 20px; text-align: center; }
+  .stat .num { font-size: 26px; font-weight: 800; color: var(--purple); }
+  .stat .label { font-size: 12px; color: var(--text-dim); margin-top: 4px; }
+  footer { text-align: center; padding: 40px 24px; color: var(--text-dim); font-size: 13px; border-top: 1px solid var(--border); }
+  footer a { color: var(--purple); text-decoration: none; }
+</style>
+</head>
+<body>
+
+<header>
+  <span style="font-size:22px;">📺</span>
+  <h1>Phantom TV</h1>
+  <a href="/" class="back">← Retour à l'accueil</a>
+</header>
+
+<main>
+  <h2>À propos de Phantom TV</h2>
+
+  <p>Phantom TV est né d'un constat simple : la plupart des lecteurs IPTV disponibles sur mobile et bureau souffraient soit d'une interface datée, soit d'un support quasi inexistant en cas de problème. L'application a été conçue et développée pour corriger les deux, avec une attention particulière portée à la stabilité de lecture et à la clarté de l'interface, plutôt qu'à l'accumulation de fonctionnalités superflues.</p>
+
+  <h3>Un développement encore artisanal, assumé</h3>
+  <p>Contrairement à beaucoup d'applications similaires portées par des équipes ou des sociétés, Phantom TV est développée et maintenue par <strong>une seule personne</strong>. Ce choix a un coût — les nouvelles fonctionnalités prennent parfois plus de temps à sortir qu'avec une équipe complète — mais il a aussi un vrai bénéfice : chaque signalement de bug est lu et traité directement par la personne qui a écrit le code concerné, sans intermédiaire ni ticket perdu dans une file d'attente.</p>
+
+  <h3>Ce que Phantom TV n'est pas</h3>
+  <p>Phantom TV ne fournit, n'héberge et ne vend aucun contenu télévisuel. C'est un <strong>lecteur</strong> : vous y connectez votre propre abonnement IPTV, obtenu chez le fournisseur de votre choix, exactement comme un lecteur vidéo classique lit les fichiers que vous lui donnez. Cette distinction est au cœur du projet et de la manière dont il est conçu.</p>
+
+  <h3>Support et évolutions</h3>
+  <p>Les mises à jour sortent régulièrement, souvent en réponse directe à des retours d'utilisateurs — correctifs de stabilité, ajustements d'interface, nouvelles fonctionnalités demandées via le formulaire de contact ou le bouton de signalement intégré à l'application. C'est la source principale d'inspiration pour les évolutions du produit.</p>
+
+  <div class="stats">
+    <div class="stat"><div class="num">3</div><div class="label">Plateformes prises en charge</div></div>
+    <div class="stat"><div class="num">3</div><div class="label">Protocoles de connexion</div></div>
+    <div class="stat"><div class="num">5</div><div class="label">Langues d'interface</div></div>
+  </div>
+
+  <p>Pour toute question, suggestion ou problème rencontré, la page Contact reste le moyen le plus direct d'obtenir une réponse.</p>
+</main>
+
+<footer>
+  © 2025-2026 Phantom TV — <a href="/">Retour à l'accueil</a> · <a href="/guide.html">Guide</a> · <a href="/faq.html">FAQ</a> · <a href="/blog.html">Blog</a>
+</footer>
+
+</body>
+</html>

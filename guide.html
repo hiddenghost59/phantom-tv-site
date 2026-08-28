@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guide d'installation complet — Phantom TV</title>
+<meta name="description" content="Guide détaillé pour configurer Phantom TV avec Xtream Codes, une playlist M3U ou un portail Stalker, et résoudre les problèmes courants (mise en mémoire tampon, écran noir, identifiants refusés).">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --bg: #09090B; --bg2: #111827; --bg3: #1F2937;
+    --purple: #A855F7; --green: #22C55E; --red: #EF4444;
+    --amber: #F59E0B; --blue: #3B82F6; --cyan: #06B6D4;
+    --text: #F9FAFB; --text-dim: #9CA3AF;
+    --border: rgba(255,255,255,0.08);
+  }
+  body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.7; }
+  header { background: var(--bg2); border-bottom: 1px solid var(--border); padding: 16px 24px; display: flex; align-items: center; gap: 12px; }
+  header h1 { color: var(--purple); font-size: 20px; }
+  header a.back { margin-left: auto; color: var(--text-dim); text-decoration: none; font-size: 13px; }
+  header a.back:hover { color: var(--purple); }
+  main { max-width: 760px; margin: 0 auto; padding: 48px 24px 80px; }
+  h2 { font-size: 32px; font-weight: 800; color: var(--purple); margin-bottom: 12px; }
+  .lead { font-size: 16px; color: var(--text-dim); margin-bottom: 40px; }
+  h3 { font-size: 22px; font-weight: 700; margin: 44px 0 16px; padding-top: 8px; border-top: 1px solid var(--border); }
+  h3:first-of-type { border-top: none; padding-top: 0; }
+  h4 { font-size: 16px; font-weight: 700; color: var(--cyan); margin: 24px 0 8px; }
+  p { margin-bottom: 14px; color: var(--text-dim); font-size: 15px; }
+  strong { color: var(--text); }
+  ol, ul { margin: 0 0 16px 22px; color: var(--text-dim); font-size: 15px; }
+  li { margin-bottom: 8px; }
+  code { background: var(--bg3); padding: 2px 6px; border-radius: 4px; font-size: 13px; color: var(--amber); font-family: monospace; }
+  .box { background: var(--bg2); border: 1px solid var(--border); border-radius: 12px; padding: 20px 24px; margin: 20px 0; }
+  .box.warn { border-color: rgba(245,158,11,0.35); background: rgba(245,158,11,0.06); }
+  .box.warn strong { color: var(--amber); }
+  .toc { background: var(--bg2); border: 1px solid var(--border); border-radius: 12px; padding: 20px 24px; margin-bottom: 40px; }
+  .toc a { color: var(--text-dim); text-decoration: none; display: block; padding: 4px 0; font-size: 14px; }
+  .toc a:hover { color: var(--purple); }
+  footer { text-align: center; padding: 40px 24px; color: var(--text-dim); font-size: 13px; border-top: 1px solid var(--border); }
+  footer a { color: var(--purple); text-decoration: none; }
+</style>
+</head>
+<body>
+
+<header>
+  <span style="font-size:22px;">📺</span>
+  <h1>Phantom TV</h1>
+  <a href="/" class="back">← Retour à l'accueil</a>
+</header>
+
+<main>
+  <h2>Guide d'installation complet</h2>
+  <p class="lead">Configurer Phantom TV prend deux minutes une fois qu'on sait où trouver les bonnes informations chez son fournisseur. Ce guide couvre les trois méthodes de connexion prises en charge, ainsi que les problèmes les plus fréquents et comment les résoudre soi-même avant de contacter le support.</p>
+
+  <div class="toc">
+    <a href="#xtream">1. Connexion Xtream Codes</a>
+    <a href="#m3u">2. Playlist M3U</a>
+    <a href="#stalker">3. Portail Stalker (MAG)</a>
+    <a href="#depannage">4. Résoudre les problèmes courants</a>
+  </div>
+
+  <h3 id="xtream">1. Connexion Xtream Codes</h3>
+  <p>Xtream Codes est le mode de connexion le plus complet : il donne accès aux chaînes en direct, aux films, aux séries et au guide des programmes (EPG) organisés par catégories, avec une recherche unifiée sur l'ensemble du catalogue.</p>
+
+  <h4>Ce qu'il vous faut avant de commencer</h4>
+  <p>Votre fournisseur IPTV vous a normalement transmis trois informations par email lors de votre inscription :</p>
+  <ul>
+    <li>Une <strong>URL de serveur</strong> (ressemble à <code>http://exemple-serveur.com:8080</code>)</li>
+    <li>Un <strong>nom d'utilisateur</strong></li>
+    <li>Un <strong>mot de passe</strong></li>
+  </ul>
+  <p>Si vous n'avez que des identifiants sous la forme d'un lien unique (une URL très longue contenant <code>username=</code> et <code>password=</code>), les trois informations sont dedans — repérez chaque partie dans le lien.</p>
+
+  <h4>Étapes</h4>
+  <ol>
+    <li>Ouvrez Phantom TV et choisissez <strong>Connexion Xtream API</strong></li>
+    <li>Collez l'URL du serveur (Phantom TV ajoute automatiquement <code>http://</code> si vous oubliez de le préciser)</li>
+    <li>Entrez le nom d'utilisateur et le mot de passe exactement comme fournis (attention aux majuscules/minuscules)</li>
+    <li>Validez — l'application vérifie immédiatement vos identifiants auprès du serveur</li>
+  </ol>
+
+  <div class="box">
+    <strong>Bon à savoir :</strong> Phantom TV ne stocke jamais vos identifiants sur ses propres serveurs de façon lisible — ils restent chiffrés et ne servent qu'à dialoguer directement avec le serveur de <em>votre</em> fournisseur.
+  </div>
+
+  <h3 id="m3u">2. Playlist M3U</h3>
+  <p>Une playlist M3U est un simple fichier texte listant des liens de flux vidéo. C'est le format le plus universel — presque tous les fournisseurs IPTV et beaucoup de chaînes gratuites légales (comme les flux publics nationaux) le proposent.</p>
+  <ol>
+    <li>Choisissez <strong>Playlist M3U / URL</strong> dans l'écran de connexion</li>
+    <li>Donnez un nom à ce profil (utile si vous gérez plusieurs sources)</li>
+    <li>Collez le lien direct vers le fichier <code>.m3u</code> ou <code>.m3u8</code></li>
+  </ol>
+  <p>Contrairement à Xtream, une playlist M3U ne fournit généralement pas de catégories ni de guide des programmes détaillé — c'est une liste plate de chaînes/contenus. C'est normal et attendu avec ce format.</p>
+
+  <h3 id="stalker">3. Portail Stalker (MAG)</h3>
+  <p>Le protocole Stalker Portal (aussi appelé Ministra) est historiquement associé aux boîtiers MAG et à l'application MyTVOnline. Certains fournisseurs IPTV l'utilisent en alternative à Xtream.</p>
+  <ol>
+    <li>Choisissez <strong>Stalker Portal (MAG)</strong></li>
+    <li>Renseignez l'URL du portail fournie par votre opérateur</li>
+    <li>Entrez l'adresse MAC associée à votre abonnement (généralement au format <code>00:1A:79:XX:XX:XX</code>)</li>
+  </ol>
+  <p>Si votre fournisseur ne vous a communiqué qu'une adresse MAC sans détail sur le portail, demandez-lui précisément l'URL du portail Stalker — sans elle, la connexion ne peut pas fonctionner, quelle que soit l'application utilisée.</p>
+
+  <h3 id="depannage">4. Résoudre les problèmes courants</h3>
+
+  <h4>« Identifiants incorrects » alors qu'ils sont bons</h4>
+  <p>Vérifiez d'abord qu'il n'y a pas d'espace invisible collé avant ou après le nom d'utilisateur ou le mot de passe (fréquent en copiant depuis un email ou un PDF). Vérifiez aussi que votre abonnement chez le fournisseur est bien actif à cette date — un identifiant qui fonctionnait hier peut être temporairement suspendu en cas de retard de paiement chez lui.</p>
+
+  <h4>Mise en mémoire tampon fréquente (buffering)</h4>
+  <p>Ce n'est presque jamais un problème lié à Phantom TV lui-même, mais à la connexion entre vous et le serveur de votre fournisseur. Trois causes possibles, dans l'ordre de fréquence :</p>
+  <ul>
+    <li><strong>Le serveur du fournisseur est surchargé</strong> à une heure de forte affluence (soirées, événements sportifs)</li>
+    <li><strong>Votre connexion internet</strong> n'a pas assez de débit montant/descendant stable pour la qualité du flux demandée</li>
+    <li><strong>Le Wi-Fi</strong> est en cause plus souvent qu'on ne le pense — un câble Ethernet résout fréquemment le problème sur box TV et PC</li>
+  </ul>
+
+  <h4>Écran noir avec le son qui fonctionne</h4>
+  <p>C'est généralement un souci d'encodage vidéo côté fournisseur (un flux mal transcodé). Essayez une autre chaîne ou un autre contenu pour confirmer : si le problème touche tout, c'est probablement votre lecteur ou votre appareil ; si c'est isolé à un seul contenu, signalez-le à votre fournisseur.</p>
+
+  <h4>Le contenu se lance puis s'arrête après quelques secondes</h4>
+  <p>C'est le signe classique d'une connexion instable — la mise en mémoire tampon initiale suffit à démarrer la lecture, mais le flux ne suit plus ensuite. Testez votre débit internet réel (pas seulement celui annoncé par votre box) à l'aide d'un site de test de vitesse, à l'heure où le problème survient.</p>
+
+  <div class="box warn">
+    <strong>Toujours pas résolu ?</strong> Utilisez le bouton « Signaler un problème » directement dans l'application — il transmet automatiquement les informations techniques nécessaires (appareil, version, type de connexion) pour un diagnostic plus rapide que par email.
+  </div>
+</main>
+
+<footer>
+  © 2025-2026 Phantom TV — <a href="/">Retour à l'accueil</a> · <a href="/faq.html">FAQ</a> · <a href="/blog.html">Blog</a>
+</footer>
+
+</body>
+</html>

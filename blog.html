@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog — Comprendre l'IPTV — Phantom TV</title>
+<meta name="description" content="Articles de fond sur l'IPTV : comment choisir un fournisseur, comprendre les formats de flux, et éviter les pièges les plus courants.">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --bg: #09090B; --bg2: #111827; --bg3: #1F2937;
+    --purple: #A855F7; --green: #22C55E; --red: #EF4444;
+    --amber: #F59E0B; --blue: #3B82F6; --cyan: #06B6D4;
+    --text: #F9FAFB; --text-dim: #9CA3AF;
+    --border: rgba(255,255,255,0.08);
+  }
+  body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.75; }
+  header { background: var(--bg2); border-bottom: 1px solid var(--border); padding: 16px 24px; display: flex; align-items: center; gap: 12px; }
+  header h1 { color: var(--purple); font-size: 20px; }
+  header a.back { margin-left: auto; color: var(--text-dim); text-decoration: none; font-size: 13px; }
+  header a.back:hover { color: var(--purple); }
+  main { max-width: 720px; margin: 0 auto; padding: 48px 24px 80px; }
+  h2.page-title { font-size: 32px; font-weight: 800; color: var(--purple); margin-bottom: 12px; }
+  .lead { font-size: 16px; color: var(--text-dim); margin-bottom: 48px; }
+  article { margin-bottom: 64px; padding-bottom: 56px; border-bottom: 1px solid var(--border); }
+  article:last-child { border-bottom: none; }
+  .meta { color: var(--cyan); font-size: 12px; text-transform: uppercase; letter-spacing: 1px; font-weight: 700; margin-bottom: 10px; }
+  article h3 { font-size: 26px; font-weight: 800; margin-bottom: 18px; }
+  article p { margin-bottom: 16px; color: var(--text-dim); font-size: 15.5px; }
+  article strong { color: var(--text); }
+  article h4 { font-size: 17px; color: var(--text); margin: 28px 0 10px; }
+  article ul { margin: 0 0 16px 22px; color: var(--text-dim); }
+  article li { margin-bottom: 8px; }
+  footer { text-align: center; padding: 40px 24px; color: var(--text-dim); font-size: 13px; border-top: 1px solid var(--border); }
+  footer a { color: var(--purple); text-decoration: none; }
+</style>
+</head>
+<body>
+
+<header>
+  <span style="font-size:22px;">📺</span>
+  <h1>Phantom TV</h1>
+  <a href="/" class="back">← Retour à l'accueil</a>
+</header>
+
+<main>
+  <h2 class="page-title">Comprendre l'IPTV</h2>
+  <p class="lead">Quelques articles de fond pour mieux comprendre le fonctionnement de l'IPTV, indépendamment de l'application que vous utilisez pour la regarder.</p>
+
+  <article>
+    <div class="meta">Guide</div>
+    <h3>Comment bien choisir un fournisseur IPTV</h3>
+    <p>Le marché de l'IPTV compte des centaines de fournisseurs, avec des écarts de qualité considérables. Avant de s'engager, quelques critères méritent d'être vérifiés — bien plus déterminants que le prix affiché.</p>
+
+    <h4>La stabilité du serveur avant tout</h4>
+    <p>Un flux IPTV n'a de valeur que si le serveur qui le diffuse tient la charge, en particulier aux heures de forte affluence (soirées, événements sportifs majeurs). Un bon indicateur : demandez un essai de quelques heures avant tout engagement long, et testez-le précisément lors d'un pic d'audience prévisible.</p>
+
+    <h4>La fréquence de mise à jour du catalogue</h4>
+    <p>Les films et séries récents disparaissent rapidement d'un catalogue mal entretenu. Un fournisseur sérieux actualise son offre plusieurs fois par semaine, pas une fois par mois.</p>
+
+    <h4>Le format proposé</h4>
+    <p>Privilégiez un fournisseur offrant le protocole <strong>Xtream Codes</strong> plutôt qu'une simple liste M3U brute : la structuration en catégories et le guide des programmes associé changent radicalement le confort d'utilisation au quotidien, notamment pour naviguer dans un catalogue de plusieurs milliers de chaînes.</p>
+
+    <h4>Le support client réel</h4>
+    <p>Un fournisseur capable de répondre en quelques heures en cas de panne de son serveur vaut largement mieux qu'un tarif légèrement plus bas assorti d'un support injoignable. C'est souvent le critère le plus négligé au moment du choix, et le plus regretté ensuite.</p>
+  </article>
+
+  <article>
+    <div class="meta">Technique</div>
+    <h3>Pourquoi votre flux IPTV coupe-t-il parfois ?</h3>
+    <p>La mise en mémoire tampon (« buffering ») répétée est la frustration la plus fréquente chez les utilisateurs d'IPTV. Dans l'immense majorité des cas, la cause ne se trouve ni dans l'application de lecture, ni même dans votre abonnement internet — mais dans un maillon précis de la chaîne technique qu'il est utile de savoir identifier.</p>
+
+    <h4>Le trajet réel d'un flux IPTV</h4>
+    <p>Entre le serveur de votre fournisseur et votre écran, les données traversent plusieurs réseaux distincts : le centre de données du fournisseur, l'infrastructure de son hébergeur, internet lui-même (avec ses propres points de congestion), votre fournisseur d'accès, et enfin votre réseau domestique. Un ralentissement à n'importe laquelle de ces étapes suffit à provoquer des coupures, sans qu'aucune des parties impliquées n'ait techniquement de panne.</p>
+
+    <h4>Comment isoler la cause</h4>
+    <ul>
+      <li><strong>Testez à une autre heure :</strong> si le problème disparaît en dehors des heures de pointe, le serveur du fournisseur est probablement en cause</li>
+      <li><strong>Testez sur un autre appareil et un autre réseau</strong> (données mobiles par exemple) : si le souci persiste partout, il vient du fournisseur ; s'il disparaît, il vient de votre connexion locale</li>
+      <li><strong>Privilégiez un câble Ethernet</strong> plutôt que le Wi-Fi dès que possible — la différence de stabilité est souvent plus marquée qu'on ne l'imagine, en particulier sur les téléviseurs et boîtiers TV placés loin du routeur</li>
+    </ul>
+
+    <p>Un débit internet élevé n'immunise pas contre les coupures : c'est la <strong>stabilité</strong> de la connexion, pas seulement sa vitesse maximale, qui détermine la fluidité d'un flux en direct.</p>
+  </article>
+
+  <article>
+    <div class="meta">Repères</div>
+    <h3>VOD, direct, catch-up : les mots de l'IPTV expliqués simplement</h3>
+    <p>L'univers de l'IPTV utilise un vocabulaire technique qui n'est pas toujours familier aux nouveaux utilisateurs. Voici les termes qui reviennent le plus souvent.</p>
+
+    <h4>Live TV (télévision en direct)</h4>
+    <p>La diffusion en temps réel des chaînes de télévision, exactement comme la télévision traditionnelle — vous regardez ce qui est diffusé au moment présent, sans possibilité de revenir en arrière sauf si le fournisseur propose spécifiquement une fonction de pause ou de rembobinage sur certaines chaînes.</p>
+
+    <h4>VOD (Video On Demand)</h4>
+    <p>Le catalogue de films et séries disponibles à la demande, comme sur une plateforme de streaming classique : vous choisissez le contenu, vous contrôlez la lecture (pause, avance, retour en arrière) librement.</p>
+
+    <h4>EPG (Electronic Program Guide)</h4>
+    <p>Le guide des programmes électronique — la grille horaire indiquant ce qui passe sur chaque chaîne, maintenant et dans les heures à venir. Un EPG bien renseigné est un signe de qualité chez un fournisseur : le construire et le maintenir à jour demande un travail constant.</p>
+
+    <h4>Catch-up TV (télévision de rattrapage)</h4>
+    <p>La possibilité de revoir un programme déjà diffusé dans les jours précédents, généralement limitée à une fenêtre de quelques jours selon les chaînes et le fournisseur. Toutes les offres IPTV ne proposent pas cette fonctionnalité.</p>
+  </article>
+</main>
+
+<footer>
+  © 2025-2026 Phantom TV — <a href="/">Retour à l'accueil</a> · <a href="/guide.html">Guide d'installation</a> · <a href="/faq.html">FAQ</a>
+</footer>
+
+</body>
+</html>
