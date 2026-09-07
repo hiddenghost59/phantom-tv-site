@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VOD, direct, catch-up : le vocabulaire de l'IPTV — Phantom TV</title>
+<meta name="description" content="Live TV, VOD, EPG, catch-up : les termes techniques de l'IPTV expliqués simplement.">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --bg: #09090B; --bg2: #111827; --bg3: #1F2937;
+    --purple: #A855F7; --green: #22C55E; --red: #EF4444;
+    --amber: #F59E0B; --blue: #3B82F6; --cyan: #06B6D4;
+    --text: #F9FAFB; --text-dim: #9CA3AF;
+    --border: rgba(255,255,255,0.08);
+  }
+  html.light {
+    --bg: #FFFFFF; --bg2: #F3F4F6; --bg3: #E5E7EB;
+    --purple: #7C3AED; --green: #16A34A; --red: #DC2626;
+    --amber: #D97706; --blue: #2563EB; --cyan: #0891B2;
+    --text: #111827; --text-dim: #4B5563;
+    --border: rgba(0,0,0,0.08);
+  }
+  body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.75; transition: background 0.25s ease, color 0.25s ease; }
+  nav { background: var(--bg2); border-bottom: 1px solid var(--border); padding: 10px 24px; display: flex; gap: 20px; flex-wrap: wrap; align-items: center; }
+  nav a { color: var(--text-dim); text-decoration: none; font-size: 13px; }
+  nav a:hover { color: var(--purple); }
+  nav .nav-logo { color: var(--purple); font-weight: 700; font-size: 15px; margin-right: 10px; }
+  nav .nav-active { color: var(--purple); font-weight: 600; }
+  .nav-right { margin-left: auto; display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+  .lang-switcher { display: flex; gap: 6px; }
+  .lang-btn { background: var(--bg3); border: 1px solid var(--border); color: var(--text-dim); padding: 4px 10px; border-radius: 6px; font-size: 12px; font-weight: 700; cursor: pointer; }
+  .lang-btn.active { background: var(--purple); color: white; border-color: var(--purple); }
+  .lang-btn:hover { border-color: var(--purple); color: var(--purple); }
+  .theme-btn { background: var(--bg3); border: 1px solid var(--border); color: var(--text-dim); width: 28px; height: 28px; border-radius: 6px; font-size: 14px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+  .theme-btn:hover { border-color: var(--purple); color: var(--purple); }
+  header { background: var(--bg2); border-bottom: 1px solid var(--border); padding: 20px 24px; text-align: center; }
+  .breadcrumb { font-size: 13px; color: var(--text-dim); margin-bottom: 10px; }
+  .breadcrumb a { color: var(--cyan); text-decoration: none; }
+  .breadcrumb a:hover { text-decoration: underline; }
+  header h1 { font-size: 26px; color: var(--purple); margin-bottom: 4px; }
+  main { max-width: 720px; margin: 0 auto; padding: 40px 24px 40px; }
+  article { margin-bottom: 16px; }
+  .meta { color: var(--cyan); font-size: 12px; text-transform: uppercase; letter-spacing: 1px; font-weight: 700; margin-bottom: 10px; }
+  article p { margin-bottom: 16px; color: var(--text-dim); font-size: 15.5px; }
+  article strong { color: var(--text); }
+  article h3 { font-size: 17px; color: var(--text); margin: 28px 0 10px; }
+  .other-articles { max-width: 720px; margin: 0 auto; padding: 0 24px 60px; }
+  .other-articles h4 { font-size: 13px; text-transform: uppercase; letter-spacing: 1px; color: var(--text-dim); margin-bottom: 14px; border-top: 1px solid var(--border); padding-top: 32px; }
+  .other-articles a { display: block; color: var(--text); text-decoration: none; padding: 12px 16px; background: var(--bg2); border: 1px solid var(--border); border-radius: 10px; margin-bottom: 10px; font-size: 14px; font-weight: 600; }
+  .other-articles a:hover { border-color: var(--purple); color: var(--purple); }
+  footer { text-align: center; padding: 40px 24px; color: var(--text-dim); font-size: 13px; border-top: 1px solid var(--border); }
+  footer a { color: var(--purple); text-decoration: none; }
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-logo">📺 Phantom TV</span>
+  <a href="/">Accueil</a>
+  <a href="/guide">Guide</a>
+  <a href="/blog.html" class="nav-active">Blog</a>
+  <a href="/a-propos.html">À propos</a>
+  <div class="nav-right">
+    <button class="theme-btn" id="theme-toggle-btn" onclick="toggleTheme()" title="Changer de thème">🌙</button>
+    <div class="lang-switcher">
+      <button class="lang-btn active" onclick="setLang('fr')">FR</button>
+      <button class="lang-btn" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" onclick="setLang('en-us')">EN-US</button>
+      <button class="lang-btn" onclick="setLang('de')">DE</button>
+      <button class="lang-btn" onclick="setLang('es')">ES</button>
+    </div>
+  </div>
+</nav>
+
+<header>
+  <div class="breadcrumb"><a href="/blog.html">← Retour au blog</a></div>
+  <h1 data-i18n="t">VOD, direct, catch-up : le vocabulaire de l'IPTV</h1>
+</header>
+
+<main>
+  <article>
+    <div class="meta" data-i18n="meta">Repères</div>
+    <p data-i18n="p1">L'univers de l'IPTV utilise un vocabulaire technique qui n'est pas toujours familier aux nouveaux utilisateurs. Voici les termes qui reviennent le plus souvent.</p>
+
+    <h3 data-i18n="h1">Live TV (télévision en direct)</h3>
+    <p data-i18n="p2">La diffusion en temps réel des chaînes de télévision, exactement comme la télévision traditionnelle — le contenu est regardé au moment où il est diffusé, sans possibilité de revenir en arrière sauf fonction spécifique de pause proposée par le fournisseur.</p>
+
+    <h3 data-i18n="h2">VOD (Video On Demand)</h3>
+    <p data-i18n="p3">Un catalogue de films et séries disponibles à la demande, comme sur une plateforme de streaming classique : le contenu est choisi librement, et sa lecture peut être mise en pause, avancée ou reprise à tout moment.</p>
+
+    <h3 data-i18n="h3">EPG (Electronic Program Guide)</h3>
+    <p data-i18n="p4">Le guide des programmes électronique — la grille horaire indiquant ce qui passe sur chaque chaîne, maintenant et dans les heures à venir. Un EPG bien renseigné et régulièrement mis à jour est un signe de sérieux chez un fournisseur.</p>
+
+    <h3 data-i18n="h4">Catch-up TV (télévision de rattrapage)</h3>
+    <p data-i18n="p5">La possibilité de revoir un programme déjà diffusé dans les jours précédents, généralement limitée à une fenêtre de quelques jours. C'est un service que proposent la plupart des chaînes officielles sur leurs propres plateformes légales.</p>
+  </article>
+</main>
+
+<div class="other-articles">
+  <h4>À lire aussi</h4>
+  <a href="/blog/comment-reconnaitre-offre-iptv-legale.html">Comment reconnaître une offre IPTV légale</a>
+  <a href="/blog/pourquoi-flux-iptv-coupe.html">Pourquoi un flux IPTV coupe-t-il parfois ?</a>
+</div>
+
+<footer>
+  © 2025-2026 Phantom TV — <a href="/">Retour à l'accueil</a> · <a href="/blog.html">Blog</a> · <a href="/guide">Guide</a> · <a href="/a-propos.html">À propos</a>
+</footer>
+
+<script>
+const translations = {
+  fr: {
+    t: 'VOD, direct, catch-up : le vocabulaire de l\'IPTV',
+    meta: 'Repères',
+    p1: 'L\'univers de l\'IPTV utilise un vocabulaire technique qui n\'est pas toujours familier aux nouveaux utilisateurs. Voici les termes qui reviennent le plus souvent.',
+    h1: 'Live TV (télévision en direct)',
+    p2: 'La diffusion en temps réel des chaînes de télévision, exactement comme la télévision traditionnelle — le contenu est regardé au moment où il est diffusé, sans possibilité de revenir en arrière sauf fonction spécifique de pause proposée par le fournisseur.',
+    h2: 'VOD (Video On Demand)',
+    p3: 'Un catalogue de films et séries disponibles à la demande, comme sur une plateforme de streaming classique : le contenu est choisi librement, et sa lecture peut être mise en pause, avancée ou reprise à tout moment.',
+    h3: 'EPG (Electronic Program Guide)',
+    p4: 'Le guide des programmes électronique — la grille horaire indiquant ce qui passe sur chaque chaîne, maintenant et dans les heures à venir. Un EPG bien renseigné et régulièrement mis à jour est un signe de sérieux chez un fournisseur.',
+    h4: 'Catch-up TV (télévision de rattrapage)',
+    p5: 'La possibilité de revoir un programme déjà diffusé dans les jours précédents, généralement limitée à une fenêtre de quelques jours. C\'est un service que proposent la plupart des chaînes officielles sur leurs propres plateformes légales.',
+  },
+  en: {
+    t: 'VOD, live, catch-up: the IPTV vocabulary',
+    meta: 'Reference',
+    p1: 'The IPTV world uses technical vocabulary that isn\'t always familiar to new users. Here are the terms that come up most often.',
+    h1: 'Live TV',
+    p2: 'The real-time broadcast of television channels, exactly like traditional television — content is watched at the moment it airs, with no way to go back except a specific pause feature offered by the provider.',
+    h2: 'VOD (Video On Demand)',
+    p3: 'A catalog of movies and series available on demand, like a classic streaming platform: content is chosen freely, and playback can be paused, fast-forwarded, or resumed at any time.',
+    h3: 'EPG (Electronic Program Guide)',
+    p4: 'The electronic program guide — the schedule showing what\'s airing on each channel, now and in the coming hours. A well-maintained, regularly updated EPG is a sign of a serious provider.',
+    h4: 'Catch-up TV',
+    p5: 'The ability to rewatch a program already aired in previous days, usually limited to a window of a few days. Most official channels offer this on their own legal platforms.',
+  },
+  de: {
+    t: 'VOD, Live, Catch-up: das IPTV-Vokabular erklärt',
+    meta: 'Begriffe',
+    p1: 'Die IPTV-Welt verwendet technisches Vokabular, das neuen Nutzern nicht immer vertraut ist. Hier die am häufigsten vorkommenden Begriffe.',
+    h1: 'Live TV',
+    p2: 'Die Echtzeit-Ausstrahlung von Fernsehsendern, genau wie beim traditionellen Fernsehen — Inhalte werden zum Zeitpunkt ihrer Ausstrahlung angesehen, ohne Möglichkeit zurückzuspringen, außer bei einer speziellen Pausenfunktion des Anbieters.',
+    h2: 'VOD (Video on Demand)',
+    p3: 'Ein Katalog von Filmen und Serien auf Abruf, wie bei einer klassischen Streaming-Plattform: Der Inhalt wird frei gewählt, und die Wiedergabe kann jederzeit pausiert, vor- oder zurückgespult werden.',
+    h3: 'EPG (Electronic Program Guide)',
+    p4: 'Der elektronische Programmführer — die Zeittabelle, die zeigt, was jetzt und in den kommenden Stunden auf jedem Sender läuft. Ein gut gepflegter, regelmäßig aktualisierter EPG ist ein Zeichen für einen seriösen Anbieter.',
+    h4: 'Catch-up TV',
+    p5: 'Die Möglichkeit, eine bereits ausgestrahlte Sendung der letzten Tage erneut anzusehen, meist begrenzt auf ein Zeitfenster von wenigen Tagen. Die meisten offiziellen Sender bieten dies auf ihren eigenen legalen Plattformen an.',
+  },
+  es: {
+    t: 'VOD, directo, catch-up: el vocabulario del IPTV',
+    meta: 'Referencias',
+    p1: 'El mundo del IPTV utiliza un vocabulario técnico que no siempre resulta familiar para los nuevos usuarios. Estos son los términos que aparecen con más frecuencia.',
+    h1: 'Live TV (televisión en directo)',
+    p2: 'La emisión en tiempo real de los canales de televisión, exactamente como la televisión tradicional — el contenido se ve en el momento en que se emite, sin posibilidad de retroceder salvo una función específica de pausa ofrecida por el proveedor.',
+    h2: 'VOD (Video On Demand)',
+    p3: 'Un catálogo de películas y series disponibles bajo demanda, como en una plataforma de streaming clásica: el contenido se elige libremente, y su reproducción puede pausarse, avanzarse o reanudarse en cualquier momento.',
+    h3: 'EPG (Electronic Program Guide)',
+    p4: 'La guía electrónica de programación — la parrilla horaria que indica lo que se emite en cada canal, ahora y en las próximas horas. Un EPG bien mantenido y actualizado con regularidad es señal de seriedad en un proveedor.',
+    h4: 'Catch-up TV (televisión de reposición)',
+    p5: 'La posibilidad de volver a ver un programa ya emitido en los días anteriores, generalmente limitada a una ventana de unos pocos días. La mayoría de los canales oficiales ofrecen este servicio en sus propias plataformas legales.',
+  }
+};
+translations['en-us'] = Object.assign({}, translations['en']);
+
+function setLang(lang) {
+  const t = translations[lang];
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (t[key] !== undefined) el.innerHTML = t[key];
+  });
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    const match = btn.getAttribute('onclick').match(/'([^']+)'/);
+    btn.classList.toggle('active', match && match[1] === lang);
+  });
+  document.documentElement.lang = lang.split('-')[0];
+}
+setLang('fr');
+
+function applyTheme(theme) {
+  const btn = document.getElementById('theme-toggle-btn');
+  if (theme === 'light') {
+    document.documentElement.classList.add('light');
+    if (btn) btn.textContent = '☀️';
+  } else {
+    document.documentElement.classList.remove('light');
+    if (btn) btn.textContent = '🌙';
+  }
+}
+function toggleTheme() {
+  const isLight = document.documentElement.classList.contains('light');
+  const next = isLight ? 'dark' : 'light';
+  applyTheme(next);
+  try { localStorage.setItem('phantomtv-theme', next); } catch (_) {}
+}
+try {
+  const savedTheme = localStorage.getItem('phantomtv-theme');
+  if (savedTheme === 'light') applyTheme('light');
+} catch (_) {}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Comment reconnaître une offre IPTV légale — Phantom TV</title>
+<meta name="description" content="Les signes qui permettent de distinguer une offre IPTV légale d'un accès non autorisé : prix, identité de l'entreprise, alternatives officielles.">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --bg: #09090B; --bg2: #111827; --bg3: #1F2937;
+    --purple: #A855F7; --green: #22C55E; --red: #EF4444;
+    --amber: #F59E0B; --blue: #3B82F6; --cyan: #06B6D4;
+    --text: #F9FAFB; --text-dim: #9CA3AF;
+    --border: rgba(255,255,255,0.08);
+  }
+  html.light {
+    --bg: #FFFFFF; --bg2: #F3F4F6; --bg3: #E5E7EB;
+    --purple: #7C3AED; --green: #16A34A; --red: #DC2626;
+    --amber: #D97706; --blue: #2563EB; --cyan: #0891B2;
+    --text: #111827; --text-dim: #4B5563;
+    --border: rgba(0,0,0,0.08);
+  }
+  body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.75; transition: background 0.25s ease, color 0.25s ease; }
+  nav { background: var(--bg2); border-bottom: 1px solid var(--border); padding: 10px 24px; display: flex; gap: 20px; flex-wrap: wrap; align-items: center; }
+  nav a { color: var(--text-dim); text-decoration: none; font-size: 13px; }
+  nav a:hover { color: var(--purple); }
+  nav .nav-logo { color: var(--purple); font-weight: 700; font-size: 15px; margin-right: 10px; }
+  nav .nav-active { color: var(--purple); font-weight: 600; }
+  .nav-right { margin-left: auto; display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+  .lang-switcher { display: flex; gap: 6px; }
+  .lang-btn { background: var(--bg3); border: 1px solid var(--border); color: var(--text-dim); padding: 4px 10px; border-radius: 6px; font-size: 12px; font-weight: 700; cursor: pointer; }
+  .lang-btn.active { background: var(--purple); color: white; border-color: var(--purple); }
+  .lang-btn:hover { border-color: var(--purple); color: var(--purple); }
+  .theme-btn { background: var(--bg3); border: 1px solid var(--border); color: var(--text-dim); width: 28px; height: 28px; border-radius: 6px; font-size: 14px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+  .theme-btn:hover { border-color: var(--purple); color: var(--purple); }
+  header { background: var(--bg2); border-bottom: 1px solid var(--border); padding: 20px 24px; text-align: center; }
+  .breadcrumb { font-size: 13px; color: var(--text-dim); margin-bottom: 10px; }
+  .breadcrumb a { color: var(--cyan); text-decoration: none; }
+  .breadcrumb a:hover { text-decoration: underline; }
+  header h1 { font-size: 26px; color: var(--purple); margin-bottom: 4px; }
+  main { max-width: 720px; margin: 0 auto; padding: 40px 24px 40px; }
+  article { margin-bottom: 16px; }
+  .meta { color: var(--cyan); font-size: 12px; text-transform: uppercase; letter-spacing: 1px; font-weight: 700; margin-bottom: 10px; }
+  article p { margin-bottom: 16px; color: var(--text-dim); font-size: 15.5px; }
+  article strong { color: var(--text); }
+  article h3 { font-size: 17px; color: var(--text); margin: 28px 0 10px; }
+  article ul { margin: 0 0 16px 22px; color: var(--text-dim); }
+  article li { margin-bottom: 8px; }
+  .warn-box { background: rgba(239,68,68,0.06); border-left: 3px solid var(--red); border-radius: 0 10px 10px 0; padding: 14px 18px; margin: 16px 0; font-size: 14px; }
+  .warn-box strong { color: var(--red); }
+  .other-articles { max-width: 720px; margin: 0 auto; padding: 0 24px 60px; }
+  .other-articles h4 { font-size: 13px; text-transform: uppercase; letter-spacing: 1px; color: var(--text-dim); margin-bottom: 14px; border-top: 1px solid var(--border); padding-top: 32px; }
+  .other-articles a { display: block; color: var(--text); text-decoration: none; padding: 12px 16px; background: var(--bg2); border: 1px solid var(--border); border-radius: 10px; margin-bottom: 10px; font-size: 14px; font-weight: 600; }
+  .other-articles a:hover { border-color: var(--purple); color: var(--purple); }
+  footer { text-align: center; padding: 40px 24px; color: var(--text-dim); font-size: 13px; border-top: 1px solid var(--border); }
+  footer a { color: var(--purple); text-decoration: none; }
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-logo">📺 Phantom TV</span>
+  <a href="/">Accueil</a>
+  <a href="/guide">Guide</a>
+  <a href="/blog.html" class="nav-active">Blog</a>
+  <a href="/a-propos.html">À propos</a>
+  <div class="nav-right">
+    <button class="theme-btn" id="theme-toggle-btn" onclick="toggleTheme()" title="Changer de thème">🌙</button>
+    <div class="lang-switcher">
+      <button class="lang-btn active" onclick="setLang('fr')">FR</button>
+      <button class="lang-btn" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" onclick="setLang('en-us')">EN-US</button>
+      <button class="lang-btn" onclick="setLang('de')">DE</button>
+      <button class="lang-btn" onclick="setLang('es')">ES</button>
+    </div>
+  </div>
+</nav>
+
+<header>
+  <div class="breadcrumb"><a href="/blog.html">← Retour au blog</a></div>
+  <h1 data-i18n="t">Comment reconnaître une offre IPTV légale</h1>
+</header>
+
+<main>
+  <article>
+    <div class="meta" data-i18n="meta">Guide</div>
+    <p data-i18n="p1">Le marché de l'IPTV compte à la fois des acteurs parfaitement légaux (opérateurs télécoms, plateformes de rattrapage officielles, agrégateurs sous licence) et des revendeurs proposant, souvent via des canaux informels, un accès non autorisé à des chaînes payantes. Avant de s'engager auprès d'un fournisseur, quelques signes permettent de distinguer les deux.</p>
+
+    <h3 data-i18n="h1">Un prix anormalement bas pour un catalogue premium</h3>
+    <p data-i18n="p2">Une offre incluant des dizaines de chaînes sportives premium, des chaînes payantes internationales et les derniers films en salle, pour quelques euros par mois, n'est techniquement pas viable pour un service qui paierait réellement les droits de diffusion. C'est le signal d'alerte le plus fiable.</p>
+
+    <div class="warn-box">
+      <strong data-i18n="warn-label">Point d'attention :</strong>
+      <span data-i18n="warn-body">La diffusion de chaînes payantes ou d'événements sportifs sans les droits de diffusion appropriés constitue une contrefaçon. Au-delà du risque juridique pour l'utilisateur final, ces services offrent rarement une vraie garantie de continuité : ils peuvent être coupés du jour au lendemain, sans recours possible.</span>
+    </div>
+
+    <h3 data-i18n="h2">L'absence totale d'identité de l'entreprise</h3>
+    <p data-i18n="p3">Un fournisseur légal peut normalement être identifié : une société, des mentions légales, un moyen de contact vérifiable. L'anonymat complet, les paiements uniquement en cryptomonnaie non traçable, ou l'absence de tout support client identifiable, sont des signaux à prendre au sérieux.</p>
+
+    <h3 data-i18n="h3">Les vraies alternatives légales existent</h3>
+    <p data-i18n="p4">De nombreux opérateurs télécoms proposent aujourd'hui leur propre offre IPTV légale incluse dans un abonnement internet, avec un vrai catalogue sous licence. Des plateformes de streaming légales couvrent également une grande partie des besoins en films et séries, avec une qualité de service généralement bien supérieure à celle des offres non autorisées.</p>
+  </article>
+</main>
+
+<div class="other-articles">
+  <h4>À lire aussi</h4>
+  <a href="/blog/pourquoi-flux-iptv-coupe.html">Pourquoi un flux IPTV coupe-t-il parfois ?</a>
+  <a href="/blog/vocabulaire-iptv-vod-live-catchup.html">VOD, direct, catch-up : le vocabulaire de l'IPTV</a>
+</div>
+
+<footer>
+  © 2025-2026 Phantom TV — <a href="/">Retour à l'accueil</a> · <a href="/blog.html">Blog</a> · <a href="/guide">Guide</a> · <a href="/a-propos.html">À propos</a>
+</footer>
+
+<script>
+const translations = {
+  fr: {
+    t: 'Comment reconnaître une offre IPTV légale',
+    meta: 'Guide',
+    p1: 'Le marché de l\'IPTV compte à la fois des acteurs parfaitement légaux (opérateurs télécoms, plateformes de rattrapage officielles, agrégateurs sous licence) et des revendeurs proposant, souvent via des canaux informels, un accès non autorisé à des chaînes payantes. Avant de s\'engager auprès d\'un fournisseur, quelques signes permettent de distinguer les deux.',
+    h1: 'Un prix anormalement bas pour un catalogue premium',
+    p2: 'Une offre incluant des dizaines de chaînes sportives premium, des chaînes payantes internationales et les derniers films en salle, pour quelques euros par mois, n\'est techniquement pas viable pour un service qui paierait réellement les droits de diffusion. C\'est le signal d\'alerte le plus fiable.',
+    'warn-label': 'Point d\'attention :',
+    'warn-body': 'La diffusion de chaînes payantes ou d\'événements sportifs sans les droits de diffusion appropriés constitue une contrefaçon. Au-delà du risque juridique pour l\'utilisateur final, ces services offrent rarement une vraie garantie de continuité : ils peuvent être coupés du jour au lendemain, sans recours possible.',
+    h2: 'L\'absence totale d\'identité de l\'entreprise',
+    p3: 'Un fournisseur légal peut normalement être identifié : une société, des mentions légales, un moyen de contact vérifiable. L\'anonymat complet, les paiements uniquement en cryptomonnaie non traçable, ou l\'absence de tout support client identifiable, sont des signaux à prendre au sérieux.',
+    h3: 'Les vraies alternatives légales existent',
+    p4: 'De nombreux opérateurs télécoms proposent aujourd\'hui leur propre offre IPTV légale incluse dans un abonnement internet, avec un vrai catalogue sous licence. Des plateformes de streaming légales couvrent également une grande partie des besoins en films et séries, avec une qualité de service généralement bien supérieure à celle des offres non autorisées.',
+  },
+  en: {
+    t: 'How to recognize a legal IPTV offer',
+    meta: 'Guide',
+    p1: 'The IPTV market includes both fully legal players (telecom operators, official catch-up platforms, licensed aggregators) and resellers offering, often through informal channels, unauthorized access to paid channels. Before committing to a provider, a few signs help tell the two apart.',
+    h1: 'An abnormally low price for a premium catalog',
+    p2: 'An offer including dozens of premium sports channels, international pay channels, and the latest theatrical releases, for a few euros a month, is not technically viable for a service that actually pays for broadcasting rights. This is the most reliable warning sign.',
+    'warn-label': 'Point of caution:',
+    'warn-body': 'Broadcasting paid channels or sports events without proper broadcasting rights constitutes infringement. Beyond the legal risk for the end user, these services rarely offer any real continuity guarantee: they can be shut down overnight, with no recourse.',
+    h2: 'A complete lack of business identity',
+    p3: 'A legal provider can usually be identified: a company, legal notices, a verifiable contact method. Total anonymity, payments only in untraceable cryptocurrency, or the absence of any identifiable customer support, are signs worth taking seriously.',
+    h3: 'Real legal alternatives exist',
+    p4: 'Many telecom operators now offer their own legal IPTV service included in an internet subscription, with a genuinely licensed catalog. Legal streaming platforms also cover a large part of movie and series needs, generally with much better service quality than unauthorized offers.',
+  },
+  de: {
+    t: 'Wie man ein legales IPTV-Angebot erkennt',
+    meta: 'Ratgeber',
+    p1: 'Der IPTV-Markt umfasst sowohl völlig legale Anbieter (Telekombetreiber, offizielle Replay-Plattformen, lizenzierte Aggregatoren) als auch Wiederverkäufer, die oft über informelle Kanäle unbefugten Zugang zu kostenpflichtigen Sendern anbieten. Bevor man sich an einen Anbieter bindet, helfen einige Anzeichen, die beiden zu unterscheiden.',
+    h1: 'Ein ungewöhnlich niedriger Preis für ein Premium-Angebot',
+    p2: 'Ein Angebot mit Dutzenden Premium-Sportsendern, internationalen Bezahlsendern und den neuesten Kinofilmen für wenige Euro im Monat ist für einen Dienst, der tatsächlich Sendelizenzen bezahlt, technisch nicht tragbar. Dies ist das zuverlässigste Warnsignal.',
+    'warn-label': 'Achtung:',
+    'warn-body': 'Die Ausstrahlung von Bezahlsendern oder Sportveranstaltungen ohne entsprechende Senderechte stellt eine Rechtsverletzung dar. Über das rechtliche Risiko für den Endnutzer hinaus bieten diese Dienste selten eine echte Kontinuitätsgarantie: Sie können von einem Tag auf den anderen ohne Rückgriffsmöglichkeit abgeschaltet werden.',
+    h2: 'Ein völliges Fehlen einer Unternehmensidentität',
+    p3: 'Ein legaler Anbieter kann normalerweise identifiziert werden: ein Unternehmen, Impressum, eine überprüfbare Kontaktmöglichkeit. Vollständige Anonymität, Zahlungen nur in nicht nachverfolgbarer Kryptowährung oder das Fehlen eines identifizierbaren Kundensupports sind ernst zu nehmende Signale.',
+    h3: 'Echte legale Alternativen existieren',
+    p4: 'Viele Telekombetreiber bieten heute ihren eigenen legalen IPTV-Dienst im Rahmen eines Internetabonnements mit einem wirklich lizenzierten Katalog an. Legale Streaming-Plattformen decken ebenfalls einen Großteil des Bedarfs an Filmen und Serien ab, meist mit einer deutlich besseren Servicequalität als nicht autorisierte Angebote.',
+  },
+  es: {
+    t: 'Cómo reconocer una oferta IPTV legal',
+    meta: 'Guía',
+    p1: 'El mercado del IPTV incluye tanto actores totalmente legales (operadores de telecomunicaciones, plataformas oficiales de reposición, agregadores con licencia) como revendedores que ofrecen, a menudo por canales informales, acceso no autorizado a canales de pago. Antes de comprometerse con un proveedor, algunas señales permiten distinguir entre ambos.',
+    h1: 'Un precio anormalmente bajo para un catálogo premium',
+    p2: 'Una oferta que incluye decenas de canales deportivos premium, canales de pago internacionales y los últimos estrenos de cine, por unos pocos euros al mes, no es técnicamente viable para un servicio que realmente pague los derechos de emisión. Es la señal de alerta más fiable.',
+    'warn-label': 'Punto de atención:',
+    'warn-body': 'La emisión de canales de pago o eventos deportivos sin los derechos de emisión correspondientes constituye una infracción. Más allá del riesgo legal para el usuario final, estos servicios rara vez ofrecen una garantía real de continuidad: pueden interrumpirse de un día para otro, sin ningún recurso posible.',
+    h2: 'Ausencia total de identidad empresarial',
+    p3: 'Un proveedor legal normalmente puede identificarse: una empresa, avisos legales, un medio de contacto verificable. El anonimato total, los pagos únicamente en criptomoneda no rastreable, o la ausencia de cualquier soporte al cliente identificable, son señales a tomar en serio.',
+    h3: 'Existen verdaderas alternativas legales',
+    p4: 'Muchos operadores de telecomunicaciones ofrecen hoy su propio servicio IPTV legal incluido en un abono de internet, con un catálogo realmente licenciado. Las plataformas de streaming legales también cubren gran parte de las necesidades de películas y series, generalmente con una calidad de servicio muy superior a la de las ofertas no autorizadas.',
+  }
+};
+translations['en-us'] = Object.assign({}, translations['en']);
+
+function setLang(lang) {
+  const t = translations[lang];
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (t[key] !== undefined) el.innerHTML = t[key];
+  });
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    const match = btn.getAttribute('onclick').match(/'([^']+)'/);
+    btn.classList.toggle('active', match && match[1] === lang);
+  });
+  document.documentElement.lang = lang.split('-')[0];
+}
+setLang('fr');
+
+function applyTheme(theme) {
+  const btn = document.getElementById('theme-toggle-btn');
+  if (theme === 'light') {
+    document.documentElement.classList.add('light');
+    if (btn) btn.textContent = '☀️';
+  } else {
+    document.documentElement.classList.remove('light');
+    if (btn) btn.textContent = '🌙';
+  }
+}
+function toggleTheme() {
+  const isLight = document.documentElement.classList.contains('light');
+  const next = isLight ? 'dark' : 'light';
+  applyTheme(next);
+  try { localStorage.setItem('phantomtv-theme', next); } catch (_) {}
+}
+try {
+  const savedTheme = localStorage.getItem('phantomtv-theme');
+  if (savedTheme === 'light') applyTheme('light');
+} catch (_) {}
+</script>
+
+</body>
+</html>
