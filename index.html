@@ -42,6 +42,8 @@
     .hero h2 { font-size: 42px; font-weight: 800; color: var(--purple); margin-bottom: 16px; }
     .hero p { font-size: 18px; color: var(--text-dim); max-width: 600px; margin: 0 auto 32px; line-height: 1.6; }
     .hero .warning { background: rgba(245,158,11,0.10); border: 1px solid rgba(245,158,11,0.30); border-radius: 12px; padding: 16px 24px; max-width: 600px; margin: 0 auto; color: var(--amber); font-size: 14px; line-height: 1.6; }
+    .intro-text { max-width: 720px; margin: 0 auto; padding: 0 24px 50px; }
+    .intro-text p { font-size: 15px; color: var(--text-dim); line-height: 1.8; margin-bottom: 16px; }
     .section { padding: 60px 24px; max-width: 900px; margin: 0 auto; }
     .section h3 { font-size: 24px; font-weight: 700; color: var(--purple); margin-bottom: 32px; text-align: center; }
     .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
@@ -193,6 +195,12 @@
   <p data-i18n="hero-sub"></p>
   <div class="warning" data-i18n="hero-warning"></div>
 </section>
+
+<!-- Présentation -->
+<div class="intro-text">
+  <p data-i18n="intro-p1"></p>
+  <p data-i18n="intro-p2"></p>
+</div>
 
 <!-- Fonctionnalités -->
 <section class="section" id="features">
@@ -486,6 +494,8 @@ const translations = {
     'nav-features': 'Fonctionnalités', 'nav-savoir': 'À savoir', 'nav-privacy': 'Confidentialité',
     'hero-sub': 'Lecteur multimédia avancé pour Windows et Android. Compatible avec vos serveurs de diffusion.',
     'hero-warning': '⚠️ <strong>Important :</strong> Phantom TV est un lecteur multimédia. L\'application ne fournit aucun contenu, aucune chaîne, aucun film ni aucune série. Vous devez disposer de vos propres accès légitimes à un serveur de diffusion compatible.',
+    'intro-p1': 'Phantom TV est un lecteur multimédia conçu pour simplifier l\'accès à vos contenus IPTV, que vous utilisiez un smartphone Android, un PC Windows ou une clé Amazon Fire TV Stick. L\'application se connecte à votre propre abonnement IPTV et organise automatiquement les chaînes en direct, les films, les séries et la radio dans une interface unique, pensée pour rester simple même sur un écran de télévision piloté à la télécommande.',
+    'intro-p2': 'Le développement met l\'accent sur la stabilité de lecture et la clarté de navigation plutôt que sur l\'accumulation de fonctionnalités superflues. Un guide d\'utilisation complet et un blog consacré au fonctionnement de l\'IPTV accompagnent l\'application pour aider les nouveaux utilisateurs à bien démarrer et à comprendre les bases de la technologie.',
     'feat-title': 'Fonctionnalités',
     'feat-live': 'Regardez vos chaînes en direct avec guide des programmes EPG intégré.',
     'feat-vod-title': 'Films & Séries', 'feat-vod': 'Parcourez votre catalogue avec affiches, synopsis et navigation par saisons.',
@@ -605,6 +615,8 @@ const translations = {
     'nav-features': 'Features', 'nav-savoir': 'Good to know', 'nav-privacy': 'Privacy',
     'hero-sub': 'Advanced media player for Windows and Android. Compatible with your streaming servers.',
     'hero-warning': '⚠️ <strong>Important:</strong> Phantom TV is a media player. The application does not provide any content, channels, movies or series. You must have your own legitimate access to a compatible streaming server.',
+    'intro-p1': 'Phantom TV is a media player designed to simplify access to your IPTV content, whether you use an Android smartphone, a Windows PC, or an Amazon Fire TV Stick. The app connects to your own IPTV subscription and automatically organizes live channels, movies, series, and radio into a single interface, built to stay simple even on a TV screen controlled with a remote.',
+    'intro-p2': 'Development focuses on playback stability and navigation clarity rather than piling on superfluous features. A full usage guide and a blog dedicated to how IPTV works accompany the app to help new users get started and understand the basics of the technology.',
     'feat-title': 'Features',
     'feat-live': 'Watch your live channels with integrated EPG program guide.',
     'feat-vod-title': 'Movies & Series', 'feat-vod': 'Browse your catalog with posters, synopses and season navigation.',
@@ -724,6 +736,8 @@ const translations = {
     'nav-features': 'Funktionen', 'nav-savoir': 'Gut zu wissen', 'nav-privacy': 'Datenschutz',
     'hero-sub': 'Erweiterter Media Player für Windows und Android. Kompatibel mit Ihren Streaming-Servern.',
     'hero-warning': '⚠️ <strong>Wichtig:</strong> Phantom TV ist ein Media Player. Die App stellt keine Inhalte, Kanäle, Filme oder Serien bereit. Sie müssen über eigenen legitimen Zugang zu einem kompatiblen Streaming-Server verfügen.',
+    'intro-p1': 'Phantom TV ist ein Media Player, der den Zugriff auf Ihre IPTV-Inhalte vereinfachen soll — egal ob auf einem Android-Smartphone, einem Windows-PC oder einem Amazon Fire TV Stick. Die App verbindet sich mit Ihrem eigenen IPTV-Abonnement und organisiert Live-Sender, Filme, Serien und Radio automatisch in einer einzigen Oberfläche, die auch auf einem per Fernbedienung gesteuerten Fernsehbildschirm einfach bleibt.',
+    'intro-p2': 'Die Entwicklung legt Wert auf stabile Wiedergabe und klare Navigation statt auf die Anhäufung überflüssiger Funktionen. Eine vollständige Bedienungsanleitung und ein Blog rund um die Funktionsweise von IPTV begleiten die App, um neuen Nutzern den Einstieg und das Verständnis der Grundlagen der Technologie zu erleichtern.',
     'feat-title': 'Funktionen',
     'feat-live': 'Schauen Sie Live-TV mit integriertem EPG-Programmführer.',
     'feat-vod-title': 'Filme & Serien', 'feat-vod': 'Durchsuchen Sie Ihren Katalog mit Postern, Synopsen und Staffelnavigation.',
@@ -843,6 +857,8 @@ const translations = {
     'nav-features': 'Funciones', 'nav-savoir': 'Bueno saber', 'nav-privacy': 'Privacidad',
     'hero-sub': 'Reproductor multimedia avanzado para Windows y Android. Compatible con sus servidores de streaming.',
     'hero-warning': '⚠️ <strong>Importante:</strong> Phantom TV es un reproductor multimedia. La aplicación no proporciona ningún contenido, canales, películas ni series. Debe tener su propio acceso legítimo a un servidor de streaming compatible.',
+    'intro-p1': 'Phantom TV es un reproductor multimedia diseñado para simplificar el acceso a sus contenidos IPTV, ya sea en un smartphone Android, un PC Windows o un Amazon Fire TV Stick. La aplicación se conecta a su propia suscripción IPTV y organiza automáticamente los canales en directo, las películas, las series y la radio en una única interfaz, pensada para seguir siendo simple incluso en una pantalla de televisión controlada con mando a distancia.',
+    'intro-p2': 'El desarrollo se centra en la estabilidad de la reproducción y la claridad de la navegación, en lugar de acumular funciones superfluas. Una guía de uso completa y un blog dedicado al funcionamiento del IPTV acompañan a la aplicación para ayudar a los nuevos usuarios a comenzar y a comprender los conceptos básicos de la tecnología.',
     'feat-title': 'Funciones',
     'feat-live': 'Vea sus canales en directo con guía de programas EPG integrada.',
     'feat-vod-title': 'Películas y Series', 'feat-vod': 'Explore su catálogo con pósters, sinopsis y navegación por temporadas.',
