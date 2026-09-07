@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bien choisir son boîtier ou sa clé TV pour l'IPTV — Phantom TV</title>
+<meta name="description" content="Fire TV Stick, boîtier Android TV, Smart TV : les différences pratiques entre les appareils utilisés pour regarder l'IPTV sur grand écran.">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --bg: #09090B; --bg2: #111827; --bg3: #1F2937;
+    --purple: #A855F7; --green: #22C55E; --red: #EF4444;
+    --amber: #F59E0B; --blue: #3B82F6; --cyan: #06B6D4;
+    --text: #F9FAFB; --text-dim: #9CA3AF;
+    --border: rgba(255,255,255,0.08);
+  }
+  html.light {
+    --bg: #FFFFFF; --bg2: #F3F4F6; --bg3: #E5E7EB;
+    --purple: #7C3AED; --green: #16A34A; --red: #DC2626;
+    --amber: #D97706; --blue: #2563EB; --cyan: #0891B2;
+    --text: #111827; --text-dim: #4B5563;
+    --border: rgba(0,0,0,0.08);
+  }
+  body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.75; transition: background 0.25s ease, color 0.25s ease; }
+  nav { background: var(--bg2); border-bottom: 1px solid var(--border); padding: 10px 24px; display: flex; gap: 20px; flex-wrap: wrap; align-items: center; }
+  nav a { color: var(--text-dim); text-decoration: none; font-size: 13px; }
+  nav a:hover { color: var(--purple); }
+  nav .nav-logo { color: var(--purple); font-weight: 700; font-size: 15px; margin-right: 10px; }
+  nav .nav-active { color: var(--purple); font-weight: 600; }
+  .nav-right { margin-left: auto; display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+  .lang-switcher { display: flex; gap: 6px; }
+  .lang-btn { background: var(--bg3); border: 1px solid var(--border); color: var(--text-dim); padding: 4px 10px; border-radius: 6px; font-size: 12px; font-weight: 700; cursor: pointer; }
+  .lang-btn.active { background: var(--purple); color: white; border-color: var(--purple); }
+  .lang-btn:hover { border-color: var(--purple); color: var(--purple); }
+  .theme-btn { background: var(--bg3); border: 1px solid var(--border); color: var(--text-dim); width: 28px; height: 28px; border-radius: 6px; font-size: 14px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+  .theme-btn:hover { border-color: var(--purple); color: var(--purple); }
+  header { background: var(--bg2); border-bottom: 1px solid var(--border); padding: 20px 24px; text-align: center; }
+  .breadcrumb { font-size: 13px; color: var(--text-dim); margin-bottom: 10px; }
+  .breadcrumb a { color: var(--cyan); text-decoration: none; }
+  .breadcrumb a:hover { text-decoration: underline; }
+  header h1 { font-size: 26px; color: var(--purple); margin-bottom: 4px; }
+  main { max-width: 720px; margin: 0 auto; padding: 40px 24px 40px; }
+  article { margin-bottom: 16px; }
+  .meta { color: var(--cyan); font-size: 12px; text-transform: uppercase; letter-spacing: 1px; font-weight: 700; margin-bottom: 10px; }
+  article p { margin-bottom: 16px; color: var(--text-dim); font-size: 15.5px; }
+  article strong { color: var(--text); }
+  article h3 { font-size: 17px; color: var(--text); margin: 28px 0 10px; }
+  article ul { margin: 0 0 16px 22px; color: var(--text-dim); }
+  article li { margin-bottom: 8px; }
+  .other-articles { max-width: 720px; margin: 0 auto; padding: 0 24px 60px; }
+  .other-articles h4 { font-size: 13px; text-transform: uppercase; letter-spacing: 1px; color: var(--text-dim); margin-bottom: 14px; border-top: 1px solid var(--border); padding-top: 32px; }
+  .other-articles a { display: block; color: var(--text); text-decoration: none; padding: 12px 16px; background: var(--bg2); border: 1px solid var(--border); border-radius: 10px; margin-bottom: 10px; font-size: 14px; font-weight: 600; }
+  .other-articles a:hover { border-color: var(--purple); color: var(--purple); }
+  footer { text-align: center; padding: 40px 24px; color: var(--text-dim); font-size: 13px; border-top: 1px solid var(--border); }
+  footer a { color: var(--purple); text-decoration: none; }
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-logo">📺 Phantom TV</span>
+  <a href="/">Accueil</a>
+  <a href="/guide">Guide</a>
+  <a href="/blog.html" class="nav-active">Blog</a>
+  <a href="/a-propos.html">À propos</a>
+  <div class="nav-right">
+    <button class="theme-btn" id="theme-toggle-btn" onclick="toggleTheme()" title="Changer de thème">🌙</button>
+    <div class="lang-switcher">
+      <button class="lang-btn active" onclick="setLang('fr')">FR</button>
+      <button class="lang-btn" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" onclick="setLang('en-us')">EN-US</button>
+      <button class="lang-btn" onclick="setLang('de')">DE</button>
+      <button class="lang-btn" onclick="setLang('es')">ES</button>
+    </div>
+  </div>
+</nav>
+
+<header>
+  <div class="breadcrumb"><a href="/blog.html">← Retour au blog</a></div>
+  <h1 data-i18n="t">Bien choisir son boîtier ou sa clé TV pour l'IPTV</h1>
+</header>
+
+<main>
+  <article>
+    <div class="meta" data-i18n="meta">Matériel</div>
+    <p data-i18n="p1">Regarder l'IPTV sur grand écran suppose généralement un appareil intermédiaire entre l'application et le téléviseur, sauf si ce dernier intègre déjà un système compatible. Trois familles d'appareils dominent le marché, chacune avec ses avantages et ses limites.</p>
+
+    <h3 data-i18n="h1">Les clés TV (Amazon Fire TV Stick et équivalents)</h3>
+    <p data-i18n="p2">Peu coûteuses et faciles à installer, elles se branchent directement sur le port HDMI du téléviseur. Leur principale contrainte : le magasin d'applications officiel n'accepte pas toujours les lecteurs IPTV indépendants, ce qui oblige à passer par une application comme Downloader pour installer l'APK manuellement. La puissance reste correcte pour la lecture vidéo, mais peut montrer ses limites sur des interfaces très chargées en visuels.</p>
+
+    <h3 data-i18n="h2">Les boîtiers Android TV</h3>
+    <p data-i18n="p3">Plus puissants et généralement plus chers, les boîtiers Android TV (souvent vendus sous des marques génériques) offrent davantage de mémoire et de stockage, ce qui aide sur les interfaces gourmandes en ressources ou les catalogues volumineux. Le magasin d'applications y est en principe plus ouvert, ce qui simplifie l'installation d'un lecteur tiers.</p>
+
+    <div class="meta" style="margin-top:0;"></div>
+    <h3 data-i18n="h3">Les Smart TV avec système intégré</h3>
+    <p data-i18n="p4">Certains téléviseurs récents embarquent un système capable d'installer des applications directement, sans boîtier externe. C'est pratique, mais la puissance de calcul y est souvent plus limitée que sur un boîtier dédié, et les mises à jour du système sont généralement moins fréquentes une fois le téléviseur commercialisé depuis quelques années.</p>
+
+    <h3 data-i18n="h4">Ce qui compte réellement au moment de choisir</h3>
+    <ul>
+      <li data-i18n="li1"><strong>La RAM disponible :</strong> une interface avec affiches et miniatures consomme davantage de mémoire qu'une simple liste de chaînes</li>
+      <li data-i18n="li2"><strong>La compatibilité avec le Wi-Fi 5 GHz ou l'Ethernet :</strong> un appareil limité au 2,4 GHz est souvent le premier facteur de coupures, avant même la qualité du fournisseur</li>
+      <li data-i18n="li3"><strong>La facilité d'installation d'applications tierces :</strong> certains systèmes verrouillés rendent l'opération plus complexe qu'elle ne devrait l'être</li>
+    </ul>
+    <p data-i18n="p5">Aucun appareil n'est universellement meilleur : le bon choix dépend surtout de l'usage (un salon avec beaucoup de contenu VOD n'a pas les mêmes besoins qu'une chambre où seul le direct est regardé) et du budget disponible.</p>
+  </article>
+</main>
+
+<div class="other-articles">
+  <h4>À lire aussi</h4>
+  <a href="/blog/optimiser-reseau-domestique-streaming.html">Optimiser son réseau domestique pour un streaming sans coupures</a>
+  <a href="/blog/pourquoi-flux-iptv-coupe.html">Pourquoi un flux IPTV coupe-t-il parfois ?</a>
+</div>
+
+<footer>
+  © 2025-2026 Phantom TV — <a href="/">Retour à l'accueil</a> · <a href="/blog.html">Blog</a> · <a href="/guide">Guide</a> · <a href="/a-propos.html">À propos</a>
+</footer>
+
+<script>
+const translations = {
+  fr: {
+    t: 'Bien choisir son boîtier ou sa clé TV pour l\'IPTV',
+    meta: 'Matériel',
+    p1: 'Regarder l\'IPTV sur grand écran suppose généralement un appareil intermédiaire entre l\'application et le téléviseur, sauf si ce dernier intègre déjà un système compatible. Trois familles d\'appareils dominent le marché, chacune avec ses avantages et ses limites.',
+    h1: 'Les clés TV (Amazon Fire TV Stick et équivalents)',
+    p2: 'Peu coûteuses et faciles à installer, elles se branchent directement sur le port HDMI du téléviseur. Leur principale contrainte : le magasin d\'applications officiel n\'accepte pas toujours les lecteurs IPTV indépendants, ce qui oblige à passer par une application comme Downloader pour installer l\'APK manuellement. La puissance reste correcte pour la lecture vidéo, mais peut montrer ses limites sur des interfaces très chargées en visuels.',
+    h2: 'Les boîtiers Android TV',
+    p3: 'Plus puissants et généralement plus chers, les boîtiers Android TV (souvent vendus sous des marques génériques) offrent davantage de mémoire et de stockage, ce qui aide sur les interfaces gourmandes en ressources ou les catalogues volumineux. Le magasin d\'applications y est en principe plus ouvert, ce qui simplifie l\'installation d\'un lecteur tiers.',
+    h3: 'Les Smart TV avec système intégré',
+    p4: 'Certains téléviseurs récents embarquent un système capable d\'installer des applications directement, sans boîtier externe. C\'est pratique, mais la puissance de calcul y est souvent plus limitée que sur un boîtier dédié, et les mises à jour du système sont généralement moins fréquentes une fois le téléviseur commercialisé depuis quelques années.',
+    h4: 'Ce qui compte réellement au moment de choisir',
+    li1: '<strong>La RAM disponible :</strong> une interface avec affiches et miniatures consomme davantage de mémoire qu\'une simple liste de chaînes',
+    li2: '<strong>La compatibilité avec le Wi-Fi 5 GHz ou l\'Ethernet :</strong> un appareil limité au 2,4 GHz est souvent le premier facteur de coupures, avant même la qualité du fournisseur',
+    li3: '<strong>La facilité d\'installation d\'applications tierces :</strong> certains systèmes verrouillés rendent l\'opération plus complexe qu\'elle ne devrait l\'être',
+    p5: 'Aucun appareil n\'est universellement meilleur : le bon choix dépend surtout de l\'usage (un salon avec beaucoup de contenu VOD n\'a pas les mêmes besoins qu\'une chambre où seul le direct est regardé) et du budget disponible.',
+  },
+  en: {
+    t: 'How to choose the right TV box or streaming stick for IPTV',
+    meta: 'Hardware',
+    p1: 'Watching IPTV on a big screen usually requires a device between the app and the television, unless the TV already has a compatible system built in. Three device families dominate the market, each with its own strengths and limits.',
+    h1: 'Streaming sticks (Amazon Fire TV Stick and similar)',
+    p2: 'Inexpensive and easy to set up, these plug directly into the TV\'s HDMI port. Their main limitation: the official app store doesn\'t always accept independent IPTV players, which means going through an app like Downloader to install the APK manually. Video playback power is decent, but can struggle on visually heavy interfaces.',
+    h2: 'Android TV boxes',
+    p3: 'More powerful and generally pricier, Android TV boxes (often sold under generic brands) offer more memory and storage, which helps with resource-hungry interfaces or large catalogs. The app store is typically more open, making it easier to install a third-party player.',
+    h3: 'Smart TVs with a built-in system',
+    p4: 'Some recent televisions can install apps directly, without an external box. This is convenient, but processing power is often more limited than on a dedicated box, and system updates tend to become less frequent a few years after the TV was released.',
+    h4: 'What actually matters when choosing',
+    li1: '<strong>Available RAM:</strong> an interface with posters and thumbnails uses more memory than a simple channel list',
+    li2: '<strong>5 GHz Wi-Fi or Ethernet support:</strong> a device limited to 2.4 GHz is often the first cause of cutouts, even before the provider\'s quality comes into play',
+    li3: '<strong>Ease of installing third-party apps:</strong> some locked-down systems make this more complicated than it should be',
+    p5: 'No device is universally best: the right choice mostly depends on usage (a living room with heavy VOD use has different needs than a bedroom used only for live TV) and available budget.',
+  },
+  de: {
+    t: 'Die richtige TV-Box oder den richtigen Streaming-Stick für IPTV wählen',
+    meta: 'Hardware',
+    p1: 'IPTV auf einem großen Bildschirm anzusehen erfordert in der Regel ein Gerät zwischen der App und dem Fernseher, es sei denn, dieser verfügt bereits über ein kompatibles System. Drei Gerätefamilien dominieren den Markt, jede mit eigenen Stärken und Grenzen.',
+    h1: 'Streaming-Sticks (Amazon Fire TV Stick und ähnliche)',
+    p2: 'Günstig und einfach einzurichten, werden diese direkt in den HDMI-Anschluss des Fernsehers gesteckt. Ihre Hauptbeschränkung: Der offizielle App Store akzeptiert nicht immer unabhängige IPTV-Player, sodass man über eine App wie Downloader die APK manuell installieren muss. Die Wiedergabeleistung ist ordentlich, kann aber bei visuell aufwendigen Oberflächen an Grenzen stoßen.',
+    h2: 'Android-TV-Boxen',
+    p3: 'Leistungsstärker und in der Regel teurer bieten Android-TV-Boxen (oft unter generischen Marken verkauft) mehr Speicher und Ablageplatz, was bei ressourcenintensiven Oberflächen oder großen Katalogen hilft. Der App Store ist hier meist offener, was die Installation eines Drittanbieter-Players erleichtert.',
+    h3: 'Smart-TVs mit integriertem System',
+    p4: 'Einige neuere Fernseher können Apps direkt installieren, ohne externe Box. Das ist praktisch, aber die Rechenleistung ist oft begrenzter als bei einer dedizierten Box, und Systemupdates werden in der Regel seltener, sobald der Fernseher schon einige Jahre auf dem Markt ist.',
+    h4: 'Worauf es bei der Wahl wirklich ankommt',
+    li1: '<strong>Verfügbarer RAM:</strong> eine Oberfläche mit Postern und Miniaturansichten verbraucht mehr Speicher als eine einfache Senderliste',
+    li2: '<strong>Unterstützung von 5-GHz-WLAN oder Ethernet:</strong> ein auf 2,4 GHz beschränktes Gerät ist oft die erste Ursache für Abbrüche, noch vor der Qualität des Anbieters',
+    li3: '<strong>Einfachheit der Installation von Drittanbieter-Apps:</strong> manche gesperrten Systeme machen dies komplizierter als nötig',
+    p5: 'Kein Gerät ist universell am besten: Die richtige Wahl hängt vor allem von der Nutzung ab (ein Wohnzimmer mit viel VOD-Nutzung hat andere Anforderungen als ein Schlafzimmer, in dem nur Live-TV geschaut wird) und vom verfügbaren Budget.',
+  },
+  es: {
+    t: 'Cómo elegir bien el dispositivo o palo TV para IPTV',
+    meta: 'Hardware',
+    p1: 'Ver IPTV en una pantalla grande generalmente requiere un dispositivo intermedio entre la aplicación y el televisor, salvo que este ya incluya un sistema compatible. Tres familias de dispositivos dominan el mercado, cada una con sus ventajas y límites.',
+    h1: 'Los palos TV (Amazon Fire TV Stick y equivalentes)',
+    p2: 'Económicos y fáciles de instalar, se conectan directamente al puerto HDMI del televisor. Su principal limitación: la tienda de aplicaciones oficial no siempre acepta reproductores IPTV independientes, lo que obliga a pasar por una aplicación como Downloader para instalar el APK manualmente. La potencia es correcta para la reproducción de vídeo, pero puede mostrar sus límites en interfaces muy cargadas visualmente.',
+    h2: 'Los dispositivos Android TV',
+    p3: 'Más potentes y generalmente más caros, los dispositivos Android TV (a menudo vendidos bajo marcas genéricas) ofrecen más memoria y almacenamiento, lo que ayuda en interfaces exigentes en recursos o catálogos voluminosos. La tienda de aplicaciones suele ser más abierta, lo que facilita la instalación de un reproductor de terceros.',
+    h3: 'Las Smart TV con sistema integrado',
+    p4: 'Algunos televisores recientes incorporan un sistema capaz de instalar aplicaciones directamente, sin dispositivo externo. Es práctico, pero la potencia de cálculo suele ser más limitada que en un dispositivo dedicado, y las actualizaciones del sistema son generalmente menos frecuentes una vez que el televisor lleva algunos años a la venta.',
+    h4: 'Lo que realmente importa al elegir',
+    li1: '<strong>La RAM disponible:</strong> una interfaz con carátulas y miniaturas consume más memoria que una simple lista de canales',
+    li2: '<strong>La compatibilidad con Wi-Fi de 5 GHz o Ethernet:</strong> un dispositivo limitado a 2,4 GHz suele ser la primera causa de cortes, incluso antes que la calidad del proveedor',
+    li3: '<strong>La facilidad para instalar aplicaciones de terceros:</strong> algunos sistemas bloqueados hacen esta operación más complicada de lo que debería ser',
+    p5: 'Ningún dispositivo es universalmente mejor: la elección correcta depende sobre todo del uso (un salón con mucho contenido VOD no tiene las mismas necesidades que un dormitorio donde solo se ve en directo) y del presupuesto disponible.',
+  }
+};
+translations['en-us'] = Object.assign({}, translations['en']);
+
+function setLang(lang) {
+  const t = translations[lang];
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (t[key] !== undefined) el.innerHTML = t[key];
+  });
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    const match = btn.getAttribute('onclick').match(/'([^']+)'/);
+    btn.classList.toggle('active', match && match[1] === lang);
+  });
+  document.documentElement.lang = lang.split('-')[0];
+}
+setLang('fr');
+
+function applyTheme(theme) {
+  const btn = document.getElementById('theme-toggle-btn');
+  if (theme === 'light') {
+    document.documentElement.classList.add('light');
+    if (btn) btn.textContent = '☀️';
+  } else {
+    document.documentElement.classList.remove('light');
+    if (btn) btn.textContent = '🌙';
+  }
+}
+function toggleTheme() {
+  const isLight = document.documentElement.classList.contains('light');
+  const next = isLight ? 'dark' : 'light';
+  applyTheme(next);
+  try { localStorage.setItem('phantomtv-theme', next); } catch (_) {}
+}
+try {
+  const savedTheme = localStorage.getItem('phantomtv-theme');
+  if (savedTheme === 'light') applyTheme('light');
+} catch (_) {}
+</script>
+
+</body>
+</html>

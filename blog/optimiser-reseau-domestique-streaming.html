@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Optimiser son réseau domestique pour un streaming sans coupures — Phantom TV</title>
+<meta name="description" content="Placement du routeur, Wi-Fi vs Ethernet, bande passante : les réglages réseau qui font vraiment la différence pour l'IPTV.">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --bg: #09090B; --bg2: #111827; --bg3: #1F2937;
+    --purple: #A855F7; --green: #22C55E; --red: #EF4444;
+    --amber: #F59E0B; --blue: #3B82F6; --cyan: #06B6D4;
+    --text: #F9FAFB; --text-dim: #9CA3AF;
+    --border: rgba(255,255,255,0.08);
+  }
+  html.light {
+    --bg: #FFFFFF; --bg2: #F3F4F6; --bg3: #E5E7EB;
+    --purple: #7C3AED; --green: #16A34A; --red: #DC2626;
+    --amber: #D97706; --blue: #2563EB; --cyan: #0891B2;
+    --text: #111827; --text-dim: #4B5563;
+    --border: rgba(0,0,0,0.08);
+  }
+  body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.75; transition: background 0.25s ease, color 0.25s ease; }
+  nav { background: var(--bg2); border-bottom: 1px solid var(--border); padding: 10px 24px; display: flex; gap: 20px; flex-wrap: wrap; align-items: center; }
+  nav a { color: var(--text-dim); text-decoration: none; font-size: 13px; }
+  nav a:hover { color: var(--purple); }
+  nav .nav-logo { color: var(--purple); font-weight: 700; font-size: 15px; margin-right: 10px; }
+  nav .nav-active { color: var(--purple); font-weight: 600; }
+  .nav-right { margin-left: auto; display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+  .lang-switcher { display: flex; gap: 6px; }
+  .lang-btn { background: var(--bg3); border: 1px solid var(--border); color: var(--text-dim); padding: 4px 10px; border-radius: 6px; font-size: 12px; font-weight: 700; cursor: pointer; }
+  .lang-btn.active { background: var(--purple); color: white; border-color: var(--purple); }
+  .lang-btn:hover { border-color: var(--purple); color: var(--purple); }
+  .theme-btn { background: var(--bg3); border: 1px solid var(--border); color: var(--text-dim); width: 28px; height: 28px; border-radius: 6px; font-size: 14px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+  .theme-btn:hover { border-color: var(--purple); color: var(--purple); }
+  header { background: var(--bg2); border-bottom: 1px solid var(--border); padding: 20px 24px; text-align: center; }
+  .breadcrumb { font-size: 13px; color: var(--text-dim); margin-bottom: 10px; }
+  .breadcrumb a { color: var(--cyan); text-decoration: none; }
+  .breadcrumb a:hover { text-decoration: underline; }
+  header h1 { font-size: 26px; color: var(--purple); margin-bottom: 4px; }
+  main { max-width: 720px; margin: 0 auto; padding: 40px 24px 40px; }
+  article { margin-bottom: 16px; }
+  .meta { color: var(--cyan); font-size: 12px; text-transform: uppercase; letter-spacing: 1px; font-weight: 700; margin-bottom: 10px; }
+  article p { margin-bottom: 16px; color: var(--text-dim); font-size: 15.5px; }
+  article strong { color: var(--text); }
+  article h3 { font-size: 17px; color: var(--text); margin: 28px 0 10px; }
+  article ul { margin: 0 0 16px 22px; color: var(--text-dim); }
+  article li { margin-bottom: 8px; }
+  .other-articles { max-width: 720px; margin: 0 auto; padding: 0 24px 60px; }
+  .other-articles h4 { font-size: 13px; text-transform: uppercase; letter-spacing: 1px; color: var(--text-dim); margin-bottom: 14px; border-top: 1px solid var(--border); padding-top: 32px; }
+  .other-articles a { display: block; color: var(--text); text-decoration: none; padding: 12px 16px; background: var(--bg2); border: 1px solid var(--border); border-radius: 10px; margin-bottom: 10px; font-size: 14px; font-weight: 600; }
+  .other-articles a:hover { border-color: var(--purple); color: var(--purple); }
+  footer { text-align: center; padding: 40px 24px; color: var(--text-dim); font-size: 13px; border-top: 1px solid var(--border); }
+  footer a { color: var(--purple); text-decoration: none; }
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-logo">📺 Phantom TV</span>
+  <a href="/">Accueil</a>
+  <a href="/guide">Guide</a>
+  <a href="/blog.html" class="nav-active">Blog</a>
+  <a href="/a-propos.html">À propos</a>
+  <div class="nav-right">
+    <button class="theme-btn" id="theme-toggle-btn" onclick="toggleTheme()" title="Changer de thème">🌙</button>
+    <div class="lang-switcher">
+      <button class="lang-btn active" onclick="setLang('fr')">FR</button>
+      <button class="lang-btn" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" onclick="setLang('en-us')">EN-US</button>
+      <button class="lang-btn" onclick="setLang('de')">DE</button>
+      <button class="lang-btn" onclick="setLang('es')">ES</button>
+    </div>
+  </div>
+</nav>
+
+<header>
+  <div class="breadcrumb"><a href="/blog.html">← Retour au blog</a></div>
+  <h1 data-i18n="t">Optimiser son réseau domestique pour un streaming sans coupures</h1>
+</header>
+
+<main>
+  <article>
+    <div class="meta" data-i18n="meta">Réseau</div>
+    <p data-i18n="p1">La qualité d'un flux IPTV dépend autant du réseau domestique que du fournisseur lui-même. Quelques réglages simples, souvent négligés, réduisent nettement le risque de coupures sans nécessiter le moindre changement d'abonnement.</p>
+
+    <h3 data-i18n="h1">L'emplacement du routeur compte plus qu'on ne le pense</h3>
+    <p data-i18n="p2">Un routeur placé dans un meuble fermé, derrière un mur épais ou à l'autre bout de la maison par rapport à la télévision perd une grande partie de sa portée effective. Le signal Wi-Fi se dégrade avec chaque obstacle traversé, bien avant que la distance elle-même ne devienne un problème. Un emplacement dégagé, à hauteur raisonnable et le plus proche possible de la zone de visionnage principale, change souvent la donne à lui seul.</p>
+
+    <h3 data-i18n="h2">Bande 2,4 GHz ou 5 GHz : un choix qui a un vrai impact</h3>
+    <p data-i18n="p3">La bande 2,4 GHz porte plus loin mais est nettement plus encombrée : elle est partagée par la plupart des objets connectés du foyer et par les réseaux des voisins. La bande 5 GHz offre un débit plus stable et moins d'interférences, au prix d'une portée plus courte. Pour un boîtier TV situé à proximité raisonnable du routeur, la 5 GHz est presque toujours le meilleur choix quand l'appareil la prend en charge.</p>
+
+    <h3 data-i18n="h3">Pourquoi le câble Ethernet reste la référence</h3>
+    <p data-i18n="p4">Aucune configuration Wi-Fi, aussi soignée soit-elle, n'égale la stabilité d'une connexion filaire. Un câble Ethernet supprime les interférences, les pertes de paquets liées aux murs et la concurrence avec les autres appareils du réseau. Pour un boîtier ou une Smart TV fixe, tirer un câble — même via un adaptateur CPL quand le câblage direct n'est pas possible — reste l'amélioration la plus fiable.</p>
+
+    <h3 data-i18n="h4">La bande passante partagée, un facteur souvent oublié</h3>
+    <p data-i18n="p5">Un flux en direct ou un film en haute définition consomme un débit continu pendant toute la durée du visionnage. Si plusieurs appareils du foyer téléchargent, mettent à jour un système ou diffusent en simultané, la bande passante disponible pour l'IPTV en pâtit directement. Certains routeurs proposent une fonction de priorisation du trafic (QoS) qui permet de réserver une part de la bande passante au streaming, même quand le réseau est sollicité par ailleurs.</p>
+  </article>
+</main>
+
+<div class="other-articles">
+  <h4>À lire aussi</h4>
+  <a href="/blog/pourquoi-flux-iptv-coupe.html">Pourquoi un flux IPTV coupe-t-il parfois ?</a>
+  <a href="/blog/choisir-boitier-tv-iptv.html">Bien choisir son boîtier ou sa clé TV pour l'IPTV</a>
+</div>
+
+<footer>
+  © 2025-2026 Phantom TV — <a href="/">Retour à l'accueil</a> · <a href="/blog.html">Blog</a> · <a href="/guide">Guide</a> · <a href="/a-propos.html">À propos</a>
+</footer>
+
+<script>
+const translations = {
+  fr: {
+    t: 'Optimiser son réseau domestique pour un streaming sans coupures',
+    meta: 'Réseau',
+    p1: 'La qualité d\'un flux IPTV dépend autant du réseau domestique que du fournisseur lui-même. Quelques réglages simples, souvent négligés, réduisent nettement le risque de coupures sans nécessiter le moindre changement d\'abonnement.',
+    h1: 'L\'emplacement du routeur compte plus qu\'on ne le pense',
+    p2: 'Un routeur placé dans un meuble fermé, derrière un mur épais ou à l\'autre bout de la maison par rapport à la télévision perd une grande partie de sa portée effective. Le signal Wi-Fi se dégrade avec chaque obstacle traversé, bien avant que la distance elle-même ne devienne un problème. Un emplacement dégagé, à hauteur raisonnable et le plus proche possible de la zone de visionnage principale, change souvent la donne à lui seul.',
+    h2: 'Bande 2,4 GHz ou 5 GHz : un choix qui a un vrai impact',
+    p3: 'La bande 2,4 GHz porte plus loin mais est nettement plus encombrée : elle est partagée par la plupart des objets connectés du foyer et par les réseaux des voisins. La bande 5 GHz offre un débit plus stable et moins d\'interférences, au prix d\'une portée plus courte. Pour un boîtier TV situé à proximité raisonnable du routeur, la 5 GHz est presque toujours le meilleur choix quand l\'appareil la prend en charge.',
+    h3: 'Pourquoi le câble Ethernet reste la référence',
+    p4: 'Aucune configuration Wi-Fi, aussi soignée soit-elle, n\'égale la stabilité d\'une connexion filaire. Un câble Ethernet supprime les interférences, les pertes de paquets liées aux murs et la concurrence avec les autres appareils du réseau. Pour un boîtier ou une Smart TV fixe, tirer un câble — même via un adaptateur CPL quand le câblage direct n\'est pas possible — reste l\'amélioration la plus fiable.',
+    h4: 'La bande passante partagée, un facteur souvent oublié',
+    p5: 'Un flux en direct ou un film en haute définition consomme un débit continu pendant toute la durée du visionnage. Si plusieurs appareils du foyer téléchargent, mettent à jour un système ou diffusent en simultané, la bande passante disponible pour l\'IPTV en pâtit directement. Certains routeurs proposent une fonction de priorisation du trafic (QoS) qui permet de réserver une part de la bande passante au streaming, même quand le réseau est sollicité par ailleurs.',
+  },
+  en: {
+    t: 'Optimizing your home network for streaming without cutouts',
+    meta: 'Network',
+    p1: 'The quality of an IPTV stream depends as much on the home network as on the provider itself. A few simple, often overlooked settings can significantly reduce the risk of cutouts without changing anything about the subscription.',
+    h1: 'Router placement matters more than expected',
+    p2: 'A router placed inside a closed cabinet, behind a thick wall, or at the opposite end of the house from the television loses much of its effective range. The Wi-Fi signal degrades with every obstacle it crosses, often well before distance itself becomes an issue. A clear, reasonably elevated spot as close as possible to the main viewing area often makes a difference on its own.',
+    h2: '2.4 GHz or 5 GHz: a choice with real impact',
+    p3: 'The 2.4 GHz band reaches further but is far more crowded: it\'s shared by most connected devices in the home and by neighboring networks. The 5 GHz band offers more stable speeds and less interference, at the cost of shorter range. For a TV box reasonably close to the router, 5 GHz is almost always the better choice when the device supports it.',
+    h3: 'Why Ethernet cable remains the gold standard',
+    p4: 'No Wi-Fi setup, however carefully tuned, matches the stability of a wired connection. An Ethernet cable removes interference, wall-related packet loss, and competition with other devices on the network. For a fixed box or Smart TV, running a cable — even through a powerline adapter when direct wiring isn\'t possible — remains the most reliable improvement.',
+    h4: 'Shared bandwidth, a factor often forgotten',
+    p5: 'A live stream or a high-definition movie consumes continuous bandwidth for the entire viewing session. If several devices in the home are downloading, updating a system, or streaming at the same time, the bandwidth available for IPTV suffers directly. Some routers offer traffic prioritization (QoS), which reserves a share of bandwidth for streaming even when the network is busy elsewhere.',
+  },
+  de: {
+    t: 'Das Heimnetzwerk für unterbrechungsfreies Streaming optimieren',
+    meta: 'Netzwerk',
+    p1: 'Die Qualität eines IPTV-Streams hängt genauso vom Heimnetzwerk ab wie vom Anbieter selbst. Einige einfache, oft übersehene Einstellungen verringern das Risiko von Abbrüchen deutlich, ohne dass sich am Abonnement etwas ändern muss.',
+    h1: 'Die Position des Routers ist wichtiger als gedacht',
+    p2: 'Ein Router in einem geschlossenen Schrank, hinter einer dicken Wand oder am anderen Ende des Hauses vom Fernseher verliert einen Großteil seiner effektiven Reichweite. Das WLAN-Signal verschlechtert sich mit jedem durchquerten Hindernis, oft schon lange bevor die Entfernung selbst zum Problem wird. Ein freier, angemessen erhöhter Standort so nah wie möglich am wichtigsten Sehbereich macht oft schon allein einen Unterschied.',
+    h2: '2,4 GHz oder 5 GHz: eine Wahl mit echtem Einfluss',
+    p3: 'Das 2,4-GHz-Band reicht weiter, ist aber deutlich überlasteter: Es wird von den meisten vernetzten Geräten im Haushalt und von Nachbarnetzwerken geteilt. Das 5-GHz-Band bietet stabilere Geschwindigkeiten und weniger Interferenzen, allerdings mit kürzerer Reichweite. Für eine TV-Box in angemessener Nähe zum Router ist 5 GHz fast immer die bessere Wahl, sofern das Gerät es unterstützt.',
+    h3: 'Warum das Ethernet-Kabel der Goldstandard bleibt',
+    p4: 'Keine noch so sorgfältig eingerichtete WLAN-Konfiguration erreicht die Stabilität einer kabelgebundenen Verbindung. Ein Ethernet-Kabel eliminiert Interferenzen, wandbedingten Paketverlust und die Konkurrenz mit anderen Geräten im Netzwerk. Für eine fest installierte Box oder einen Smart-TV bleibt das Verlegen eines Kabels — notfalls über einen Powerline-Adapter, wenn direkte Verkabelung nicht möglich ist — die zuverlässigste Verbesserung.',
+    h4: 'Geteilte Bandbreite, ein oft vergessener Faktor',
+    p5: 'Ein Live-Stream oder ein hochauflösender Film verbraucht während der gesamten Sehdauer kontinuierlich Bandbreite. Wenn mehrere Geräte im Haushalt gleichzeitig herunterladen, ein System aktualisieren oder streamen, leidet die für IPTV verfügbare Bandbreite direkt darunter. Manche Router bieten eine Verkehrspriorisierung (QoS), mit der ein Teil der Bandbreite fürs Streaming reserviert werden kann, selbst wenn das Netzwerk anderweitig ausgelastet ist.',
+  },
+  es: {
+    t: 'Optimizar la red doméstica para un streaming sin cortes',
+    meta: 'Red',
+    p1: 'La calidad de un flujo IPTV depende tanto de la red doméstica como del propio proveedor. Algunos ajustes sencillos, a menudo pasados por alto, reducen notablemente el riesgo de cortes sin necesidad de cambiar nada en la suscripción.',
+    h1: 'La ubicación del router importa más de lo que se piensa',
+    p2: 'Un router colocado en un mueble cerrado, detrás de una pared gruesa o en el extremo opuesto de la casa respecto al televisor pierde gran parte de su alcance efectivo. La señal Wi-Fi se degrada con cada obstáculo que atraviesa, mucho antes de que la distancia en sí misma sea un problema. Un lugar despejado, a una altura razonable y lo más cerca posible de la zona principal de visionado, suele marcar la diferencia por sí solo.',
+    h2: 'Banda de 2,4 GHz o 5 GHz: una elección con impacto real',
+    p3: 'La banda de 2,4 GHz alcanza más distancia pero está mucho más saturada: la comparten la mayoría de los dispositivos conectados del hogar y las redes de los vecinos. La banda de 5 GHz ofrece una velocidad más estable y menos interferencias, a costa de un alcance más corto. Para un dispositivo TV situado a una distancia razonable del router, los 5 GHz son casi siempre la mejor opción cuando el aparato los admite.',
+    h3: 'Por qué el cable Ethernet sigue siendo la referencia',
+    p4: 'Ninguna configuración Wi-Fi, por cuidada que sea, iguala la estabilidad de una conexión por cable. Un cable Ethernet elimina las interferencias, la pérdida de paquetes causada por las paredes y la competencia con otros dispositivos de la red. Para un dispositivo fijo o una Smart TV, tender un cable — incluso mediante un adaptador PLC cuando el cableado directo no es posible — sigue siendo la mejora más fiable.',
+    h4: 'El ancho de banda compartido, un factor a menudo olvidado',
+    p5: 'Un flujo en directo o una película en alta definición consume un ancho de banda continuo durante toda la sesión de visionado. Si varios dispositivos del hogar descargan, actualizan un sistema o transmiten simultáneamente, el ancho de banda disponible para el IPTV se resiente directamente. Algunos routers ofrecen una función de priorización del tráfico (QoS) que permite reservar una parte del ancho de banda para el streaming, incluso cuando la red está ocupada en otras tareas.',
+  }
+};
+translations['en-us'] = Object.assign({}, translations['en']);
+
+function setLang(lang) {
+  const t = translations[lang];
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (t[key] !== undefined) el.innerHTML = t[key];
+  });
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    const match = btn.getAttribute('onclick').match(/'([^']+)'/);
+    btn.classList.toggle('active', match && match[1] === lang);
+  });
+  document.documentElement.lang = lang.split('-')[0];
+}
+setLang('fr');
+
+function applyTheme(theme) {
+  const btn = document.getElementById('theme-toggle-btn');
+  if (theme === 'light') {
+    document.documentElement.classList.add('light');
+    if (btn) btn.textContent = '☀️';
+  } else {
+    document.documentElement.classList.remove('light');
+    if (btn) btn.textContent = '🌙';
+  }
+}
+function toggleTheme() {
+  const isLight = document.documentElement.classList.contains('light');
+  const next = isLight ? 'dark' : 'light';
+  applyTheme(next);
+  try { localStorage.setItem('phantomtv-theme', next); } catch (_) {}
+}
+try {
+  const savedTheme = localStorage.getItem('phantomtv-theme');
+  if (savedTheme === 'light') applyTheme('light');
+} catch (_) {}
+</script>
+
+</body>
+</html>

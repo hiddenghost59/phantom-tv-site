@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Comprendre les formats et protocoles IPTV (M3U, Xtream Codes, HLS) — Phantom TV</title>
+<meta name="description" content="M3U, Xtream Codes, HLS : à quoi correspondent les formats et protocoles les plus courants utilisés par les lecteurs IPTV.">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --bg: #09090B; --bg2: #111827; --bg3: #1F2937;
+    --purple: #A855F7; --green: #22C55E; --red: #EF4444;
+    --amber: #F59E0B; --blue: #3B82F6; --cyan: #06B6D4;
+    --text: #F9FAFB; --text-dim: #9CA3AF;
+    --border: rgba(255,255,255,0.08);
+  }
+  html.light {
+    --bg: #FFFFFF; --bg2: #F3F4F6; --bg3: #E5E7EB;
+    --purple: #7C3AED; --green: #16A34A; --red: #DC2626;
+    --amber: #D97706; --blue: #2563EB; --cyan: #0891B2;
+    --text: #111827; --text-dim: #4B5563;
+    --border: rgba(0,0,0,0.08);
+  }
+  body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.75; transition: background 0.25s ease, color 0.25s ease; }
+  nav { background: var(--bg2); border-bottom: 1px solid var(--border); padding: 10px 24px; display: flex; gap: 20px; flex-wrap: wrap; align-items: center; }
+  nav a { color: var(--text-dim); text-decoration: none; font-size: 13px; }
+  nav a:hover { color: var(--purple); }
+  nav .nav-logo { color: var(--purple); font-weight: 700; font-size: 15px; margin-right: 10px; }
+  nav .nav-active { color: var(--purple); font-weight: 600; }
+  .nav-right { margin-left: auto; display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+  .lang-switcher { display: flex; gap: 6px; }
+  .lang-btn { background: var(--bg3); border: 1px solid var(--border); color: var(--text-dim); padding: 4px 10px; border-radius: 6px; font-size: 12px; font-weight: 700; cursor: pointer; }
+  .lang-btn.active { background: var(--purple); color: white; border-color: var(--purple); }
+  .lang-btn:hover { border-color: var(--purple); color: var(--purple); }
+  .theme-btn { background: var(--bg3); border: 1px solid var(--border); color: var(--text-dim); width: 28px; height: 28px; border-radius: 6px; font-size: 14px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+  .theme-btn:hover { border-color: var(--purple); color: var(--purple); }
+  header { background: var(--bg2); border-bottom: 1px solid var(--border); padding: 20px 24px; text-align: center; }
+  .breadcrumb { font-size: 13px; color: var(--text-dim); margin-bottom: 10px; }
+  .breadcrumb a { color: var(--cyan); text-decoration: none; }
+  .breadcrumb a:hover { text-decoration: underline; }
+  header h1 { font-size: 26px; color: var(--purple); margin-bottom: 4px; }
+  main { max-width: 720px; margin: 0 auto; padding: 40px 24px 40px; }
+  article { margin-bottom: 16px; }
+  .meta { color: var(--cyan); font-size: 12px; text-transform: uppercase; letter-spacing: 1px; font-weight: 700; margin-bottom: 10px; }
+  article p { margin-bottom: 16px; color: var(--text-dim); font-size: 15.5px; }
+  article strong { color: var(--text); }
+  article h3 { font-size: 17px; color: var(--text); margin: 28px 0 10px; }
+  .other-articles { max-width: 720px; margin: 0 auto; padding: 0 24px 60px; }
+  .other-articles h4 { font-size: 13px; text-transform: uppercase; letter-spacing: 1px; color: var(--text-dim); margin-bottom: 14px; border-top: 1px solid var(--border); padding-top: 32px; }
+  .other-articles a { display: block; color: var(--text); text-decoration: none; padding: 12px 16px; background: var(--bg2); border: 1px solid var(--border); border-radius: 10px; margin-bottom: 10px; font-size: 14px; font-weight: 600; }
+  .other-articles a:hover { border-color: var(--purple); color: var(--purple); }
+  footer { text-align: center; padding: 40px 24px; color: var(--text-dim); font-size: 13px; border-top: 1px solid var(--border); }
+  footer a { color: var(--purple); text-decoration: none; }
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-logo">📺 Phantom TV</span>
+  <a href="/">Accueil</a>
+  <a href="/guide">Guide</a>
+  <a href="/blog.html" class="nav-active">Blog</a>
+  <a href="/a-propos.html">À propos</a>
+  <div class="nav-right">
+    <button class="theme-btn" id="theme-toggle-btn" onclick="toggleTheme()" title="Changer de thème">🌙</button>
+    <div class="lang-switcher">
+      <button class="lang-btn active" onclick="setLang('fr')">FR</button>
+      <button class="lang-btn" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" onclick="setLang('en-us')">EN-US</button>
+      <button class="lang-btn" onclick="setLang('de')">DE</button>
+      <button class="lang-btn" onclick="setLang('es')">ES</button>
+    </div>
+  </div>
+</nav>
+
+<header>
+  <div class="breadcrumb"><a href="/blog.html">← Retour au blog</a></div>
+  <h1 data-i18n="t">Comprendre les formats et protocoles IPTV (M3U, Xtream Codes, HLS)</h1>
+</header>
+
+<main>
+  <article>
+    <div class="meta" data-i18n="meta">Technique</div>
+    <p data-i18n="p1">Derrière n'importe quel lecteur IPTV se cachent des formats et protocoles techniques qui déterminent comment les chaînes et le catalogue sont récupérés et lus. Les comprendre aide à mieux configurer une application et à diagnostiquer un problème de connexion.</p>
+
+    <h3 data-i18n="h1">La playlist M3U</h3>
+    <p data-i18n="p2">Le format M3U (ou sa variante M3U8) est une simple liste de liens vers des flux vidéo, accompagnée du nom et parfois d'une image pour chaque chaîne. C'est l'un des formats les plus anciens et les plus répandus : de nombreux fournisseurs livrent un simple lien vers un fichier M3U que l'application télécharge et interprète pour construire la liste de chaînes.</p>
+
+    <h3 data-i18n="h2">L'API Xtream Codes</h3>
+    <p data-i18n="p3">Xtream Codes est un système plus structuré : au lieu d'un simple fichier texte, le lecteur communique avec le serveur via une adresse, un nom d'utilisateur et un mot de passe, un peu comme une connexion à un compte en ligne. Cette approche permet de charger séparément les chaînes en direct, les films et les séries, avec des informations plus riches (affiches, synopsis, catégories), ce qui explique sa popularité auprès des interfaces modernes comme celle de Phantom TV.</p>
+
+    <h3 data-i18n="h3">Le streaming HLS</h3>
+    <p data-i18n="p4">HLS (HTTP Live Streaming) est le protocole qui découpe une vidéo en petits segments téléchargés les uns après les autres, plutôt que le flux complet en une seule fois. Cette méthode, développée à l'origine par Apple, permet au lecteur d'ajuster la qualité en temps réel selon la vitesse de connexion disponible, réduisant les coupures au prix d'une qualité qui peut légèrement varier pendant le visionnage.</p>
+
+    <h3 data-i18n="h4">Pourquoi cela concerne l'utilisateur final</h3>
+    <p data-i18n="p5">La plupart des utilisateurs n'ont jamais besoin de comprendre ces détails pour utiliser une application au quotidien : le fournisseur communique simplement les identifiants ou le lien nécessaire, et l'application se charge du reste. Mais connaître ce vocabulaire aide à mieux dialoguer avec un support technique, à comprendre pourquoi deux fournisseurs différents demandent des informations de connexion différentes, et à identifier plus vite d'où peut venir un problème lorsqu'une chaîne refuse de se charger.</p>
+  </article>
+</main>
+
+<div class="other-articles">
+  <h4>À lire aussi</h4>
+  <a href="/blog/vocabulaire-iptv-vod-live-catchup.html">VOD, direct, catch-up : le vocabulaire de l'IPTV</a>
+  <a href="/blog/pourquoi-flux-iptv-coupe.html">Pourquoi un flux IPTV coupe-t-il parfois ?</a>
+</div>
+
+<footer>
+  © 2025-2026 Phantom TV — <a href="/">Retour à l'accueil</a> · <a href="/blog.html">Blog</a> · <a href="/guide">Guide</a> · <a href="/a-propos.html">À propos</a>
+</footer>
+
+<script>
+const translations = {
+  fr: {
+    t: 'Comprendre les formats et protocoles IPTV (M3U, Xtream Codes, HLS)',
+    meta: 'Technique',
+    p1: 'Derrière n\'importe quel lecteur IPTV se cachent des formats et protocoles techniques qui déterminent comment les chaînes et le catalogue sont récupérés et lus. Les comprendre aide à mieux configurer une application et à diagnostiquer un problème de connexion.',
+    h1: 'La playlist M3U',
+    p2: 'Le format M3U (ou sa variante M3U8) est une simple liste de liens vers des flux vidéo, accompagnée du nom et parfois d\'une image pour chaque chaîne. C\'est l\'un des formats les plus anciens et les plus répandus : de nombreux fournisseurs livrent un simple lien vers un fichier M3U que l\'application télécharge et interprète pour construire la liste de chaînes.',
+    h2: 'L\'API Xtream Codes',
+    p3: 'Xtream Codes est un système plus structuré : au lieu d\'un simple fichier texte, le lecteur communique avec le serveur via une adresse, un nom d\'utilisateur et un mot de passe, un peu comme une connexion à un compte en ligne. Cette approche permet de charger séparément les chaînes en direct, les films et les séries, avec des informations plus riches (affiches, synopsis, catégories), ce qui explique sa popularité auprès des interfaces modernes comme celle de Phantom TV.',
+    h3: 'Le streaming HLS',
+    p4: 'HLS (HTTP Live Streaming) est le protocole qui découpe une vidéo en petits segments téléchargés les uns après les autres, plutôt que le flux complet en une seule fois. Cette méthode, développée à l\'origine par Apple, permet au lecteur d\'ajuster la qualité en temps réel selon la vitesse de connexion disponible, réduisant les coupures au prix d\'une qualité qui peut légèrement varier pendant le visionnage.',
+    h4: 'Pourquoi cela concerne l\'utilisateur final',
+    p5: 'La plupart des utilisateurs n\'ont jamais besoin de comprendre ces détails pour utiliser une application au quotidien : le fournisseur communique simplement les identifiants ou le lien nécessaire, et l\'application se charge du reste. Mais connaître ce vocabulaire aide à mieux dialoguer avec un support technique, à comprendre pourquoi deux fournisseurs différents demandent des informations de connexion différentes, et à identifier plus vite d\'où peut venir un problème lorsqu\'une chaîne refuse de se charger.',
+  },
+  en: {
+    t: 'Understanding IPTV formats and protocols (M3U, Xtream Codes, HLS)',
+    meta: 'Technical',
+    p1: 'Behind any IPTV player lie technical formats and protocols that determine how channels and the catalog are fetched and played. Understanding them helps configure an app correctly and diagnose connection issues.',
+    h1: 'The M3U playlist',
+    p2: 'The M3U format (or its M3U8 variant) is a simple list of links to video streams, along with a name and sometimes an image for each channel. It\'s one of the oldest and most widespread formats: many providers simply hand over a link to an M3U file that the app downloads and parses to build the channel list.',
+    h2: 'The Xtream Codes API',
+    p3: 'Xtream Codes is a more structured system: instead of a plain text file, the player communicates with the server using an address, a username, and a password, similar to logging into an online account. This approach allows live channels, movies, and series to be loaded separately, with richer information (posters, synopses, categories), which explains its popularity with modern interfaces like Phantom TV\'s.',
+    h3: 'HLS streaming',
+    p4: 'HLS (HTTP Live Streaming) is the protocol that splits a video into small segments downloaded one after another, rather than the whole stream at once. Originally developed by Apple, this method lets the player adjust quality in real time based on available connection speed, reducing cutouts at the cost of quality that may vary slightly during playback.',
+    h4: 'Why this matters to the end user',
+    p5: 'Most users never need to understand these details to use an app day to day: the provider simply shares the required credentials or link, and the app takes care of the rest. But knowing this vocabulary helps communicate better with technical support, understand why two different providers ask for different connection details, and pinpoint faster where a problem might come from when a channel refuses to load.',
+  },
+  de: {
+    t: 'IPTV-Formate und -Protokolle verstehen (M3U, Xtream Codes, HLS)',
+    meta: 'Technik',
+    p1: 'Hinter jedem IPTV-Player stecken technische Formate und Protokolle, die bestimmen, wie Sender und Katalog abgerufen und wiedergegeben werden. Sie zu verstehen hilft, eine App richtig zu konfigurieren und Verbindungsprobleme zu diagnostizieren.',
+    h1: 'Die M3U-Playlist',
+    p2: 'Das M3U-Format (oder seine M3U8-Variante) ist eine einfache Liste von Links zu Videostreams, zusammen mit einem Namen und manchmal einem Bild für jeden Sender. Es ist eines der ältesten und am weitesten verbreiteten Formate: Viele Anbieter geben einfach einen Link zu einer M3U-Datei weiter, den die App herunterlädt und interpretiert, um die Senderliste zu erstellen.',
+    h2: 'Die Xtream-Codes-API',
+    p3: 'Xtream Codes ist ein strukturierteres System: Statt einer einfachen Textdatei kommuniziert der Player über eine Adresse, einen Benutzernamen und ein Passwort mit dem Server — ähnlich wie bei der Anmeldung an einem Online-Konto. Dieser Ansatz ermöglicht es, Live-Sender, Filme und Serien getrennt zu laden, mit reichhaltigeren Informationen (Poster, Inhaltsangaben, Kategorien), was seine Beliebtheit bei modernen Oberflächen wie der von Phantom TV erklärt.',
+    h3: 'HLS-Streaming',
+    p4: 'HLS (HTTP Live Streaming) ist das Protokoll, das ein Video in kleine, nacheinander heruntergeladene Segmente aufteilt, statt den gesamten Stream auf einmal zu übertragen. Diese ursprünglich von Apple entwickelte Methode ermöglicht es dem Player, die Qualität in Echtzeit an die verfügbare Verbindungsgeschwindigkeit anzupassen, wodurch Abbrüche reduziert werden — auf Kosten einer Qualität, die während der Wiedergabe leicht variieren kann.',
+    h4: 'Warum das für den Endnutzer wichtig ist',
+    p5: 'Die meisten Nutzer müssen diese Details nie verstehen, um eine App im Alltag zu nutzen: Der Anbieter teilt einfach die nötigen Zugangsdaten oder den Link mit, und die App erledigt den Rest. Aber die Kenntnis dieses Vokabulars hilft, besser mit dem technischen Support zu kommunizieren, zu verstehen, warum zwei verschiedene Anbieter unterschiedliche Verbindungsdaten verlangen, und schneller herauszufinden, woher ein Problem stammen könnte, wenn ein Sender sich weigert zu laden.',
+  },
+  es: {
+    t: 'Entender los formatos y protocolos IPTV (M3U, Xtream Codes, HLS)',
+    meta: 'Técnico',
+    p1: 'Detrás de cualquier reproductor IPTV se esconden formatos y protocolos técnicos que determinan cómo se obtienen y reproducen los canales y el catálogo. Comprenderlos ayuda a configurar mejor una aplicación y a diagnosticar un problema de conexión.',
+    h1: 'La lista de reproducción M3U',
+    p2: 'El formato M3U (o su variante M3U8) es una simple lista de enlaces a flujos de vídeo, junto con el nombre y a veces una imagen para cada canal. Es uno de los formatos más antiguos y extendidos: muchos proveedores entregan simplemente un enlace a un archivo M3U que la aplicación descarga e interpreta para construir la lista de canales.',
+    h2: 'La API Xtream Codes',
+    p3: 'Xtream Codes es un sistema más estructurado: en lugar de un simple archivo de texto, el reproductor se comunica con el servidor mediante una dirección, un nombre de usuario y una contraseña, de forma parecida a iniciar sesión en una cuenta en línea. Este enfoque permite cargar por separado los canales en directo, las películas y las series, con información más completa (carátulas, sinopsis, categorías), lo que explica su popularidad entre las interfaces modernas como la de Phantom TV.',
+    h3: 'El streaming HLS',
+    p4: 'HLS (HTTP Live Streaming) es el protocolo que divide un vídeo en pequeños segmentos descargados uno tras otro, en lugar del flujo completo de una sola vez. Este método, desarrollado originalmente por Apple, permite al reproductor ajustar la calidad en tiempo real según la velocidad de conexión disponible, reduciendo los cortes a costa de una calidad que puede variar ligeramente durante la reproducción.',
+    h4: 'Por qué esto concierne al usuario final',
+    p5: 'La mayoría de los usuarios nunca necesitan entender estos detalles para usar una aplicación en el día a día: el proveedor simplemente comunica las credenciales o el enlace necesario, y la aplicación se encarga del resto. Pero conocer este vocabulario ayuda a comunicarse mejor con el soporte técnico, a entender por qué dos proveedores distintos piden datos de conexión diferentes, y a identificar más rápido de dónde puede venir un problema cuando un canal se niega a cargar.',
+  }
+};
+translations['en-us'] = Object.assign({}, translations['en']);
+
+function setLang(lang) {
+  const t = translations[lang];
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (t[key] !== undefined) el.innerHTML = t[key];
+  });
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    const match = btn.getAttribute('onclick').match(/'([^']+)'/);
+    btn.classList.toggle('active', match && match[1] === lang);
+  });
+  document.documentElement.lang = lang.split('-')[0];
+}
+setLang('fr');
+
+function applyTheme(theme) {
+  const btn = document.getElementById('theme-toggle-btn');
+  if (theme === 'light') {
+    document.documentElement.classList.add('light');
+    if (btn) btn.textContent = '☀️';
+  } else {
+    document.documentElement.classList.remove('light');
+    if (btn) btn.textContent = '🌙';
+  }
+}
+function toggleTheme() {
+  const isLight = document.documentElement.classList.contains('light');
+  const next = isLight ? 'dark' : 'light';
+  applyTheme(next);
+  try { localStorage.setItem('phantomtv-theme', next); } catch (_) {}
+}
+try {
+  const savedTheme = localStorage.getItem('phantomtv-theme');
+  if (savedTheme === 'light') applyTheme('light');
+} catch (_) {}
+</script>
+
+</body>
+</html>
